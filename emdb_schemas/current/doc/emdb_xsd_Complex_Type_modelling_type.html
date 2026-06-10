@@ -1,0 +1,2477 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>Schema documentation for component initial_model</title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css" /><script type="text/javascript"><!--
+        var propertiesBoxes= new Array('properties_modelling_type_initial_model', 
+				'properties_modelling_type_modelling_type_initial_model_access_code', 
+				'properties_modelling_type_modelling_type_initial_model_chain', 
+				'properties_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_chain_id', 
+				'properties_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_residue_range', 
+				'properties_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_number_of_copies_in_final_model', 
+				'properties_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_source_name', 
+				'properties_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_initial_model_type', 
+				'properties_modelling_type_modelling_type_initial_model_details', 
+				'properties_modelling_type_final_model', 
+				'properties_modelling_type_modelling_type_final_model_access_code', 
+				'properties_modelling_type_modelling_type_final_model_chain', 
+				'properties_modelling_type_modelling_type_final_model_details', 
+				'properties_modelling_type_refinement_protocol', 
+				'properties_modelling_type_software_list', 
+				'properties_modelling_type_details', 
+				'properties_modelling_type_target_criteria', 
+				'properties_modelling_type_refinement_space', 
+				'properties_modelling_type_overall_bvalue');
+var facetsBoxes= new Array('facets_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_residue_range', 
+				'facets_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_source_name', 
+				'facets_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_initial_model_type', 
+				'facets_modelling_type_modelling_type_final_model_access_code', 
+				'facets_modelling_type_refinement_protocol');
+var usedByBoxes= new Array('usedBy_modelling_type');
+var sourceBoxes= new Array('source_modelling_type_initial_model', 
+				'source_modelling_type_modelling_type_initial_model_access_code', 
+				'source_modelling_type_modelling_type_initial_model_chain', 
+				'source_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_chain_id', 
+				'source_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_residue_range', 
+				'source_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_number_of_copies_in_final_model', 
+				'source_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_source_name', 
+				'source_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_initial_model_type', 
+				'source_modelling_type_modelling_type_initial_model_details', 
+				'source_modelling_type_final_model', 
+				'source_modelling_type_modelling_type_final_model_access_code', 
+				'source_modelling_type_modelling_type_final_model_chain', 
+				'source_modelling_type_modelling_type_final_model_details', 
+				'source_modelling_type_refinement_protocol', 
+				'source_modelling_type_software_list', 
+				'source_modelling_type_details', 
+				'source_modelling_type_target_criteria', 
+				'source_modelling_type_refinement_space', 
+				'source_modelling_type_overall_bvalue', 
+				'source_modelling_type');
+var instanceBoxes= new Array('instance_modelling_type_initial_model', 
+				'instance_modelling_type_modelling_type_initial_model_chain', 
+				'instance_modelling_type_final_model', 
+				'instance_modelling_type_modelling_type_final_model_chain', 
+				'instance_modelling_type_software_list');
+var diagramBoxes= new Array('diagram_modelling_type_initial_model', 
+				'diagram_modelling_type_modelling_type_initial_model_access_code', 
+				'diagram_modelling_type_modelling_type_initial_model_chain', 
+				'diagram_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_chain_id', 
+				'diagram_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_residue_range', 
+				'diagram_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_number_of_copies_in_final_model', 
+				'diagram_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_source_name', 
+				'diagram_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_initial_model_type', 
+				'diagram_modelling_type_modelling_type_initial_model_details', 
+				'diagram_modelling_type_final_model', 
+				'diagram_modelling_type_modelling_type_final_model_access_code', 
+				'diagram_modelling_type_modelling_type_final_model_chain', 
+				'diagram_modelling_type_modelling_type_final_model_details', 
+				'diagram_modelling_type_refinement_protocol', 
+				'diagram_modelling_type_software_list', 
+				'diagram_modelling_type_details', 
+				'diagram_modelling_type_target_criteria', 
+				'diagram_modelling_type_refinement_space', 
+				'diagram_modelling_type_overall_bvalue', 
+				'diagram_modelling_type');
+var modelBoxes= new Array('model_modelling_type_initial_model', 
+				'model_modelling_type_modelling_type_initial_model_chain', 
+				'model_modelling_type_final_model', 
+				'model_modelling_type_modelling_type_final_model_chain', 
+				'model_modelling_type_software_list', 
+				'model_modelling_type');
+
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                    //--></script></head>
+   <body>
+      <div id="global_controls" class="globalControls" style="position:absolute;right:0;">
+         <table class="rt">
+            <tr>
+               <td class="rt_cornerTopLeft"></td>
+               <td class="rt_lineTop"></td>
+               <td class="rt_cornerTopRight"></td>
+            </tr>
+            <tr>
+               <td class="rt_lineLeft"></td>
+               <td class="rt_content">
+                  <h3>Showing:</h3>
+                  <table>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, diagramBoxes);" class="control" /></span><span class="globalControlName">Diagrams</span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, facetsBoxes);" class="control" /></span><span class="globalControlName">Facets </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, instanceBoxes);" class="control" /></span><span class="globalControlName">Instances</span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, modelBoxes);" class="control" /></span><span class="globalControlName">Model </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, propertiesBoxes);" class="control" /></span><span class="globalControlName">Properties </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, sourceBoxes);" class="control" /></span><span class="globalControlName">Source</span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, usedByBoxes);" class="control" /></span><span class="globalControlName">Used by </span></td>
+                     </tr>
+                  </table>
+                  <div style="text-align:center"><span><input type="button" onclick="getElementObject('global_controls').style.display = 'none';" value="Close" /></span></div>
+               </td>
+               <td class="rt_lineRight"></td>
+            </tr>
+            <tr>
+               <td class="rt_cornerBottomLeft"></td>
+               <td class="rt_lineBottom"></td>
+               <td class="rt_cornerBottomRight"></td>
+            </tr>
+         </table>
+      </div><a id="modelling_type_initial_model"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component modelling_type')">modelling_type</a></b> / initial_model</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_modelling_type_initial_model" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_modelling_type_initial_model');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_modelling_type_initial_model" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_initial_model.jpeg" usemap="#emdb_xsd_Element_initial_model" /><map name="emdb_xsd_Element_initial_model" id="emdb_xsd_Element_initial_model"><area alt="emdb_xsd_Complex_Type_modelling_type.tmp#modelling_type_modelling_type_initial_model_access_code" href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_initial_model_access_code" coords="198,2,309,44" /><area alt="emdb_xsd_Complex_Type_modelling_type.tmp#modelling_type_modelling_type_initial_model_chain" href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_initial_model_chain" coords="198,54,258,78" /><area alt="emdb_xsd_Complex_Type_modelling_type.tmp#modelling_type_modelling_type_initial_model_details" href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_initial_model_details" coords="198,88,311,130" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_modelling_type_initial_model" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_modelling_type_initial_model');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_modelling_type_initial_model" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">maxOccurs</td>
+                                    <td><b>unbounded</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_modelling_type_initial_model" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('model_modelling_type_initial_model');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_modelling_type_initial_model" style="display:block"><b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_initial_model_access_code" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component access_code{0,1}')">access_code{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_initial_model_chain" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component chain{0,1}')">chain{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_initial_model_details" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component details{0,1}')">details{0,1}</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_initial_model_access_code" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component access_code')">access_code</a></b>, <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_initial_model_chain" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component chain')">chain</a></b>, <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_initial_model_details" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component details')">details</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_modelling_type_initial_model" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('instance_modelling_type_initial_model');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_modelling_type_initial_model" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;initial_model</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;access_code</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/access_code&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;chain</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/chain&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;details</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/details&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/initial_model&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_modelling_type_initial_model" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_modelling_type_initial_model');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_modelling_type_initial_model" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"initial_model"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"unbounded"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"access_code"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> name=</span><span class="tAV">"chain"</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:element</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> name=</span><span class="tAV">"chain_id"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tEl">/&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:element</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> name=</span><span class="tAV">"residue_range"</span><span class="tEl">&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:token"</span><span class="tEl">&gt;</span><span class="tI">
+                  </span><span class="tEl">&lt;xs:pattern</span><span class="tAN"> value=</span><span class="tAV">"[+-]?[0-9]+-[+-]?[0-9]+"</span><span class="tEl">/&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:element</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> name=</span><span class="tAV">"number_of_copies_in_final_model"</span><span class="tAN"> type=</span><span class="tAV">"xs:positiveInteger"</span><span class="tEl">/&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:element</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> name=</span><span class="tAV">"source_name"</span><span class="tEl">&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">&gt;</span><span class="tI">
+                  </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"PDB"</span><span class="tEl">/&gt;</span><span class="tI">
+                  </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"AlphaFold"</span><span class="tEl">/&gt;</span><span class="tI">
+                  </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"ITasser"</span><span class="tEl">/&gt;</span><span class="tI">
+                  </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"ModelArchive"</span><span class="tEl">/&gt;</span><span class="tI">
+                  </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"Modeller"</span><span class="tEl">/&gt;</span><span class="tI">
+                  </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"RoseTTAFold"</span><span class="tEl">/&gt;</span><span class="tI">
+                  </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"SwissModel"</span><span class="tEl">/&gt;</span><span class="tI">
+                  </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"Other"</span><span class="tEl">/&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:element</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> name=</span><span class="tAV">"initial_model_type"</span><span class="tEl">&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">&gt;</span><span class="tI">
+                  </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"experimental model"</span><span class="tEl">/&gt;</span><span class="tI">
+                  </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"in silico model"</span><span class="tEl">/&gt;</span><span class="tI">
+                  </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"integrative model"</span><span class="tEl">/&gt;</span><span class="tI">
+                  </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"other"</span><span class="tEl">/&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> name=</span><span class="tAV">"details"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="modelling_type_modelling_type_initial_model_access_code"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component modelling_type')">modelling_type</a></b> / <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_initial_model" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component initial_model')">initial_model</a></b> / access_code</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_modelling_type_modelling_type_initial_model_access_code" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_modelling_type_modelling_type_initial_model_access_code');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_modelling_type_modelling_type_initial_model_access_code" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_access_code.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:token</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_modelling_type_modelling_type_initial_model_access_code" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_modelling_type_modelling_type_initial_model_access_code');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_modelling_type_modelling_type_initial_model_access_code" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_modelling_type_modelling_type_initial_model_access_code" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_modelling_type_modelling_type_initial_model_access_code');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_modelling_type_modelling_type_initial_model_access_code" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"access_code"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="modelling_type_modelling_type_initial_model_chain"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component modelling_type')">modelling_type</a></b> / <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_initial_model" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component initial_model')">initial_model</a></b> / chain</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_modelling_type_modelling_type_initial_model_chain" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_modelling_type_modelling_type_initial_model_chain');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_modelling_type_modelling_type_initial_model_chain" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_chain.jpeg" usemap="#emdb_xsd_Element_chain" /><map name="emdb_xsd_Element_chain" id="emdb_xsd_Element_chain"><area alt="emdb_xsd_Complex_Type_modelling_type.tmp#modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_chain_id" href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_chain_id" coords="159,2,270,44" /><area alt="emdb_xsd_Complex_Type_modelling_type.tmp#modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_residue_range" href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_residue_range" coords="159,54,351,96" /><area alt="emdb_xsd_Complex_Type_modelling_type.tmp#modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_number_of_copies_in_final_model" href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_number_of_copies_in_final_model" coords="159,106,374,148" /><area alt="emdb_xsd_Complex_Type_modelling_type.tmp#modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_source_name" href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_source_name" coords="159,158,353,200" /><area alt="emdb_xsd_Complex_Type_modelling_type.tmp#modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_initial_model_type" href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_initial_model_type" coords="159,210,353,252" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_modelling_type_modelling_type_initial_model_chain" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_modelling_type_modelling_type_initial_model_chain');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_modelling_type_modelling_type_initial_model_chain" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_modelling_type_modelling_type_initial_model_chain" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('model_modelling_type_modelling_type_initial_model_chain');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_modelling_type_modelling_type_initial_model_chain" style="display:block"><b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_chain_id" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component chain_id{0,1}')">chain_id{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_residue_range" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component residue_range{0,1}')">residue_range{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_number_of_copies_in_final_model" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component number_of_copies_in_final_model{0,1}')">number_of_copies_in_final_model{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_source_name" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component source_name{0,1}')">source_name{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_initial_model_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component initial_model_type{0,1}')">initial_model_type{0,1}</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_chain_id" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component chain_id')">chain_id</a></b>, <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_initial_model_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component initial_model_type')">initial_model_type</a></b>, <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_number_of_copies_in_final_model" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component number_of_copies_in_final_model')">number_of_copies_in_final_model</a></b>, <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_residue_range" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component residue_range')">residue_range</a></b>, <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_source_name" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component source_name')">source_name</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_modelling_type_modelling_type_initial_model_chain" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('instance_modelling_type_modelling_type_initial_model_chain');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_modelling_type_modelling_type_initial_model_chain" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;chain</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;chain_id</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/chain_id&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;residue_range</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/residue_range&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;number_of_copies_in_final_model</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/number_of_copies_in_final_model&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;source_name</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/source_name&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;initial_model_type</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/initial_model_type&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/chain&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_modelling_type_modelling_type_initial_model_chain" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_modelling_type_modelling_type_initial_model_chain');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_modelling_type_modelling_type_initial_model_chain" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> name=</span><span class="tAV">"chain"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> name=</span><span class="tAV">"chain_id"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> name=</span><span class="tAV">"residue_range"</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:token"</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:pattern</span><span class="tAN"> value=</span><span class="tAV">"[+-]?[0-9]+-[+-]?[0-9]+"</span><span class="tEl">/&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> name=</span><span class="tAV">"number_of_copies_in_final_model"</span><span class="tAN"> type=</span><span class="tAV">"xs:positiveInteger"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> name=</span><span class="tAV">"source_name"</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"PDB"</span><span class="tEl">/&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"AlphaFold"</span><span class="tEl">/&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"ITasser"</span><span class="tEl">/&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"ModelArchive"</span><span class="tEl">/&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"Modeller"</span><span class="tEl">/&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"RoseTTAFold"</span><span class="tEl">/&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"SwissModel"</span><span class="tEl">/&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"Other"</span><span class="tEl">/&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> name=</span><span class="tAV">"initial_model_type"</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"experimental model"</span><span class="tEl">/&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"in silico model"</span><span class="tEl">/&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"integrative model"</span><span class="tEl">/&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"other"</span><span class="tEl">/&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_chain_id"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component modelling_type')">modelling_type</a></b> / <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_initial_model" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component initial_model')">initial_model</a></b> / <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_initial_model_chain" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component chain')">chain</a></b> / chain_id</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_chain_id" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_chain_id');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_chain_id" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_chain_id.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:token</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_chain_id" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_chain_id');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_chain_id" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_chain_id" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_chain_id');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_chain_id" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> name=</span><span class="tAV">"chain_id"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_residue_range"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component modelling_type')">modelling_type</a></b> / <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_initial_model" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component initial_model')">initial_model</a></b> / <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_initial_model_chain" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component chain')">chain</a></b> / residue_range</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_residue_range" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_residue_range');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_residue_range" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_residue_range.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td>restriction of <b>xs:token</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_residue_range" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_residue_range');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_residue_range" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Facets</b></div>
+                           <div class="floatRight"><input id="button_facets_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_residue_range" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('facets_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_residue_range');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="facets_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_residue_range" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn">pattern</td>
+                                    <td style="width:30%"><b>[+-]?[0-9]+-[+-]?[0-9]+</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_residue_range" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_residue_range');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_residue_range" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> name=</span><span class="tAV">"residue_range"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:token"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:pattern</span><span class="tAN"> value=</span><span class="tAV">"[+-]?[0-9]+-[+-]?[0-9]+"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_number_of_copies_in_final_model"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component modelling_type')">modelling_type</a></b> / <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_initial_model" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component initial_model')">initial_model</a></b> / <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_initial_model_chain" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component chain')">chain</a></b> / number_of_copies_in_final_model</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_number_of_copies_in_final_model" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_number_of_copies_in_final_model');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_number_of_copies_in_final_model" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_number_of_copies_in_final_model.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:positiveInteger</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_number_of_copies_in_final_model" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_number_of_copies_in_final_model');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_number_of_copies_in_final_model" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_number_of_copies_in_final_model" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_number_of_copies_in_final_model');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_number_of_copies_in_final_model" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> name=</span><span class="tAV">"number_of_copies_in_final_model"</span><span class="tAN"> type=</span><span class="tAV">"xs:positiveInteger"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_source_name"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component modelling_type')">modelling_type</a></b> / <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_initial_model" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component initial_model')">initial_model</a></b> / <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_initial_model_chain" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component chain')">chain</a></b> / source_name</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_source_name" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_source_name');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_source_name" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_source_name.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td>restriction of <b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_source_name" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_source_name');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_source_name" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">maxOccurs</td>
+                                    <td><b>1</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Facets</b></div>
+                           <div class="floatRight"><input id="button_facets_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_source_name" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('facets_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_source_name');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="facets_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_source_name" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td style="width:30%"><b>PDB</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td style="width:30%"><b>AlphaFold</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td style="width:30%"><b>ITasser</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td style="width:30%"><b>ModelArchive</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td style="width:30%"><b>Modeller</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td style="width:30%"><b>RoseTTAFold</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td style="width:30%"><b>SwissModel</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td style="width:30%"><b>Other</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_source_name" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_source_name');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_source_name" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> name=</span><span class="tAV">"source_name"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"PDB"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"AlphaFold"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"ITasser"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"ModelArchive"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"Modeller"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"RoseTTAFold"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"SwissModel"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"Other"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_initial_model_type"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component modelling_type')">modelling_type</a></b> / <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_initial_model" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component initial_model')">initial_model</a></b> / <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_initial_model_chain" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component chain')">chain</a></b> / initial_model_type</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_initial_model_type" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_initial_model_type');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_initial_model_type" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_initial_model_type.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td>restriction of <b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_initial_model_type" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_initial_model_type');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_initial_model_type" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">maxOccurs</td>
+                                    <td><b>1</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Facets</b></div>
+                           <div class="floatRight"><input id="button_facets_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_initial_model_type" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('facets_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_initial_model_type');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="facets_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_initial_model_type" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td style="width:30%"><b>experimental model</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td style="width:30%"><b>in silico model</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td style="width:30%"><b>integrative model</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td style="width:30%"><b>other</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_initial_model_type" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_initial_model_type');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_modelling_type_modelling_type_initial_model_modelling_type_modelling_type_initial_model_chain_initial_model_type" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> name=</span><span class="tAV">"initial_model_type"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"experimental model"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"in silico model"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"integrative model"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"other"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="modelling_type_modelling_type_initial_model_details"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component modelling_type')">modelling_type</a></b> / <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_initial_model" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component initial_model')">initial_model</a></b> / details</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_modelling_type_modelling_type_initial_model_details" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_modelling_type_modelling_type_initial_model_details');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_modelling_type_modelling_type_initial_model_details" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_details_23.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_modelling_type_modelling_type_initial_model_details" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_modelling_type_modelling_type_initial_model_details');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_modelling_type_modelling_type_initial_model_details" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_modelling_type_modelling_type_initial_model_details" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_modelling_type_modelling_type_initial_model_details');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_modelling_type_modelling_type_initial_model_details" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> name=</span><span class="tAV">"details"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="modelling_type_final_model"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component modelling_type')">modelling_type</a></b> / final_model</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_modelling_type_final_model" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_modelling_type_final_model');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_modelling_type_final_model" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_final_model.jpeg" usemap="#emdb_xsd_Element_final_model" /><map name="emdb_xsd_Element_final_model" id="emdb_xsd_Element_final_model"><area alt="emdb_xsd_Complex_Type_modelling_type.tmp#modelling_type_modelling_type_final_model_access_code" href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_final_model_access_code" coords="213,2,360,44" /><area alt="emdb_xsd_Complex_Type_modelling_type.tmp#modelling_type_modelling_type_final_model_chain" href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_final_model_chain" coords="213,54,336,96" /><area alt="emdb_xsd_Complex_Type_modelling_type.tmp#modelling_type_modelling_type_final_model_details" href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_final_model_details" coords="213,106,326,148" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_modelling_type_final_model" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_modelling_type_final_model');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_modelling_type_final_model" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_modelling_type_final_model" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('model_modelling_type_final_model');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_modelling_type_final_model" style="display:block"><b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_final_model_access_code" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component access_code')">access_code</a></b> , <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_final_model_chain" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component chain*')">chain*</a></b> , <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_final_model_details" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component details{0,1}')">details{0,1}</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_final_model_access_code" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component access_code')">access_code</a></b>, <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_final_model_chain" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component chain')">chain</a></b>, <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_modelling_type_final_model_details" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component details')">details</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_modelling_type_final_model" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('instance_modelling_type_final_model');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_modelling_type_final_model" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;final_model</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;access_code</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/access_code&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;chain</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,unbounded}</span><span class="tEl">&lt;/chain&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;details</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/details&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/final_model&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_modelling_type_final_model" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_modelling_type_final_model');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_modelling_type_final_model" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"final_model"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"access_code"</span><span class="tAN"> type=</span><span class="tAV">"pdb_code_type"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"chain"</span><span class="tAN"> type=</span><span class="tAV">"chain_type"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"unbounded"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"details"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="modelling_type_modelling_type_final_model_access_code"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component modelling_type')">modelling_type</a></b> / <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_final_model" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component final_model')">final_model</a></b> / access_code</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_modelling_type_modelling_type_final_model_access_code" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_modelling_type_modelling_type_final_model_access_code');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_modelling_type_modelling_type_final_model_access_code" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_access_code_1.jpeg" usemap="#emdb_xsd_Element_access_code_1" /><map name="emdb_xsd_Element_access_code_1" id="emdb_xsd_Element_access_code_1"><area alt="emdb_xsd_Simple_Type_pdb_code_type.tmp#pdb_code_type" href="emdb_xsd_Simple_Type_pdb_code_type.html#pdb_code_type" coords="175,8,312,34" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="emdb_xsd_Simple_Type_pdb_code_type.html#pdb_code_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component pdb_code_type')">pdb_code_type</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_modelling_type_modelling_type_final_model_access_code" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_modelling_type_modelling_type_final_model_access_code');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_modelling_type_modelling_type_final_model_access_code" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Facets</b></div>
+                           <div class="floatRight"><input id="button_facets_modelling_type_modelling_type_final_model_access_code" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('facets_modelling_type_modelling_type_final_model_access_code');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="facets_modelling_type_modelling_type_final_model_access_code" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn">pattern</td>
+                                    <td style="width:30%"><b>\d[\dA-Za-z]{3}|pdb_\d{5}[\dA-Za-z]{3}</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_modelling_type_modelling_type_final_model_access_code" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_modelling_type_modelling_type_final_model_access_code');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_modelling_type_modelling_type_final_model_access_code" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"access_code"</span><span class="tAN"> type=</span><span class="tAV">"pdb_code_type"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="modelling_type_modelling_type_final_model_chain"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component modelling_type')">modelling_type</a></b> / <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_final_model" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component final_model')">final_model</a></b> / chain</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_modelling_type_modelling_type_final_model_chain" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_modelling_type_modelling_type_final_model_chain');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_modelling_type_modelling_type_final_model_chain" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_chain_1.jpeg" usemap="#emdb_xsd_Element_chain_1" /><map name="emdb_xsd_Element_chain_1" id="emdb_xsd_Element_chain_1"><area alt="emdb_xsd_Complex_Type_chain_type.tmp#chain_type_chain_id" href="emdb_xsd_Complex_Type_chain_type.html#chain_type_chain_id" coords="257,40,394,82" /><area alt="emdb_xsd_Complex_Type_chain_type.tmp#chain_type_residue_range" href="emdb_xsd_Complex_Type_chain_type.html#chain_type_residue_range" coords="257,92,449,134" /><area alt="emdb_xsd_Complex_Type_chain_type.tmp#chain_type" href="emdb_xsd_Complex_Type_chain_type.html#chain_type" coords="154,3,263,25" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_chain_type.html#chain_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component chain_type')">chain_type</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_modelling_type_modelling_type_final_model_chain" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_modelling_type_modelling_type_final_model_chain');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_modelling_type_modelling_type_final_model_chain" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">maxOccurs</td>
+                                    <td><b>unbounded</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_modelling_type_modelling_type_final_model_chain" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('model_modelling_type_modelling_type_final_model_chain');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_modelling_type_modelling_type_final_model_chain" style="display:block"><b><a href="emdb_xsd_Complex_Type_chain_type.html#chain_type_chain_id" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component chain_id*')">chain_id*</a></b> , <b><a href="emdb_xsd_Complex_Type_chain_type.html#chain_type_residue_range" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component residue_range{0,1}')">residue_range{0,1}</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_chain_type.html#chain_type_chain_id" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component chain_id')">chain_id</a></b>, <b><a href="emdb_xsd_Complex_Type_chain_type.html#chain_type_residue_range" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component residue_range')">residue_range</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_modelling_type_modelling_type_final_model_chain" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('instance_modelling_type_modelling_type_final_model_chain');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_modelling_type_modelling_type_final_model_chain" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;chain</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;chain_id</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,unbounded}</span><span class="tEl">&lt;/chain_id&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;residue_range</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/residue_range&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/chain&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_modelling_type_modelling_type_final_model_chain" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_modelling_type_modelling_type_final_model_chain');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_modelling_type_modelling_type_final_model_chain" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"chain"</span><span class="tAN"> type=</span><span class="tAV">"chain_type"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"unbounded"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="modelling_type_modelling_type_final_model_details"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component modelling_type')">modelling_type</a></b> / <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_final_model" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component final_model')">final_model</a></b> / details</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_modelling_type_modelling_type_final_model_details" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_modelling_type_modelling_type_final_model_details');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_modelling_type_modelling_type_final_model_details" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_details_24.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_modelling_type_modelling_type_final_model_details" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_modelling_type_modelling_type_final_model_details');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_modelling_type_modelling_type_final_model_details" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_modelling_type_modelling_type_final_model_details" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_modelling_type_modelling_type_final_model_details');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_modelling_type_modelling_type_final_model_details" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"details"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="modelling_type_refinement_protocol"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component modelling_type')">modelling_type</a></b> / refinement_protocol</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_modelling_type_refinement_protocol" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_modelling_type_refinement_protocol');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_modelling_type_refinement_protocol" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_refinement_protocol.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td>restriction of <b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_modelling_type_refinement_protocol" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_modelling_type_refinement_protocol');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_modelling_type_refinement_protocol" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Facets</b></div>
+                           <div class="floatRight"><input id="button_facets_modelling_type_refinement_protocol" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('facets_modelling_type_refinement_protocol');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="facets_modelling_type_refinement_protocol" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td style="width:30%"><b>AB INITIO MODEL</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td style="width:30%"><b>BACKBONE TRACE</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td style="width:30%"><b>FLEXIBLE FIT</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td style="width:30%"><b>OTHER</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td style="width:30%"><b>RIGID BODY FIT</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_modelling_type_refinement_protocol" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_modelling_type_refinement_protocol');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_modelling_type_refinement_protocol" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"refinement_protocol"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"AB INITIO MODEL"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"BACKBONE TRACE"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"FLEXIBLE FIT"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"OTHER"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"RIGID BODY FIT"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="modelling_type_software_list"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component modelling_type')">modelling_type</a></b> / software_list</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_modelling_type_software_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_modelling_type_software_list');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_modelling_type_software_list" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_software_list_1.jpeg" usemap="#emdb_xsd_Element_software_list_1" /><map name="emdb_xsd_Element_software_list_1" id="emdb_xsd_Element_software_list_1"><area alt="emdb_xsd_Complex_Type_software_list_type.tmp#software_list_type_software" href="emdb_xsd_Complex_Type_software_list_type.html#software_list_type_software" coords="296,40,436,82" /><area alt="emdb_xsd_Complex_Type_software_list_type.tmp#software_list_type" href="emdb_xsd_Complex_Type_software_list_type.html#software_list_type" coords="193,3,341,25" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_software_list_type.html#software_list_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component software_list_type')">software_list_type</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_modelling_type_software_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_modelling_type_software_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_modelling_type_software_list" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_modelling_type_software_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('model_modelling_type_software_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_modelling_type_software_list" style="display:block"><b><a href="emdb_xsd_Complex_Type_software_list_type.html#software_list_type_software" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component software*')">software*</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_software_list_type.html#software_list_type_software" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component software')">software</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_modelling_type_software_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('instance_modelling_type_software_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_modelling_type_software_list" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;software_list</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;software</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,unbounded}</span><span class="tEl">&lt;/software&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/software_list&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_modelling_type_software_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_modelling_type_software_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_modelling_type_software_list" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"software_list"</span><span class="tAN"> type=</span><span class="tAV">"software_list_type"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="modelling_type_details"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component modelling_type')">modelling_type</a></b> / details</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_modelling_type_details" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_modelling_type_details');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_modelling_type_details" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_details_25.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_modelling_type_details" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_modelling_type_details');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_modelling_type_details" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_modelling_type_details" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_modelling_type_details');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_modelling_type_details" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"details"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="modelling_type_target_criteria"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component modelling_type')">modelling_type</a></b> / target_criteria</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_modelling_type_target_criteria" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_modelling_type_target_criteria');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_modelling_type_target_criteria" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_target_criteria.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:token</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_modelling_type_target_criteria" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_modelling_type_target_criteria');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_modelling_type_target_criteria" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_modelling_type_target_criteria" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_modelling_type_target_criteria');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_modelling_type_target_criteria" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"target_criteria"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="modelling_type_refinement_space"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component modelling_type')">modelling_type</a></b> / refinement_space</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_modelling_type_refinement_space" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_modelling_type_refinement_space');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_modelling_type_refinement_space" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_refinement_space.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:token</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_modelling_type_refinement_space" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_modelling_type_refinement_space');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_modelling_type_refinement_space" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_modelling_type_refinement_space" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_modelling_type_refinement_space');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_modelling_type_refinement_space" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"refinement_space"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="modelling_type_overall_bvalue"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component modelling_type')">modelling_type</a></b> / overall_bvalue</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_modelling_type_overall_bvalue" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_modelling_type_overall_bvalue');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_modelling_type_overall_bvalue" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_overall_bvalue.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:float</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_modelling_type_overall_bvalue" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_modelling_type_overall_bvalue');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_modelling_type_overall_bvalue" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_modelling_type_overall_bvalue" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_modelling_type_overall_bvalue');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_modelling_type_overall_bvalue" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"overall_bvalue"</span><span class="tAN"> type=</span><span class="tAV">"xs:float"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="modelling_type"></a><div class="componentTitle">Complex Type <span class="qname">modelling_type</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_modelling_type" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_modelling_type');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_modelling_type" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Complex_Type_modelling_type.jpeg" usemap="#emdb_xsd_Complex_Type_modelling_type" /><map name="emdb_xsd_Complex_Type_modelling_type" id="emdb_xsd_Complex_Type_modelling_type"><area alt="emdb_xsd_Complex_Type_modelling_type.tmp#modelling_type_initial_model" href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_initial_model" coords="257,0,356,24" /><area alt="emdb_xsd_Complex_Type_modelling_type.tmp#modelling_type_final_model" href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_final_model" coords="257,34,350,58" /><area alt="emdb_xsd_Complex_Type_modelling_type.tmp#modelling_type_refinement_protocol" href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_refinement_protocol" coords="257,68,451,110" /><area alt="emdb_xsd_Complex_Type_modelling_type.tmp#modelling_type_software_list" href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_software_list" coords="257,120,419,162" /><area alt="emdb_xsd_Complex_Type_modelling_type.tmp#modelling_type_details" href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_details" coords="257,172,370,214" /><area alt="emdb_xsd_Complex_Type_modelling_type.tmp#modelling_type_target_criteria" href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_target_criteria" coords="257,224,368,266" /><area alt="emdb_xsd_Complex_Type_modelling_type.tmp#modelling_type_refinement_space" href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_refinement_space" coords="257,276,383,318" /><area alt="emdb_xsd_Complex_Type_modelling_type.tmp#modelling_type_overall_bvalue" href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_overall_bvalue" coords="257,328,365,370" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_modelling_type" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('usedBy_modelling_type');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_modelling_type" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="emdb_xsd_Complex_Type_interpretation_type.html#interpretation_type_interpretation_type_modelling_list_modelling" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component interpretation_type/modelling_list/modelling')">interpretation_type/modelling_list/modelling</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_modelling_type" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('model_modelling_type');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_modelling_type" style="display:block"><b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_initial_model" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component initial_model*')">initial_model*</a></b> , <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_final_model" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component final_model{0,1}')">final_model{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_refinement_protocol" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component refinement_protocol{0,1}')">refinement_protocol{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_software_list" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component software_list{0,1}')">software_list{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_details" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component details{0,1}')">details{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_target_criteria" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component target_criteria{0,1}')">target_criteria{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_refinement_space" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component refinement_space{0,1}')">refinement_space{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_overall_bvalue" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component overall_bvalue{0,1}')">overall_bvalue{0,1}</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_details" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component details')">details</a></b>, <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_final_model" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component final_model')">final_model</a></b>, <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_initial_model" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component initial_model')">initial_model</a></b>, <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_overall_bvalue" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component overall_bvalue')">overall_bvalue</a></b>, <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_refinement_protocol" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component refinement_protocol')">refinement_protocol</a></b>, <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_refinement_space" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component refinement_space')">refinement_space</a></b>, <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_software_list" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component software_list')">software_list</a></b>, <b><a href="emdb_xsd_Complex_Type_modelling_type.html#modelling_type_target_criteria" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component target_criteria')">target_criteria</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_modelling_type" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_modelling_type');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_modelling_type" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:complexType</span><span class="tAN"> name=</span><span class="tAV">"modelling_type"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"initial_model"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"unbounded"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"access_code"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:element</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> name=</span><span class="tAV">"chain"</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;xs:element</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> name=</span><span class="tAV">"chain_id"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tEl">/&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;xs:element</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> name=</span><span class="tAV">"residue_range"</span><span class="tEl">&gt;</span><span class="tI">
+                  </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+                    </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:token"</span><span class="tEl">&gt;</span><span class="tI">
+                      </span><span class="tEl">&lt;xs:pattern</span><span class="tAN"> value=</span><span class="tAV">"[+-]?[0-9]+-[+-]?[0-9]+"</span><span class="tEl">/&gt;</span><span class="tI">
+                    </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+                  </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;xs:element</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> name=</span><span class="tAV">"number_of_copies_in_final_model"</span><span class="tAN"> type=</span><span class="tAV">"xs:positiveInteger"</span><span class="tEl">/&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;xs:element</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> name=</span><span class="tAV">"source_name"</span><span class="tEl">&gt;</span><span class="tI">
+                  </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+                    </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">&gt;</span><span class="tI">
+                      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"PDB"</span><span class="tEl">/&gt;</span><span class="tI">
+                      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"AlphaFold"</span><span class="tEl">/&gt;</span><span class="tI">
+                      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"ITasser"</span><span class="tEl">/&gt;</span><span class="tI">
+                      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"ModelArchive"</span><span class="tEl">/&gt;</span><span class="tI">
+                      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"Modeller"</span><span class="tEl">/&gt;</span><span class="tI">
+                      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"RoseTTAFold"</span><span class="tEl">/&gt;</span><span class="tI">
+                      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"SwissModel"</span><span class="tEl">/&gt;</span><span class="tI">
+                      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"Other"</span><span class="tEl">/&gt;</span><span class="tI">
+                    </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+                  </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;xs:element</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> name=</span><span class="tAV">"initial_model_type"</span><span class="tEl">&gt;</span><span class="tI">
+                  </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+                    </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">&gt;</span><span class="tI">
+                      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"experimental model"</span><span class="tEl">/&gt;</span><span class="tI">
+                      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"in silico model"</span><span class="tEl">/&gt;</span><span class="tI">
+                      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"integrative model"</span><span class="tEl">/&gt;</span><span class="tI">
+                      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"other"</span><span class="tEl">/&gt;</span><span class="tI">
+                    </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+                  </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:element</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> name=</span><span class="tAV">"details"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"final_model"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"access_code"</span><span class="tAN"> type=</span><span class="tAV">"pdb_code_type"</span><span class="tEl">/&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"chain"</span><span class="tAN"> type=</span><span class="tAV">"chain_type"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"unbounded"</span><span class="tEl">/&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"details"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"refinement_protocol"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:string"</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"AB INITIO MODEL"</span><span class="tEl">/&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"BACKBONE TRACE"</span><span class="tEl">/&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"FLEXIBLE FIT"</span><span class="tEl">/&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"OTHER"</span><span class="tEl">/&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"RIGID BODY FIT"</span><span class="tEl">/&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"software_list"</span><span class="tAN"> type=</span><span class="tAV">"software_list_type"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"details"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"target_criteria"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"refinement_space"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"overall_bvalue"</span><span class="tAN"> type=</span><span class="tAV">"xs:float"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:complexType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table>
+      <div class="footer">
+         <hr />
+         <div style="text-align:center">XML Schema documentation generated by <a href="http://www.oxygenxml.com" target="_parent"><span class="oXygenLogo"><span class="redX">&lt;</span>o<span class="redX">X</span>ygen<span class="redX">/&gt;</span></span></a><sup>®</sup> XML Editor Trial Edition.</div>
+      </div><script type="text/javascript"><!--
+                     // The namespace is the selected option in the TOC combo.
+                    
+                     // Floats the toolbar.
+                     var globalControls = getElementObject("global_controls"); 
+                     
+                     if(globalControls != null){
+	                     var browser=navigator.appName;
+						 var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+						 
+						 var IE6 = false;
+						 if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+						 	IE6 = true;
+						 }
+	
+	                     //alert (IE6 + " |V| " + version);
+	                     
+	                     if(IE6){
+	                     	// On IE 6 the 'fixed' property is not supported. We must use javascript. 
+	                         globalControls.style.position='absolute';                         
+	                         // The global controls will do not exist in the TOC frame, when chunking.
+	                         findAndFloat("global_controls", 225, 30);    
+	                     } else {
+	                      	  globalControls.style.position='fixed';                     	
+	                     }
+	                     
+	                     globalControls.style.right='0';                       
+                     }
+                //--></script></body>
+</html>

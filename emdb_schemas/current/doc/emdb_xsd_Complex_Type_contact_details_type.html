@@ -1,0 +1,1916 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>Schema documentation for component role</title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css" /><script type="text/javascript"><!--
+        var propertiesBoxes= new Array('properties_contact_details_type_role', 
+				'properties_contact_details_type_title', 
+				'properties_contact_details_type_first_name', 
+				'properties_contact_details_type_middle_name', 
+				'properties_contact_details_type_last_name', 
+				'properties_contact_details_type_organization', 
+				'properties_contact_details_type_street', 
+				'properties_contact_details_type_town_or_city', 
+				'properties_contact_details_type_state_or_province', 
+				'properties_contact_details_type_country', 
+				'properties_contact_details_type_post_or_zip_code', 
+				'properties_contact_details_type_email', 
+				'properties_contact_details_type_telephone', 
+				'properties_contact_details_type_fax', 
+				'properties_contact_details_type_contact_details_type_organization_type');
+var facetsBoxes= new Array('facets_contact_details_type_role', 
+				'facets_contact_details_type_title', 
+				'facets_contact_details_type_middle_name', 
+				'facets_contact_details_type_email', 
+				'facets_contact_details_type_contact_details_type_organization_type');
+var usedByBoxes= new Array('usedBy_contact_details_type', 
+				'usedBy_contact_details_type_contact_details_type_organization_type');
+var sourceBoxes= new Array('source_contact_details_type_role', 
+				'source_contact_details_type_title', 
+				'source_contact_details_type_first_name', 
+				'source_contact_details_type_middle_name', 
+				'source_contact_details_type_last_name', 
+				'source_contact_details_type_organization', 
+				'source_contact_details_type_street', 
+				'source_contact_details_type_town_or_city', 
+				'source_contact_details_type_state_or_province', 
+				'source_contact_details_type_country', 
+				'source_contact_details_type_post_or_zip_code', 
+				'source_contact_details_type_email', 
+				'source_contact_details_type_telephone', 
+				'source_contact_details_type_fax', 
+				'source_contact_details_type', 
+				'source_contact_details_type_contact_details_type_organization_type');
+var instanceBoxes= new Array('instance_contact_details_type_telephone', 
+				'instance_contact_details_type_fax');
+var diagramBoxes= new Array('diagram_contact_details_type_role', 
+				'diagram_contact_details_type_title', 
+				'diagram_contact_details_type_first_name', 
+				'diagram_contact_details_type_middle_name', 
+				'diagram_contact_details_type_last_name', 
+				'diagram_contact_details_type_organization', 
+				'diagram_contact_details_type_street', 
+				'diagram_contact_details_type_town_or_city', 
+				'diagram_contact_details_type_state_or_province', 
+				'diagram_contact_details_type_country', 
+				'diagram_contact_details_type_post_or_zip_code', 
+				'diagram_contact_details_type_email', 
+				'diagram_contact_details_type_telephone', 
+				'diagram_contact_details_type_fax', 
+				'diagram_contact_details_type');
+var attributesBoxes= new Array('attributes_contact_details_type_organization');
+var modelBoxes= new Array('model_contact_details_type_telephone', 
+				'model_contact_details_type_fax', 
+				'model_contact_details_type');
+
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                    //--></script></head>
+   <body>
+      <div id="global_controls" class="globalControls" style="position:absolute;right:0;">
+         <table class="rt">
+            <tr>
+               <td class="rt_cornerTopLeft"></td>
+               <td class="rt_lineTop"></td>
+               <td class="rt_cornerTopRight"></td>
+            </tr>
+            <tr>
+               <td class="rt_lineLeft"></td>
+               <td class="rt_content">
+                  <h3>Showing:</h3>
+                  <table>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, attributesBoxes);" class="control" /></span><span class="globalControlName">Attributes </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, diagramBoxes);" class="control" /></span><span class="globalControlName">Diagrams</span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, facetsBoxes);" class="control" /></span><span class="globalControlName">Facets </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, instanceBoxes);" class="control" /></span><span class="globalControlName">Instances</span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, modelBoxes);" class="control" /></span><span class="globalControlName">Model </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, propertiesBoxes);" class="control" /></span><span class="globalControlName">Properties </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, sourceBoxes);" class="control" /></span><span class="globalControlName">Source</span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, usedByBoxes);" class="control" /></span><span class="globalControlName">Used by </span></td>
+                     </tr>
+                  </table>
+                  <div style="text-align:center"><span><input type="button" onclick="getElementObject('global_controls').style.display = 'none';" value="Close" /></span></div>
+               </td>
+               <td class="rt_lineRight"></td>
+            </tr>
+            <tr>
+               <td class="rt_cornerBottomLeft"></td>
+               <td class="rt_lineBottom"></td>
+               <td class="rt_cornerBottomRight"></td>
+            </tr>
+         </table>
+      </div><a id="contact_details_type_role"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component contact_details_type')">contact_details_type</a></b> / role</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_contact_details_type_role" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_contact_details_type_role');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_contact_details_type_role" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_role.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td>restriction of <b>xs:token</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_contact_details_type_role" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_contact_details_type_role');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_contact_details_type_role" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Facets</b></div>
+                           <div class="floatRight"><input id="button_facets_contact_details_type_role" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('facets_contact_details_type_role');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="facets_contact_details_type_role" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td style="width:30%"><b>INVESTIGATOR</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td style="width:30%"><b>PRINCIPAL INVESTIGATOR/GROUP LEADER</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td style="width:30%"><b>RESPONSIBLE SCIENTIST</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_contact_details_type_role" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_contact_details_type_role');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_contact_details_type_role" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"role"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:token"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"INVESTIGATOR"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"PRINCIPAL INVESTIGATOR/GROUP LEADER"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"RESPONSIBLE SCIENTIST"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="contact_details_type_title"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component contact_details_type')">contact_details_type</a></b> / title</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_contact_details_type_title" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_contact_details_type_title');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_contact_details_type_title" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_title.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td>restriction of <b>xs:token</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_contact_details_type_title" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_contact_details_type_title');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_contact_details_type_title" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Facets</b></div>
+                           <div class="floatRight"><input id="button_facets_contact_details_type_title" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('facets_contact_details_type_title');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="facets_contact_details_type_title" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td style="width:30%"><b>DR.</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td style="width:30%"><b>MR.</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td style="width:30%"><b>MRS.</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td style="width:30%"><b>MS.</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td style="width:30%"><b>PROF.</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_contact_details_type_title" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_contact_details_type_title');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_contact_details_type_title" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"title"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:token"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"DR."</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"MR."</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"MRS."</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"MS."</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"PROF."</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="contact_details_type_first_name"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component contact_details_type')">contact_details_type</a></b> / first_name</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_contact_details_type_first_name" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_contact_details_type_first_name');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_contact_details_type_first_name" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_first_name.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:token</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_contact_details_type_first_name" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_contact_details_type_first_name');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_contact_details_type_first_name" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_contact_details_type_first_name" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_contact_details_type_first_name');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_contact_details_type_first_name" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"first_name"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="contact_details_type_middle_name"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component contact_details_type')">contact_details_type</a></b> / middle_name</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_contact_details_type_middle_name" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_contact_details_type_middle_name');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_contact_details_type_middle_name" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_middle_name.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td>restriction of <b>xs:token</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_contact_details_type_middle_name" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_contact_details_type_middle_name');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_contact_details_type_middle_name" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Facets</b></div>
+                           <div class="floatRight"><input id="button_facets_contact_details_type_middle_name" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('facets_contact_details_type_middle_name');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="facets_contact_details_type_middle_name" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn">pattern</td>
+                                    <td style="width:30%"><b>[A-Z]</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_contact_details_type_middle_name" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_contact_details_type_middle_name');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_contact_details_type_middle_name" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"middle_name"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:token"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:pattern</span><span class="tAN"> value=</span><span class="tAV">"[A-Z]"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="contact_details_type_last_name"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component contact_details_type')">contact_details_type</a></b> / last_name</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_contact_details_type_last_name" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_contact_details_type_last_name');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_contact_details_type_last_name" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_last_name.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:token</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_contact_details_type_last_name" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_contact_details_type_last_name');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_contact_details_type_last_name" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_contact_details_type_last_name" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_contact_details_type_last_name');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_contact_details_type_last_name" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"last_name"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="contact_details_type_organization"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component contact_details_type')">contact_details_type</a></b> / organization</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_contact_details_type_organization" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_contact_details_type_organization');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_contact_details_type_organization" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_organization.jpeg" usemap="#emdb_xsd_Element_organization" /><map name="emdb_xsd_Element_organization" id="emdb_xsd_Element_organization"><area alt="emdb_xsd_Complex_Type_contact_details_type.tmp#contact_details_type_contact_details_type_organization_type" href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_contact_details_type_organization_type" coords="229,132,421,174" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td>extension of <b>xs:token</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_contact_details_type_organization" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_contact_details_type_organization');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_contact_details_type_organization" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Attributes</b></div>
+                           <div class="floatRight"><input id="button_attributes_contact_details_type_organization" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('attributes_contact_details_type_organization');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="attributes_contact_details_type_organization" style="display:block">
+                              <table class="attributesTable">
+                                 <thead>
+                                    <tr>
+                                       <th>QName</th>
+                                       <th style="width:10%">Type</th>
+                                       <th style="width:10%">Use</th>
+                                       <th></th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="firstColumn"><b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_contact_details_type_organization_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component type')">type</a></b></td>
+                                    <td>restriction of <b>xs:token</b></td>
+                                    <td>required</td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_contact_details_type_organization" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_contact_details_type_organization');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_contact_details_type_organization" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"organization"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:simpleContent</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:extension</span><span class="tAN"> base=</span><span class="tAV">"xs:token"</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:attribute</span><span class="tAN"> name=</span><span class="tAV">"type"</span><span class="tAN"> use=</span><span class="tAV">"required"</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:token"</span><span class="tEl">&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"ACADEMIC"</span><span class="tEl">/&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"COMMERCIAL"</span><span class="tEl">/&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"GOVERMENT"</span><span class="tEl">/&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"OTHER"</span><span class="tEl">/&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xs:attribute&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:extension&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:simpleContent&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="contact_details_type_street"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component contact_details_type')">contact_details_type</a></b> / street</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_contact_details_type_street" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_contact_details_type_street');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_contact_details_type_street" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_street.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_contact_details_type_street" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_contact_details_type_street');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_contact_details_type_street" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_contact_details_type_street" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_contact_details_type_street');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_contact_details_type_street" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"street"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="contact_details_type_town_or_city"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component contact_details_type')">contact_details_type</a></b> / town_or_city</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_contact_details_type_town_or_city" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_contact_details_type_town_or_city');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_contact_details_type_town_or_city" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_town_or_city.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:token</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_contact_details_type_town_or_city" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_contact_details_type_town_or_city');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_contact_details_type_town_or_city" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_contact_details_type_town_or_city" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_contact_details_type_town_or_city');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_contact_details_type_town_or_city" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"town_or_city"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="contact_details_type_state_or_province"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component contact_details_type')">contact_details_type</a></b> / state_or_province</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_contact_details_type_state_or_province" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_contact_details_type_state_or_province');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_contact_details_type_state_or_province" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_state_or_province.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:token</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_contact_details_type_state_or_province" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_contact_details_type_state_or_province');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_contact_details_type_state_or_province" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_contact_details_type_state_or_province" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_contact_details_type_state_or_province');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_contact_details_type_state_or_province" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"state_or_province"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="contact_details_type_country"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component contact_details_type')">contact_details_type</a></b> / country</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_contact_details_type_country" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_contact_details_type_country');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_contact_details_type_country" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_country_2.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:token</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_contact_details_type_country" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_contact_details_type_country');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_contact_details_type_country" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_contact_details_type_country" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_contact_details_type_country');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_contact_details_type_country" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"country"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="contact_details_type_post_or_zip_code"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component contact_details_type')">contact_details_type</a></b> / post_or_zip_code</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_contact_details_type_post_or_zip_code" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_contact_details_type_post_or_zip_code');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_contact_details_type_post_or_zip_code" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_post_or_zip_code.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:token</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_contact_details_type_post_or_zip_code" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_contact_details_type_post_or_zip_code');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_contact_details_type_post_or_zip_code" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_contact_details_type_post_or_zip_code" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_contact_details_type_post_or_zip_code');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_contact_details_type_post_or_zip_code" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"post_or_zip_code"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="contact_details_type_email"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component contact_details_type')">contact_details_type</a></b> / email</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_contact_details_type_email" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_contact_details_type_email');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_contact_details_type_email" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_email.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td>restriction of <b>xs:token</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_contact_details_type_email" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_contact_details_type_email');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_contact_details_type_email" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Facets</b></div>
+                           <div class="floatRight"><input id="button_facets_contact_details_type_email" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('facets_contact_details_type_email');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="facets_contact_details_type_email" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn">pattern</td>
+                                    <td style="width:30%"><b>[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_contact_details_type_email" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_contact_details_type_email');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_contact_details_type_email" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"email"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:token"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:pattern</span><span class="tAN"> value=</span><span class="tAV">"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="contact_details_type_telephone"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component contact_details_type')">contact_details_type</a></b> / telephone</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_contact_details_type_telephone" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_contact_details_type_telephone');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_contact_details_type_telephone" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_telephone.jpeg" usemap="#emdb_xsd_Element_telephone" /><map name="emdb_xsd_Element_telephone" id="emdb_xsd_Element_telephone"><area alt="emdb_xsd_Complex_Type_telephone_number_type.tmp#telephone_number_type_country" href="emdb_xsd_Complex_Type_telephone_number_type.html#telephone_number_type_country" coords="308,40,500,82" /><area alt="emdb_xsd_Complex_Type_telephone_number_type.tmp#telephone_number_type_area" href="emdb_xsd_Complex_Type_telephone_number_type.html#telephone_number_type_area" coords="308,92,500,134" /><area alt="emdb_xsd_Complex_Type_telephone_number_type.tmp#telephone_number_type_local" href="emdb_xsd_Complex_Type_telephone_number_type.html#telephone_number_type_local" coords="308,144,500,186" /><area alt="emdb_xsd_Complex_Type_telephone_number_type.tmp#telephone_number_type" href="emdb_xsd_Complex_Type_telephone_number_type.html#telephone_number_type" coords="226,3,407,25" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_telephone_number_type.html#telephone_number_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component telephone_number_type')">telephone_number_type</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_contact_details_type_telephone" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_contact_details_type_telephone');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_contact_details_type_telephone" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_contact_details_type_telephone" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('model_contact_details_type_telephone');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_contact_details_type_telephone" style="display:block"><b><a href="emdb_xsd_Complex_Type_telephone_number_type.html#telephone_number_type_country" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component country')">country</a></b> , <b><a href="emdb_xsd_Complex_Type_telephone_number_type.html#telephone_number_type_area" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component area')">area</a></b> , <b><a href="emdb_xsd_Complex_Type_telephone_number_type.html#telephone_number_type_local" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component local')">local</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_telephone_number_type.html#telephone_number_type_area" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component area')">area</a></b>, <b><a href="emdb_xsd_Complex_Type_telephone_number_type.html#telephone_number_type_country" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component country')">country</a></b>, <b><a href="emdb_xsd_Complex_Type_telephone_number_type.html#telephone_number_type_local" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component local')">local</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_contact_details_type_telephone" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('instance_contact_details_type_telephone');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_contact_details_type_telephone" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;telephone</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;country</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/country&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;area</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/area&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;local</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/local&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/telephone&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_contact_details_type_telephone" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_contact_details_type_telephone');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_contact_details_type_telephone" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"telephone"</span><span class="tAN"> type=</span><span class="tAV">"telephone_number_type"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="contact_details_type_fax"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component contact_details_type')">contact_details_type</a></b> / fax</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_contact_details_type_fax" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_contact_details_type_fax');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_contact_details_type_fax" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_fax.jpeg" usemap="#emdb_xsd_Element_fax" /><map name="emdb_xsd_Element_fax" id="emdb_xsd_Element_fax"><area alt="emdb_xsd_Complex_Type_telephone_number_type.tmp#telephone_number_type_country" href="emdb_xsd_Complex_Type_telephone_number_type.html#telephone_number_type_country" coords="308,40,500,82" /><area alt="emdb_xsd_Complex_Type_telephone_number_type.tmp#telephone_number_type_area" href="emdb_xsd_Complex_Type_telephone_number_type.html#telephone_number_type_area" coords="308,92,500,134" /><area alt="emdb_xsd_Complex_Type_telephone_number_type.tmp#telephone_number_type_local" href="emdb_xsd_Complex_Type_telephone_number_type.html#telephone_number_type_local" coords="308,144,500,186" /><area alt="emdb_xsd_Complex_Type_telephone_number_type.tmp#telephone_number_type" href="emdb_xsd_Complex_Type_telephone_number_type.html#telephone_number_type" coords="226,3,407,25" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_telephone_number_type.html#telephone_number_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component telephone_number_type')">telephone_number_type</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_contact_details_type_fax" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_contact_details_type_fax');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_contact_details_type_fax" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_contact_details_type_fax" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('model_contact_details_type_fax');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_contact_details_type_fax" style="display:block"><b><a href="emdb_xsd_Complex_Type_telephone_number_type.html#telephone_number_type_country" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component country')">country</a></b> , <b><a href="emdb_xsd_Complex_Type_telephone_number_type.html#telephone_number_type_area" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component area')">area</a></b> , <b><a href="emdb_xsd_Complex_Type_telephone_number_type.html#telephone_number_type_local" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component local')">local</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_telephone_number_type.html#telephone_number_type_area" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component area')">area</a></b>, <b><a href="emdb_xsd_Complex_Type_telephone_number_type.html#telephone_number_type_country" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component country')">country</a></b>, <b><a href="emdb_xsd_Complex_Type_telephone_number_type.html#telephone_number_type_local" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component local')">local</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_contact_details_type_fax" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('instance_contact_details_type_fax');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_contact_details_type_fax" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;fax</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;country</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/country&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;area</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/area&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;local</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/local&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/fax&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_contact_details_type_fax" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_contact_details_type_fax');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_contact_details_type_fax" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"fax"</span><span class="tAN"> type=</span><span class="tAV">"telephone_number_type"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="contact_details_type"></a><div class="componentTitle">Complex Type <span class="qname">contact_details_type</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_contact_details_type" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_contact_details_type');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_contact_details_type" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Complex_Type_contact_details_type.jpeg" usemap="#emdb_xsd_Complex_Type_contact_details_type" /><map name="emdb_xsd_Complex_Type_contact_details_type" id="emdb_xsd_Complex_Type_contact_details_type"><area alt="emdb_xsd_Complex_Type_contact_details_type.tmp#contact_details_type_role" href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_role" coords="264,0,456,42" /><area alt="emdb_xsd_Complex_Type_contact_details_type.tmp#contact_details_type_title" href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_title" coords="264,52,456,94" /><area alt="emdb_xsd_Complex_Type_contact_details_type.tmp#contact_details_type_first_name" href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_first_name" coords="264,104,375,146" /><area alt="emdb_xsd_Complex_Type_contact_details_type.tmp#contact_details_type_middle_name" href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_middle_name" coords="264,156,456,198" /><area alt="emdb_xsd_Complex_Type_contact_details_type.tmp#contact_details_type_last_name" href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_last_name" coords="264,208,375,250" /><area alt="emdb_xsd_Complex_Type_contact_details_type.tmp#contact_details_type_organization" href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_organization" coords="264,260,451,302" /><area alt="emdb_xsd_Complex_Type_contact_details_type.tmp#contact_details_type_street" href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_street" coords="264,312,377,354" /><area alt="emdb_xsd_Complex_Type_contact_details_type.tmp#contact_details_type_town_or_city" href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_town_or_city" coords="264,364,375,406" /><area alt="emdb_xsd_Complex_Type_contact_details_type.tmp#contact_details_type_state_or_province" href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_state_or_province" coords="264,416,392,458" /><area alt="emdb_xsd_Complex_Type_contact_details_type.tmp#contact_details_type_country" href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_country" coords="264,468,375,510" /><area alt="emdb_xsd_Complex_Type_contact_details_type.tmp#contact_details_type_post_or_zip_code" href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_post_or_zip_code" coords="264,520,391,562" /><area alt="emdb_xsd_Complex_Type_contact_details_type.tmp#contact_details_type_email" href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_email" coords="264,572,456,614" /><area alt="emdb_xsd_Complex_Type_contact_details_type.tmp#contact_details_type_telephone" href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_telephone" coords="264,624,459,666" /><area alt="emdb_xsd_Complex_Type_contact_details_type.tmp#contact_details_type_fax" href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_fax" coords="264,676,459,718" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_contact_details_type" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('usedBy_contact_details_type');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_contact_details_type" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="emdb_xsd_Complex_Type_admin_type.html#admin_type_contact_author" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component admin_type/contact_author')">admin_type/contact_author</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_contact_details_type" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('model_contact_details_type');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_contact_details_type" style="display:block"><b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_role" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component role')">role</a></b> , <b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_title" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component title')">title</a></b> , <b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_first_name" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component first_name')">first_name</a></b> , <b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_middle_name" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component middle_name')">middle_name</a></b> , <b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_last_name" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component last_name')">last_name</a></b> , <b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_organization" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component organization')">organization</a></b> , <b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_street" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component street')">street</a></b> , <b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_town_or_city" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component town_or_city')">town_or_city</a></b> , <b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_state_or_province" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component state_or_province')">state_or_province</a></b> , <b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_country" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component country')">country</a></b> , <b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_post_or_zip_code" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component post_or_zip_code')">post_or_zip_code</a></b> , <b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_email" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component email')">email</a></b> , <b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_telephone" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component telephone')">telephone</a></b> , <b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_fax" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component fax')">fax</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_country" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component country')">country</a></b>, <b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_email" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component email')">email</a></b>, <b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_fax" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component fax')">fax</a></b>, <b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_first_name" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component first_name')">first_name</a></b>, <b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_last_name" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component last_name')">last_name</a></b>, <b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_middle_name" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component middle_name')">middle_name</a></b>, <b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_organization" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component organization')">organization</a></b>, <b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_post_or_zip_code" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component post_or_zip_code')">post_or_zip_code</a></b>, <b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_role" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component role')">role</a></b>, <b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_state_or_province" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component state_or_province')">state_or_province</a></b>, <b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_street" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component street')">street</a></b>, <b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_telephone" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component telephone')">telephone</a></b>, <b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_title" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component title')">title</a></b>, <b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_town_or_city" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component town_or_city')">town_or_city</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_contact_details_type" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_contact_details_type');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_contact_details_type" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:complexType</span><span class="tAN"> name=</span><span class="tAV">"contact_details_type"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"role"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:token"</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"INVESTIGATOR"</span><span class="tEl">/&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"PRINCIPAL INVESTIGATOR/GROUP LEADER"</span><span class="tEl">/&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"RESPONSIBLE SCIENTIST"</span><span class="tEl">/&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"title"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:token"</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"DR."</span><span class="tEl">/&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"MR."</span><span class="tEl">/&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"MRS."</span><span class="tEl">/&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"MS."</span><span class="tEl">/&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"PROF."</span><span class="tEl">/&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"first_name"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"middle_name"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:token"</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:pattern</span><span class="tAN"> value=</span><span class="tAV">"[A-Z]"</span><span class="tEl">/&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"last_name"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"organization"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:simpleContent</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:extension</span><span class="tAN"> base=</span><span class="tAV">"xs:token"</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:attribute</span><span class="tAN"> name=</span><span class="tAV">"type"</span><span class="tAN"> use=</span><span class="tAV">"required"</span><span class="tEl">&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:token"</span><span class="tEl">&gt;</span><span class="tI">
+                  </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"ACADEMIC"</span><span class="tEl">/&gt;</span><span class="tI">
+                  </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"COMMERCIAL"</span><span class="tEl">/&gt;</span><span class="tI">
+                  </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"GOVERMENT"</span><span class="tEl">/&gt;</span><span class="tI">
+                  </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"OTHER"</span><span class="tEl">/&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;/xs:attribute&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/xs:extension&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xs:simpleContent&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"street"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"town_or_city"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"state_or_province"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"country"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"post_or_zip_code"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"email"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:token"</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:pattern</span><span class="tAN"> value=</span><span class="tAV">"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}"</span><span class="tEl">/&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"telephone"</span><span class="tAN"> type=</span><span class="tAV">"telephone_number_type"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"fax"</span><span class="tAN"> type=</span><span class="tAV">"telephone_number_type"</span><span class="tEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:complexType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="contact_details_type_contact_details_type_organization_type"></a><div class="componentTitle">Attribute <span class="qname"><b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component contact_details_type')">contact_details_type</a></b> / <b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_organization" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component organization')">organization</a></b> / @type</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td>restriction of <b>xs:token</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_contact_details_type_contact_details_type_organization_type" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_contact_details_type_contact_details_type_organization_type');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_contact_details_type_contact_details_type_organization_type" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">use</td>
+                                    <td><b>required</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Facets</b></div>
+                           <div class="floatRight"><input id="button_facets_contact_details_type_contact_details_type_organization_type" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('facets_contact_details_type_contact_details_type_organization_type');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="facets_contact_details_type_contact_details_type_organization_type" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td style="width:30%"><b>ACADEMIC</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td style="width:30%"><b>COMMERCIAL</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td style="width:30%"><b>GOVERMENT</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td style="width:30%"><b>OTHER</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_contact_details_type_contact_details_type_organization_type" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('usedBy_contact_details_type_contact_details_type_organization_type');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_contact_details_type_contact_details_type_organization_type" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="emdb_xsd_Complex_Type_contact_details_type.html#contact_details_type_organization" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component contact_details_type/organization')">contact_details_type/organization</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_contact_details_type_contact_details_type_organization_type" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_contact_details_type_contact_details_type_organization_type');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_contact_details_type_contact_details_type_organization_type" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:attribute</span><span class="tAN"> name=</span><span class="tAV">"type"</span><span class="tAN"> use=</span><span class="tAV">"required"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:token"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"ACADEMIC"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"COMMERCIAL"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"GOVERMENT"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"OTHER"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:attribute&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table>
+      <div class="footer">
+         <hr />
+         <div style="text-align:center">XML Schema documentation generated by <a href="http://www.oxygenxml.com" target="_parent"><span class="oXygenLogo"><span class="redX">&lt;</span>o<span class="redX">X</span>ygen<span class="redX">/&gt;</span></span></a><sup>®</sup> XML Editor Trial Edition.</div>
+      </div><script type="text/javascript"><!--
+                     // The namespace is the selected option in the TOC combo.
+                    
+                     // Floats the toolbar.
+                     var globalControls = getElementObject("global_controls"); 
+                     
+                     if(globalControls != null){
+	                     var browser=navigator.appName;
+						 var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+						 
+						 var IE6 = false;
+						 if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+						 	IE6 = true;
+						 }
+	
+	                     //alert (IE6 + " |V| " + version);
+	                     
+	                     if(IE6){
+	                     	// On IE 6 the 'fixed' property is not supported. We must use javascript. 
+	                         globalControls.style.position='absolute';                         
+	                         // The global controls will do not exist in the TOC frame, when chunking.
+	                         findAndFloat("global_controls", 225, 30);    
+	                     } else {
+	                      	  globalControls.style.position='fixed';                     	
+	                     }
+	                     
+	                     globalControls.style.right='0';                       
+                     }
+                //--></script></body>
+</html>

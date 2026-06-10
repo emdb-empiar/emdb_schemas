@@ -1,0 +1,1678 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>Schema documentation for component phase_plate</title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css" /><script type="text/javascript"><!--
+        var propertiesBoxes= new Array('properties_specialist_optics_type_phase_plate', 
+				'properties_specialist_optics_type_sph_aberration_corrector', 
+				'properties_specialist_optics_type_chr_aberration_corrector', 
+				'properties_specialist_optics_type_energy_filter', 
+				'properties_specialist_optics_type_specialist_optics_type_energy_filter_name', 
+				'properties_specialist_optics_type_specialist_optics_type_energy_filter_slit_width', 
+				'properties_specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold', 
+				'properties_specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold', 
+				'properties_specialist_optics_type_details', 
+				'properties_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_slit_width_units', 
+				'properties_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold_units', 
+				'properties_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold_units');
+var facetsBoxes= new Array('facets_specialist_optics_type_phase_plate');
+var usedByBoxes= new Array('usedBy_specialist_optics_type', 
+				'usedBy_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_slit_width_units', 
+				'usedBy_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold_units', 
+				'usedBy_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold_units');
+var sourceBoxes= new Array('source_specialist_optics_type_phase_plate', 
+				'source_specialist_optics_type_sph_aberration_corrector', 
+				'source_specialist_optics_type_chr_aberration_corrector', 
+				'source_specialist_optics_type_energy_filter', 
+				'source_specialist_optics_type_specialist_optics_type_energy_filter_name', 
+				'source_specialist_optics_type_specialist_optics_type_energy_filter_slit_width', 
+				'source_specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold', 
+				'source_specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold', 
+				'source_specialist_optics_type_details', 
+				'source_specialist_optics_type', 
+				'source_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_slit_width_units', 
+				'source_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold_units', 
+				'source_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold_units');
+var instanceBoxes= new Array('instance_specialist_optics_type_energy_filter');
+var diagramBoxes= new Array('diagram_specialist_optics_type_phase_plate', 
+				'diagram_specialist_optics_type_sph_aberration_corrector', 
+				'diagram_specialist_optics_type_chr_aberration_corrector', 
+				'diagram_specialist_optics_type_energy_filter', 
+				'diagram_specialist_optics_type_specialist_optics_type_energy_filter_name', 
+				'diagram_specialist_optics_type_specialist_optics_type_energy_filter_slit_width', 
+				'diagram_specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold', 
+				'diagram_specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold', 
+				'diagram_specialist_optics_type_details', 
+				'diagram_specialist_optics_type');
+var attributesBoxes= new Array('attributes_specialist_optics_type_specialist_optics_type_energy_filter_slit_width', 
+				'attributes_specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold', 
+				'attributes_specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold');
+var modelBoxes= new Array('model_specialist_optics_type_energy_filter', 
+				'model_specialist_optics_type');
+
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                    //--></script></head>
+   <body>
+      <div id="global_controls" class="globalControls" style="position:absolute;right:0;">
+         <table class="rt">
+            <tr>
+               <td class="rt_cornerTopLeft"></td>
+               <td class="rt_lineTop"></td>
+               <td class="rt_cornerTopRight"></td>
+            </tr>
+            <tr>
+               <td class="rt_lineLeft"></td>
+               <td class="rt_content">
+                  <h3>Showing:</h3>
+                  <table>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, attributesBoxes);" class="control" /></span><span class="globalControlName">Attributes </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, diagramBoxes);" class="control" /></span><span class="globalControlName">Diagrams</span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, facetsBoxes);" class="control" /></span><span class="globalControlName">Facets </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, instanceBoxes);" class="control" /></span><span class="globalControlName">Instances</span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, modelBoxes);" class="control" /></span><span class="globalControlName">Model </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, propertiesBoxes);" class="control" /></span><span class="globalControlName">Properties </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, sourceBoxes);" class="control" /></span><span class="globalControlName">Source</span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, usedByBoxes);" class="control" /></span><span class="globalControlName">Used by </span></td>
+                     </tr>
+                  </table>
+                  <div style="text-align:center"><span><input type="button" onclick="getElementObject('global_controls').style.display = 'none';" value="Close" /></span></div>
+               </td>
+               <td class="rt_lineRight"></td>
+            </tr>
+            <tr>
+               <td class="rt_cornerBottomLeft"></td>
+               <td class="rt_lineBottom"></td>
+               <td class="rt_cornerBottomRight"></td>
+            </tr>
+         </table>
+      </div><a id="specialist_optics_type_phase_plate"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component specialist_optics_type')">specialist_optics_type</a></b> / phase_plate</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_specialist_optics_type_phase_plate" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_specialist_optics_type_phase_plate');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_specialist_optics_type_phase_plate" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_phase_plate.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td>restriction of <b>xs:token</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_specialist_optics_type_phase_plate" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_specialist_optics_type_phase_plate');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_specialist_optics_type_phase_plate" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Facets</b></div>
+                           <div class="floatRight"><input id="button_facets_specialist_optics_type_phase_plate" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('facets_specialist_optics_type_phase_plate');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="facets_specialist_optics_type_phase_plate" style="display:block">
+                              <table class="facetsTable">
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td style="width:30%"><b>ZERNIKE PHASE PLATE</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td style="width:30%"><b>VOLTA PHASE PLATE</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td style="width:30%"><b>OTHER</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_specialist_optics_type_phase_plate" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_specialist_optics_type_phase_plate');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_specialist_optics_type_phase_plate" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"phase_plate"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:token"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"ZERNIKE PHASE PLATE"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"VOLTA PHASE PLATE"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"OTHER"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="specialist_optics_type_sph_aberration_corrector"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component specialist_optics_type')">specialist_optics_type</a></b> / sph_aberration_corrector</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_specialist_optics_type_sph_aberration_corrector" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_specialist_optics_type_sph_aberration_corrector');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_specialist_optics_type_sph_aberration_corrector" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_sph_aberration_corrector.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:token</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_specialist_optics_type_sph_aberration_corrector" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_specialist_optics_type_sph_aberration_corrector');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_specialist_optics_type_sph_aberration_corrector" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_specialist_optics_type_sph_aberration_corrector" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_specialist_optics_type_sph_aberration_corrector');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_specialist_optics_type_sph_aberration_corrector" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"sph_aberration_corrector"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="specialist_optics_type_chr_aberration_corrector"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component specialist_optics_type')">specialist_optics_type</a></b> / chr_aberration_corrector</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_specialist_optics_type_chr_aberration_corrector" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_specialist_optics_type_chr_aberration_corrector');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_specialist_optics_type_chr_aberration_corrector" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_chr_aberration_corrector.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:token</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_specialist_optics_type_chr_aberration_corrector" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_specialist_optics_type_chr_aberration_corrector');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_specialist_optics_type_chr_aberration_corrector" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_specialist_optics_type_chr_aberration_corrector" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_specialist_optics_type_chr_aberration_corrector');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_specialist_optics_type_chr_aberration_corrector" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"chr_aberration_corrector"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="specialist_optics_type_energy_filter"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component specialist_optics_type')">specialist_optics_type</a></b> / energy_filter</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_specialist_optics_type_energy_filter" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_specialist_optics_type_energy_filter');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_specialist_optics_type_energy_filter" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_energy_filter.jpeg" usemap="#emdb_xsd_Element_energy_filter" /><map name="emdb_xsd_Element_energy_filter" id="emdb_xsd_Element_energy_filter"><area alt="emdb_xsd_Complex_Type_specialist_optics_type.tmp#specialist_optics_type_specialist_optics_type_energy_filter_name" href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_specialist_optics_type_energy_filter_name" coords="198,2,309,44" /><area alt="emdb_xsd_Complex_Type_specialist_optics_type.tmp#specialist_optics_type_specialist_optics_type_energy_filter_slit_width" href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_specialist_optics_type_energy_filter_slit_width" coords="198,54,488,96" /><area alt="emdb_xsd_Complex_Type_specialist_optics_type.tmp#specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold" href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold" coords="198,106,468,148" /><area alt="emdb_xsd_Complex_Type_specialist_optics_type.tmp#specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold" href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold" coords="198,158,468,200" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_specialist_optics_type_energy_filter" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_specialist_optics_type_energy_filter');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_specialist_optics_type_energy_filter" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_specialist_optics_type_energy_filter" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('model_specialist_optics_type_energy_filter');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_specialist_optics_type_energy_filter" style="display:block"><b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_specialist_optics_type_energy_filter_name" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component name{0,1}')">name{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_specialist_optics_type_energy_filter_slit_width" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component slit_width{0,1}')">slit_width{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component lower_energy_threshold{0,1}')">lower_energy_threshold{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component upper_energy_threshold{0,1}')">upper_energy_threshold{0,1}</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component lower_energy_threshold')">lower_energy_threshold</a></b>, <b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_specialist_optics_type_energy_filter_name" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component name')">name</a></b>, <b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_specialist_optics_type_energy_filter_slit_width" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component slit_width')">slit_width</a></b>, <b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component upper_energy_threshold')">upper_energy_threshold</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_specialist_optics_type_energy_filter" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('instance_specialist_optics_type_energy_filter');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_specialist_optics_type_energy_filter" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;energy_filter</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;name</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/name&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;slit_width</span><span class="tT"> </span><span class="tAN">units=</span><span class="tAV">"eV"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/slit_width&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;lower_energy_threshold</span><span class="tT"> </span><span class="tAN">units=</span><span class="tAV">"eV"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/lower_energy_threshold&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;upper_energy_threshold</span><span class="tT"> </span><span class="tAN">units=</span><span class="tAV">"eV"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/upper_energy_threshold&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/energy_filter&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_specialist_optics_type_energy_filter" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_specialist_optics_type_energy_filter');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_specialist_optics_type_energy_filter" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"energy_filter"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"name"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"slit_width"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:simpleContent</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:extension</span><span class="tAN"> base=</span><span class="tAV">"allowed_energy_filter_width"</span><span class="tEl">&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;xs:attribute</span><span class="tAN"> name=</span><span class="tAV">"units"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tAN"> fixed=</span><span class="tAV">"eV"</span><span class="tAN"> use=</span><span class="tAV">"required"</span><span class="tEl">/&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;/xs:extension&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/xs:simpleContent&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"lower_energy_threshold"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:simpleContent</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:extension</span><span class="tAN"> base=</span><span class="tAV">"allowed_energy_window"</span><span class="tEl">&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;xs:attribute</span><span class="tAN"> name=</span><span class="tAV">"units"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tAN"> fixed=</span><span class="tAV">"eV"</span><span class="tAN"> use=</span><span class="tAV">"required"</span><span class="tEl">/&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;/xs:extension&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/xs:simpleContent&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"upper_energy_threshold"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:simpleContent</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:extension</span><span class="tAN"> base=</span><span class="tAV">"allowed_energy_window"</span><span class="tEl">&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;xs:attribute</span><span class="tAN"> name=</span><span class="tAV">"units"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tAN"> fixed=</span><span class="tAV">"eV"</span><span class="tAN"> use=</span><span class="tAV">"required"</span><span class="tEl">/&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;/xs:extension&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/xs:simpleContent&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="specialist_optics_type_specialist_optics_type_energy_filter_name"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component specialist_optics_type')">specialist_optics_type</a></b> / <b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_energy_filter" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component energy_filter')">energy_filter</a></b> / name</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_specialist_optics_type_specialist_optics_type_energy_filter_name" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_specialist_optics_type_specialist_optics_type_energy_filter_name');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_specialist_optics_type_specialist_optics_type_energy_filter_name" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_name_5.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:token</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_specialist_optics_type_specialist_optics_type_energy_filter_name" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_specialist_optics_type_specialist_optics_type_energy_filter_name');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_specialist_optics_type_specialist_optics_type_energy_filter_name" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_specialist_optics_type_specialist_optics_type_energy_filter_name" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_specialist_optics_type_specialist_optics_type_energy_filter_name');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_specialist_optics_type_specialist_optics_type_energy_filter_name" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"name"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="specialist_optics_type_specialist_optics_type_energy_filter_slit_width"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component specialist_optics_type')">specialist_optics_type</a></b> / <b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_energy_filter" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component energy_filter')">energy_filter</a></b> / slit_width</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_specialist_optics_type_specialist_optics_type_energy_filter_slit_width" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_specialist_optics_type_specialist_optics_type_energy_filter_slit_width');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_specialist_optics_type_specialist_optics_type_energy_filter_slit_width" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_slit_width.jpeg" usemap="#emdb_xsd_Element_slit_width" /><map name="emdb_xsd_Element_slit_width" id="emdb_xsd_Element_slit_width"><area alt="emdb_xsd_Simple_Type_allowed_energy_filter_width.tmp#allowed_energy_filter_width" href="emdb_xsd_Simple_Type_allowed_energy_filter_width.html#allowed_energy_filter_width" coords="318,2,522,28" /><area alt="emdb_xsd_Complex_Type_specialist_optics_type.tmp#specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_slit_width_units" href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_slit_width_units" coords="332,76,446,136" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td>extension of <b><a href="emdb_xsd_Simple_Type_allowed_energy_filter_width.html#allowed_energy_filter_width" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component allowed_energy_filter_width')">allowed_energy_filter_width</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type hierarchy</b></td>
+                        <td>
+                           <ul class="internal">
+                              <li class="internal"><b>xs:float</b><ul class="internal">
+                                    <li class="internal"><b><a href="emdb_xsd_Simple_Type_allowed_energy_filter_width.html#allowed_energy_filter_width" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component allowed_energy_filter_width')">allowed_energy_filter_width</a></b></li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_specialist_optics_type_specialist_optics_type_energy_filter_slit_width" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_specialist_optics_type_specialist_optics_type_energy_filter_slit_width');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_specialist_optics_type_specialist_optics_type_energy_filter_slit_width" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Attributes</b></div>
+                           <div class="floatRight"><input id="button_attributes_specialist_optics_type_specialist_optics_type_energy_filter_slit_width" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('attributes_specialist_optics_type_specialist_optics_type_energy_filter_slit_width');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="attributes_specialist_optics_type_specialist_optics_type_energy_filter_slit_width" style="display:block">
+                              <table class="attributesTable">
+                                 <thead>
+                                    <tr>
+                                       <th>QName</th>
+                                       <th style="width:10%">Type</th>
+                                       <th style="width:10%">Fixed</th>
+                                       <th style="width:10%">Use</th>
+                                       <th></th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="firstColumn"><b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_slit_width_units" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component units')">units</a></b></td>
+                                    <td><b>xs:token</b></td>
+                                    <td>eV</td>
+                                    <td>required</td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_specialist_optics_type_specialist_optics_type_energy_filter_slit_width" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_specialist_optics_type_specialist_optics_type_energy_filter_slit_width');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_specialist_optics_type_specialist_optics_type_energy_filter_slit_width" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"slit_width"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:simpleContent</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:extension</span><span class="tAN"> base=</span><span class="tAV">"allowed_energy_filter_width"</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:attribute</span><span class="tAN"> name=</span><span class="tAV">"units"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tAN"> fixed=</span><span class="tAV">"eV"</span><span class="tAN"> use=</span><span class="tAV">"required"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:extension&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:simpleContent&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component specialist_optics_type')">specialist_optics_type</a></b> / <b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_energy_filter" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component energy_filter')">energy_filter</a></b> / lower_energy_threshold</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_lower_energy_threshold.jpeg" usemap="#emdb_xsd_Element_lower_energy_threshold" /><map name="emdb_xsd_Element_lower_energy_threshold" id="emdb_xsd_Element_lower_energy_threshold"><area alt="emdb_xsd_Simple_Type_allowed_energy_window.tmp#allowed_energy_window" href="emdb_xsd_Simple_Type_allowed_energy_window.html#allowed_energy_window" coords="298,2,482,28" /><area alt="emdb_xsd_Complex_Type_specialist_optics_type.tmp#specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold_units" href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold_units" coords="312,76,426,136" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td>extension of <b><a href="emdb_xsd_Simple_Type_allowed_energy_window.html#allowed_energy_window" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component allowed_energy_window')">allowed_energy_window</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type hierarchy</b></td>
+                        <td>
+                           <ul class="internal">
+                              <li class="internal"><b>xs:float</b><ul class="internal">
+                                    <li class="internal"><b><a href="emdb_xsd_Simple_Type_allowed_energy_window.html#allowed_energy_window" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component allowed_energy_window')">allowed_energy_window</a></b></li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Attributes</b></div>
+                           <div class="floatRight"><input id="button_attributes_specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('attributes_specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="attributes_specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold" style="display:block">
+                              <table class="attributesTable">
+                                 <thead>
+                                    <tr>
+                                       <th>QName</th>
+                                       <th style="width:10%">Type</th>
+                                       <th style="width:10%">Fixed</th>
+                                       <th style="width:10%">Use</th>
+                                       <th></th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="firstColumn"><b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold_units" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component units')">units</a></b></td>
+                                    <td><b>xs:token</b></td>
+                                    <td>eV</td>
+                                    <td>required</td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"lower_energy_threshold"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:simpleContent</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:extension</span><span class="tAN"> base=</span><span class="tAV">"allowed_energy_window"</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:attribute</span><span class="tAN"> name=</span><span class="tAV">"units"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tAN"> fixed=</span><span class="tAV">"eV"</span><span class="tAN"> use=</span><span class="tAV">"required"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:extension&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:simpleContent&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component specialist_optics_type')">specialist_optics_type</a></b> / <b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_energy_filter" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component energy_filter')">energy_filter</a></b> / upper_energy_threshold</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_upper_energy_threshold.jpeg" usemap="#emdb_xsd_Element_upper_energy_threshold" /><map name="emdb_xsd_Element_upper_energy_threshold" id="emdb_xsd_Element_upper_energy_threshold"><area alt="emdb_xsd_Simple_Type_allowed_energy_window.tmp#allowed_energy_window" href="emdb_xsd_Simple_Type_allowed_energy_window.html#allowed_energy_window" coords="298,2,482,28" /><area alt="emdb_xsd_Complex_Type_specialist_optics_type.tmp#specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold_units" href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold_units" coords="312,76,426,136" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td>extension of <b><a href="emdb_xsd_Simple_Type_allowed_energy_window.html#allowed_energy_window" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component allowed_energy_window')">allowed_energy_window</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type hierarchy</b></td>
+                        <td>
+                           <ul class="internal">
+                              <li class="internal"><b>xs:float</b><ul class="internal">
+                                    <li class="internal"><b><a href="emdb_xsd_Simple_Type_allowed_energy_window.html#allowed_energy_window" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component allowed_energy_window')">allowed_energy_window</a></b></li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Attributes</b></div>
+                           <div class="floatRight"><input id="button_attributes_specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('attributes_specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="attributes_specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold" style="display:block">
+                              <table class="attributesTable">
+                                 <thead>
+                                    <tr>
+                                       <th>QName</th>
+                                       <th style="width:10%">Type</th>
+                                       <th style="width:10%">Fixed</th>
+                                       <th style="width:10%">Use</th>
+                                       <th></th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="firstColumn"><b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold_units" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component units')">units</a></b></td>
+                                    <td><b>xs:token</b></td>
+                                    <td>eV</td>
+                                    <td>required</td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"upper_energy_threshold"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:simpleContent</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:extension</span><span class="tAN"> base=</span><span class="tAV">"allowed_energy_window"</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:attribute</span><span class="tAN"> name=</span><span class="tAV">"units"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tAN"> fixed=</span><span class="tAV">"eV"</span><span class="tAN"> use=</span><span class="tAV">"required"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:extension&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:simpleContent&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="specialist_optics_type_details"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component specialist_optics_type')">specialist_optics_type</a></b> / details</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_specialist_optics_type_details" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_specialist_optics_type_details');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_specialist_optics_type_details" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_details_18.jpeg" /></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:string</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_specialist_optics_type_details" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_specialist_optics_type_details');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_specialist_optics_type_details" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>simple</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_specialist_optics_type_details" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_specialist_optics_type_details');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_specialist_optics_type_details" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"details"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="specialist_optics_type"></a><div class="componentTitle">Complex Type <span class="qname">specialist_optics_type</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_specialist_optics_type" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_specialist_optics_type');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_specialist_optics_type" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Complex_Type_specialist_optics_type.jpeg" usemap="#emdb_xsd_Complex_Type_specialist_optics_type" /><map name="emdb_xsd_Complex_Type_specialist_optics_type" id="emdb_xsd_Complex_Type_specialist_optics_type"><area alt="emdb_xsd_Complex_Type_specialist_optics_type.tmp#specialist_optics_type_phase_plate" href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_phase_plate" coords="272,0,464,42" /><area alt="emdb_xsd_Complex_Type_specialist_optics_type.tmp#specialist_optics_type_sph_aberration_corrector" href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_sph_aberration_corrector" coords="272,52,442,94" /><area alt="emdb_xsd_Complex_Type_specialist_optics_type.tmp#specialist_optics_type_chr_aberration_corrector" href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_chr_aberration_corrector" coords="272,104,440,146" /><area alt="emdb_xsd_Complex_Type_specialist_optics_type.tmp#specialist_optics_type_energy_filter" href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_energy_filter" coords="272,156,371,180" /><area alt="emdb_xsd_Complex_Type_specialist_optics_type.tmp#specialist_optics_type_details" href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_details" coords="272,190,385,232" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_specialist_optics_type" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('usedBy_specialist_optics_type');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_specialist_optics_type" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_specialist_optics" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component base_microscopy_type/specialist_optics')">base_microscopy_type/specialist_optics</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_specialist_optics_type" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('model_specialist_optics_type');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_specialist_optics_type" style="display:block"><b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_phase_plate" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component phase_plate{0,1}')">phase_plate{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_sph_aberration_corrector" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component sph_aberration_corrector{0,1}')">sph_aberration_corrector{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_chr_aberration_corrector" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component chr_aberration_corrector{0,1}')">chr_aberration_corrector{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_energy_filter" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component energy_filter{0,1}')">energy_filter{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_details" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component details{0,1}')">details{0,1}</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_chr_aberration_corrector" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component chr_aberration_corrector')">chr_aberration_corrector</a></b>, <b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_details" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component details')">details</a></b>, <b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_energy_filter" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component energy_filter')">energy_filter</a></b>, <b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_phase_plate" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component phase_plate')">phase_plate</a></b>, <b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_sph_aberration_corrector" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component sph_aberration_corrector')">sph_aberration_corrector</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_specialist_optics_type" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_specialist_optics_type');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_specialist_optics_type" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:complexType</span><span class="tAN"> name=</span><span class="tAV">"specialist_optics_type"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"phase_plate"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:token"</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"ZERNIKE PHASE PLATE"</span><span class="tEl">/&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"VOLTA PHASE PLATE"</span><span class="tEl">/&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"OTHER"</span><span class="tEl">/&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xs:restriction&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:simpleType&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"sph_aberration_corrector"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"chr_aberration_corrector"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"energy_filter"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"name"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"slit_width"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;xs:simpleContent</span><span class="tEl">&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;xs:extension</span><span class="tAN"> base=</span><span class="tAV">"allowed_energy_filter_width"</span><span class="tEl">&gt;</span><span class="tI">
+                  </span><span class="tEl">&lt;xs:attribute</span><span class="tAN"> name=</span><span class="tAV">"units"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tAN"> fixed=</span><span class="tAV">"eV"</span><span class="tAN"> use=</span><span class="tAV">"required"</span><span class="tEl">/&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;/xs:extension&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;/xs:simpleContent&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"lower_energy_threshold"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;xs:simpleContent</span><span class="tEl">&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;xs:extension</span><span class="tAN"> base=</span><span class="tAV">"allowed_energy_window"</span><span class="tEl">&gt;</span><span class="tI">
+                  </span><span class="tEl">&lt;xs:attribute</span><span class="tAN"> name=</span><span class="tAV">"units"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tAN"> fixed=</span><span class="tAV">"eV"</span><span class="tAN"> use=</span><span class="tAV">"required"</span><span class="tEl">/&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;/xs:extension&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;/xs:simpleContent&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"upper_energy_threshold"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;xs:simpleContent</span><span class="tEl">&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;xs:extension</span><span class="tAN"> base=</span><span class="tAV">"allowed_energy_window"</span><span class="tEl">&gt;</span><span class="tI">
+                  </span><span class="tEl">&lt;xs:attribute</span><span class="tAN"> name=</span><span class="tAV">"units"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tAN"> fixed=</span><span class="tAV">"eV"</span><span class="tAN"> use=</span><span class="tAV">"required"</span><span class="tEl">/&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;/xs:extension&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;/xs:simpleContent&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"details"</span><span class="tAN"> type=</span><span class="tAV">"xs:string"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:complexType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_slit_width_units"></a><div class="componentTitle">Attribute <span class="qname"><b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component specialist_optics_type')">specialist_optics_type</a></b> / <b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_energy_filter" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component energy_filter')">energy_filter</a></b> / <b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_specialist_optics_type_energy_filter_slit_width" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component slit_width')">slit_width</a></b> / @units</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:token</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_slit_width_units" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_slit_width_units');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_slit_width_units" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">use</td>
+                                    <td><b>required</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">fixed</td>
+                                    <td><b>eV</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_slit_width_units" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('usedBy_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_slit_width_units');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_slit_width_units" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_specialist_optics_type_energy_filter_slit_width" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component specialist_optics_type/energy_filter/slit_width')">specialist_optics_type/energy_filter/slit_width</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_slit_width_units" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_slit_width_units');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_slit_width_units" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:attribute</span><span class="tAN"> name=</span><span class="tAV">"units"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tAN"> fixed=</span><span class="tAV">"eV"</span><span class="tAN"> use=</span><span class="tAV">"required"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold_units"></a><div class="componentTitle">Attribute <span class="qname"><b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component specialist_optics_type')">specialist_optics_type</a></b> / <b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_energy_filter" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component energy_filter')">energy_filter</a></b> / <b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component lower_energy_threshold')">lower_energy_threshold</a></b> / @units</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:token</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold_units" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold_units');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold_units" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">use</td>
+                                    <td><b>required</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">fixed</td>
+                                    <td><b>eV</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold_units" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('usedBy_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold_units');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold_units" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component specialist_optics_type/energy_filter/lower_energy_threshold')">specialist_optics_type/energy_filter/lower_energy_threshold</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold_units" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold_units');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_lower_energy_threshold_units" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:attribute</span><span class="tAN"> name=</span><span class="tAV">"units"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tAN"> fixed=</span><span class="tAV">"eV"</span><span class="tAN"> use=</span><span class="tAV">"required"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold_units"></a><div class="componentTitle">Attribute <span class="qname"><b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component specialist_optics_type')">specialist_optics_type</a></b> / <b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_energy_filter" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component energy_filter')">energy_filter</a></b> / <b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component upper_energy_threshold')">upper_energy_threshold</a></b> / @units</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b>xs:token</b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold_units" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold_units');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold_units" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">use</td>
+                                    <td><b>required</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">fixed</td>
+                                    <td><b>eV</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold_units" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('usedBy_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold_units');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold_units" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="emdb_xsd_Complex_Type_specialist_optics_type.html#specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component specialist_optics_type/energy_filter/upper_energy_threshold')">specialist_optics_type/energy_filter/upper_energy_threshold</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold_units" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold_units');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_specialist_optics_type_specialist_optics_type_energy_filter_specialist_optics_type_specialist_optics_type_energy_filter_upper_energy_threshold_units" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:attribute</span><span class="tAN"> name=</span><span class="tAV">"units"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tAN"> fixed=</span><span class="tAV">"eV"</span><span class="tAN"> use=</span><span class="tAV">"required"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table>
+      <div class="footer">
+         <hr />
+         <div style="text-align:center">XML Schema documentation generated by <a href="http://www.oxygenxml.com" target="_parent"><span class="oXygenLogo"><span class="redX">&lt;</span>o<span class="redX">X</span>ygen<span class="redX">/&gt;</span></span></a><sup>®</sup> XML Editor Trial Edition.</div>
+      </div><script type="text/javascript"><!--
+                     // The namespace is the selected option in the TOC combo.
+                    
+                     // Floats the toolbar.
+                     var globalControls = getElementObject("global_controls"); 
+                     
+                     if(globalControls != null){
+	                     var browser=navigator.appName;
+						 var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+						 
+						 var IE6 = false;
+						 if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+						 	IE6 = true;
+						 }
+	
+	                     //alert (IE6 + " |V| " + version);
+	                     
+	                     if(IE6){
+	                     	// On IE 6 the 'fixed' property is not supported. We must use javascript. 
+	                         globalControls.style.position='absolute';                         
+	                         // The global controls will do not exist in the TOC frame, when chunking.
+	                         findAndFloat("global_controls", 225, 30);    
+	                     } else {
+	                      	  globalControls.style.position='fixed';                     	
+	                     }
+	                     
+	                     globalControls.style.right='0';                       
+                     }
+                //--></script></body>
+</html>

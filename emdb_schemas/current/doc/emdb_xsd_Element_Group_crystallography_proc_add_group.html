@@ -1,0 +1,1489 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>Schema documentation for component final_reconstruction</title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css" /><script type="text/javascript"><!--
+        var propertiesBoxes= new Array('properties_crystallography_proc_add_group_final_reconstruction', 
+				'properties_crystallography_proc_add_group_crystal_parameters', 
+				'properties_crystallography_proc_add_group_startup_model', 
+				'properties_crystallography_proc_add_group_ctf_correction', 
+				'properties_crystallography_proc_add_group_molecular_replacement', 
+				'properties_crystallography_proc_add_group_lattice_distortion_correction_software_list', 
+				'properties_crystallography_proc_add_group_symmetry_determination_software_list', 
+				'properties_crystallography_proc_add_group_merging_software_list', 
+				'properties_crystallography_proc_add_group_crystallography_statistics');
+var usedByBoxes= new Array('usedBy_crystallography_proc_add_group');
+var sourceBoxes= new Array('source_crystallography_proc_add_group_final_reconstruction', 
+				'source_crystallography_proc_add_group_crystal_parameters', 
+				'source_crystallography_proc_add_group_startup_model', 
+				'source_crystallography_proc_add_group_ctf_correction', 
+				'source_crystallography_proc_add_group_molecular_replacement', 
+				'source_crystallography_proc_add_group_lattice_distortion_correction_software_list', 
+				'source_crystallography_proc_add_group_symmetry_determination_software_list', 
+				'source_crystallography_proc_add_group_merging_software_list', 
+				'source_crystallography_proc_add_group_crystallography_statistics', 
+				'source_crystallography_proc_add_group');
+var instanceBoxes= new Array('instance_crystallography_proc_add_group_final_reconstruction', 
+				'instance_crystallography_proc_add_group_crystal_parameters', 
+				'instance_crystallography_proc_add_group_startup_model', 
+				'instance_crystallography_proc_add_group_ctf_correction', 
+				'instance_crystallography_proc_add_group_molecular_replacement', 
+				'instance_crystallography_proc_add_group_lattice_distortion_correction_software_list', 
+				'instance_crystallography_proc_add_group_symmetry_determination_software_list', 
+				'instance_crystallography_proc_add_group_merging_software_list', 
+				'instance_crystallography_proc_add_group_crystallography_statistics');
+var diagramBoxes= new Array('diagram_crystallography_proc_add_group_final_reconstruction', 
+				'diagram_crystallography_proc_add_group_crystal_parameters', 
+				'diagram_crystallography_proc_add_group_startup_model', 
+				'diagram_crystallography_proc_add_group_ctf_correction', 
+				'diagram_crystallography_proc_add_group_molecular_replacement', 
+				'diagram_crystallography_proc_add_group_lattice_distortion_correction_software_list', 
+				'diagram_crystallography_proc_add_group_symmetry_determination_software_list', 
+				'diagram_crystallography_proc_add_group_merging_software_list', 
+				'diagram_crystallography_proc_add_group_crystallography_statistics', 
+				'diagram_crystallography_proc_add_group');
+var attributesBoxes= new Array('attributes_crystallography_proc_add_group_startup_model');
+var modelBoxes= new Array('model_crystallography_proc_add_group_final_reconstruction', 
+				'model_crystallography_proc_add_group_crystal_parameters', 
+				'model_crystallography_proc_add_group_startup_model', 
+				'model_crystallography_proc_add_group_ctf_correction', 
+				'model_crystallography_proc_add_group_molecular_replacement', 
+				'model_crystallography_proc_add_group_lattice_distortion_correction_software_list', 
+				'model_crystallography_proc_add_group_symmetry_determination_software_list', 
+				'model_crystallography_proc_add_group_merging_software_list', 
+				'model_crystallography_proc_add_group_crystallography_statistics', 
+				'model_crystallography_proc_add_group');
+
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                    //--></script></head>
+   <body>
+      <div id="global_controls" class="globalControls" style="position:absolute;right:0;">
+         <table class="rt">
+            <tr>
+               <td class="rt_cornerTopLeft"></td>
+               <td class="rt_lineTop"></td>
+               <td class="rt_cornerTopRight"></td>
+            </tr>
+            <tr>
+               <td class="rt_lineLeft"></td>
+               <td class="rt_content">
+                  <h3>Showing:</h3>
+                  <table>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, attributesBoxes);" class="control" /></span><span class="globalControlName">Attributes </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, diagramBoxes);" class="control" /></span><span class="globalControlName">Diagrams</span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, instanceBoxes);" class="control" /></span><span class="globalControlName">Instances</span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, modelBoxes);" class="control" /></span><span class="globalControlName">Model </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, propertiesBoxes);" class="control" /></span><span class="globalControlName">Properties </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, sourceBoxes);" class="control" /></span><span class="globalControlName">Source</span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, usedByBoxes);" class="control" /></span><span class="globalControlName">Used by </span></td>
+                     </tr>
+                  </table>
+                  <div style="text-align:center"><span><input type="button" onclick="getElementObject('global_controls').style.display = 'none';" value="Close" /></span></div>
+               </td>
+               <td class="rt_lineRight"></td>
+            </tr>
+            <tr>
+               <td class="rt_cornerBottomLeft"></td>
+               <td class="rt_lineBottom"></td>
+               <td class="rt_cornerBottomRight"></td>
+            </tr>
+         </table>
+      </div><a id="crystallography_proc_add_group_final_reconstruction"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component crystallography_proc_add_group')">crystallography_proc_add_group</a></b> / final_reconstruction</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_crystallography_proc_add_group_final_reconstruction" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_crystallography_proc_add_group_final_reconstruction');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_crystallography_proc_add_group_final_reconstruction" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_final_reconstruction.jpeg" usemap="#emdb_xsd_Element_final_reconstruction" /><map name="emdb_xsd_Element_final_reconstruction" id="emdb_xsd_Element_final_reconstruction"><area alt="emdb_xsd_Complex_Type_final_reconstruction_type.tmp#final_reconstruction_type_number_classes_used" href="emdb_xsd_Complex_Type_final_reconstruction_type.html#final_reconstruction_type_number_classes_used" coords="404,98,565,140" /><area alt="emdb_xsd_Complex_Type_final_reconstruction_type.tmp#final_reconstruction_type_applied_symmetry" href="emdb_xsd_Complex_Type_final_reconstruction_type.html#final_reconstruction_type_applied_symmetry" coords="404,150,596,192" /><area alt="emdb_xsd_Complex_Type_final_reconstruction_type.tmp#final_reconstruction_type_algorithm" href="emdb_xsd_Complex_Type_final_reconstruction_type.html#final_reconstruction_type_algorithm" coords="404,202,636,244" /><area alt="emdb_xsd_Complex_Type_final_reconstruction_type.tmp#final_reconstruction_type_resolution" href="emdb_xsd_Complex_Type_final_reconstruction_type.html#final_reconstruction_type_resolution" coords="404,254,629,296" /><area alt="emdb_xsd_Complex_Type_final_reconstruction_type.tmp#final_reconstruction_type_resolution_method" href="emdb_xsd_Complex_Type_final_reconstruction_type.html#final_reconstruction_type_resolution_method" coords="404,306,596,348" /><area alt="emdb_xsd_Complex_Type_final_reconstruction_type.tmp#final_reconstruction_type_reconstruction_filtering" href="emdb_xsd_Complex_Type_final_reconstruction_type.html#final_reconstruction_type_reconstruction_filtering" coords="404,358,626,400" /><area alt="emdb_xsd_Complex_Type_final_reconstruction_type.tmp#final_reconstruction_type_software_list" href="emdb_xsd_Complex_Type_final_reconstruction_type.html#final_reconstruction_type_software_list" coords="404,410,566,452" /><area alt="emdb_xsd_Complex_Type_final_reconstruction_type.tmp#final_reconstruction_type_details" href="emdb_xsd_Complex_Type_final_reconstruction_type.html#final_reconstruction_type_details" coords="404,462,517,504" /><area alt="emdb_xsd_Complex_Type_final_reconstruction_type.tmp#final_reconstruction_type" href="emdb_xsd_Complex_Type_final_reconstruction_type.html#final_reconstruction_type" coords="322,61,603,83" /><area alt="emdb_xsd_Complex_Type_non_subtom_final_reconstruction_type.tmp#non_subtom_final_reconstruction_type_number_images_used" href="emdb_xsd_Complex_Type_non_subtom_final_reconstruction_type.html#non_subtom_final_reconstruction_type_number_images_used" coords="390,521,551,563" /><area alt="emdb_xsd_Complex_Type_non_subtom_final_reconstruction_type.tmp#non_subtom_final_reconstruction_type" href="emdb_xsd_Complex_Type_non_subtom_final_reconstruction_type.html#non_subtom_final_reconstruction_type" coords="308,3,571,43" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_non_subtom_final_reconstruction_type.html#non_subtom_final_reconstruction_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component non_subtom_final_reconstruction_type')">non_subtom_final_reconstruction_type</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type hierarchy</b></td>
+                        <td>
+                           <ul class="internal">
+                              <li class="internal"><b><a href="emdb_xsd_Complex_Type_final_reconstruction_type.html#final_reconstruction_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component final_reconstruction_type')">final_reconstruction_type</a></b><ul class="internal">
+                                    <li class="internal"><b><a href="emdb_xsd_Complex_Type_non_subtom_final_reconstruction_type.html#non_subtom_final_reconstruction_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component non_subtom_final_reconstruction_type')">non_subtom_final_reconstruction_type</a></b></li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_crystallography_proc_add_group_final_reconstruction" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_crystallography_proc_add_group_final_reconstruction');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_crystallography_proc_add_group_final_reconstruction" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_crystallography_proc_add_group_final_reconstruction" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('model_crystallography_proc_add_group_final_reconstruction');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_crystallography_proc_add_group_final_reconstruction" style="display:block"><b><a href="emdb_xsd_Complex_Type_final_reconstruction_type.html#final_reconstruction_type_number_classes_used" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component number_classes_used{0,1}')">number_classes_used{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_final_reconstruction_type.html#final_reconstruction_type_applied_symmetry" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component applied_symmetry{0,1}')">applied_symmetry{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_final_reconstruction_type.html#final_reconstruction_type_algorithm" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component algorithm{0,1}')">algorithm{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_final_reconstruction_type.html#final_reconstruction_type_resolution" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component resolution{0,1}')">resolution{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_final_reconstruction_type.html#final_reconstruction_type_resolution_method" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component resolution_method{0,1}')">resolution_method{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_final_reconstruction_type.html#final_reconstruction_type_reconstruction_filtering" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component reconstruction_filtering{0,1}')">reconstruction_filtering{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_final_reconstruction_type.html#final_reconstruction_type_software_list" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component software_list{0,1}')">software_list{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_final_reconstruction_type.html#final_reconstruction_type_details" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component details{0,1}')">details{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_non_subtom_final_reconstruction_type.html#non_subtom_final_reconstruction_type_number_images_used" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component number_images_used{0,1}')">number_images_used{0,1}</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_final_reconstruction_type.html#final_reconstruction_type_algorithm" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component algorithm')">algorithm</a></b>, <b><a href="emdb_xsd_Complex_Type_final_reconstruction_type.html#final_reconstruction_type_applied_symmetry" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component applied_symmetry')">applied_symmetry</a></b>, <b><a href="emdb_xsd_Complex_Type_final_reconstruction_type.html#final_reconstruction_type_details" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component details')">details</a></b>, <b><a href="emdb_xsd_Complex_Type_final_reconstruction_type.html#final_reconstruction_type_number_classes_used" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component number_classes_used')">number_classes_used</a></b>, <b><a href="emdb_xsd_Complex_Type_non_subtom_final_reconstruction_type.html#non_subtom_final_reconstruction_type_number_images_used" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component number_images_used')">number_images_used</a></b>, <b><a href="emdb_xsd_Complex_Type_final_reconstruction_type.html#final_reconstruction_type_reconstruction_filtering" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component reconstruction_filtering')">reconstruction_filtering</a></b>, <b><a href="emdb_xsd_Complex_Type_final_reconstruction_type.html#final_reconstruction_type_resolution" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component resolution')">resolution</a></b>, <b><a href="emdb_xsd_Complex_Type_final_reconstruction_type.html#final_reconstruction_type_resolution_method" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component resolution_method')">resolution_method</a></b>, <b><a href="emdb_xsd_Complex_Type_final_reconstruction_type.html#final_reconstruction_type_software_list" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component software_list')">software_list</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_crystallography_proc_add_group_final_reconstruction" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('instance_crystallography_proc_add_group_final_reconstruction');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_crystallography_proc_add_group_final_reconstruction" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;final_reconstruction</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;number_classes_used</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/number_classes_used&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;applied_symmetry</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/applied_symmetry&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;algorithm</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/algorithm&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;resolution</span><span class="tT"> </span><span class="tAN">res_type=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">units=</span><span class="tAV">"Å"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/resolution&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;resolution_method</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/resolution_method&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;reconstruction_filtering</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/reconstruction_filtering&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;software_list</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/software_list&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;details</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/details&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;number_images_used</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/number_images_used&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/final_reconstruction&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_crystallography_proc_add_group_final_reconstruction" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_crystallography_proc_add_group_final_reconstruction');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_crystallography_proc_add_group_final_reconstruction" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"final_reconstruction"</span><span class="tAN"> type=</span><span class="tAV">"non_subtom_final_reconstruction_type"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="crystallography_proc_add_group_crystal_parameters"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component crystallography_proc_add_group')">crystallography_proc_add_group</a></b> / crystal_parameters</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_crystallography_proc_add_group_crystal_parameters" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_crystallography_proc_add_group_crystal_parameters');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_crystallography_proc_add_group_crystal_parameters" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_crystal_parameters.jpeg" usemap="#emdb_xsd_Element_crystal_parameters" /><map name="emdb_xsd_Element_crystal_parameters" id="emdb_xsd_Element_crystal_parameters"><area alt="emdb_xsd_Complex_Type_crystal_parameters_type.tmp#crystal_parameters_type_unit_cell" href="emdb_xsd_Complex_Type_crystal_parameters_type.html#crystal_parameters_type_unit_cell" coords="310,40,449,82" /><area alt="emdb_xsd_Complex_Type_crystal_parameters_type.tmp#crystal_parameters_type_plane_group" href="emdb_xsd_Complex_Type_crystal_parameters_type.html#crystal_parameters_type_plane_group" coords="381,92,573,134" /><area alt="emdb_xsd_Complex_Type_crystal_parameters_type.tmp#crystal_parameters_type_space_group" href="emdb_xsd_Complex_Type_crystal_parameters_type.html#crystal_parameters_type_space_group" coords="381,144,492,186" /><area alt="emdb_xsd_Complex_Type_crystal_parameters_type.tmp#crystal_parameters_type" href="emdb_xsd_Complex_Type_crystal_parameters_type.html#crystal_parameters_type" coords="228,3,411,25" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_crystal_parameters_type.html#crystal_parameters_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component crystal_parameters_type')">crystal_parameters_type</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_crystallography_proc_add_group_crystal_parameters" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_crystallography_proc_add_group_crystal_parameters');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_crystallography_proc_add_group_crystal_parameters" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_crystallography_proc_add_group_crystal_parameters" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('model_crystallography_proc_add_group_crystal_parameters');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_crystallography_proc_add_group_crystal_parameters" style="display:block"><b><a href="emdb_xsd_Complex_Type_crystal_parameters_type.html#crystal_parameters_type_unit_cell" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component unit_cell')">unit_cell</a></b> , (<b><a href="emdb_xsd_Complex_Type_crystal_parameters_type.html#crystal_parameters_type_plane_group" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component plane_group')">plane_group</a></b> | <b><a href="emdb_xsd_Complex_Type_crystal_parameters_type.html#crystal_parameters_type_space_group" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component space_group')">space_group</a></b>)</div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_crystal_parameters_type.html#crystal_parameters_type_plane_group" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component plane_group')">plane_group</a></b>, <b><a href="emdb_xsd_Complex_Type_crystal_parameters_type.html#crystal_parameters_type_space_group" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component space_group')">space_group</a></b>, <b><a href="emdb_xsd_Complex_Type_crystal_parameters_type.html#crystal_parameters_type_unit_cell" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component unit_cell')">unit_cell</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_crystallography_proc_add_group_crystal_parameters" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('instance_crystallography_proc_add_group_crystal_parameters');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_crystallography_proc_add_group_crystal_parameters" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;crystal_parameters</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;unit_cell</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/unit_cell&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;plane_group</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/plane_group&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;space_group</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/space_group&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/crystal_parameters&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_crystallography_proc_add_group_crystal_parameters" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_crystallography_proc_add_group_crystal_parameters');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_crystallography_proc_add_group_crystal_parameters" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"crystal_parameters"</span><span class="tAN"> type=</span><span class="tAV">"crystal_parameters_type"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="crystallography_proc_add_group_startup_model"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component crystallography_proc_add_group')">crystallography_proc_add_group</a></b> / startup_model</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_crystallography_proc_add_group_startup_model" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_crystallography_proc_add_group_startup_model');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_crystallography_proc_add_group_startup_model" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_startup_model.jpeg" usemap="#emdb_xsd_Element_startup_model" /><map name="emdb_xsd_Element_startup_model" id="emdb_xsd_Element_startup_model"><area alt="emdb_xsd_Complex_Type_starting_map_type.tmp#starting_map_type_type_of_model" href="emdb_xsd_Complex_Type_starting_map_type.html#starting_map_type_type_of_model" coords="221,78,348,120" /><area alt="emdb_xsd_Complex_Type_starting_map_type.tmp#starting_map_type_random_conical_tilt" href="emdb_xsd_Complex_Type_starting_map_type.html#starting_map_type_random_conical_tilt" coords="349,137,486,161" /><area alt="emdb_xsd_Complex_Type_starting_map_type.tmp#starting_map_type_orthogonal_tilt" href="emdb_xsd_Complex_Type_starting_map_type.html#starting_map_type_orthogonal_tilt" coords="349,171,460,195" /><area alt="emdb_xsd_Complex_Type_starting_map_type.tmp#starting_map_type_emdb_id" href="emdb_xsd_Complex_Type_starting_map_type.html#starting_map_type_emdb_id" coords="349,205,489,247" /><area alt="emdb_xsd_Complex_Type_starting_map_type.tmp#starting_map_type_pdb_model" href="emdb_xsd_Complex_Type_starting_map_type.html#starting_map_type_pdb_model" coords="349,257,503,299" /><area alt="emdb_xsd_Complex_Type_starting_map_type.tmp#starting_map_type_insilico_model" href="emdb_xsd_Complex_Type_starting_map_type.html#starting_map_type_insilico_model" coords="349,309,460,351" /><area alt="emdb_xsd_Complex_Type_starting_map_type.tmp#starting_map_type_other" href="emdb_xsd_Complex_Type_starting_map_type.html#starting_map_type_other" coords="349,361,462,403" /><area alt="emdb_xsd_Complex_Type_starting_map_type.tmp#starting_map_type_details" href="emdb_xsd_Complex_Type_starting_map_type.html#starting_map_type_details" coords="278,413,391,455" /><area alt="emdb_xsd_Complex_Type_starting_map_type.tmp#starting_map_type" href="emdb_xsd_Complex_Type_starting_map_type.html#starting_map_type" coords="196,3,347,25" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_starting_map_type.html#starting_map_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component starting_map_type')">starting_map_type</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_crystallography_proc_add_group_startup_model" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_crystallography_proc_add_group_startup_model');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_crystallography_proc_add_group_startup_model" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">maxOccurs</td>
+                                    <td><b>unbounded</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_crystallography_proc_add_group_startup_model" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('model_crystallography_proc_add_group_startup_model');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_crystallography_proc_add_group_startup_model" style="display:block">(<b><a href="emdb_xsd_Complex_Type_starting_map_type.html#starting_map_type_random_conical_tilt" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component random_conical_tilt{0,1}')">random_conical_tilt{0,1}</a></b> | <b><a href="emdb_xsd_Complex_Type_starting_map_type.html#starting_map_type_orthogonal_tilt" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component orthogonal_tilt{0,1}')">orthogonal_tilt{0,1}</a></b> | <b><a href="emdb_xsd_Complex_Type_starting_map_type.html#starting_map_type_emdb_id" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component emdb_id{0,1}')">emdb_id{0,1}</a></b> | <b><a href="emdb_xsd_Complex_Type_starting_map_type.html#starting_map_type_pdb_model" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component pdb_model{0,1}')">pdb_model{0,1}</a></b> | <b><a href="emdb_xsd_Complex_Type_starting_map_type.html#starting_map_type_insilico_model" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component insilico_model{0,1}')">insilico_model{0,1}</a></b> | <b><a href="emdb_xsd_Complex_Type_starting_map_type.html#starting_map_type_other" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component other{0,1}')">other{0,1}</a></b>) , <b><a href="emdb_xsd_Complex_Type_starting_map_type.html#starting_map_type_details" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component details{0,1}')">details{0,1}</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_starting_map_type.html#starting_map_type_details" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component details')">details</a></b>, <b><a href="emdb_xsd_Complex_Type_starting_map_type.html#starting_map_type_emdb_id" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component emdb_id')">emdb_id</a></b>, <b><a href="emdb_xsd_Complex_Type_starting_map_type.html#starting_map_type_insilico_model" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component insilico_model')">insilico_model</a></b>, <b><a href="emdb_xsd_Complex_Type_starting_map_type.html#starting_map_type_orthogonal_tilt" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component orthogonal_tilt')">orthogonal_tilt</a></b>, <b><a href="emdb_xsd_Complex_Type_starting_map_type.html#starting_map_type_other" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component other')">other</a></b>, <b><a href="emdb_xsd_Complex_Type_starting_map_type.html#starting_map_type_pdb_model" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component pdb_model')">pdb_model</a></b>, <b><a href="emdb_xsd_Complex_Type_starting_map_type.html#starting_map_type_random_conical_tilt" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component random_conical_tilt')">random_conical_tilt</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_crystallography_proc_add_group_startup_model" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('instance_crystallography_proc_add_group_startup_model');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_crystallography_proc_add_group_startup_model" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;startup_model</span><span class="tT"> </span><span class="tAN">type_of_model=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;random_conical_tilt</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/random_conical_tilt&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;orthogonal_tilt</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/orthogonal_tilt&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;emdb_id</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/emdb_id&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;pdb_model</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/pdb_model&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;insilico_model</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/insilico_model&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;other</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/other&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;details</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/details&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/startup_model&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Attributes</b></div>
+                           <div class="floatRight"><input id="button_attributes_crystallography_proc_add_group_startup_model" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('attributes_crystallography_proc_add_group_startup_model');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="attributes_crystallography_proc_add_group_startup_model" style="display:block">
+                              <table class="attributesTable">
+                                 <thead>
+                                    <tr>
+                                       <th>QName</th>
+                                       <th style="width:10%">Type</th>
+                                       <th style="width:10%">Use</th>
+                                       <th></th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="firstColumn"><b><a href="emdb_xsd_Complex_Type_starting_map_type.html#starting_map_type_type_of_model" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component type_of_model')">type_of_model</a></b></td>
+                                    <td><b>xs:token</b></td>
+                                    <td>optional</td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_crystallography_proc_add_group_startup_model" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_crystallography_proc_add_group_startup_model');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_crystallography_proc_add_group_startup_model" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"startup_model"</span><span class="tAN"> type=</span><span class="tAV">"starting_map_type"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"unbounded"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="crystallography_proc_add_group_ctf_correction"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component crystallography_proc_add_group')">crystallography_proc_add_group</a></b> / ctf_correction</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_crystallography_proc_add_group_ctf_correction" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_crystallography_proc_add_group_ctf_correction');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_crystallography_proc_add_group_ctf_correction" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_ctf_correction.jpeg" usemap="#emdb_xsd_Element_ctf_correction" /><map name="emdb_xsd_Element_ctf_correction" id="emdb_xsd_Element_ctf_correction"><area alt="emdb_xsd_Complex_Type_ctf_correction_type.tmp#ctf_correction_type_phase_reversal" href="emdb_xsd_Complex_Type_ctf_correction_type.html#ctf_correction_type_phase_reversal" coords="283,40,395,64" /><area alt="emdb_xsd_Complex_Type_ctf_correction_type.tmp#ctf_correction_type_amplitude_correction" href="emdb_xsd_Complex_Type_ctf_correction_type.html#ctf_correction_type_amplitude_correction" coords="283,74,429,98" /><area alt="emdb_xsd_Complex_Type_ctf_correction_type.tmp#ctf_correction_type_correction_operation" href="emdb_xsd_Complex_Type_ctf_correction_type.html#ctf_correction_type_correction_operation" coords="283,108,477,150" /><area alt="emdb_xsd_Complex_Type_ctf_correction_type.tmp#ctf_correction_type_software_list" href="emdb_xsd_Complex_Type_ctf_correction_type.html#ctf_correction_type_software_list" coords="283,160,445,202" /><area alt="emdb_xsd_Complex_Type_ctf_correction_type.tmp#ctf_correction_type_details" href="emdb_xsd_Complex_Type_ctf_correction_type.html#ctf_correction_type_details" coords="283,212,396,254" /><area alt="emdb_xsd_Complex_Type_ctf_correction_type.tmp#ctf_correction_type_type" href="emdb_xsd_Complex_Type_ctf_correction_type.html#ctf_correction_type_type" coords="283,264,477,306" /><area alt="emdb_xsd_Complex_Type_ctf_correction_type.tmp#ctf_correction_type" href="emdb_xsd_Complex_Type_ctf_correction_type.html#ctf_correction_type" coords="201,3,357,25" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_ctf_correction_type.html#ctf_correction_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component ctf_correction_type')">ctf_correction_type</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_crystallography_proc_add_group_ctf_correction" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_crystallography_proc_add_group_ctf_correction');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_crystallography_proc_add_group_ctf_correction" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_crystallography_proc_add_group_ctf_correction" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('model_crystallography_proc_add_group_ctf_correction');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_crystallography_proc_add_group_ctf_correction" style="display:block"><b><a href="emdb_xsd_Complex_Type_ctf_correction_type.html#ctf_correction_type_phase_reversal" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component phase_reversal{0,1}')">phase_reversal{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_ctf_correction_type.html#ctf_correction_type_amplitude_correction" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component amplitude_correction{0,1}')">amplitude_correction{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_ctf_correction_type.html#ctf_correction_type_correction_operation" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component correction_operation{0,1}')">correction_operation{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_ctf_correction_type.html#ctf_correction_type_software_list" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component software_list{0,1}')">software_list{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_ctf_correction_type.html#ctf_correction_type_details" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component details{0,1}')">details{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_ctf_correction_type.html#ctf_correction_type_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component type{0,1}')">type{0,1}</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_ctf_correction_type.html#ctf_correction_type_amplitude_correction" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component amplitude_correction')">amplitude_correction</a></b>, <b><a href="emdb_xsd_Complex_Type_ctf_correction_type.html#ctf_correction_type_correction_operation" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component correction_operation')">correction_operation</a></b>, <b><a href="emdb_xsd_Complex_Type_ctf_correction_type.html#ctf_correction_type_details" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component details')">details</a></b>, <b><a href="emdb_xsd_Complex_Type_ctf_correction_type.html#ctf_correction_type_phase_reversal" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component phase_reversal')">phase_reversal</a></b>, <b><a href="emdb_xsd_Complex_Type_ctf_correction_type.html#ctf_correction_type_software_list" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component software_list')">software_list</a></b>, <b><a href="emdb_xsd_Complex_Type_ctf_correction_type.html#ctf_correction_type_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component type')">type</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_crystallography_proc_add_group_ctf_correction" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('instance_crystallography_proc_add_group_ctf_correction');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_crystallography_proc_add_group_ctf_correction" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;ctf_correction</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;phase_reversal</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/phase_reversal&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;amplitude_correction</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/amplitude_correction&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;correction_operation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/correction_operation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;software_list</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/software_list&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;details</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/details&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;type</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/type&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/ctf_correction&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_crystallography_proc_add_group_ctf_correction" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_crystallography_proc_add_group_ctf_correction');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_crystallography_proc_add_group_ctf_correction" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"ctf_correction"</span><span class="tAN"> type=</span><span class="tAV">"ctf_correction_type"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="crystallography_proc_add_group_molecular_replacement"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component crystallography_proc_add_group')">crystallography_proc_add_group</a></b> / molecular_replacement</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_crystallography_proc_add_group_molecular_replacement" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_crystallography_proc_add_group_molecular_replacement');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_crystallography_proc_add_group_molecular_replacement" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_molecular_replacement.jpeg" usemap="#emdb_xsd_Element_molecular_replacement" /><map name="emdb_xsd_Element_molecular_replacement" id="emdb_xsd_Element_molecular_replacement"><area alt="emdb_xsd_Complex_Type_molecular_replacement_type.tmp#molecular_replacement_type_starting_model" href="emdb_xsd_Complex_Type_molecular_replacement_type.html#molecular_replacement_type_starting_model" coords="353,40,465,64" /><area alt="emdb_xsd_Complex_Type_molecular_replacement_type.tmp#molecular_replacement_type_resolution_range" href="emdb_xsd_Complex_Type_molecular_replacement_type.html#molecular_replacement_type_resolution_range" coords="353,74,476,98" /><area alt="emdb_xsd_Complex_Type_molecular_replacement_type.tmp#molecular_replacement_type_software_list" href="emdb_xsd_Complex_Type_molecular_replacement_type.html#molecular_replacement_type_software_list" coords="353,108,515,150" /><area alt="emdb_xsd_Complex_Type_molecular_replacement_type.tmp#molecular_replacement_type" href="emdb_xsd_Complex_Type_molecular_replacement_type.html#molecular_replacement_type" coords="250,3,455,25" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_molecular_replacement_type.html#molecular_replacement_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component molecular_replacement_type')">molecular_replacement_type</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_crystallography_proc_add_group_molecular_replacement" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_crystallography_proc_add_group_molecular_replacement');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_crystallography_proc_add_group_molecular_replacement" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_crystallography_proc_add_group_molecular_replacement" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('model_crystallography_proc_add_group_molecular_replacement');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_crystallography_proc_add_group_molecular_replacement" style="display:block"><b><a href="emdb_xsd_Complex_Type_molecular_replacement_type.html#molecular_replacement_type_starting_model" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component starting_model*')">starting_model*</a></b> , <b><a href="emdb_xsd_Complex_Type_molecular_replacement_type.html#molecular_replacement_type_resolution_range" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component resolution_range{0,1}')">resolution_range{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_molecular_replacement_type.html#molecular_replacement_type_software_list" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component software_list{0,1}')">software_list{0,1}</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_molecular_replacement_type.html#molecular_replacement_type_resolution_range" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component resolution_range')">resolution_range</a></b>, <b><a href="emdb_xsd_Complex_Type_molecular_replacement_type.html#molecular_replacement_type_software_list" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component software_list')">software_list</a></b>, <b><a href="emdb_xsd_Complex_Type_molecular_replacement_type.html#molecular_replacement_type_starting_model" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component starting_model')">starting_model</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_crystallography_proc_add_group_molecular_replacement" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('instance_crystallography_proc_add_group_molecular_replacement');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_crystallography_proc_add_group_molecular_replacement" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;molecular_replacement</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;starting_model</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,unbounded}</span><span class="tEl">&lt;/starting_model&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;resolution_range</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/resolution_range&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;software_list</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/software_list&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/molecular_replacement&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_crystallography_proc_add_group_molecular_replacement" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_crystallography_proc_add_group_molecular_replacement');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_crystallography_proc_add_group_molecular_replacement" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"molecular_replacement"</span><span class="tAN"> type=</span><span class="tAV">"molecular_replacement_type"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="crystallography_proc_add_group_lattice_distortion_correction_software_list"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component crystallography_proc_add_group')">crystallography_proc_add_group</a></b> / lattice_distortion_correction_software_list</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_crystallography_proc_add_group_lattice_distortion_correction_software_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_crystallography_proc_add_group_lattice_distortion_correction_software_list');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_crystallography_proc_add_group_lattice_distortion_correction_software_list" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_lattice_distortion_correction_software_list.jpeg" usemap="#emdb_xsd_Element_lattice_distortion_correction_software_list" /><map name="emdb_xsd_Element_lattice_distortion_correction_software_list" id="emdb_xsd_Element_lattice_distortion_correction_software_list"><area alt="emdb_xsd_Complex_Type_software_list_type.tmp#software_list_type_software" href="emdb_xsd_Complex_Type_software_list_type.html#software_list_type_software" coords="392,40,532,82" /><area alt="emdb_xsd_Complex_Type_software_list_type.tmp#software_list_type" href="emdb_xsd_Complex_Type_software_list_type.html#software_list_type" coords="289,3,437,25" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_software_list_type.html#software_list_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component software_list_type')">software_list_type</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_crystallography_proc_add_group_lattice_distortion_correction_software_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_crystallography_proc_add_group_lattice_distortion_correction_software_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_crystallography_proc_add_group_lattice_distortion_correction_software_list" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_crystallography_proc_add_group_lattice_distortion_correction_software_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('model_crystallography_proc_add_group_lattice_distortion_correction_software_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_crystallography_proc_add_group_lattice_distortion_correction_software_list" style="display:block"><b><a href="emdb_xsd_Complex_Type_software_list_type.html#software_list_type_software" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component software*')">software*</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_software_list_type.html#software_list_type_software" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component software')">software</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_crystallography_proc_add_group_lattice_distortion_correction_software_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('instance_crystallography_proc_add_group_lattice_distortion_correction_software_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_crystallography_proc_add_group_lattice_distortion_correction_software_list" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;lattice_distortion_correction_software_list</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;software</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,unbounded}</span><span class="tEl">&lt;/software&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/lattice_distortion_correction_software_list&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_crystallography_proc_add_group_lattice_distortion_correction_software_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_crystallography_proc_add_group_lattice_distortion_correction_software_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_crystallography_proc_add_group_lattice_distortion_correction_software_list" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"lattice_distortion_correction_software_list"</span><span class="tAN"> type=</span><span class="tAV">"software_list_type"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="crystallography_proc_add_group_symmetry_determination_software_list"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component crystallography_proc_add_group')">crystallography_proc_add_group</a></b> / symmetry_determination_software_list</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_crystallography_proc_add_group_symmetry_determination_software_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_crystallography_proc_add_group_symmetry_determination_software_list');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_crystallography_proc_add_group_symmetry_determination_software_list" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_symmetry_determination_software_list.jpeg" usemap="#emdb_xsd_Element_symmetry_determination_software_list" /><map name="emdb_xsd_Element_symmetry_determination_software_list" id="emdb_xsd_Element_symmetry_determination_software_list"><area alt="emdb_xsd_Complex_Type_software_list_type.tmp#software_list_type_software" href="emdb_xsd_Complex_Type_software_list_type.html#software_list_type_software" coords="373,40,513,82" /><area alt="emdb_xsd_Complex_Type_software_list_type.tmp#software_list_type" href="emdb_xsd_Complex_Type_software_list_type.html#software_list_type" coords="270,3,418,25" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_software_list_type.html#software_list_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component software_list_type')">software_list_type</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_crystallography_proc_add_group_symmetry_determination_software_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_crystallography_proc_add_group_symmetry_determination_software_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_crystallography_proc_add_group_symmetry_determination_software_list" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_crystallography_proc_add_group_symmetry_determination_software_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('model_crystallography_proc_add_group_symmetry_determination_software_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_crystallography_proc_add_group_symmetry_determination_software_list" style="display:block"><b><a href="emdb_xsd_Complex_Type_software_list_type.html#software_list_type_software" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component software*')">software*</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_software_list_type.html#software_list_type_software" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component software')">software</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_crystallography_proc_add_group_symmetry_determination_software_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('instance_crystallography_proc_add_group_symmetry_determination_software_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_crystallography_proc_add_group_symmetry_determination_software_list" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;symmetry_determination_software_list</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;software</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,unbounded}</span><span class="tEl">&lt;/software&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/symmetry_determination_software_list&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_crystallography_proc_add_group_symmetry_determination_software_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_crystallography_proc_add_group_symmetry_determination_software_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_crystallography_proc_add_group_symmetry_determination_software_list" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"symmetry_determination_software_list"</span><span class="tAN"> type=</span><span class="tAV">"software_list_type"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="crystallography_proc_add_group_merging_software_list"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component crystallography_proc_add_group')">crystallography_proc_add_group</a></b> / merging_software_list</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_crystallography_proc_add_group_merging_software_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_crystallography_proc_add_group_merging_software_list');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_crystallography_proc_add_group_merging_software_list" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_merging_software_list.jpeg" usemap="#emdb_xsd_Element_merging_software_list" /><map name="emdb_xsd_Element_merging_software_list" id="emdb_xsd_Element_merging_software_list"><area alt="emdb_xsd_Complex_Type_software_list_type.tmp#software_list_type_software" href="emdb_xsd_Complex_Type_software_list_type.html#software_list_type_software" coords="296,40,436,82" /><area alt="emdb_xsd_Complex_Type_software_list_type.tmp#software_list_type" href="emdb_xsd_Complex_Type_software_list_type.html#software_list_type" coords="193,3,341,25" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_software_list_type.html#software_list_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component software_list_type')">software_list_type</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_crystallography_proc_add_group_merging_software_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_crystallography_proc_add_group_merging_software_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_crystallography_proc_add_group_merging_software_list" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_crystallography_proc_add_group_merging_software_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('model_crystallography_proc_add_group_merging_software_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_crystallography_proc_add_group_merging_software_list" style="display:block"><b><a href="emdb_xsd_Complex_Type_software_list_type.html#software_list_type_software" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component software*')">software*</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_software_list_type.html#software_list_type_software" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component software')">software</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_crystallography_proc_add_group_merging_software_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('instance_crystallography_proc_add_group_merging_software_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_crystallography_proc_add_group_merging_software_list" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;merging_software_list</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;software</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,unbounded}</span><span class="tEl">&lt;/software&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/merging_software_list&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_crystallography_proc_add_group_merging_software_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_crystallography_proc_add_group_merging_software_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_crystallography_proc_add_group_merging_software_list" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"merging_software_list"</span><span class="tAN"> type=</span><span class="tAV">"software_list_type"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="crystallography_proc_add_group_crystallography_statistics"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component crystallography_proc_add_group')">crystallography_proc_add_group</a></b> / crystallography_statistics</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_crystallography_proc_add_group_crystallography_statistics" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_crystallography_proc_add_group_crystallography_statistics');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_crystallography_proc_add_group_crystallography_statistics" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_crystallography_statistics.jpeg" usemap="#emdb_xsd_Element_crystallography_statistics" /><map name="emdb_xsd_Element_crystallography_statistics" id="emdb_xsd_Element_crystallography_statistics"><area alt="emdb_xsd_Complex_Type_crystallography_statistics_type.tmp#crystallography_statistics_type_number_intensities_measured" href="emdb_xsd_Complex_Type_crystallography_statistics_type.html#crystallography_statistics_type_number_intensities_measured" coords="345,40,538,82" /><area alt="emdb_xsd_Complex_Type_crystallography_statistics_type.tmp#crystallography_statistics_type_number_structure_factors" href="emdb_xsd_Complex_Type_crystallography_statistics_type.html#crystallography_statistics_type_number_structure_factors" coords="345,92,518,134" /><area alt="emdb_xsd_Complex_Type_crystallography_statistics_type.tmp#crystallography_statistics_type_fourier_space_coverage" href="emdb_xsd_Complex_Type_crystallography_statistics_type.html#crystallography_statistics_type_fourier_space_coverage" coords="345,144,505,186" /><area alt="emdb_xsd_Complex_Type_crystallography_statistics_type.tmp#crystallography_statistics_type_r_sym" href="emdb_xsd_Complex_Type_crystallography_statistics_type.html#crystallography_statistics_type_r_sym" coords="345,196,450,238" /><area alt="emdb_xsd_Complex_Type_crystallography_statistics_type.tmp#crystallography_statistics_type_r_merge" href="emdb_xsd_Complex_Type_crystallography_statistics_type.html#crystallography_statistics_type_r_merge" coords="345,248,450,290" /><area alt="emdb_xsd_Complex_Type_crystallography_statistics_type.tmp#crystallography_statistics_type_overall_phase_error" href="emdb_xsd_Complex_Type_crystallography_statistics_type.html#crystallography_statistics_type_overall_phase_error" coords="345,300,484,342" /><area alt="emdb_xsd_Complex_Type_crystallography_statistics_type.tmp#crystallography_statistics_type_overall_phase_residual" href="emdb_xsd_Complex_Type_crystallography_statistics_type.html#crystallography_statistics_type_overall_phase_residual" coords="345,352,499,394" /><area alt="emdb_xsd_Complex_Type_crystallography_statistics_type.tmp#crystallography_statistics_type_phase_error_rejection_criteria" href="emdb_xsd_Complex_Type_crystallography_statistics_type.html#crystallography_statistics_type_phase_error_rejection_criteria" coords="345,404,539,446" /><area alt="emdb_xsd_Complex_Type_crystallography_statistics_type.tmp#crystallography_statistics_type_high_resolution" href="emdb_xsd_Complex_Type_crystallography_statistics_type.html#crystallography_statistics_type_high_resolution" coords="345,456,570,498" /><area alt="emdb_xsd_Complex_Type_crystallography_statistics_type.tmp#crystallography_statistics_type_shell_list" href="emdb_xsd_Complex_Type_crystallography_statistics_type.html#crystallography_statistics_type_shell_list" coords="345,508,423,532" /><area alt="emdb_xsd_Complex_Type_crystallography_statistics_type.tmp#crystallography_statistics_type_details" href="emdb_xsd_Complex_Type_crystallography_statistics_type.html#crystallography_statistics_type_details" coords="345,542,458,584" /><area alt="emdb_xsd_Complex_Type_crystallography_statistics_type.tmp#crystallography_statistics_type" href="emdb_xsd_Complex_Type_crystallography_statistics_type.html#crystallography_statistics_type" coords="263,3,481,25" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_crystallography_statistics_type.html#crystallography_statistics_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component crystallography_statistics_type')">crystallography_statistics_type</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_crystallography_proc_add_group_crystallography_statistics" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_crystallography_proc_add_group_crystallography_statistics');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_crystallography_proc_add_group_crystallography_statistics" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_crystallography_proc_add_group_crystallography_statistics" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('model_crystallography_proc_add_group_crystallography_statistics');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_crystallography_proc_add_group_crystallography_statistics" style="display:block"><b><a href="emdb_xsd_Complex_Type_crystallography_statistics_type.html#crystallography_statistics_type_number_intensities_measured" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component number_intensities_measured')">number_intensities_measured</a></b> , <b><a href="emdb_xsd_Complex_Type_crystallography_statistics_type.html#crystallography_statistics_type_number_structure_factors" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component number_structure_factors')">number_structure_factors</a></b> , <b><a href="emdb_xsd_Complex_Type_crystallography_statistics_type.html#crystallography_statistics_type_fourier_space_coverage" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component fourier_space_coverage')">fourier_space_coverage</a></b> , <b><a href="emdb_xsd_Complex_Type_crystallography_statistics_type.html#crystallography_statistics_type_r_sym" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component r_sym{0,1}')">r_sym{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_crystallography_statistics_type.html#crystallography_statistics_type_r_merge" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component r_merge')">r_merge</a></b> , <b><a href="emdb_xsd_Complex_Type_crystallography_statistics_type.html#crystallography_statistics_type_overall_phase_error" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component overall_phase_error{0,1}')">overall_phase_error{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_crystallography_statistics_type.html#crystallography_statistics_type_overall_phase_residual" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component overall_phase_residual{0,1}')">overall_phase_residual{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_crystallography_statistics_type.html#crystallography_statistics_type_phase_error_rejection_criteria" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component phase_error_rejection_criteria')">phase_error_rejection_criteria</a></b> , <b><a href="emdb_xsd_Complex_Type_crystallography_statistics_type.html#crystallography_statistics_type_high_resolution" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component high_resolution')">high_resolution</a></b> , <b><a href="emdb_xsd_Complex_Type_crystallography_statistics_type.html#crystallography_statistics_type_shell_list" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component shell_list{0,1}')">shell_list{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_crystallography_statistics_type.html#crystallography_statistics_type_details" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component details{0,1}')">details{0,1}</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_crystallography_statistics_type.html#crystallography_statistics_type_details" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component details')">details</a></b>, <b><a href="emdb_xsd_Complex_Type_crystallography_statistics_type.html#crystallography_statistics_type_fourier_space_coverage" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component fourier_space_coverage')">fourier_space_coverage</a></b>, <b><a href="emdb_xsd_Complex_Type_crystallography_statistics_type.html#crystallography_statistics_type_high_resolution" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component high_resolution')">high_resolution</a></b>, <b><a href="emdb_xsd_Complex_Type_crystallography_statistics_type.html#crystallography_statistics_type_number_intensities_measured" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component number_intensities_measured')">number_intensities_measured</a></b>, <b><a href="emdb_xsd_Complex_Type_crystallography_statistics_type.html#crystallography_statistics_type_number_structure_factors" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component number_structure_factors')">number_structure_factors</a></b>, <b><a href="emdb_xsd_Complex_Type_crystallography_statistics_type.html#crystallography_statistics_type_overall_phase_error" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component overall_phase_error')">overall_phase_error</a></b>, <b><a href="emdb_xsd_Complex_Type_crystallography_statistics_type.html#crystallography_statistics_type_overall_phase_residual" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component overall_phase_residual')">overall_phase_residual</a></b>, <b><a href="emdb_xsd_Complex_Type_crystallography_statistics_type.html#crystallography_statistics_type_phase_error_rejection_criteria" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component phase_error_rejection_criteria')">phase_error_rejection_criteria</a></b>, <b><a href="emdb_xsd_Complex_Type_crystallography_statistics_type.html#crystallography_statistics_type_r_merge" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component r_merge')">r_merge</a></b>, <b><a href="emdb_xsd_Complex_Type_crystallography_statistics_type.html#crystallography_statistics_type_r_sym" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component r_sym')">r_sym</a></b>, <b><a href="emdb_xsd_Complex_Type_crystallography_statistics_type.html#crystallography_statistics_type_shell_list" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component shell_list')">shell_list</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_crystallography_proc_add_group_crystallography_statistics" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('instance_crystallography_proc_add_group_crystallography_statistics');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_crystallography_proc_add_group_crystallography_statistics" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;crystallography_statistics</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;number_intensities_measured</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/number_intensities_measured&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;number_structure_factors</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/number_structure_factors&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;fourier_space_coverage</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/fourier_space_coverage&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;r_sym</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/r_sym&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;r_merge</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/r_merge&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;overall_phase_error</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/overall_phase_error&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;overall_phase_residual</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/overall_phase_residual&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;phase_error_rejection_criteria</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/phase_error_rejection_criteria&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;high_resolution</span><span class="tT"> </span><span class="tAN">units=</span><span class="tAV">"Å"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/high_resolution&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;shell_list</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/shell_list&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;details</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/details&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/crystallography_statistics&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_crystallography_proc_add_group_crystallography_statistics" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_crystallography_proc_add_group_crystallography_statistics');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_crystallography_proc_add_group_crystallography_statistics" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"crystallography_statistics"</span><span class="tAN"> type=</span><span class="tAV">"crystallography_statistics_type"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="crystallography_proc_add_group"></a><div class="componentTitle">Element Group <span class="qname">crystallography_proc_add_group</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_crystallography_proc_add_group" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_crystallography_proc_add_group');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_crystallography_proc_add_group" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_Group_crystallography_proc_add_group.jpeg" usemap="#emdb_xsd_Element_Group_crystallography_proc_add_group" /><map name="emdb_xsd_Element_Group_crystallography_proc_add_group" id="emdb_xsd_Element_Group_crystallography_proc_add_group"><area alt="emdb_xsd_Element_Group_crystallography_proc_add_group.tmp#crystallography_proc_add_group_final_reconstruction" href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group_final_reconstruction" coords="355,0,632,42" /><area alt="emdb_xsd_Element_Group_crystallography_proc_add_group.tmp#crystallography_proc_add_group_crystal_parameters" href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group_crystal_parameters" coords="355,52,552,94" /><area alt="emdb_xsd_Element_Group_crystallography_proc_add_group.tmp#crystallography_proc_add_group_startup_model" href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group_startup_model" coords="355,104,520,146" /><area alt="emdb_xsd_Element_Group_crystallography_proc_add_group.tmp#crystallography_proc_add_group_ctf_correction" href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group_ctf_correction" coords="355,156,525,198" /><area alt="emdb_xsd_Element_Group_crystallography_proc_add_group.tmp#crystallography_proc_add_group_molecular_replacement" href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group_molecular_replacement" coords="355,208,574,250" /><area alt="emdb_xsd_Element_Group_crystallography_proc_add_group.tmp#crystallography_proc_add_group_lattice_distortion_correction_software_list" href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group_lattice_distortion_correction_software_list" coords="355,260,613,302" /><area alt="emdb_xsd_Element_Group_crystallography_proc_add_group.tmp#crystallography_proc_add_group_symmetry_determination_software_list" href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group_symmetry_determination_software_list" coords="355,312,594,354" /><area alt="emdb_xsd_Element_Group_crystallography_proc_add_group.tmp#crystallography_proc_add_group_merging_software_list" href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group_merging_software_list" coords="355,364,517,406" /><area alt="emdb_xsd_Element_Group_crystallography_proc_add_group.tmp#crystallography_proc_add_group_crystallography_statistics" href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group_crystallography_statistics" coords="355,416,587,458" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_crystallography_proc_add_group" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('usedBy_crystallography_proc_add_group');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_crystallography_proc_add_group" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Complex Type </td>
+                                    <td><b><a href="emdb_xsd_Complex_Type_crystallography_processing_type.html#crystallography_processing_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component crystallography_processing_type')">crystallography_processing_type</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_crystallography_proc_add_group" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('model_crystallography_proc_add_group');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_crystallography_proc_add_group" style="display:block"><b><a href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group_final_reconstruction" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component final_reconstruction{0,1}')">final_reconstruction{0,1}</a></b> , <b><a href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group_crystal_parameters" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component crystal_parameters{0,1}')">crystal_parameters{0,1}</a></b> , <b><a href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group_startup_model" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component startup_model*')">startup_model*</a></b> , <b><a href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group_ctf_correction" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component ctf_correction{0,1}')">ctf_correction{0,1}</a></b> , <b><a href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group_molecular_replacement" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component molecular_replacement{0,1}')">molecular_replacement{0,1}</a></b> , <b><a href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group_lattice_distortion_correction_software_list" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component lattice_distortion_correction_software_list{0,1}')">lattice_distortion_correction_software_list{0,1}</a></b> , <b><a href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group_symmetry_determination_software_list" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component symmetry_determination_software_list{0,1}')">symmetry_determination_software_list{0,1}</a></b> , <b><a href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group_merging_software_list" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component merging_software_list{0,1}')">merging_software_list{0,1}</a></b> , <b><a href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group_crystallography_statistics" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component crystallography_statistics{0,1}')">crystallography_statistics{0,1}</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group_crystal_parameters" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component crystal_parameters')">crystal_parameters</a></b>, <b><a href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group_crystallography_statistics" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component crystallography_statistics')">crystallography_statistics</a></b>, <b><a href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group_ctf_correction" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component ctf_correction')">ctf_correction</a></b>, <b><a href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group_final_reconstruction" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component final_reconstruction')">final_reconstruction</a></b>, <b><a href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group_lattice_distortion_correction_software_list" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component lattice_distortion_correction_software_list')">lattice_distortion_correction_software_list</a></b>, <b><a href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group_merging_software_list" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component merging_software_list')">merging_software_list</a></b>, <b><a href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group_molecular_replacement" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component molecular_replacement')">molecular_replacement</a></b>, <b><a href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group_startup_model" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component startup_model')">startup_model</a></b>, <b><a href="emdb_xsd_Element_Group_crystallography_proc_add_group.html#crystallography_proc_add_group_symmetry_determination_software_list" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component symmetry_determination_software_list')">symmetry_determination_software_list</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_crystallography_proc_add_group" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_crystallography_proc_add_group');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_crystallography_proc_add_group" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:group</span><span class="tAN"> name=</span><span class="tAV">"crystallography_proc_add_group"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"final_reconstruction"</span><span class="tAN"> type=</span><span class="tAV">"non_subtom_final_reconstruction_type"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"crystal_parameters"</span><span class="tAN"> type=</span><span class="tAV">"crystal_parameters_type"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"startup_model"</span><span class="tAN"> type=</span><span class="tAV">"starting_map_type"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"unbounded"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"ctf_correction"</span><span class="tAN"> type=</span><span class="tAV">"ctf_correction_type"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"molecular_replacement"</span><span class="tAN"> type=</span><span class="tAV">"molecular_replacement_type"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"lattice_distortion_correction_software_list"</span><span class="tAN"> type=</span><span class="tAV">"software_list_type"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"symmetry_determination_software_list"</span><span class="tAN"> type=</span><span class="tAV">"software_list_type"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"merging_software_list"</span><span class="tAN"> type=</span><span class="tAV">"software_list_type"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"crystallography_statistics"</span><span class="tAN"> type=</span><span class="tAV">"crystallography_statistics_type"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:group&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table>
+      <div class="footer">
+         <hr />
+         <div style="text-align:center">XML Schema documentation generated by <a href="http://www.oxygenxml.com" target="_parent"><span class="oXygenLogo"><span class="redX">&lt;</span>o<span class="redX">X</span>ygen<span class="redX">/&gt;</span></span></a><sup>®</sup> XML Editor Trial Edition.</div>
+      </div><script type="text/javascript"><!--
+                     // The namespace is the selected option in the TOC combo.
+                    
+                     // Floats the toolbar.
+                     var globalControls = getElementObject("global_controls"); 
+                     
+                     if(globalControls != null){
+	                     var browser=navigator.appName;
+						 var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+						 
+						 var IE6 = false;
+						 if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+						 	IE6 = true;
+						 }
+	
+	                     //alert (IE6 + " |V| " + version);
+	                     
+	                     if(IE6){
+	                     	// On IE 6 the 'fixed' property is not supported. We must use javascript. 
+	                         globalControls.style.position='absolute';                         
+	                         // The global controls will do not exist in the TOC frame, when chunking.
+	                         findAndFloat("global_controls", 225, 30);    
+	                     } else {
+	                      	  globalControls.style.position='fixed';                     	
+	                     }
+	                     
+	                     globalControls.style.right='0';                       
+                     }
+                //--></script></body>
+</html>

@@ -1,0 +1,498 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>Schema documentation for component single_particle_microscopy</title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css" /><script type="text/javascript"><!--
+        var propertiesBoxes= new Array('properties_single_particle_microscopy');
+var sourceBoxes= new Array('source_single_particle_microscopy');
+var instanceBoxes= new Array('instance_single_particle_microscopy');
+var diagramBoxes= new Array('diagram_single_particle_microscopy');
+var attributesBoxes= new Array('attributes_single_particle_microscopy');
+var modelBoxes= new Array('model_single_particle_microscopy');
+
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                    //--></script></head>
+   <body>
+      <div id="global_controls" class="globalControls" style="position:absolute;right:0;">
+         <table class="rt">
+            <tr>
+               <td class="rt_cornerTopLeft"></td>
+               <td class="rt_lineTop"></td>
+               <td class="rt_cornerTopRight"></td>
+            </tr>
+            <tr>
+               <td class="rt_lineLeft"></td>
+               <td class="rt_content">
+                  <h3>Showing:</h3>
+                  <table>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, attributesBoxes);" class="control" /></span><span class="globalControlName">Attributes </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, diagramBoxes);" class="control" /></span><span class="globalControlName">Diagrams</span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, instanceBoxes);" class="control" /></span><span class="globalControlName">Instances</span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, modelBoxes);" class="control" /></span><span class="globalControlName">Model </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, propertiesBoxes);" class="control" /></span><span class="globalControlName">Properties </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, sourceBoxes);" class="control" /></span><span class="globalControlName">Source</span></td>
+                     </tr>
+                  </table>
+                  <div style="text-align:center"><span><input type="button" onclick="getElementObject('global_controls').style.display = 'none';" value="Close" /></span></div>
+               </td>
+               <td class="rt_lineRight"></td>
+            </tr>
+            <tr>
+               <td class="rt_cornerBottomLeft"></td>
+               <td class="rt_lineBottom"></td>
+               <td class="rt_cornerBottomRight"></td>
+            </tr>
+         </table>
+      </div><a id="single_particle_microscopy"></a><div class="componentTitle">Element <span class="qname">single_particle_microscopy</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_single_particle_microscopy" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_single_particle_microscopy');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_single_particle_microscopy" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_single_particle_microscopy.jpeg" usemap="#emdb_xsd_Element_single_particle_microscopy" /><map name="emdb_xsd_Element_single_particle_microscopy" id="emdb_xsd_Element_single_particle_microscopy"><area alt="emdb_xsd_Complex_Type_base_microscopy_type.tmp#base_microscopy_type_microscopy_id" href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_microscopy_id" coords="311,136,472,178" /><area alt="emdb_xsd_Complex_Type_base_microscopy_type.tmp#base_microscopy_type_specimen_preparations" href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_specimen_preparations" coords="368,195,525,219" /><area alt="emdb_xsd_Complex_Type_base_microscopy_type.tmp#base_microscopy_type_microscope" href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_microscope" coords="368,229,560,271" /><area alt="emdb_xsd_Complex_Type_base_microscopy_type.tmp#base_microscopy_type_illumination_mode" href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_illumination_mode" coords="368,281,560,323" /><area alt="emdb_xsd_Complex_Type_base_microscopy_type.tmp#base_microscopy_type_imaging_mode" href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_imaging_mode" coords="368,333,560,375" /><area alt="emdb_xsd_Complex_Type_base_microscopy_type.tmp#base_microscopy_type_electron_source" href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_electron_source" coords="368,385,560,427" /><area alt="emdb_xsd_Complex_Type_base_microscopy_type.tmp#base_microscopy_type_acceleration_voltage" href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_acceleration_voltage" coords="368,437,665,479" /><area alt="emdb_xsd_Complex_Type_base_microscopy_type.tmp#base_microscopy_type_c2_aperture_diameter" href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_c2_aperture_diameter" coords="368,489,673,531" /><area alt="emdb_xsd_Complex_Type_base_microscopy_type.tmp#base_microscopy_type_nominal_cs" href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_nominal_cs" coords="368,541,616,583" /><area alt="emdb_xsd_Complex_Type_base_microscopy_type.tmp#base_microscopy_type_nominal_defocus_min" href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_nominal_defocus_min" coords="368,593,624,635" /><area alt="emdb_xsd_Complex_Type_base_microscopy_type.tmp#base_microscopy_type_calibrated_defocus_min" href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_calibrated_defocus_min" coords="368,645,624,687" /><area alt="emdb_xsd_Complex_Type_base_microscopy_type.tmp#base_microscopy_type_nominal_defocus_max" href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_nominal_defocus_max" coords="368,697,627,739" /><area alt="emdb_xsd_Complex_Type_base_microscopy_type.tmp#base_microscopy_type_calibrated_defocus_max" href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_calibrated_defocus_max" coords="368,749,627,791" /><area alt="emdb_xsd_Complex_Type_base_microscopy_type.tmp#base_microscopy_type_nominal_magnification" href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_nominal_magnification" coords="368,801,552,843" /><area alt="emdb_xsd_Complex_Type_base_microscopy_type.tmp#base_microscopy_type_calibrated_magnification" href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_calibrated_magnification" coords="368,853,552,895" /><area alt="emdb_xsd_Complex_Type_base_microscopy_type.tmp#base_microscopy_type_specimen_holder_model" href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_specimen_holder_model" coords="368,905,560,947" /><area alt="emdb_xsd_Complex_Type_base_microscopy_type.tmp#base_microscopy_type_cooling_holder_cryogen" href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_cooling_holder_cryogen" coords="368,957,560,999" /><area alt="emdb_xsd_Complex_Type_base_microscopy_type.tmp#base_microscopy_type_temperature" href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_temperature" coords="368,1009,465,1033" /><area alt="emdb_xsd_Complex_Type_base_microscopy_type.tmp#base_microscopy_type_alignment_procedure" href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_alignment_procedure" coords="368,1043,514,1067" /><area alt="emdb_xsd_Complex_Type_base_microscopy_type.tmp#base_microscopy_type_specialist_optics" href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_specialist_optics" coords="368,1077,551,1119" /><area alt="emdb_xsd_Complex_Type_base_microscopy_type.tmp#base_microscopy_type_software_list" href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_software_list" coords="368,1129,530,1171" /><area alt="emdb_xsd_Complex_Type_base_microscopy_type.tmp#base_microscopy_type_details" href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_details" coords="368,1181,481,1223" /><area alt="emdb_xsd_Complex_Type_base_microscopy_type.tmp#base_microscopy_type_date" href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_date" coords="368,1233,472,1275" /><area alt="emdb_xsd_Complex_Type_base_microscopy_type.tmp#base_microscopy_type_image_recording_list" href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_image_recording_list" coords="368,1285,512,1309" /><area alt="emdb_xsd_Complex_Type_base_microscopy_type.tmp#base_microscopy_type_specimen_holder" href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_specimen_holder" coords="368,1319,491,1361" /><area alt="emdb_xsd_Complex_Type_base_microscopy_type.tmp#base_microscopy_type_tilt_angle_min" href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_tilt_angle_min" coords="368,1371,481,1413" /><area alt="emdb_xsd_Complex_Type_base_microscopy_type.tmp#base_microscopy_type_tilt_angle_max" href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_tilt_angle_max" coords="368,1423,481,1465" /><area alt="emdb_xsd_Complex_Type_base_microscopy_type.tmp#base_microscopy_type_objective_aperture" href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_objective_aperture" coords="368,1475,499,1517" /><area alt="emdb_xsd_Complex_Type_base_microscopy_type.tmp#base_microscopy_type_microscope_serial_number" href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_microscope_serial_number" coords="368,1557,545,1599" /><area alt="emdb_xsd_Complex_Type_base_microscopy_type.tmp#base_microscopy_type_microscope_version" href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_microscope_version" coords="368,1639,508,1681" /><area alt="emdb_xsd_Complex_Type_base_microscopy_type.tmp#base_microscopy_type" href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type" coords="286,61,552,83" /><area alt="emdb_xsd_Complex_Type_single_particle_microscopy_type.tmp#single_particle_microscopy_type" href="emdb_xsd_Complex_Type_single_particle_microscopy_type.html#single_particle_microscopy_type" coords="272,3,499,43" /><area alt="emdb_xsd_Element_microscopy.tmp#microscopy" href="emdb_xsd_Element_microscopy.html#microscopy" coords="283,1773,491,1833" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_single_particle_microscopy_type.html#single_particle_microscopy_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component single_particle_microscopy_type')">single_particle_microscopy_type</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type hierarchy</b></td>
+                        <td>
+                           <ul class="internal">
+                              <li class="internal"><b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component base_microscopy_type')">base_microscopy_type</a></b><ul class="internal">
+                                    <li class="internal"><b><a href="emdb_xsd_Complex_Type_single_particle_microscopy_type.html#single_particle_microscopy_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component single_particle_microscopy_type')">single_particle_microscopy_type</a></b></li>
+                                 </ul>
+                              </li>
+                           </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_single_particle_microscopy" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_single_particle_microscopy');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_single_particle_microscopy" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Substitution Group Affiliation</b></td>
+                        <td>
+                           <ul class="internal">
+                              <li class="internal"><b><a href="emdb_xsd_Element_microscopy.html#microscopy" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component microscopy')">microscopy</a></b></li>
+                           </ul>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_single_particle_microscopy" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('model_single_particle_microscopy');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_single_particle_microscopy" style="display:block"><b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_specimen_preparations" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component specimen_preparations{0,1}')">specimen_preparations{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_microscope" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component microscope')">microscope</a></b> , <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_illumination_mode" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component illumination_mode')">illumination_mode</a></b> , <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_imaging_mode" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component imaging_mode')">imaging_mode</a></b> , <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_electron_source" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component electron_source')">electron_source</a></b> , <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_acceleration_voltage" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component acceleration_voltage')">acceleration_voltage</a></b> , <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_c2_aperture_diameter" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component c2_aperture_diameter{0,1}')">c2_aperture_diameter{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_nominal_cs" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component nominal_cs{0,1}')">nominal_cs{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_nominal_defocus_min" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component nominal_defocus_min{0,1}')">nominal_defocus_min{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_calibrated_defocus_min" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component calibrated_defocus_min{0,1}')">calibrated_defocus_min{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_nominal_defocus_max" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component nominal_defocus_max{0,1}')">nominal_defocus_max{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_calibrated_defocus_max" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component calibrated_defocus_max{0,1}')">calibrated_defocus_max{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_nominal_magnification" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component nominal_magnification{0,1}')">nominal_magnification{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_calibrated_magnification" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component calibrated_magnification{0,1}')">calibrated_magnification{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_specimen_holder_model" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component specimen_holder_model{0,1}')">specimen_holder_model{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_cooling_holder_cryogen" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component cooling_holder_cryogen{0,1}')">cooling_holder_cryogen{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_temperature" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component temperature{0,1}')">temperature{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_alignment_procedure" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component alignment_procedure{0,1}')">alignment_procedure{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_specialist_optics" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component specialist_optics{0,1}')">specialist_optics{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_software_list" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component software_list{0,1}')">software_list{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_details" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component details{0,1}')">details{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_date" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component date{0,1}')">date{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_image_recording_list" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component image_recording_list')">image_recording_list</a></b> , <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_specimen_holder" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component specimen_holder{0,1}')">specimen_holder{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_tilt_angle_min" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component tilt_angle_min{0,1}')">tilt_angle_min{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_tilt_angle_max" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component tilt_angle_max{0,1}')">tilt_angle_max{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_objective_aperture" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component objective_aperture{0,1}')">objective_aperture{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_microscope_serial_number" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component microscope_serial_number{0,1}')">microscope_serial_number{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_microscope_version" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component microscope_version{0,1}')">microscope_version{0,1}</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_acceleration_voltage" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component acceleration_voltage')">acceleration_voltage</a></b>, <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_alignment_procedure" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component alignment_procedure')">alignment_procedure</a></b>, <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_c2_aperture_diameter" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component c2_aperture_diameter')">c2_aperture_diameter</a></b>, <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_calibrated_defocus_max" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component calibrated_defocus_max')">calibrated_defocus_max</a></b>, <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_calibrated_defocus_min" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component calibrated_defocus_min')">calibrated_defocus_min</a></b>, <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_calibrated_magnification" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component calibrated_magnification')">calibrated_magnification</a></b>, <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_cooling_holder_cryogen" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component cooling_holder_cryogen')">cooling_holder_cryogen</a></b>, <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_date" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component date')">date</a></b>, <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_details" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component details')">details</a></b>, <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_electron_source" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component electron_source')">electron_source</a></b>, <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_illumination_mode" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component illumination_mode')">illumination_mode</a></b>, <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_image_recording_list" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component image_recording_list')">image_recording_list</a></b>, <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_imaging_mode" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component imaging_mode')">imaging_mode</a></b>, <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_microscope" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component microscope')">microscope</a></b>, <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_microscope_serial_number" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component microscope_serial_number')">microscope_serial_number</a></b>, <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_microscope_version" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component microscope_version')">microscope_version</a></b>, <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_nominal_cs" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component nominal_cs')">nominal_cs</a></b>, <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_nominal_defocus_max" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component nominal_defocus_max')">nominal_defocus_max</a></b>, <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_nominal_defocus_min" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component nominal_defocus_min')">nominal_defocus_min</a></b>, <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_nominal_magnification" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component nominal_magnification')">nominal_magnification</a></b>, <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_objective_aperture" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component objective_aperture')">objective_aperture</a></b>, <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_software_list" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component software_list')">software_list</a></b>, <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_specialist_optics" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component specialist_optics')">specialist_optics</a></b>, <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_specimen_holder" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component specimen_holder')">specimen_holder</a></b>, <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_specimen_holder_model" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component specimen_holder_model')">specimen_holder_model</a></b>, <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_specimen_preparations" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component specimen_preparations')">specimen_preparations</a></b>, <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_temperature" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component temperature')">temperature</a></b>, <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_tilt_angle_max" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component tilt_angle_max')">tilt_angle_max</a></b>, <b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_tilt_angle_min" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component tilt_angle_min')">tilt_angle_min</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_single_particle_microscopy" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('instance_single_particle_microscopy');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_single_particle_microscopy" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;single_particle_microscopy</span><span class="tT"> </span><span class="tAN">microscopy_id=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;specimen_preparations</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/specimen_preparations&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;microscope</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/microscope&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;illumination_mode</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/illumination_mode&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;imaging_mode</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/imaging_mode&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;electron_source</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/electron_source&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;acceleration_voltage</span><span class="tT"> </span><span class="tAN">units=</span><span class="tAV">"kV"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/acceleration_voltage&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;c2_aperture_diameter</span><span class="tT"> </span><span class="tAN">units=</span><span class="tAV">"µm"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/c2_aperture_diameter&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;nominal_cs</span><span class="tT"> </span><span class="tAN">units=</span><span class="tAV">"mm"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/nominal_cs&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;nominal_defocus_min</span><span class="tT"> </span><span class="tAN">units=</span><span class="tAV">"µm"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/nominal_defocus_min&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;calibrated_defocus_min</span><span class="tT"> </span><span class="tAN">units=</span><span class="tAV">"µm"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/calibrated_defocus_min&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;nominal_defocus_max</span><span class="tT"> </span><span class="tAN">units=</span><span class="tAV">"µm"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/nominal_defocus_max&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;calibrated_defocus_max</span><span class="tT"> </span><span class="tAN">units=</span><span class="tAV">"µm"</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/calibrated_defocus_max&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;nominal_magnification</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/nominal_magnification&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;calibrated_magnification</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/calibrated_magnification&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;specimen_holder_model</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/specimen_holder_model&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;cooling_holder_cryogen</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/cooling_holder_cryogen&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;temperature</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/temperature&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;alignment_procedure</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/alignment_procedure&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;specialist_optics</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/specialist_optics&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;software_list</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/software_list&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;details</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/details&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;date</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/date&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;image_recording_list</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/image_recording_list&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;specimen_holder</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/specimen_holder&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;tilt_angle_min</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/tilt_angle_min&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;tilt_angle_max</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/tilt_angle_max&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;objective_aperture</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/objective_aperture&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;microscope_serial_number</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/microscope_serial_number&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;microscope_version</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/microscope_version&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/single_particle_microscopy&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Attributes</b></div>
+                           <div class="floatRight"><input id="button_attributes_single_particle_microscopy" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('attributes_single_particle_microscopy');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="attributes_single_particle_microscopy" style="display:block">
+                              <table class="attributesTable">
+                                 <thead>
+                                    <tr>
+                                       <th>QName</th>
+                                       <th style="width:10%">Type</th>
+                                       <th style="width:10%">Use</th>
+                                       <th></th>
+                                    </tr>
+                                 </thead>
+                                 <tr>
+                                    <td class="firstColumn"><b><a href="emdb_xsd_Complex_Type_base_microscopy_type.html#base_microscopy_type_microscopy_id" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component microscopy_id')">microscopy_id</a></b></td>
+                                    <td><b>xs:positiveInteger</b></td>
+                                    <td>required</td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_single_particle_microscopy" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_single_particle_microscopy');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_single_particle_microscopy" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"single_particle_microscopy"</span><span class="tAN"> type=</span><span class="tAV">"single_particle_microscopy_type"</span><span class="tAN"> substitutionGroup=</span><span class="tAV">"microscopy"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table>
+      <div class="footer">
+         <hr />
+         <div style="text-align:center">XML Schema documentation generated by <a href="http://www.oxygenxml.com" target="_parent"><span class="oXygenLogo"><span class="redX">&lt;</span>o<span class="redX">X</span>ygen<span class="redX">/&gt;</span></span></a><sup>®</sup> XML Editor Trial Edition.</div>
+      </div><script type="text/javascript"><!--
+                     // The namespace is the selected option in the TOC combo.
+                    
+                     // Floats the toolbar.
+                     var globalControls = getElementObject("global_controls"); 
+                     
+                     if(globalControls != null){
+	                     var browser=navigator.appName;
+						 var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+						 
+						 var IE6 = false;
+						 if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+						 	IE6 = true;
+						 }
+	
+	                     //alert (IE6 + " |V| " + version);
+	                     
+	                     if(IE6){
+	                     	// On IE 6 the 'fixed' property is not supported. We must use javascript. 
+	                         globalControls.style.position='absolute';                         
+	                         // The global controls will do not exist in the TOC frame, when chunking.
+	                         findAndFloat("global_controls", 225, 30);    
+	                     } else {
+	                      	  globalControls.style.position='fixed';                     	
+	                     }
+	                     
+	                     globalControls.style.right='0';                       
+                     }
+                //--></script></body>
+</html>

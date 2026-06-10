@@ -1,0 +1,701 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>Schema documentation for </title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css" /><script type="text/javascript"><!--
+        
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                        //--></script></head>
+   <body>
+      <h2><a id="INDEX">Table of Contents</a></h2>
+      <div class="toc">
+         <form action="none">
+            <div><span> Group by: <select id="selectTOC" onchange="selectTOCGroupBy(this.options[this.selectedIndex].value, true, 'Untitled.indexList.html', 'Untitled.indexListns.html', 'Untitled.indexListcomp.html');">
+                     <option value="toc_group_by_namespace" selected="selected">Namespace</option>
+                     <option value="toc_group_by_location">Location</option>
+                     <option value="toc_group_by_component_type">Component Type</option></select></span></div>
+         </form>
+         <div class="level1" id="toc_group_by_namespace" style="display:block">
+            <div>
+               <div class="level2">
+                  <p><input id="button_boxIdNamespace1" type="image" alt="expand/collapse" src="img/btM.gif" onclick="switchState('boxIdNamespace1');" class="control" /><span class="indexGroupTitle">No namespace</span></p>
+                  <div id="boxIdNamespace1" style="display:block">
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft"></td>
+                              <td class="rt_lineTop"></td>
+                              <td class="rt_cornerTopRight"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft"></td>
+                              <td class="rt_content">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup"><input id="button_boxIdNamespace1Main_schema" type="image" alt="expand/collapse" src="img/btM.gif" onclick="switchState('boxIdNamespace1Main_schema');" class="control" /></td>
+                                          <td class="componentGroup">
+                                             <div class="componentGroupTitle">Main Schema</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup"></td>
+                                          <td class="componentGroup">
+                                             <div id="boxIdNamespace1Main_schema" class="componentGroup" style="display:block">
+                                                <div><b><a href="emdb_xsd.html#emdb.xsd" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">emdb.xsd</a></b></div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft"></td>
+                              <td class="rt_lineBottom"></td>
+                              <td class="rt_cornerBottomRight"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft"></td>
+                              <td class="rt_lineTop"></td>
+                              <td class="rt_cornerTopRight"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft"></td>
+                              <td class="rt_content">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup"><input id="button_boxIdNamespace1Element" type="image" alt="expand/collapse" src="img/btM.gif" onclick="switchState('boxIdNamespace1Element');" class="control" /></td>
+                                          <td class="componentGroup">
+                                             <div class="componentGroupTitle">Elements</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup"></td>
+                                          <td class="componentGroup">
+                                             <div id="boxIdNamespace1Element" class="componentGroup" style="display:block">
+                                                <div><b><a href="emdb_xsd.html#additional_map" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">additional_map</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#cell_supramolecule" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">cell_supramolecule</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#citation_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">citation_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#complex_supramolecule" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">complex_supramolecule</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#crystallography_microscopy" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">crystallography_microscopy</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#crystallography_preparation" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">crystallography_preparation</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#crystallography_processing" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">crystallography_processing</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#crystallography_validation" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">crystallography_validation</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#dna" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">dna</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#em_label" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">em_label</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#emd" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">emd</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#fsc" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">fsc</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#fsc_curve" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">fsc_curve</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#half_map" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">half_map</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#helical_microscopy" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">helical_microscopy</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#helical_preparation" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">helical_preparation</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#helical_processing" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">helical_processing</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#image" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">image</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#image_processing" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">image_processing</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#journal_citation" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">journal_citation</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#layer_lines" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">layer_lines</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#ligand" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">ligand</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#macromolecule" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">macromolecule</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#mask" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">mask</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#metadata" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">metadata</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#microscopy" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">microscopy</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#model" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">model</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#non_journal_citation" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">non_journal_citation</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#organelle_or_cellular_component_supramolecule" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">organelle_or_cellular_component_supramolecule</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#other_macromolecule" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">other_macromolecule</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#primary_map" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">primary_map</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#protein_or_peptide" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">protein_or_peptide</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#revision_change_sub_group" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">revision_change_sub_group</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#rna" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">rna</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#saccharide" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">saccharide</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#sample_supramolecule" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">sample_supramolecule</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#single_particle_microscopy" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">single_particle_microscopy</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#single_particle_preparation" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">single_particle_preparation</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#singleparticle_processing" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">singleparticle_processing</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#specimen_preparation" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">specimen_preparation</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#structure_factors" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">structure_factors</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#subtomogram_averaging_microscopy" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">subtomogram_averaging_microscopy</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#subtomogram_averaging_preparation" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">subtomogram_averaging_preparation</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#subtomogram_averaging_processing" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">subtomogram_averaging_processing</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#supramolecule" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">supramolecule</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#tissue_supramolecule" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">tissue_supramolecule</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#tomography_microscopy" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">tomography_microscopy</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#tomography_preparation" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">tomography_preparation</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#tomography_processing" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">tomography_processing</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#validation_method" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">validation_method</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#virus_supramolecule" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">virus_supramolecule</a></b></div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft"></td>
+                              <td class="rt_lineBottom"></td>
+                              <td class="rt_cornerBottomRight"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft"></td>
+                              <td class="rt_lineTop"></td>
+                              <td class="rt_cornerTopRight"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft"></td>
+                              <td class="rt_content">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup"><input id="button_boxIdNamespace1Complex_Type" type="image" alt="expand/collapse" src="img/btM.gif" onclick="switchState('boxIdNamespace1Complex_Type');" class="control" /></td>
+                                          <td class="componentGroup">
+                                             <div class="componentGroupTitle">Complex Types</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup"></td>
+                                          <td class="componentGroup">
+                                             <div id="boxIdNamespace1Complex_Type" class="componentGroup" style="display:block">
+                                                <div><b><a href="emdb_xsd.html#admin_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">admin_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#angle_assignment_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">angle_assignment_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#applied_symmetry_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">applied_symmetry_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#author_ORCID_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">author_ORCID_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#author_order_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">author_order_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#auxiliary_link_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">auxiliary_link_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#axis_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">axis_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#background_masked_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">background_masked_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#base_image_processing_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">base_image_processing_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#base_macromolecule_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">base_macromolecule_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#base_microscopy_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">base_microscopy_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#base_preparation_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">base_preparation_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#base_revision_change_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">base_revision_change_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#base_source_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">base_source_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#base_supramolecule_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">base_supramolecule_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#buffer_component_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">buffer_component_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#buffer_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">buffer_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#cell_angle_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">cell_angle_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#cell_source_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">cell_source_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#cell_supramolecule_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">cell_supramolecule_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#cell_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">cell_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#chain_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">chain_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#classification_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">classification_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#code_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">code_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#complex_revision_change_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">complex_revision_change_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#complex_source_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">complex_source_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#complex_supramolecule_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">complex_supramolecule_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#contact_details_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">contact_details_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#crossreferences_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">crossreferences_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#crystal_formation_temperature_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">crystal_formation_temperature_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#crystal_formation_time_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">crystal_formation_time_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#crystal_parameters_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">crystal_parameters_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#crystallography_microscopy_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">crystallography_microscopy_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#crystallography_preparation_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">crystallography_preparation_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#crystallography_processing_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">crystallography_processing_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#crystallography_statistics_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">crystallography_statistics_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#crystallography_validation_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">crystallography_validation_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#ctf_correction_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">ctf_correction_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#dna_macromolecule_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">dna_macromolecule_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#em_label_macromolecule_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">em_label_macromolecule_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#emdb_cross_reference_list_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">emdb_cross_reference_list_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#emdb_cross_reference_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">emdb_cross_reference_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#entry_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">entry_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#fib_current_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">fib_current_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#fib_dose_rate_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">fib_dose_rate_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#fib_duration_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">fib_duration_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#fib_final_thickness_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">fib_final_thickness_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#fib_initial_thickness_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">fib_initial_thickness_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#fib_voltage_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">fib_voltage_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#fiducial_marker_diameter_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">fiducial_marker_diameter_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#fiducial_marker_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">fiducial_marker_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#figure_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">figure_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#film_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">film_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#final_reconstruction_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">final_reconstruction_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#fsc_curve_validation_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">fsc_curve_validation_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#grant_reference_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">grant_reference_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#grid_pretreatment_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">grid_pretreatment_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#grid_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">grid_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#helical_microscopy_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">helical_microscopy_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#helical_parameters_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">helical_parameters_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#helical_preparation_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">helical_preparation_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#helical_processing_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">helical_processing_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#integer_vector_map_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">integer_vector_map_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#interpretation_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">interpretation_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#layer_lines_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">layer_lines_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#layer_lines_validation_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">layer_lines_validation_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#ligand_macromolecule_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">ligand_macromolecule_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#macromolecule_list_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">macromolecule_list_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#macromolecule_source_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">macromolecule_source_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#macromolecules_and_complexes_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">macromolecules_and_complexes_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#map_statistics_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">map_statistics_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#map_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">map_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#modelling_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">modelling_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#molecular_replacement_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">molecular_replacement_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#molecular_weight_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">molecular_weight_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#motion_correction_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">motion_correction_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#non_subtom_final_reconstruction_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">non_subtom_final_reconstruction_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#organelle_or_cellular_component_supramolecule_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">organelle_or_cellular_component_supramolecule_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#organelle_source_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">organelle_source_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#organism_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">organism_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#other_db_cross_reference_list_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">other_db_cross_reference_list_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#other_db_cross_reference_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">other_db_cross_reference_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#other_macromolecule_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">other_macromolecule_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#part_revision_change_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">part_revision_change_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#particle_selection_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">particle_selection_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#pdb_cross_reference_list_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">pdb_cross_reference_list_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#pdb_cross_reference_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">pdb_cross_reference_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#pdb_model_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">pdb_model_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#pixel_spacing_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">pixel_spacing_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#protein_or_peptide_macromolecule_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">protein_or_peptide_macromolecule_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#recombinant_source_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">recombinant_source_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#reconstruction_filtering_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">reconstruction_filtering_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#refinement_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">refinement_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#residual_tilt_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">residual_tilt_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#revision_history_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">revision_history_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#rna_macromolecule_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">rna_macromolecule_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#saccharide_macromolecule_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">saccharide_macromolecule_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#sample_source_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">sample_source_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#sample_supramolecule_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">sample_supramolecule_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#sample_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">sample_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#sci_name_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">sci_name_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#segment_selection_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">segment_selection_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#single_particle_microscopy_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">single_particle_microscopy_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#single_particle_preparation_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">single_particle_preparation_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#singleparticle_processing_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">singleparticle_processing_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#software_list_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">software_list_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#software_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">software_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#specialist_optics_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">specialist_optics_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#starting_map_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">starting_map_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#structure_determination_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">structure_determination_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#structure_factors_validation_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">structure_factors_validation_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#subtomogram_averaging_preparation_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">subtomogram_averaging_preparation_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#subtomogram_averaging_processing_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">subtomogram_averaging_processing_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#subtomogram_final_reconstruction_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">subtomogram_final_reconstruction_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#supersedes_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">supersedes_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#telephone_number_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">telephone_number_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#temperature_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">temperature_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#tilt_series_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">tilt_series_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#tissue_source_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">tissue_source_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#tissue_supramolecule_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">tissue_supramolecule_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#tomography_microscopy_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">tomography_microscopy_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#tomography_preparation_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">tomography_preparation_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#tomography_processing_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">tomography_processing_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#ultramicrotomy_final_thickness_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">ultramicrotomy_final_thickness_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#unit_cell_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">unit_cell_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#validation_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">validation_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#version_list_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">version_list_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#version_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">version_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#virus_host_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">virus_host_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#virus_species_name_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">virus_species_name_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#virus_supramolecule_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">virus_supramolecule_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#vitrification_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">vitrification_type</a></b></div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft"></td>
+                              <td class="rt_lineBottom"></td>
+                              <td class="rt_cornerBottomRight"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft"></td>
+                              <td class="rt_lineTop"></td>
+                              <td class="rt_cornerTopRight"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft"></td>
+                              <td class="rt_content">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup"><input id="button_boxIdNamespace1Simple_Type" type="image" alt="expand/collapse" src="img/btM.gif" onclick="switchState('boxIdNamespace1Simple_Type');" class="control" /></td>
+                                          <td class="componentGroup">
+                                             <div class="componentGroupTitle">Simple Types</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup"></td>
+                                          <td class="componentGroup">
+                                             <div id="boxIdNamespace1Simple_Type" class="componentGroup" style="display:block">
+                                                <div><b><a href="emdb_xsd.html#ORCID_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">ORCID_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_acceleration_voltage" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_acceleration_voltage</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_angle_increment" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_angle_increment</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_angle_shadowing" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_angle_shadowing</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_angle_tomography" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_angle_tomography</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_angular_sampling" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_angular_sampling</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_assembly_weights" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_assembly_weights</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_average_exposure_time_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_average_exposure_time_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_brestore_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_brestore_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_c2_aperture_diameter" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_c2_aperture_diameter</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_camera_length" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_camera_length</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_cell_angle" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_cell_angle</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_cell_dim" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_cell_dim</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_concentration" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_concentration</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_crystal_formation_temperature_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_crystal_formation_temperature_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_defocus_max" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_defocus_max</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_defocus_min" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_defocus_min</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_diameter_colloidal_gold" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_diameter_colloidal_gold</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_electron_dose" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_electron_dose</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_energy_filter_width" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_energy_filter_width</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_energy_window" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_energy_window</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_film_or_detector_model" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_film_or_detector_model</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_film_thickness" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_film_thickness</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_focus_ion_current" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_focus_ion_current</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_focus_ion_dose_rate" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_focus_ion_dose_rate</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_focus_ion_final_thickness" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_focus_ion_final_thickness</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_focus_ion_initial_thickness" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_focus_ion_initial_thickness</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_focus_ion_voltage" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_focus_ion_voltage</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_humidity_vitrification" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_humidity_vitrification</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_magnification" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_magnification</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_microtome_thickness" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_microtome_thickness</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_nominal_cs" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_nominal_cs</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_pixel_sampling" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_pixel_sampling</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_pressure_glow_discharge" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_pressure_glow_discharge</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_rise_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_rise_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_scaning_interval" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_scaning_interval</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_shell_diameter" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_shell_diameter</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_temperature" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_temperature</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_temperature_vitrification" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_temperature_vitrification</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_thickness_shadowing" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_thickness_shadowing</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_tilt_angle1Orthogonal" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_tilt_angle1Orthogonal</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_tilt_angle2Orthogonal" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_tilt_angle2Orthogonal</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_tilt_angle_random_conical" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_tilt_angle_random_conical</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_time_glow_discharge" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_time_glow_discharge</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#allowed_twist_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">allowed_twist_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#author_enums" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">author_enums</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#author_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">author_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#chain_pdb_id" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">chain_pdb_id</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#complex_category_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">complex_category_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#correction_space_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">correction_space_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#emdb_id_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">emdb_id_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#formula_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">formula_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#map_data_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">map_data_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#non_zero_float" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">non_zero_float</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#page_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">page_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#pdb_code_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">pdb_code_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#point_group_symmetry_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">point_group_symmetry_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#pos_int_or_string_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">pos_int_or_string_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#reconstruction_algorithm_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">reconstruction_algorithm_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#resolution_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">resolution_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#revision_history_version_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">revision_history_version_type</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#status_code_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">status_code_type</a></b></div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft"></td>
+                              <td class="rt_lineBottom"></td>
+                              <td class="rt_cornerBottomRight"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div class="horizontalLayout">
+                        <table class="rt">
+                           <tr>
+                              <td class="rt_cornerTopLeft"></td>
+                              <td class="rt_lineTop"></td>
+                              <td class="rt_cornerTopRight"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_lineLeft"></td>
+                              <td class="rt_content">
+                                 <table class="componentGroup">
+                                    <tbody>
+                                       <tr>
+                                          <td class="componentGroup"><input id="button_boxIdNamespace1Element_Group" type="image" alt="expand/collapse" src="img/btM.gif" onclick="switchState('boxIdNamespace1Element_Group');" class="control" /></td>
+                                          <td class="componentGroup">
+                                             <div class="componentGroupTitle">Element Groups</div>
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="componentGroup"></td>
+                                          <td class="componentGroup">
+                                             <div id="boxIdNamespace1Element_Group" class="componentGroup" style="display:block">
+                                                <div><b><a href="emdb_xsd.html#crystallography_proc_add_group" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">crystallography_proc_add_group</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#helical_processing_add_group" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">helical_processing_add_group</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#single_particle_proc_add_group" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">single_particle_proc_add_group</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#subtomogram_averaging_proc_add_group" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">subtomogram_averaging_proc_add_group</a></b></div>
+                                                <div><b><a href="emdb_xsd.html#tomography_proc_add_group" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">tomography_proc_add_group</a></b></div>
+                                             </div>
+                                          </td>
+                                       </tr>
+                                    </tbody>
+                                 </table>
+                              </td>
+                              <td class="rt_lineRight"></td>
+                           </tr>
+                           <tr>
+                              <td class="rt_cornerBottomLeft"></td>
+                              <td class="rt_lineBottom"></td>
+                              <td class="rt_cornerBottomRight"></td>
+                           </tr>
+                        </table>
+                     </div>
+                     <div style="clear:left"></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="footer">
+         <hr />
+         <div style="text-align:center">XML Schema documentation generated by <a href="http://www.oxygenxml.com" target="_parent"><span class="oXygenLogo"><span class="redX">&lt;</span>o<span class="redX">X</span>ygen<span class="redX">/&gt;</span></span></a><sup>®</sup> XML Editor Trial Edition.</div>
+      </div>
+   </body>
+</html>

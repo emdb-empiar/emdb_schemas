@@ -1,0 +1,1355 @@
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <title>Schema documentation for component citation_list</title>
+      <link rel="stylesheet" href="docHtml.css" type="text/css" /><script type="text/javascript"><!--
+        var propertiesBoxes= new Array('properties_crossreferences_type_citation_list', 
+				'properties_crossreferences_type_crossreferences_type_citation_list_primary_citation', 
+				'properties_crossreferences_type_crossreferences_type_citation_list_secondary_citation', 
+				'properties_crossreferences_type_emdb_list', 
+				'properties_crossreferences_type_pdb_list', 
+				'properties_crossreferences_type_other_db_list', 
+				'properties_crossreferences_type_auxiliary_link_list', 
+				'properties_crossreferences_type_crossreferences_type_auxiliary_link_list_auxiliary_link');
+var usedByBoxes= new Array('usedBy_crossreferences_type');
+var sourceBoxes= new Array('source_crossreferences_type_citation_list', 
+				'source_crossreferences_type_crossreferences_type_citation_list_primary_citation', 
+				'source_crossreferences_type_crossreferences_type_citation_list_secondary_citation', 
+				'source_crossreferences_type_emdb_list', 
+				'source_crossreferences_type_pdb_list', 
+				'source_crossreferences_type_other_db_list', 
+				'source_crossreferences_type_auxiliary_link_list', 
+				'source_crossreferences_type_crossreferences_type_auxiliary_link_list_auxiliary_link', 
+				'source_crossreferences_type');
+var instanceBoxes= new Array('instance_crossreferences_type_citation_list', 
+				'instance_crossreferences_type_crossreferences_type_citation_list_primary_citation', 
+				'instance_crossreferences_type_crossreferences_type_citation_list_secondary_citation', 
+				'instance_crossreferences_type_emdb_list', 
+				'instance_crossreferences_type_pdb_list', 
+				'instance_crossreferences_type_other_db_list', 
+				'instance_crossreferences_type_auxiliary_link_list', 
+				'instance_crossreferences_type_crossreferences_type_auxiliary_link_list_auxiliary_link');
+var diagramBoxes= new Array('diagram_crossreferences_type_citation_list', 
+				'diagram_crossreferences_type_crossreferences_type_citation_list_primary_citation', 
+				'diagram_crossreferences_type_crossreferences_type_citation_list_secondary_citation', 
+				'diagram_crossreferences_type_emdb_list', 
+				'diagram_crossreferences_type_pdb_list', 
+				'diagram_crossreferences_type_other_db_list', 
+				'diagram_crossreferences_type_auxiliary_link_list', 
+				'diagram_crossreferences_type_crossreferences_type_auxiliary_link_list_auxiliary_link', 
+				'diagram_crossreferences_type');
+var modelBoxes= new Array('model_crossreferences_type_citation_list', 
+				'model_crossreferences_type_crossreferences_type_citation_list_primary_citation', 
+				'model_crossreferences_type_crossreferences_type_citation_list_secondary_citation', 
+				'model_crossreferences_type_emdb_list', 
+				'model_crossreferences_type_pdb_list', 
+				'model_crossreferences_type_other_db_list', 
+				'model_crossreferences_type_auxiliary_link_list', 
+				'model_crossreferences_type_crossreferences_type_auxiliary_link_list_auxiliary_link', 
+				'model_crossreferences_type');
+
+      
+        var button_prefix = 'button_';
+        
+        /**
+        * Returns an element in the current HTML document.
+        *
+        * @param elementID Identifier of HTML element
+        * @return               HTML element object
+        */
+        function getElementObject(elementID) {
+            var elemObj = null;
+            if (document.getElementById) {
+                elemObj = document.getElementById(elementID);
+            }
+            return elemObj;
+        }
+        
+        /**
+        * Switches the state of a collapseable box, e.g.
+        * if it's opened, it'll be closed, and vice versa.
+        *
+        * @param boxID Identifier of box
+        */
+        function switchState(boxID) {
+            var boxObj = getElementObject(boxID);
+            var buttonObj = getElementObject(button_prefix + boxID);
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else if (boxObj.style.display == "none") {
+                // Box is closed, so open it
+                openBox(boxObj, buttonObj);
+            } else if (boxObj.style.display == "block") {
+                // Box is opened, so close it
+                closeBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+        * Opens a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function openBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "block";
+                
+                // Change text of button
+                if (boxObj.style.display == "block") {
+                    buttonObj.src = "img/btM.gif";
+                }
+            }
+        }
+        
+        /**
+        * Closes a collapseable box.
+        *
+        * @param boxObj       Collapseable box
+        * @param buttonObj Button controlling box
+        */
+        function closeBox(boxObj, buttonObj) {
+            if (boxObj == null || buttonObj == null) {
+                // Box or button not found
+            } else {
+                // Change 'display' CSS property of box
+                boxObj.style.display = "none";
+                
+                // Change text of button
+                if (boxObj.style.display == "none") {
+                    buttonObj.src = "img/btP.gif";
+                }
+            }
+        }
+    
+       function switchStateForAll(buttonObj, boxList) {
+            if (buttonObj == null) {
+                // button not found
+            } else if (buttonObj.value == "+") {
+                // Expand all
+                expandAll(boxList);
+                buttonObj.value = "-";
+            } else if (buttonObj.value == "-") {
+                // Collapse all
+                collapseAll(boxList);
+                buttonObj.value = "+";
+            }
+        }
+        
+        /**
+        * Closes all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function collapseAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                closeBox(boxObj, buttonObj);
+            }
+        }
+            
+        /**
+        * Open all boxes in a given list.
+        *
+        * @param boxList Array of box IDs
+        */
+        function expandAll(boxList) {
+            var idx;
+            for (idx = 0; idx < boxList.length; idx++) {
+                var boxObj = getElementObject(boxList[idx]);
+                var buttonObj = getElementObject(button_prefix + boxList[idx]);
+                openBox(boxObj, buttonObj);
+            }
+        }
+        
+        /**
+         * Update the message presented in the title of the html page.
+         * - If the documentation was splited by namespace we present something like: "Documentation for namespace 'ns'"
+         * - If the documentation was splited by location we present somehing like: "Documentation for 'Schema.xsd'"
+         * - If no split we always present: "Documentation for 'MainSchema.xsd'"
+         */
+        function updatePageTitle(message) {
+            top.document.title = message;
+        }
+        
+          
+                    
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function findAndFloat(id, x_displacement, y_displacement){
+
+            var element = getElementObject(id);            
+            
+            window[id + "_obj"] = element;
+            
+            if(document.layers) {
+               element.style = element;
+            }
+            
+            element.current_y = y_displacement;      
+            element.first_time = true;
+         
+            element.floatElement = function(){
+               // It may be closed by an user action.
+                
+               // Target X and Y coordinates.
+               var x, y;
+               
+               var myWidth = 0, myHeight = 0;
+               if( typeof( window.innerWidth ) == 'number' ) {
+                  //Non-IE
+                  myWidth = window.innerWidth;
+                  myHeight = window.innerHeight;
+               } else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+                  //IE 6+ in 'standards compliant mode'
+                  myWidth = document.documentElement.clientWidth;
+                  myHeight = document.documentElement.clientHeight;
+               } else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+                  //IE 4 compatible
+                  myWidth = document.body.clientWidth;
+                  myHeight = document.body.clientHeight;
+               }
+               
+               
+               x = myWidth - x_displacement;
+               
+               var ns = (navigator.appName.indexOf("Netscape") != -1);               
+               y = ns ? pageYOffset : document.documentElement && document.documentElement.scrollTop ? 
+                  document.documentElement.scrollTop : document.body.scrollTop;               
+               y = y + y_displacement;               
+               
+               // The current y is the current coordinate of the floating element.
+               // This should be at the limit the y target coordinate.
+               this.current_y += (y - this.current_y)/1.25;
+               
+               // Add the pixels constant after the values
+               // and move the element.
+               var px = document.layers ? "" : "px";
+               this.style.left =  x + px;
+               this.style.top =  this.current_y + px;
+                              
+               setTimeout(this.id + "_obj.floatElement()", 100);
+            }
+            
+            element.floatElement();
+            return element;
+          }
+
+         /**
+          * Finds an HTML element by its ID and makes it floatable over the normal content.
+          *
+          * @param x_displacement The difference in pixels to the right side of the window from 
+          *           the left side of the element.
+          * @param y_displacement The difference in pixels to the right side of the window from 
+          *           the top of the element.          
+          */
+         function selectTOCGroupBy(id, isChunked, indexFileLocation, indexFileNamespace, indexFileComponent){
+
+            if (!isChunked) {
+             var selectIds = new Array('toc_group_by_namespace', 'toc_group_by_location', 'toc_group_by_component_type');
+             // Make all the tabs invisible.
+               for (i = 0; i < 3; i++){
+                  var tab = getElementObject(selectIds[i]);
+                  tab.style.display = 'none';
+               }
+               var selTab = getElementObject(id);
+               selTab.style.display = 'block';
+            } else {
+             if (id == 'toc_group_by_namespace') {
+               parent.indexFrame.location = indexFileNamespace;
+             } else  if (id == 'toc_group_by_location') {
+               parent.indexFrame.location = indexFileLocation;
+             } else  if (id == 'toc_group_by_component_type') {
+              parent.indexFrame.location = indexFileComponent;
+             }
+            }
+         }
+          
+
+    
+                    //--></script></head>
+   <body>
+      <div id="global_controls" class="globalControls" style="position:absolute;right:0;">
+         <table class="rt">
+            <tr>
+               <td class="rt_cornerTopLeft"></td>
+               <td class="rt_lineTop"></td>
+               <td class="rt_cornerTopRight"></td>
+            </tr>
+            <tr>
+               <td class="rt_lineLeft"></td>
+               <td class="rt_content">
+                  <h3>Showing:</h3>
+                  <table>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, diagramBoxes);" class="control" /></span><span class="globalControlName">Diagrams</span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, instanceBoxes);" class="control" /></span><span class="globalControlName">Instances</span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, modelBoxes);" class="control" /></span><span class="globalControlName">Model </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, propertiesBoxes);" class="control" /></span><span class="globalControlName">Properties </span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, sourceBoxes);" class="control" /></span><span class="globalControlName">Source</span></td>
+                     </tr>
+                     <tr>
+                        <td><span><input type="checkbox" value="-" checked="checked" onclick="switchStateForAll(this, usedByBoxes);" class="control" /></span><span class="globalControlName">Used by </span></td>
+                     </tr>
+                  </table>
+                  <div style="text-align:center"><span><input type="button" onclick="getElementObject('global_controls').style.display = 'none';" value="Close" /></span></div>
+               </td>
+               <td class="rt_lineRight"></td>
+            </tr>
+            <tr>
+               <td class="rt_cornerBottomLeft"></td>
+               <td class="rt_lineBottom"></td>
+               <td class="rt_cornerBottomRight"></td>
+            </tr>
+         </table>
+      </div><a id="crossreferences_type_citation_list"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_crossreferences_type.html#crossreferences_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component crossreferences_type')">crossreferences_type</a></b> / citation_list</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_crossreferences_type_citation_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_crossreferences_type_citation_list');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_crossreferences_type_citation_list" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_citation_list.jpeg" usemap="#emdb_xsd_Element_citation_list" /><map name="emdb_xsd_Element_citation_list" id="emdb_xsd_Element_citation_list"><area alt="emdb_xsd_Complex_Type_crossreferences_type.tmp#crossreferences_type_crossreferences_type_citation_list_primary_citation" href="emdb_xsd_Complex_Type_crossreferences_type.html#crossreferences_type_crossreferences_type_citation_list_primary_citation" coords="213,2,332,26" /><area alt="emdb_xsd_Complex_Type_crossreferences_type.tmp#crossreferences_type_crossreferences_type_citation_list_secondary_citation" href="emdb_xsd_Complex_Type_crossreferences_type.html#crossreferences_type_crossreferences_type_citation_list_secondary_citation" coords="213,36,346,60" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_crossreferences_type_citation_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_crossreferences_type_citation_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_crossreferences_type_citation_list" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_crossreferences_type_citation_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('model_crossreferences_type_citation_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_crossreferences_type_citation_list" style="display:block"><b><a href="emdb_xsd_Complex_Type_crossreferences_type.html#crossreferences_type_crossreferences_type_citation_list_primary_citation" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component primary_citation')">primary_citation</a></b> , <b><a href="emdb_xsd_Complex_Type_crossreferences_type.html#crossreferences_type_crossreferences_type_citation_list_secondary_citation" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component secondary_citation*')">secondary_citation*</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_crossreferences_type.html#crossreferences_type_crossreferences_type_citation_list_primary_citation" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component primary_citation')">primary_citation</a></b>, <b><a href="emdb_xsd_Complex_Type_crossreferences_type.html#crossreferences_type_crossreferences_type_citation_list_secondary_citation" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component secondary_citation')">secondary_citation</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_crossreferences_type_citation_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('instance_crossreferences_type_citation_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_crossreferences_type_citation_list" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;citation_list</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;primary_citation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/primary_citation&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;secondary_citation</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,unbounded}</span><span class="tEl">&lt;/secondary_citation&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/citation_list&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_crossreferences_type_citation_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_crossreferences_type_citation_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_crossreferences_type_citation_list" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"citation_list"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"primary_citation"</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"citation_type"</span><span class="tEl">/&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"secondary_citation"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"unbounded"</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"citation_type"</span><span class="tEl">/&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="crossreferences_type_crossreferences_type_citation_list_primary_citation"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_crossreferences_type.html#crossreferences_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component crossreferences_type')">crossreferences_type</a></b> / <b><a href="emdb_xsd_Complex_Type_crossreferences_type.html#crossreferences_type_citation_list" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component citation_list')">citation_list</a></b> / primary_citation</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_crossreferences_type_crossreferences_type_citation_list_primary_citation" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_crossreferences_type_crossreferences_type_citation_list_primary_citation');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_crossreferences_type_crossreferences_type_citation_list_primary_citation" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_primary_citation.jpeg" usemap="#emdb_xsd_Element_primary_citation" /><map name="emdb_xsd_Element_primary_citation" id="emdb_xsd_Element_primary_citation"><area alt="emdb_xsd_Element_citation_type.tmp#citation_type" href="emdb_xsd_Element_citation_type.html#citation_type" coords="218,2,325,44" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_crossreferences_type_crossreferences_type_citation_list_primary_citation" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_crossreferences_type_crossreferences_type_citation_list_primary_citation');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_crossreferences_type_crossreferences_type_citation_list_primary_citation" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_crossreferences_type_crossreferences_type_citation_list_primary_citation" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('model_crossreferences_type_crossreferences_type_citation_list_primary_citation');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_crossreferences_type_crossreferences_type_citation_list_primary_citation" style="display:block"><b><a href="emdb_xsd_Element_citation_type.html#citation_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component citation_type')">citation_type</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="emdb_xsd_Element_citation_type.html#citation_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component citation_type')">citation_type</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_crossreferences_type_crossreferences_type_citation_list_primary_citation" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('instance_crossreferences_type_crossreferences_type_citation_list_primary_citation');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_crossreferences_type_crossreferences_type_citation_list_primary_citation" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;primary_citation</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;citation_type</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/citation_type&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/primary_citation&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_crossreferences_type_crossreferences_type_citation_list_primary_citation" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_crossreferences_type_crossreferences_type_citation_list_primary_citation');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_crossreferences_type_crossreferences_type_citation_list_primary_citation" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"primary_citation"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"citation_type"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="crossreferences_type_crossreferences_type_citation_list_secondary_citation"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_crossreferences_type.html#crossreferences_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component crossreferences_type')">crossreferences_type</a></b> / <b><a href="emdb_xsd_Complex_Type_crossreferences_type.html#crossreferences_type_citation_list" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component citation_list')">citation_list</a></b> / secondary_citation</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_crossreferences_type_crossreferences_type_citation_list_secondary_citation" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_crossreferences_type_crossreferences_type_citation_list_secondary_citation');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_crossreferences_type_crossreferences_type_citation_list_secondary_citation" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_secondary_citation.jpeg" usemap="#emdb_xsd_Element_secondary_citation" /><map name="emdb_xsd_Element_secondary_citation" id="emdb_xsd_Element_secondary_citation"><area alt="emdb_xsd_Element_citation_type.tmp#citation_type" href="emdb_xsd_Element_citation_type.html#citation_type" coords="232,2,339,44" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_crossreferences_type_crossreferences_type_citation_list_secondary_citation" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_crossreferences_type_crossreferences_type_citation_list_secondary_citation');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_crossreferences_type_crossreferences_type_citation_list_secondary_citation" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">maxOccurs</td>
+                                    <td><b>unbounded</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_crossreferences_type_crossreferences_type_citation_list_secondary_citation" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('model_crossreferences_type_crossreferences_type_citation_list_secondary_citation');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_crossreferences_type_crossreferences_type_citation_list_secondary_citation" style="display:block"><b><a href="emdb_xsd_Element_citation_type.html#citation_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component citation_type')">citation_type</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="emdb_xsd_Element_citation_type.html#citation_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component citation_type')">citation_type</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_crossreferences_type_crossreferences_type_citation_list_secondary_citation" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('instance_crossreferences_type_crossreferences_type_citation_list_secondary_citation');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_crossreferences_type_crossreferences_type_citation_list_secondary_citation" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;secondary_citation</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;citation_type</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/citation_type&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/secondary_citation&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_crossreferences_type_crossreferences_type_citation_list_secondary_citation" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_crossreferences_type_crossreferences_type_citation_list_secondary_citation');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_crossreferences_type_crossreferences_type_citation_list_secondary_citation" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"secondary_citation"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"unbounded"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"citation_type"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="crossreferences_type_emdb_list"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_crossreferences_type.html#crossreferences_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component crossreferences_type')">crossreferences_type</a></b> / emdb_list</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_crossreferences_type_emdb_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_crossreferences_type_emdb_list');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_crossreferences_type_emdb_list" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_emdb_list.jpeg" usemap="#emdb_xsd_Element_emdb_list" /><map name="emdb_xsd_Element_emdb_list" id="emdb_xsd_Element_emdb_list"><area alt="emdb_xsd_Complex_Type_emdb_cross_reference_list_type.tmp#emdb_cross_reference_list_type_emdb_reference" href="emdb_xsd_Complex_Type_emdb_cross_reference_list_type.html#emdb_cross_reference_list_type_emdb_reference" coords="373,40,590,82" /><area alt="emdb_xsd_Complex_Type_emdb_cross_reference_list_type.tmp#emdb_cross_reference_list_type" href="emdb_xsd_Complex_Type_emdb_cross_reference_list_type.html#emdb_cross_reference_list_type" coords="270,3,495,25" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_emdb_cross_reference_list_type.html#emdb_cross_reference_list_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component emdb_cross_reference_list_type')">emdb_cross_reference_list_type</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_crossreferences_type_emdb_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_crossreferences_type_emdb_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_crossreferences_type_emdb_list" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_crossreferences_type_emdb_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('model_crossreferences_type_emdb_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_crossreferences_type_emdb_list" style="display:block"><b><a href="emdb_xsd_Complex_Type_emdb_cross_reference_list_type.html#emdb_cross_reference_list_type_emdb_reference" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component emdb_reference+')">emdb_reference+</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_emdb_cross_reference_list_type.html#emdb_cross_reference_list_type_emdb_reference" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component emdb_reference')">emdb_reference</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_crossreferences_type_emdb_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('instance_crossreferences_type_emdb_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_crossreferences_type_emdb_list" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;emdb_list</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;emdb_reference</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,unbounded}</span><span class="tEl">&lt;/emdb_reference&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/emdb_list&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_crossreferences_type_emdb_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_crossreferences_type_emdb_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_crossreferences_type_emdb_list" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"emdb_list"</span><span class="tAN"> type=</span><span class="tAV">"emdb_cross_reference_list_type"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="crossreferences_type_pdb_list"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_crossreferences_type.html#crossreferences_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component crossreferences_type')">crossreferences_type</a></b> / pdb_list</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_crossreferences_type_pdb_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_crossreferences_type_pdb_list');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_crossreferences_type_pdb_list" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_pdb_list.jpeg" usemap="#emdb_xsd_Element_pdb_list" /><map name="emdb_xsd_Element_pdb_list" id="emdb_xsd_Element_pdb_list"><area alt="emdb_xsd_Complex_Type_pdb_cross_reference_list_type.tmp#pdb_cross_reference_list_type_pdb_reference" href="emdb_xsd_Complex_Type_pdb_cross_reference_list_type.html#pdb_cross_reference_list_type_pdb_reference" coords="364,40,572,82" /><area alt="emdb_xsd_Complex_Type_pdb_cross_reference_list_type.tmp#pdb_cross_reference_list_type" href="emdb_xsd_Complex_Type_pdb_cross_reference_list_type.html#pdb_cross_reference_list_type" coords="261,3,477,25" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_pdb_cross_reference_list_type.html#pdb_cross_reference_list_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component pdb_cross_reference_list_type')">pdb_cross_reference_list_type</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_crossreferences_type_pdb_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_crossreferences_type_pdb_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_crossreferences_type_pdb_list" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_crossreferences_type_pdb_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('model_crossreferences_type_pdb_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_crossreferences_type_pdb_list" style="display:block"><b><a href="emdb_xsd_Complex_Type_pdb_cross_reference_list_type.html#pdb_cross_reference_list_type_pdb_reference" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component pdb_reference+')">pdb_reference+</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_pdb_cross_reference_list_type.html#pdb_cross_reference_list_type_pdb_reference" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component pdb_reference')">pdb_reference</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_crossreferences_type_pdb_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('instance_crossreferences_type_pdb_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_crossreferences_type_pdb_list" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;pdb_list</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;pdb_reference</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,unbounded}</span><span class="tEl">&lt;/pdb_reference&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/pdb_list&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_crossreferences_type_pdb_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_crossreferences_type_pdb_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_crossreferences_type_pdb_list" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"pdb_list"</span><span class="tAN"> type=</span><span class="tAV">"pdb_cross_reference_list_type"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="crossreferences_type_other_db_list"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_crossreferences_type.html#crossreferences_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component crossreferences_type')">crossreferences_type</a></b> / other_db_list</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_crossreferences_type_other_db_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_crossreferences_type_other_db_list');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_crossreferences_type_other_db_list" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_other_db_list.jpeg" usemap="#emdb_xsd_Element_other_db_list" /><map name="emdb_xsd_Element_other_db_list" id="emdb_xsd_Element_other_db_list"><area alt="emdb_xsd_Complex_Type_other_db_cross_reference_list_type.tmp#other_db_cross_reference_list_type_db_reference" href="emdb_xsd_Complex_Type_other_db_cross_reference_list_type.html#other_db_cross_reference_list_type_db_reference" coords="392,40,628,82" /><area alt="emdb_xsd_Complex_Type_other_db_cross_reference_list_type.tmp#other_db_cross_reference_list_type" href="emdb_xsd_Complex_Type_other_db_cross_reference_list_type.html#other_db_cross_reference_list_type" coords="289,3,533,25" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_other_db_cross_reference_list_type.html#other_db_cross_reference_list_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component other_db_cross_reference_list_type')">other_db_cross_reference_list_type</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_crossreferences_type_other_db_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_crossreferences_type_other_db_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_crossreferences_type_other_db_list" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_crossreferences_type_other_db_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('model_crossreferences_type_other_db_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_crossreferences_type_other_db_list" style="display:block"><b><a href="emdb_xsd_Complex_Type_other_db_cross_reference_list_type.html#other_db_cross_reference_list_type_db_reference" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component db_reference+')">db_reference+</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_other_db_cross_reference_list_type.html#other_db_cross_reference_list_type_db_reference" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component db_reference')">db_reference</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_crossreferences_type_other_db_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('instance_crossreferences_type_other_db_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_crossreferences_type_other_db_list" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;other_db_list</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;db_reference</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,unbounded}</span><span class="tEl">&lt;/db_reference&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/other_db_list&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_crossreferences_type_other_db_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_crossreferences_type_other_db_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_crossreferences_type_other_db_list" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"other_db_list"</span><span class="tAN"> type=</span><span class="tAV">"other_db_cross_reference_list_type"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="crossreferences_type_auxiliary_link_list"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_crossreferences_type.html#crossreferences_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component crossreferences_type')">crossreferences_type</a></b> / auxiliary_link_list</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_crossreferences_type_auxiliary_link_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_crossreferences_type_auxiliary_link_list');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_crossreferences_type_auxiliary_link_list" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_auxiliary_link_list.jpeg" usemap="#emdb_xsd_Element_auxiliary_link_list" /><map name="emdb_xsd_Element_auxiliary_link_list" id="emdb_xsd_Element_auxiliary_link_list"><area alt="emdb_xsd_Complex_Type_crossreferences_type.tmp#crossreferences_type_crossreferences_type_auxiliary_link_list_auxiliary_link" href="emdb_xsd_Complex_Type_crossreferences_type.html#crossreferences_type_crossreferences_type_auxiliary_link_list_auxiliary_link" coords="244,2,409,44" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_crossreferences_type_auxiliary_link_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_crossreferences_type_auxiliary_link_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_crossreferences_type_auxiliary_link_list" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">minOccurs</td>
+                                    <td><b>0</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_crossreferences_type_auxiliary_link_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('model_crossreferences_type_auxiliary_link_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_crossreferences_type_auxiliary_link_list" style="display:block"><b><a href="emdb_xsd_Complex_Type_crossreferences_type.html#crossreferences_type_crossreferences_type_auxiliary_link_list_auxiliary_link" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component auxiliary_link+')">auxiliary_link+</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_crossreferences_type.html#crossreferences_type_crossreferences_type_auxiliary_link_list_auxiliary_link" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component auxiliary_link')">auxiliary_link</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_crossreferences_type_auxiliary_link_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('instance_crossreferences_type_auxiliary_link_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_crossreferences_type_auxiliary_link_list" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;auxiliary_link_list</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;auxiliary_link</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,unbounded}</span><span class="tEl">&lt;/auxiliary_link&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/auxiliary_link_list&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_crossreferences_type_auxiliary_link_list" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_crossreferences_type_auxiliary_link_list');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_crossreferences_type_auxiliary_link_list" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"auxiliary_link_list"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:sequence</span><span class="tAN"> minOccurs=</span><span class="tAV">"1"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"auxiliary_link"</span><span class="tAN"> type=</span><span class="tAV">"auxiliary_link_type"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"unbounded"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:element&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="crossreferences_type_crossreferences_type_auxiliary_link_list_auxiliary_link"></a><div class="componentTitle">Element <span class="qname"><b><a href="emdb_xsd_Complex_Type_crossreferences_type.html#crossreferences_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component crossreferences_type')">crossreferences_type</a></b> / <b><a href="emdb_xsd_Complex_Type_crossreferences_type.html#crossreferences_type_auxiliary_link_list" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component auxiliary_link_list')">auxiliary_link_list</a></b> / auxiliary_link</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_crossreferences_type_crossreferences_type_auxiliary_link_list_auxiliary_link" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_crossreferences_type_crossreferences_type_auxiliary_link_list_auxiliary_link');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_crossreferences_type_crossreferences_type_auxiliary_link_list_auxiliary_link" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Element_auxiliary_link.jpeg" usemap="#emdb_xsd_Element_auxiliary_link" /><map name="emdb_xsd_Element_auxiliary_link" id="emdb_xsd_Element_auxiliary_link"><area alt="emdb_xsd_Complex_Type_auxiliary_link_type.tmp#auxiliary_link_type_type" href="emdb_xsd_Complex_Type_auxiliary_link_type.html#auxiliary_link_type_type" coords="278,40,470,82" /><area alt="emdb_xsd_Complex_Type_auxiliary_link_type.tmp#auxiliary_link_type_link" href="emdb_xsd_Complex_Type_auxiliary_link_type.html#auxiliary_link_type_link" coords="278,92,477,134" /><area alt="emdb_xsd_Complex_Type_auxiliary_link_type.tmp#auxiliary_link_type_details" href="emdb_xsd_Complex_Type_auxiliary_link_type.html#auxiliary_link_type_details" coords="278,144,391,186" /><area alt="emdb_xsd_Complex_Type_auxiliary_link_type.tmp#auxiliary_link_type" href="emdb_xsd_Complex_Type_auxiliary_link_type.html#auxiliary_link_type" coords="196,3,347,25" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Type</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_auxiliary_link_type.html#auxiliary_link_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component auxiliary_link_type')">auxiliary_link_type</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Properties</b></div>
+                           <div class="floatRight"><input id="button_properties_crossreferences_type_crossreferences_type_auxiliary_link_list_auxiliary_link" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('properties_crossreferences_type_crossreferences_type_auxiliary_link_list_auxiliary_link');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="properties_crossreferences_type_crossreferences_type_auxiliary_link_list_auxiliary_link" style="display:block">
+                              <table class="propertiesTable">
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">content</td>
+                                    <td><b>complex</b></td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn" style="white-space: nowrap;">maxOccurs</td>
+                                    <td><b>unbounded</b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_crossreferences_type_crossreferences_type_auxiliary_link_list_auxiliary_link" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('model_crossreferences_type_crossreferences_type_auxiliary_link_list_auxiliary_link');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_crossreferences_type_crossreferences_type_auxiliary_link_list_auxiliary_link" style="display:block"><b><a href="emdb_xsd_Complex_Type_auxiliary_link_type.html#auxiliary_link_type_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component type')">type</a></b> , <b><a href="emdb_xsd_Complex_Type_auxiliary_link_type.html#auxiliary_link_type_link" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component link')">link</a></b> , <b><a href="emdb_xsd_Complex_Type_auxiliary_link_type.html#auxiliary_link_type_details" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component details{0,1}')">details{0,1}</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_auxiliary_link_type.html#auxiliary_link_type_details" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component details')">details</a></b>, <b><a href="emdb_xsd_Complex_Type_auxiliary_link_type.html#auxiliary_link_type_link" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component link')">link</a></b>, <b><a href="emdb_xsd_Complex_Type_auxiliary_link_type.html#auxiliary_link_type_type" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component type')">type</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Instance</b></div>
+                           <div class="floatRight"><input id="button_instance_crossreferences_type_crossreferences_type_auxiliary_link_list_auxiliary_link" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('instance_crossreferences_type_crossreferences_type_auxiliary_link_list_auxiliary_link');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="instance_crossreferences_type_crossreferences_type_auxiliary_link_list_auxiliary_link" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;auxiliary_link</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;type</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/type&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;link</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/link&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;details</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{0,1}</span><span class="tEl">&lt;/details&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/auxiliary_link&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_crossreferences_type_crossreferences_type_auxiliary_link_list_auxiliary_link" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_crossreferences_type_crossreferences_type_auxiliary_link_list_auxiliary_link');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_crossreferences_type_crossreferences_type_auxiliary_link_list_auxiliary_link" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"auxiliary_link"</span><span class="tAN"> type=</span><span class="tAV">"auxiliary_link_type"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"unbounded"</span><span class="tEl">/&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table><a id="crossreferences_type"></a><div class="componentTitle">Complex Type <span class="qname">crossreferences_type</span></div>
+      <table class="rt">
+         <tr>
+            <td class="rt_cornerTopLeft"></td>
+            <td class="rt_lineTop"></td>
+            <td class="rt_cornerTopRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_lineLeft"></td>
+            <td class="rt_content">
+               <table class="component">
+                  <tbody>
+                     <tr>
+                        <td class="firstColumn"><b>Namespace</b></td>
+                        <td>No namespace</td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Diagram</b></div>
+                           <div class="floatRight"><input id="button_diagram_crossreferences_type" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('diagram_crossreferences_type');" class="control" /></div>
+                        </td>
+                        <td class="diagram">
+                           <div id="diagram_crossreferences_type" style="display:block"><img alt="Diagram" style="border:0" src="img/emdb_xsd_Complex_Type_crossreferences_type.jpeg" usemap="#emdb_xsd_Complex_Type_crossreferences_type" /><map name="emdb_xsd_Complex_Type_crossreferences_type" id="emdb_xsd_Complex_Type_crossreferences_type"><area alt="emdb_xsd_Complex_Type_crossreferences_type.tmp#crossreferences_type_citation_list" href="emdb_xsd_Complex_Type_crossreferences_type.html#crossreferences_type_citation_list" coords="270,0,363,24" /><area alt="emdb_xsd_Complex_Type_crossreferences_type.tmp#crossreferences_type_emdb_list" href="emdb_xsd_Complex_Type_crossreferences_type.html#crossreferences_type_emdb_list" coords="270,34,509,76" /><area alt="emdb_xsd_Complex_Type_crossreferences_type.tmp#crossreferences_type_pdb_list" href="emdb_xsd_Complex_Type_crossreferences_type.html#crossreferences_type_pdb_list" coords="270,86,500,128" /><area alt="emdb_xsd_Complex_Type_crossreferences_type.tmp#crossreferences_type_other_db_list" href="emdb_xsd_Complex_Type_crossreferences_type.html#crossreferences_type_other_db_list" coords="270,138,528,180" /><area alt="emdb_xsd_Complex_Type_crossreferences_type.tmp#crossreferences_type_auxiliary_link_list" href="emdb_xsd_Complex_Type_crossreferences_type.html#crossreferences_type_auxiliary_link_list" coords="270,190,394,214" /></map></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Used by</b></div>
+                           <div class="floatRight"><input id="button_usedBy_crossreferences_type" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('usedBy_crossreferences_type');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="usedBy_crossreferences_type" style="display:block">
+                              <table class="usedByTable">
+                                 <tr>
+                                    <td class="firstColumn">Element </td>
+                                    <td><b><a href="emdb_xsd_Complex_Type_entry_type.html#entry_type_crossreferences" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component entry_type/crossreferences')">entry_type/crossreferences</a></b></td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Model</b><div class="floatRight"><input id="button_model_crossreferences_type" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('model_crossreferences_type');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="model_crossreferences_type" style="display:block"><b><a href="emdb_xsd_Complex_Type_crossreferences_type.html#crossreferences_type_citation_list" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component citation_list')">citation_list</a></b> , <b><a href="emdb_xsd_Complex_Type_crossreferences_type.html#crossreferences_type_emdb_list" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component emdb_list{0,1}')">emdb_list{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_crossreferences_type.html#crossreferences_type_pdb_list" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component pdb_list{0,1}')">pdb_list{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_crossreferences_type.html#crossreferences_type_other_db_list" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component other_db_list{0,1}')">other_db_list{0,1}</a></b> , <b><a href="emdb_xsd_Complex_Type_crossreferences_type.html#crossreferences_type_auxiliary_link_list" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component auxiliary_link_list{0,1}')">auxiliary_link_list{0,1}</a></b></div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn"><b>Children</b></td>
+                        <td><b><a href="emdb_xsd_Complex_Type_crossreferences_type.html#crossreferences_type_auxiliary_link_list" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component auxiliary_link_list')">auxiliary_link_list</a></b>, <b><a href="emdb_xsd_Complex_Type_crossreferences_type.html#crossreferences_type_citation_list" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component citation_list')">citation_list</a></b>, <b><a href="emdb_xsd_Complex_Type_crossreferences_type.html#crossreferences_type_emdb_list" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component emdb_list')">emdb_list</a></b>, <b><a href="emdb_xsd_Complex_Type_crossreferences_type.html#crossreferences_type_other_db_list" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component other_db_list')">other_db_list</a></b>, <b><a href="emdb_xsd_Complex_Type_crossreferences_type.html#crossreferences_type_pdb_list" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for component pdb_list')">pdb_list</a></b></td>
+                     </tr>
+                     <tr>
+                        <td class="firstColumn">
+                           <div class="floatLeft"><b>Source</b></div>
+                           <div class="floatRight"><input id="button_source_crossreferences_type" type="image" src="img/btM.gif" alt="expand/collapse" onclick="switchState('source_crossreferences_type');" class="control" /></div>
+                        </td>
+                        <td>
+                           <div id="source_crossreferences_type" style="display:block">
+                              <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
+                                 <tr>
+                                    <td style="width:100%">
+                                       <pre><span class="tEl">&lt;xs:complexType</span><span class="tAN"> name=</span><span class="tAV">"crossreferences_type"</span><span class="tEl">&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"citation_list"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"primary_citation"</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"citation_type"</span><span class="tEl">/&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"secondary_citation"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"unbounded"</span><span class="tEl">&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;xs:sequence</span><span class="tEl">&gt;</span><span class="tI">
+                </span><span class="tEl">&lt;xs:element</span><span class="tAN"> ref=</span><span class="tAV">"citation_type"</span><span class="tEl">/&gt;</span><span class="tI">
+              </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+            </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"emdb_list"</span><span class="tAN"> type=</span><span class="tAV">"emdb_cross_reference_list_type"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"pdb_list"</span><span class="tAN"> type=</span><span class="tAV">"pdb_cross_reference_list_type"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"other_db_list"</span><span class="tAN"> type=</span><span class="tAV">"other_db_cross_reference_list_type"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">/&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"auxiliary_link_list"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:complexType</span><span class="tEl">&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;xs:sequence</span><span class="tAN"> minOccurs=</span><span class="tAV">"1"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"1"</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"auxiliary_link"</span><span class="tAN"> type=</span><span class="tAV">"auxiliary_link_type"</span><span class="tAN"> maxOccurs=</span><span class="tAV">"unbounded"</span><span class="tEl">/&gt;</span><span class="tI">
+        </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;/xs:complexType&gt;</span><span class="tI">
+    </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
+    </span><span class="tC">&lt;!-- 
+            &lt;xs:element name="component_maps" minOccurs="0"&gt;
+                &lt;xs:complexType&gt;
+                    &lt;xs:sequence&gt;
+                        &lt;xs:element name="component_map" maxOccurs="unbounded"&gt;
+                            &lt;xs:complexType&gt;
+                                &lt;xs:sequence&gt;
+                                    &lt;xs:element name="comp_map_id" type="emdb_id_type" minOccurs="0"/&gt;
+                                    &lt;xs:element name="details" type="xs:string" minOccurs="0"/&gt;
+                                &lt;/xs:sequence&gt;
+                            &lt;/xs:complexType&gt;
+                        &lt;/xs:element&gt;
+                    &lt;/xs:sequence&gt;
+                &lt;/xs:complexType&gt;
+            &lt;/xs:element&gt;
+            --&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
+</span><span class="tEl">&lt;/xs:complexType&gt;</span></pre>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </div>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </td>
+            <td class="rt_lineRight"></td>
+         </tr>
+         <tr>
+            <td class="rt_cornerBottomLeft"></td>
+            <td class="rt_lineBottom"></td>
+            <td class="rt_cornerBottomRight"></td>
+         </tr>
+      </table>
+      <div class="footer">
+         <hr />
+         <div style="text-align:center">XML Schema documentation generated by <a href="http://www.oxygenxml.com" target="_parent"><span class="oXygenLogo"><span class="redX">&lt;</span>o<span class="redX">X</span>ygen<span class="redX">/&gt;</span></span></a><sup>®</sup> XML Editor Trial Edition.</div>
+      </div><script type="text/javascript"><!--
+                     // The namespace is the selected option in the TOC combo.
+                    
+                     // Floats the toolbar.
+                     var globalControls = getElementObject("global_controls"); 
+                     
+                     if(globalControls != null){
+	                     var browser=navigator.appName;
+						 var version = parseFloat(navigator.appVersion.split('MSIE')[1]);
+						 
+						 var IE6 = false;
+						 if ((browser=="Microsoft Internet Explorer") && (version < 7)){
+						 	IE6 = true;
+						 }
+	
+	                     //alert (IE6 + " |V| " + version);
+	                     
+	                     if(IE6){
+	                     	// On IE 6 the 'fixed' property is not supported. We must use javascript. 
+	                         globalControls.style.position='absolute';                         
+	                         // The global controls will do not exist in the TOC frame, when chunking.
+	                         findAndFloat("global_controls", 225, 30);    
+	                     } else {
+	                      	  globalControls.style.position='fixed';                     	
+	                     }
+	                     
+	                     globalControls.style.right='0';                       
+                     }
+                //--></script></body>
+</html>
