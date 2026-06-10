@@ -2,24 +2,24 @@
 # -*- coding: utf-8 -*-
 
 #
-# Generated Wed Feb  5 13:38:38 2025 by generateDS.py version 2.43.3.
-# Python 3.9.19 (main, Mar 21 2024, 12:08:14)  [Clang 14.0.6 ]
+# Generated Thu Feb 13 13:03:58 2025 by generateDS.py version 2.44.3.
+# Python 3.11.5 (main, Sep 11 2023, 08:31:25) [Clang 14.0.6 ]
 #
 # Command line options:
 #   ('--root-element', 'emd')
 #   ('-f', '')
-#   ('-o', '/Users/sanja/IdeaProjects/emdb_schemas/emdb_schemas/v3/v3_0_10_0/emdb.py')
+#   ('-o', 'emdb_schemas/v3/v3_0_10_1/emdb.py')
 #   ('--no-warnings', '')
 #   ('--external-encoding', 'utf-8')
 #
 # Command line arguments:
-#   /Users/sanja/IdeaProjects/emdb_schemas/emdb_schemas/v3/v3_0_10_0/emdb.xsd
+#   emdb_schemas/v3/v3_0_10_1/emdb.xsd
 #
 # Command line:
-#   /Users/sanja/generateDS/generateDS-2.43.3/generateDS.py --root-element="emd" -f -o "/Users/sanja/IdeaProjects/emdb_schemas/emdb_schemas/v3/v3_0_10_0/emdb.py" --no-warnings --external-encoding="utf-8" /Users/sanja/IdeaProjects/emdb_schemas/emdb_schemas/v3/v3_0_10_0/emdb.xsd
+#   /Users/neli/anaconda3/bin/generateDS --root-element="emd" -f -o "emdb_schemas/v3/v3_0_10_1/emdb.py" --no-warnings --external-encoding="utf-8" emdb_schemas/v3/v3_0_10_1/emdb.xsd
 #
 # Current working directory (os.getcwd()):
-#   v3_0_10_0
+#   emdb-schemas
 #
 
 import sys
@@ -182,7 +182,7 @@ except ModulenotfoundExp_ as exp:
     
     class GeneratedsSuper(GeneratedsSuperSuper):
         __hash__ = object.__hash__
-        tzoff_pattern = re_.compile(r'(\+|-)((0\d|1[0-3]):[0-5]\d|14:00)$')
+        tzoff_pattern = re_.compile('(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)$')
         class _FixedOffsetTZ(datetime_.tzinfo):
             def __init__(self, offset, name):
                 self.__offset = datetime_.timedelta(minutes=offset)
@@ -620,7 +620,7 @@ except ModulenotfoundExp_ as exp:
             path_list.reverse()
             path = '/'.join(path_list)
             return path
-        Tag_strip_pattern_ = re_.compile(r'\{.*\}')
+        Tag_strip_pattern_ = re_.compile(r'{.*}')
         def get_path_list_(self, node, path_list):
             if node is None:
                 return
@@ -1251,6 +1251,7 @@ class film_materialType(str, Enum):
     GRAPHENE='GRAPHENE'
     GRAPHENEOXIDE='GRAPHENE OXIDE'
     PARLODION='PARLODION'
+    SILICONDIOXIDE='SILICON DIOXIDE'
 
 
 class film_topologyType(str, Enum):
@@ -1804,7 +1805,7 @@ class entry_type(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
     subclass = None
     superclass = None
-    def __init__(self, emdb_id=None, version='3.0.10.0', admin=None, crossreferences=None, sample=None, structure_determination_list=None, map=None, interpretation=None, validation=None, gds_collector_=None, **kwargs_):
+    def __init__(self, emdb_id=None, version='3.0.10.1', admin=None, crossreferences=None, sample=None, structure_determination_list=None, map=None, interpretation=None, validation=None, gds_collector_=None, **kwargs_):
         self.gds_collector_ = gds_collector_
         self.gds_elementtree_node_ = None
         self.original_tagname_ = None
@@ -1930,7 +1931,7 @@ class entry_type(GeneratedsSuper):
         if self.emdb_id is not None and 'emdb_id' not in already_processed:
             already_processed.add('emdb_id')
             outfile.write(' emdb_id=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.emdb_id), input_name='emdb_id')), ))
-        if self.version != "3.0.10.0" and 'version' not in already_processed:
+        if self.version != "3.0.10.1" and 'version' not in already_processed:
             already_processed.add('version')
             outfile.write(' version=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.version), input_name='version')), ))
     def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='entry_type', fromsubclass_=False, pretty_print=True):
@@ -12744,7 +12745,7 @@ class film_type(GeneratedsSuper):
                 self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
                 return False
             value = value
-            enumerations = ['CARBON', 'CELLULOSE ACETATE', 'FORMVAR', 'GOLD', 'GRAPHENE', 'GRAPHENE OXIDE', 'PARLODION']
+            enumerations = ['CARBON', 'CELLULOSE ACETATE', 'FORMVAR', 'GOLD', 'GRAPHENE', 'GRAPHENE OXIDE', 'PARLODION', 'SILICON DIOXIDE']
             if value not in enumerations:
                 lineno = self.gds_get_node_lineno_()
                 self.gds_collector_.add_message('Value "%(value)s"%(lineno)s does not match xsd enumeration restriction on film_materialType' % {"value" : encode_str_2_3(value), "lineno": lineno} )
