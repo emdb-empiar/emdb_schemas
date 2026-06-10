@@ -24,7 +24,7 @@
             </xs:element>
         </xs:sequence>
         <xs:attribute name="emdb_id" type="emdb_id_type" use="required" />
-        <xs:attribute default="3.0.1.5" name="version" type="xs:token" />
+        <xs:attribute default="3.0.1.6" name="version" type="xs:token" />
         
     </xs:complexType>
     <xs:complexType name="admin_type">
@@ -2018,6 +2018,8 @@
                         <xs:enumeration value="JEOL CRYO ARM 200" />
                         <xs:enumeration value="JEOL CRYO ARM 300" />
                         <xs:enumeration value="JEOL KYOTO-3000SFF" />
+                        <xs:enumeration value="TFS GLACIOS" />
+                        <xs:enumeration value="TFS KRIOS" />
                         <xs:enumeration value="ZEISS LEO912" />
                         <xs:enumeration value="ZEISS LIBRA120PLUS" />
                     <xs:enumeration value="OTHER" /></xs:restriction>
@@ -2120,6 +2122,7 @@
             <xs:element minOccurs="0" name="specimen_holder_model">
                 <xs:simpleType>
                     <xs:restriction base="xs:token">
+                        <xs:enumeration value="FISCHIONE 2550" />
                         <xs:enumeration value="FEI TITAN KRIOS AUTOGRID HOLDER" />
                         <xs:enumeration value="GATAN 626 SINGLE TILT LIQUID NITROGEN CRYO TRANSFER HOLDER" />
                         <xs:enumeration value="GATAN 910 MULTI-SPECIMEN SINGLE TILT CRYO TRANSFER HOLDER" />
@@ -2128,6 +2131,7 @@
                         <xs:enumeration value="GATAN CHDT 3504 DOUBLE TILT HIGH RESOLUTION NITROGEN COOLING HOLDER" />
                         <xs:enumeration value="GATAN CT3500 SINGLE TILT LIQUID NITROGEN CRYO TRANSFER HOLDER" />
                         <xs:enumeration value="GATAN CT3500TR SINGLE TILT ROTATION LIQUID NITROGEN CRYO TRANSFER HOLDER" />
+                        <xs:enumeration value="GATAN ELSA 698 SINGLE TILT LIQUID NITROGEN CRYO TRANSFER HOLDER" />
                         <xs:enumeration value="GATAN HC 3500 SINGLE TILT HEATING/NITROGEN COOLING HOLDER" />
                         <xs:enumeration value="GATAN HCHDT 3010 DOUBLE TILT HIGH RESOLUTION HELIUM COOLING HOLDER" />
                         <xs:enumeration value="GATAN HCHST 3008 SINGLE TILT HIGH RESOLUTION HELIUM COOLING HOLDER" />
