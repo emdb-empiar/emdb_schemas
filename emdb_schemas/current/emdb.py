@@ -2,24 +2,24 @@
 # -*- coding: utf-8 -*-
 
 #
-# Generated Tue Jan 21 10:46:05 2025 by generateDS.py version 2.44.3.
-# Python 3.10.9 (main, Mar  1 2023, 12:33:47) [Clang 14.0.6 ]
+# Generated Wed Feb  5 13:38:38 2025 by generateDS.py version 2.43.3.
+# Python 3.9.19 (main, Mar 21 2024, 12:08:14)  [Clang 14.0.6 ]
 #
 # Command line options:
 #   ('--root-element', 'emd')
 #   ('-f', '')
-#   ('-o', '/Users/lucas/Development/EMDB/emdb-schemas/emdb_schemas/v3/v3_0_9_4/emdb.py')
+#   ('-o', '/Users/sanja/IdeaProjects/emdb_schemas/emdb_schemas/v3/v3_0_10_0/emdb.py')
 #   ('--no-warnings', '')
 #   ('--external-encoding', 'utf-8')
 #
 # Command line arguments:
-#   /Users/lucas/Development/EMDB/emdb-schemas/emdb_schemas/v3/v3_0_9_4/emdb.xsd
+#   /Users/sanja/IdeaProjects/emdb_schemas/emdb_schemas/v3/v3_0_10_0/emdb.xsd
 #
 # Command line:
-#   /Users/lucas/anaconda3/bin/generateDS --root-element="emd" -f -o "/Users/lucas/Development/EMDB/emdb-schemas/emdb_schemas/v3/v3_0_9_4/emdb.py" --no-warnings --external-encoding="utf-8" /Users/lucas/Development/EMDB/emdb-schemas/emdb_schemas/v3/v3_0_9_4/emdb.xsd
+#   /Users/sanja/generateDS/generateDS-2.43.3/generateDS.py --root-element="emd" -f -o "/Users/sanja/IdeaProjects/emdb_schemas/emdb_schemas/v3/v3_0_10_0/emdb.py" --no-warnings --external-encoding="utf-8" /Users/sanja/IdeaProjects/emdb_schemas/emdb_schemas/v3/v3_0_10_0/emdb.xsd
 #
 # Current working directory (os.getcwd()):
-#   EMDB
+#   v3_0_10_0
 #
 
 import sys
@@ -182,7 +182,7 @@ except ModulenotfoundExp_ as exp:
     
     class GeneratedsSuper(GeneratedsSuperSuper):
         __hash__ = object.__hash__
-        tzoff_pattern = re_.compile('(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)$')
+        tzoff_pattern = re_.compile(r'(\+|-)((0\d|1[0-3]):[0-5]\d|14:00)$')
         class _FixedOffsetTZ(datetime_.tzinfo):
             def __init__(self, offset, name):
                 self.__offset = datetime_.timedelta(minutes=offset)
@@ -620,7 +620,7 @@ except ModulenotfoundExp_ as exp:
             path_list.reverse()
             path = '/'.join(path_list)
             return path
-        Tag_strip_pattern_ = re_.compile(r'{.*}')
+        Tag_strip_pattern_ = re_.compile(r'\{.*\}')
         def get_path_list_(self, node, path_list):
             if node is None:
                 return
@@ -1489,6 +1489,11 @@ class processing_siteType(str, Enum):
     PD_BC='PDBc'
 
 
+class providerType(str, Enum):
+    REPOSITORY='REPOSITORY'
+    AUTHOR='AUTHOR'
+
+
 class reconstruction_algorithm_type(str, Enum):
     ALGEBRAICARTS='ALGEBRAIC (ARTS)'
     BACKPROJECTION='BACK PROJECTION'
@@ -1517,6 +1522,32 @@ class resolution_methodType(str, Enum):
     FSC_1_2BITCUTOFF='FSC 1/2 BIT CUT-OFF'
     FSC_3SIGMACUTOFF='FSC 3 SIGMA CUT-OFF'
     OTHER='OTHER'
+
+
+class revision_groupType(str, Enum):
+    EXPERIMENTAL_DATA='EXPERIMENTAL_DATA'
+    DERIVED_DATA='DERIVED_DATA'
+    EXPERIMENTAL_SUMMARY='EXPERIMENTAL_SUMMARY'
+    EXPERIMENTAL_PREPARATION='EXPERIMENTAL_PREPARATION'
+    DATABASE_REFERENCES='DATABASE_REFERENCES'
+    DATA_COLLECTION='DATA_COLLECTION'
+    ADVISORY='ADVISORY'
+    SOURCE_AND_TAXONOMY='SOURCE_AND_TAXONOMY'
+    REFINEMENT_DESCRIPTION='REFINEMENT_DESCRIPTION'
+    DATA_PROCESSING='DATA_PROCESSING'
+    STRUCTURE_SUMMARY='STRUCTURE_SUMMARY'
+    VERSION_FORMAT_COMPLIANCE='VERSION_FORMAT_COMPLIANCE'
+    OTHER='OTHER'
+
+
+class revision_typeType(str, Enum):
+    INITIAL_RELEASE='INITIAL_RELEASE'
+    COORDINATE_REPLACEMENT='COORDINATE_REPLACEMENT'
+    OBSOLETE='OBSOLETE'
+    REMEDIATION='REMEDIATION'
+    DATA_ADDED='DATA_ADDED'
+    DATA_UPDATED='DATA_UPDATED'
+    DATA_REMOVED='DATA_REMOVED'
 
 
 class roleType(str, Enum):
@@ -1773,7 +1804,7 @@ class entry_type(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
     subclass = None
     superclass = None
-    def __init__(self, emdb_id=None, version='3.0.9.4', admin=None, crossreferences=None, sample=None, structure_determination_list=None, map=None, interpretation=None, validation=None, gds_collector_=None, **kwargs_):
+    def __init__(self, emdb_id=None, version='3.0.10.0', admin=None, crossreferences=None, sample=None, structure_determination_list=None, map=None, interpretation=None, validation=None, gds_collector_=None, **kwargs_):
         self.gds_collector_ = gds_collector_
         self.gds_elementtree_node_ = None
         self.original_tagname_ = None
@@ -1899,7 +1930,7 @@ class entry_type(GeneratedsSuper):
         if self.emdb_id is not None and 'emdb_id' not in already_processed:
             already_processed.add('emdb_id')
             outfile.write(' emdb_id=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.emdb_id), input_name='emdb_id')), ))
-        if self.version != "3.0.9.4" and 'version' not in already_processed:
+        if self.version != "3.0.10.0" and 'version' not in already_processed:
             already_processed.add('version')
             outfile.write(' version=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.version), input_name='version')), ))
     def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='entry_type', fromsubclass_=False, pretty_print=True):
@@ -1994,7 +2025,7 @@ class admin_type(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
     subclass = None
     superclass = None
-    def __init__(self, composite_map=None, status_history_list=None, current_status=None, sites=None, key_dates=None, obsolete_list=None, superseded_by_list=None, grant_support=None, microscopy_center=None, contact_author=None, title=None, authors_list=None, details=None, keywords=None, replace_existing_entry=None, gds_collector_=None, **kwargs_):
+    def __init__(self, composite_map=None, status_history_list=None, current_status=None, revision_history=None, sites=None, key_dates=None, obsolete_list=None, superseded_by_list=None, grant_support=None, microscopy_center=None, contact_author=None, title=None, authors_list=None, details=None, keywords=None, replace_existing_entry=None, gds_collector_=None, **kwargs_):
         self.gds_collector_ = gds_collector_
         self.gds_elementtree_node_ = None
         self.original_tagname_ = None
@@ -2006,6 +2037,8 @@ class admin_type(GeneratedsSuper):
         self.status_history_list_nsprefix_ = None
         self.current_status = current_status
         self.current_status_nsprefix_ = None
+        self.revision_history = revision_history
+        self.revision_history_nsprefix_ = None
         self.sites = sites
         self.sites_nsprefix_ = None
         self.key_dates = key_dates
@@ -2056,6 +2089,10 @@ class admin_type(GeneratedsSuper):
         return self.current_status
     def set_current_status(self, current_status):
         self.current_status = current_status
+    def get_revision_history(self):
+        return self.revision_history
+    def set_revision_history(self, revision_history):
+        self.revision_history = revision_history
     def get_sites(self):
         return self.sites
     def set_sites(self, sites):
@@ -2118,6 +2155,7 @@ class admin_type(GeneratedsSuper):
         if (
             self.status_history_list is not None or
             self.current_status is not None or
+            self.revision_history is not None or
             self.sites is not None or
             self.key_dates is not None or
             self.obsolete_list is not None or
@@ -2172,6 +2210,9 @@ class admin_type(GeneratedsSuper):
         if self.current_status is not None:
             namespaceprefix_ = self.current_status_nsprefix_ + ':' if (UseCapturedNS_ and self.current_status_nsprefix_) else ''
             self.current_status.export(outfile, level, namespaceprefix_, namespacedef_='', name_='current_status', pretty_print=pretty_print)
+        if self.revision_history is not None:
+            namespaceprefix_ = self.revision_history_nsprefix_ + ':' if (UseCapturedNS_ and self.revision_history_nsprefix_) else ''
+            self.revision_history.export(outfile, level, namespaceprefix_, namespacedef_='', name_='revision_history', pretty_print=pretty_print)
         if self.sites is not None:
             namespaceprefix_ = self.sites_nsprefix_ + ':' if (UseCapturedNS_ and self.sites_nsprefix_) else ''
             self.sites.export(outfile, level, namespaceprefix_, namespacedef_='', name_='sites', pretty_print=pretty_print)
@@ -2245,6 +2286,11 @@ class admin_type(GeneratedsSuper):
             obj_.build(child_, gds_collector_=gds_collector_)
             self.current_status = obj_
             obj_.original_tagname_ = 'current_status'
+        elif nodeName_ == 'revision_history':
+            obj_ = revision_historyType.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.revision_history = obj_
+            obj_.original_tagname_ = 'revision_history'
         elif nodeName_ == 'sites':
             obj_ = sitesType.factory(parent_object_=self)
             obj_.build(child_, gds_collector_=gds_collector_)
@@ -3054,6 +3100,675 @@ class grant_reference_type(GeneratedsSuper):
             self.country = value_
             self.country_nsprefix_ = child_.prefix
 # end class grant_reference_type
+
+
+class revision_history_type(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, version=None, date=None, change_list=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = None
+        self.version = _cast(None, version)
+        self.version_nsprefix_ = None
+        if isinstance(date, BaseStrType_):
+            initvalue_ = datetime_.datetime.strptime(date, '%Y-%m-%d').date()
+        else:
+            initvalue_ = date
+        self.date = initvalue_
+        self.change_list = change_list
+        self.change_list_nsprefix_ = None
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, revision_history_type)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if revision_history_type.subclass:
+            return revision_history_type.subclass(*args_, **kwargs_)
+        else:
+            return revision_history_type(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_change_list(self):
+        return self.change_list
+    def set_change_list(self, change_list):
+        self.change_list = change_list
+    def get_version(self):
+        return self.version
+    def set_version(self, version):
+        self.version = version
+    def get_date(self):
+        return self.date
+    def set_date(self, date):
+        self.date = date
+    def validate_revision_history_version_type(self, value):
+        # Validate type revision_history_version_type, a restriction on xs:token.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if not isinstance(value, str):
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
+                return False
+            if not self.gds_validate_simple_patterns(
+                    self.validate_revision_history_version_type_patterns_, value):
+                self.gds_collector_.add_message('Value "%s" does not match xsd pattern restrictions: %s' % (encode_str_2_3(value), self.validate_revision_history_version_type_patterns_, ))
+    validate_revision_history_version_type_patterns_ = [['^([0-9]+\\.[0-9]+)$']]
+    def has__content(self):
+        if (
+            self.change_list is not None
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='revision_history_type', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('revision_history_type')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'revision_history_type':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='revision_history_type')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='revision_history_type', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='revision_history_type'):
+        if self.version is not None and 'version' not in already_processed:
+            already_processed.add('version')
+            outfile.write(' version=%s' % (self.gds_encode(self.gds_format_string(quote_attrib(self.version), input_name='version')), ))
+        if self.date is not None and 'date' not in already_processed:
+            already_processed.add('date')
+            outfile.write(' date="%s"' % self.gds_format_date(self.date, input_name='date'))
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='revision_history_type', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.change_list is not None:
+            namespaceprefix_ = self.change_list_nsprefix_ + ':' if (UseCapturedNS_ and self.change_list_nsprefix_) else ''
+            self.change_list.export(outfile, level, namespaceprefix_, namespacedef_='', name_='change_list', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('version', node)
+        if value is not None and 'version' not in already_processed:
+            already_processed.add('version')
+            self.version = value
+            self.version = ' '.join(self.version.split())
+            self.validate_revision_history_version_type(self.version)    # validate type revision_history_version_type
+        value = find_attr_value_('date', node)
+        if value is not None and 'date' not in already_processed:
+            already_processed.add('date')
+            try:
+                self.date = self.gds_parse_date(value)
+            except ValueError as exp:
+                raise ValueError('Bad date attribute (date): %s' % exp)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'change_list':
+            obj_ = change_listType.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.change_list = obj_
+            obj_.original_tagname_ = 'change_list'
+# end class revision_history_type
+
+
+class base_revision_change_type(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, revision_type=None, provider=None, description=None, details=None, revision_group=None, extensiontype_=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = None
+        self.revision_type = revision_type
+        self.validate_revision_typeType(self.revision_type)
+        self.revision_type_nsprefix_ = None
+        self.provider = provider
+        self.validate_providerType(self.provider)
+        self.provider_nsprefix_ = None
+        self.description = description
+        self.description_nsprefix_ = None
+        self.details = details
+        self.details_nsprefix_ = None
+        self.revision_group = revision_group
+        self.validate_revision_groupType(self.revision_group)
+        self.revision_group_nsprefix_ = None
+        self.extensiontype_ = extensiontype_
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, base_revision_change_type)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if base_revision_change_type.subclass:
+            return base_revision_change_type.subclass(*args_, **kwargs_)
+        else:
+            return base_revision_change_type(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_revision_type(self):
+        return self.revision_type
+    def set_revision_type(self, revision_type):
+        self.revision_type = revision_type
+    def get_provider(self):
+        return self.provider
+    def set_provider(self, provider):
+        self.provider = provider
+    def get_description(self):
+        return self.description
+    def set_description(self, description):
+        self.description = description
+    def get_details(self):
+        return self.details
+    def set_details(self, details):
+        self.details = details
+    def get_revision_group(self):
+        return self.revision_group
+    def set_revision_group(self, revision_group):
+        self.revision_group = revision_group
+    def get_extensiontype_(self): return self.extensiontype_
+    def set_extensiontype_(self, extensiontype_): self.extensiontype_ = extensiontype_
+    def validate_revision_typeType(self, value):
+        result = True
+        # Validate type revision_typeType, a restriction on xs:token.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if not isinstance(value, str):
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
+                return False
+            value = value
+            enumerations = ['INITIAL_RELEASE', 'COORDINATE_REPLACEMENT', 'OBSOLETE', 'REMEDIATION', 'DATA_ADDED', 'DATA_UPDATED', 'DATA_REMOVED']
+            if value not in enumerations:
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s does not match xsd enumeration restriction on revision_typeType' % {"value" : encode_str_2_3(value), "lineno": lineno} )
+                result = False
+        return result
+    def validate_providerType(self, value):
+        result = True
+        # Validate type providerType, a restriction on xs:token.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if not isinstance(value, str):
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
+                return False
+            value = value
+            enumerations = ['REPOSITORY', 'AUTHOR']
+            if value not in enumerations:
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s does not match xsd enumeration restriction on providerType' % {"value" : encode_str_2_3(value), "lineno": lineno} )
+                result = False
+        return result
+    def validate_revision_groupType(self, value):
+        result = True
+        # Validate type revision_groupType, a restriction on xs:token.
+        if value is not None and Validate_simpletypes_ and self.gds_collector_ is not None:
+            if not isinstance(value, str):
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s is not of the correct base simple type (str)' % {"value": value, "lineno": lineno, })
+                return False
+            value = value
+            enumerations = ['EXPERIMENTAL_DATA', 'DERIVED_DATA', 'EXPERIMENTAL_SUMMARY', 'EXPERIMENTAL_PREPARATION', 'DATABASE_REFERENCES', 'DATA_COLLECTION', 'ADVISORY', 'SOURCE_AND_TAXONOMY', 'REFINEMENT_DESCRIPTION', 'DATA_PROCESSING', 'STRUCTURE_SUMMARY', 'VERSION_FORMAT_COMPLIANCE', 'OTHER']
+            if value not in enumerations:
+                lineno = self.gds_get_node_lineno_()
+                self.gds_collector_.add_message('Value "%(value)s"%(lineno)s does not match xsd enumeration restriction on revision_groupType' % {"value" : encode_str_2_3(value), "lineno": lineno} )
+                result = False
+        return result
+    def has__content(self):
+        if (
+            self.revision_type is not None or
+            self.provider is not None or
+            self.description is not None or
+            self.details is not None or
+            self.revision_group is not None
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='base_revision_change_type', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('base_revision_change_type')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'base_revision_change_type':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='base_revision_change_type')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='base_revision_change_type', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='base_revision_change_type'):
+        if self.extensiontype_ is not None and 'xsi:type' not in already_processed:
+            already_processed.add('xsi:type')
+            outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
+            if ":" not in self.extensiontype_:
+                imported_ns_type_prefix_ = GenerateDSNamespaceTypePrefixes_.get(self.extensiontype_, '')
+                outfile.write(' xsi:type="%s%s"' % (imported_ns_type_prefix_, self.extensiontype_))
+            else:
+                outfile.write(' xsi:type="%s"' % self.extensiontype_)
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='base_revision_change_type', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.revision_type is not None:
+            namespaceprefix_ = self.revision_type_nsprefix_ + ':' if (UseCapturedNS_ and self.revision_type_nsprefix_) else ''
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%srevision_type>%s</%srevision_type>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.revision_type), input_name='revision_type')), namespaceprefix_ , eol_))
+        if self.provider is not None:
+            namespaceprefix_ = self.provider_nsprefix_ + ':' if (UseCapturedNS_ and self.provider_nsprefix_) else ''
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%sprovider>%s</%sprovider>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.provider), input_name='provider')), namespaceprefix_ , eol_))
+        if self.description is not None:
+            namespaceprefix_ = self.description_nsprefix_ + ':' if (UseCapturedNS_ and self.description_nsprefix_) else ''
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%sdescription>%s</%sdescription>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.description), input_name='description')), namespaceprefix_ , eol_))
+        if self.details is not None:
+            namespaceprefix_ = self.details_nsprefix_ + ':' if (UseCapturedNS_ and self.details_nsprefix_) else ''
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%sdetails>%s</%sdetails>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.details), input_name='details')), namespaceprefix_ , eol_))
+        if self.revision_group is not None:
+            namespaceprefix_ = self.revision_group_nsprefix_ + ':' if (UseCapturedNS_ and self.revision_group_nsprefix_) else ''
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%srevision_group>%s</%srevision_group>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(self.revision_group), input_name='revision_group')), namespaceprefix_ , eol_))
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('xsi:type', node)
+        if value is not None and 'xsi:type' not in already_processed:
+            already_processed.add('xsi:type')
+            self.extensiontype_ = value
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'revision_type':
+            value_ = child_.text
+            if value_:
+                value_ = re_.sub(String_cleanup_pat_, " ", value_).strip()
+            else:
+                value_ = ""
+            value_ = self.gds_parse_string(value_, node, 'revision_type')
+            value_ = self.gds_validate_string(value_, node, 'revision_type')
+            self.revision_type = value_
+            self.revision_type_nsprefix_ = child_.prefix
+            # validate type revision_typeType
+            self.validate_revision_typeType(self.revision_type)
+        elif nodeName_ == 'provider':
+            value_ = child_.text
+            if value_:
+                value_ = re_.sub(String_cleanup_pat_, " ", value_).strip()
+            else:
+                value_ = ""
+            value_ = self.gds_parse_string(value_, node, 'provider')
+            value_ = self.gds_validate_string(value_, node, 'provider')
+            self.provider = value_
+            self.provider_nsprefix_ = child_.prefix
+            # validate type providerType
+            self.validate_providerType(self.provider)
+        elif nodeName_ == 'description':
+            value_ = child_.text
+            if value_:
+                value_ = re_.sub(String_cleanup_pat_, " ", value_).strip()
+            else:
+                value_ = ""
+            value_ = self.gds_parse_string(value_, node, 'description')
+            value_ = self.gds_validate_string(value_, node, 'description')
+            self.description = value_
+            self.description_nsprefix_ = child_.prefix
+        elif nodeName_ == 'details':
+            value_ = child_.text
+            if value_:
+                value_ = re_.sub(String_cleanup_pat_, " ", value_).strip()
+            else:
+                value_ = ""
+            value_ = self.gds_parse_string(value_, node, 'details')
+            value_ = self.gds_validate_string(value_, node, 'details')
+            self.details = value_
+            self.details_nsprefix_ = child_.prefix
+        elif nodeName_ == 'revision_group':
+            value_ = child_.text
+            if value_:
+                value_ = re_.sub(String_cleanup_pat_, " ", value_).strip()
+            else:
+                value_ = ""
+            value_ = self.gds_parse_string(value_, node, 'revision_group')
+            value_ = self.gds_validate_string(value_, node, 'revision_group')
+            self.revision_group = value_
+            self.revision_group_nsprefix_ = child_.prefix
+            # validate type revision_groupType
+            self.validate_revision_groupType(self.revision_group)
+# end class base_revision_change_type
+
+
+class part_revision_change_type(base_revision_change_type):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = base_revision_change_type
+    def __init__(self, revision_type=None, provider=None, description=None, details=None, revision_group=None, part=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = None
+        super(globals().get("part_revision_change_type"), self).__init__(revision_type, provider, description, details, revision_group,  **kwargs_)
+        self.part = _cast(int, part)
+        self.part_nsprefix_ = None
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, part_revision_change_type)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if part_revision_change_type.subclass:
+            return part_revision_change_type.subclass(*args_, **kwargs_)
+        else:
+            return part_revision_change_type(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_part(self):
+        return self.part
+    def set_part(self, part):
+        self.part = part
+    def has__content(self):
+        if (
+            super(part_revision_change_type, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='part_revision_change_type', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('part_revision_change_type')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'part_revision_change_type':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='part_revision_change_type')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='part_revision_change_type', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='part_revision_change_type'):
+        super(part_revision_change_type, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='part_revision_change_type')
+        if self.part is not None and 'part' not in already_processed:
+            already_processed.add('part')
+            outfile.write(' part="%s"' % self.gds_format_integer(self.part, input_name='part'))
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='part_revision_change_type', fromsubclass_=False, pretty_print=True):
+        super(part_revision_change_type, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('part', node)
+        if value is not None and 'part' not in already_processed:
+            already_processed.add('part')
+            self.part = self.gds_parse_integer(value, node, 'part')
+            if self.part <= 0:
+                raise_parse_error(node, 'Invalid PositiveInteger')
+        super(part_revision_change_type, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        super(part_revision_change_type, self)._buildChildren(child_, node, nodeName_, True)
+        pass
+# end class part_revision_change_type
+
+
+class primary_map(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = None
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, primary_map)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if primary_map.subclass:
+            return primary_map.subclass(*args_, **kwargs_)
+        else:
+            return primary_map(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def has__content(self):
+        if (
+
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='primary_map', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('primary_map')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'primary_map':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='primary_map')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='primary_map', pretty_print=pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='primary_map'):
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='primary_map', fromsubclass_=False, pretty_print=True):
+        pass
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        pass
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        pass
+# end class primary_map
+
+
+class complex_revision_change_type(base_revision_change_type):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = base_revision_change_type
+    def __init__(self, revision_type=None, provider=None, description=None, details=None, revision_group=None, categories=None, items=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = None
+        super(globals().get("complex_revision_change_type"), self).__init__(revision_type, provider, description, details, revision_group,  **kwargs_)
+        self.categories = categories
+        self.categories_nsprefix_ = None
+        self.items = items
+        self.items_nsprefix_ = None
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, complex_revision_change_type)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if complex_revision_change_type.subclass:
+            return complex_revision_change_type.subclass(*args_, **kwargs_)
+        else:
+            return complex_revision_change_type(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_categories(self):
+        return self.categories
+    def set_categories(self, categories):
+        self.categories = categories
+    def get_items(self):
+        return self.items
+    def set_items(self, items):
+        self.items = items
+    def has__content(self):
+        if (
+            self.categories is not None or
+            self.items is not None or
+            super(complex_revision_change_type, self).has__content()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='complex_revision_change_type', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('complex_revision_change_type')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'complex_revision_change_type':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='complex_revision_change_type')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='complex_revision_change_type', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='complex_revision_change_type'):
+        super(complex_revision_change_type, self)._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='complex_revision_change_type')
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='complex_revision_change_type', fromsubclass_=False, pretty_print=True):
+        super(complex_revision_change_type, self)._exportChildren(outfile, level, namespaceprefix_, namespacedef_, name_, True, pretty_print=pretty_print)
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.categories is not None:
+            namespaceprefix_ = self.categories_nsprefix_ + ':' if (UseCapturedNS_ and self.categories_nsprefix_) else ''
+            self.categories.export(outfile, level, namespaceprefix_, namespacedef_='', name_='categories', pretty_print=pretty_print)
+        if self.items is not None:
+            namespaceprefix_ = self.items_nsprefix_ + ':' if (UseCapturedNS_ and self.items_nsprefix_) else ''
+            self.items.export(outfile, level, namespaceprefix_, namespacedef_='', name_='items', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        super(complex_revision_change_type, self)._buildAttributes(node, attrs, already_processed)
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'categories':
+            obj_ = categoriesType.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.categories = obj_
+            obj_.original_tagname_ = 'categories'
+        elif nodeName_ == 'items':
+            obj_ = itemsType.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.items = obj_
+            obj_.original_tagname_ = 'items'
+        super(complex_revision_change_type, self)._buildChildren(child_, node, nodeName_, True)
+# end class complex_revision_change_type
 
 
 class contact_details_type(GeneratedsSuper):
@@ -23591,6 +24306,108 @@ class validationType(GeneratedsSuper):
 # end class validationType
 
 
+class revision_historyType(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, revision=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = None
+        if revision is None:
+            self.revision = []
+        else:
+            self.revision = revision
+        self.revision_nsprefix_ = None
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, revision_historyType)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if revision_historyType.subclass:
+            return revision_historyType.subclass(*args_, **kwargs_)
+        else:
+            return revision_historyType(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_revision(self):
+        return self.revision
+    def set_revision(self, revision):
+        self.revision = revision
+    def add_revision(self, value):
+        self.revision.append(value)
+    def insert_revision_at(self, index, value):
+        self.revision.insert(index, value)
+    def replace_revision_at(self, index, value):
+        self.revision[index] = value
+    def has__content(self):
+        if (
+            self.revision
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='revision_historyType', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('revision_historyType')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'revision_historyType':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='revision_historyType')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='revision_historyType', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='revision_historyType'):
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='revision_historyType', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for revision_ in self.revision:
+            namespaceprefix_ = self.revision_nsprefix_ + ':' if (UseCapturedNS_ and self.revision_nsprefix_) else ''
+            revision_.export(outfile, level, namespaceprefix_, namespacedef_='', name_='revision', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        pass
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'revision':
+            obj_ = revision_history_type.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.revision.append(obj_)
+            obj_.original_tagname_ = 'revision'
+# end class revision_historyType
+
+
 class sitesType(GeneratedsSuper):
     __hash__ = GeneratedsSuper.__hash__
     subclass = None
@@ -24764,6 +25581,364 @@ class annotatorType(GeneratedsSuper):
     def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
         pass
 # end class annotatorType
+
+
+class change_listType(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, revision_change_sub_group=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = None
+        if revision_change_sub_group is None:
+            self.revision_change_sub_group = []
+        else:
+            self.revision_change_sub_group = revision_change_sub_group
+        self.revision_change_sub_group_nsprefix_ = None
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, change_listType)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if change_listType.subclass:
+            return change_listType.subclass(*args_, **kwargs_)
+        else:
+            return change_listType(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_revision_change_sub_group(self):
+        return self.revision_change_sub_group
+    def set_revision_change_sub_group(self, revision_change_sub_group):
+        self.revision_change_sub_group = revision_change_sub_group
+    def add_revision_change_sub_group(self, value):
+        self.revision_change_sub_group.append(value)
+    def insert_revision_change_sub_group_at(self, index, value):
+        self.revision_change_sub_group.insert(index, value)
+    def replace_revision_change_sub_group_at(self, index, value):
+        self.revision_change_sub_group[index] = value
+    def has__content(self):
+        if (
+            self.revision_change_sub_group
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='change_listType', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('change_listType')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'change_listType':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='change_listType')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='change_listType', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='change_listType'):
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='change_listType', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for revision_change_sub_group_ in self.revision_change_sub_group:
+            revision_change_sub_group_.export(outfile, level, namespaceprefix_, namespacedef_='', pretty_print=pretty_print)
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        pass
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'revision_change_sub_group':
+            class_obj_ = self.get_class_obj_(child_, base_revision_change_type)
+            obj_ = class_obj_.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.revision_change_sub_group.append(obj_)
+            obj_.original_tagname_ = 'revision_change_sub_group'
+        elif nodeName_ == 'primary_map':
+            obj_ = primary_map.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.revision_change_sub_group.append(obj_)
+            obj_.original_tagname_ = 'primary_map'
+        elif nodeName_ == 'image':
+            obj_ = part_revision_change_type.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.revision_change_sub_group.append(obj_)
+            obj_.original_tagname_ = 'image'
+        elif nodeName_ == 'half_map':
+            obj_ = part_revision_change_type.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.revision_change_sub_group.append(obj_)
+            obj_.original_tagname_ = 'half_map'
+        elif nodeName_ == 'mask':
+            obj_ = part_revision_change_type.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.revision_change_sub_group.append(obj_)
+            obj_.original_tagname_ = 'mask'
+        elif nodeName_ == 'fsc':
+            obj_ = part_revision_change_type.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.revision_change_sub_group.append(obj_)
+            obj_.original_tagname_ = 'fsc'
+        elif nodeName_ == 'additional_map':
+            obj_ = part_revision_change_type.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.revision_change_sub_group.append(obj_)
+            obj_.original_tagname_ = 'additional_map'
+        elif nodeName_ == 'model':
+            obj_ = complex_revision_change_type.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.revision_change_sub_group.append(obj_)
+            obj_.original_tagname_ = 'model'
+        elif nodeName_ == 'metadata':
+            obj_ = complex_revision_change_type.factory(parent_object_=self)
+            obj_.build(child_, gds_collector_=gds_collector_)
+            self.revision_change_sub_group.append(obj_)
+            obj_.original_tagname_ = 'metadata'
+# end class change_listType
+
+
+class categoriesType(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, category=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = None
+        if category is None:
+            self.category = []
+        else:
+            self.category = category
+        self.category_nsprefix_ = None
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, categoriesType)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if categoriesType.subclass:
+            return categoriesType.subclass(*args_, **kwargs_)
+        else:
+            return categoriesType(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_category(self):
+        return self.category
+    def set_category(self, category):
+        self.category = category
+    def add_category(self, value):
+        self.category.append(value)
+    def insert_category_at(self, index, value):
+        self.category.insert(index, value)
+    def replace_category_at(self, index, value):
+        self.category[index] = value
+    def has__content(self):
+        if (
+            self.category
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='categoriesType', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('categoriesType')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'categoriesType':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='categoriesType')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='categoriesType', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='categoriesType'):
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='categoriesType', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for category_ in self.category:
+            namespaceprefix_ = self.category_nsprefix_ + ':' if (UseCapturedNS_ and self.category_nsprefix_) else ''
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%scategory>%s</%scategory>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(category_), input_name='category')), namespaceprefix_ , eol_))
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        pass
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'category':
+            value_ = child_.text
+            if value_:
+                value_ = re_.sub(String_cleanup_pat_, " ", value_).strip()
+            else:
+                value_ = ""
+            value_ = self.gds_parse_string(value_, node, 'category')
+            value_ = self.gds_validate_string(value_, node, 'category')
+            self.category.append(value_)
+            self.category_nsprefix_ = child_.prefix
+# end class categoriesType
+
+
+class itemsType(GeneratedsSuper):
+    __hash__ = GeneratedsSuper.__hash__
+    subclass = None
+    superclass = None
+    def __init__(self, item=None, gds_collector_=None, **kwargs_):
+        self.gds_collector_ = gds_collector_
+        self.gds_elementtree_node_ = None
+        self.original_tagname_ = None
+        self.parent_object_ = kwargs_.get('parent_object_')
+        self.ns_prefix_ = None
+        if item is None:
+            self.item = []
+        else:
+            self.item = item
+        self.item_nsprefix_ = None
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, itemsType)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if itemsType.subclass:
+            return itemsType.subclass(*args_, **kwargs_)
+        else:
+            return itemsType(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ns_prefix_(self):
+        return self.ns_prefix_
+    def set_ns_prefix_(self, ns_prefix):
+        self.ns_prefix_ = ns_prefix
+    def get_item(self):
+        return self.item
+    def set_item(self, item):
+        self.item = item
+    def add_item(self, value):
+        self.item.append(value)
+    def insert_item_at(self, index, value):
+        self.item.insert(index, value)
+    def replace_item_at(self, index, value):
+        self.item[index] = value
+    def has__content(self):
+        if (
+            self.item
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='itemsType', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('itemsType')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None and name_ == 'itemsType':
+            name_ = self.original_tagname_
+        if UseCapturedNS_ and self.ns_prefix_:
+            namespaceprefix_ = self.ns_prefix_ + ':'
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespaceprefix_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self._exportAttributes(outfile, level, already_processed, namespaceprefix_, name_='itemsType')
+        if self.has__content():
+            outfile.write('>%s' % (eol_, ))
+            self._exportChildren(outfile, level + 1, namespaceprefix_, namespacedef_, name_='itemsType', pretty_print=pretty_print)
+            showIndent(outfile, level, pretty_print)
+            outfile.write('</%s%s>%s' % (namespaceprefix_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def _exportAttributes(self, outfile, level, already_processed, namespaceprefix_='', name_='itemsType'):
+        pass
+    def _exportChildren(self, outfile, level, namespaceprefix_='', namespacedef_='', name_='itemsType', fromsubclass_=False, pretty_print=True):
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        for item_ in self.item:
+            namespaceprefix_ = self.item_nsprefix_ + ':' if (UseCapturedNS_ and self.item_nsprefix_) else ''
+            showIndent(outfile, level, pretty_print)
+            outfile.write('<%sitem>%s</%sitem>%s' % (namespaceprefix_ , self.gds_encode(self.gds_format_string(quote_xml(item_), input_name='item')), namespaceprefix_ , eol_))
+    def build(self, node, gds_collector_=None):
+        self.gds_collector_ = gds_collector_
+        if SaveElementTreeNode:
+            self.gds_elementtree_node_ = node
+        already_processed = set()
+        self.ns_prefix_ = node.prefix
+        self._buildAttributes(node, node.attrib, already_processed)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self._buildChildren(child, node, nodeName_, gds_collector_=gds_collector_)
+        return self
+    def _buildAttributes(self, node, attrs, already_processed):
+        pass
+    def _buildChildren(self, child_, node, nodeName_, fromsubclass_=False, gds_collector_=None):
+        if nodeName_ == 'item':
+            value_ = child_.text
+            if value_:
+                value_ = re_.sub(String_cleanup_pat_, " ", value_).strip()
+            else:
+                value_ = ""
+            value_ = self.gds_parse_string(value_, node, 'item')
+            value_ = self.gds_validate_string(value_, node, 'item')
+            self.item.append(value_)
+            self.item_nsprefix_ = child_.prefix
+# end class itemsType
 
 
 class organizationType(GeneratedsSuper):
@@ -44286,6 +45461,7 @@ class cell_source_type(base_source_type):
 
 
 GDSClassesMapping = {
+    'additional_map': part_revision_change_type,
     'cell_supramolecule': cell_supramolecule_type,
     'complex_supramolecule': complex_supramolecule_type,
     'crystallography_microscopy': crystallography_microscopy_type,
@@ -44295,18 +45471,25 @@ GDSClassesMapping = {
     'dna': dna_macromolecule_type,
     'em_label': em_label_macromolecule_type,
     'emd': entry_type,
+    'fsc': part_revision_change_type,
     'fsc_curve': fsc_curve_validation_type,
+    'half_map': part_revision_change_type,
     'helical_microscopy': helical_microscopy_type,
     'helical_preparation': helical_preparation_type,
     'helical_processing': helical_processing_type,
+    'image': part_revision_change_type,
     'image_processing': base_image_processing_type,
     'layer_lines': layer_lines_validation_type,
     'ligand': ligand_macromolecule_type,
     'macromolecule': base_macromolecule_type,
+    'mask': part_revision_change_type,
+    'metadata': complex_revision_change_type,
     'microscopy': base_microscopy_type,
+    'model': complex_revision_change_type,
     'organelle_or_cellular_component_supramolecule': organelle_or_cellular_component_supramolecule_type,
     'other_macromolecule': other_macromolecule_type,
     'protein_or_peptide': protein_or_peptide_macromolecule_type,
+    'revision_change_sub_group': base_revision_change_type,
     'rna': rna_macromolecule_type,
     'saccharide': saccharide_macromolecule_type,
     'sample_supramolecule': sample_supramolecule_type,
@@ -44558,6 +45741,7 @@ __all__ = [
     "base_macromolecule_type",
     "base_microscopy_type",
     "base_preparation_type",
+    "base_revision_change_type",
     "base_source_type",
     "base_supramolecule_type",
     "basicType",
@@ -44567,6 +45751,7 @@ __all__ = [
     "calibrated_defocus_maxType",
     "calibrated_defocus_minType",
     "camera_lengthType",
+    "categoriesType",
     "categoryType",
     "cellType",
     "cell_angle_type",
@@ -44577,11 +45762,13 @@ __all__ = [
     "chain_type",
     "chamber_humidityType",
     "chamber_temperatureType",
+    "change_listType",
     "citation_listType",
     "citation_type",
     "classification_type",
     "code_type",
     "coma_freeType",
+    "complex_revision_change_type",
     "complex_source_type",
     "complex_supramolecule_type",
     "concentrationType",
@@ -44677,6 +45864,7 @@ __all__ = [
     "initial_modelType",
     "integer_vector_map_type",
     "interpretation_type",
+    "itemsType",
     "journal_citation",
     "key_datesType",
     "layer_lines_type",
@@ -44727,6 +45915,7 @@ __all__ = [
     "other_db_cross_reference_type",
     "other_macromolecule_type",
     "parallel_resolution",
+    "part_revision_change_type",
     "particle_selection_type",
     "pdb_cross_reference_list_type",
     "pdb_cross_reference_type",
@@ -44737,6 +45926,7 @@ __all__ = [
     "pixel_spacing_type",
     "pressureType",
     "primary_citationType",
+    "primary_map",
     "projection_matching_processingType",
     "protein_or_peptide_macromolecule_type",
     "radiusType",
@@ -44749,6 +45939,8 @@ __all__ = [
     "residual_tilt_type",
     "resolutionType",
     "resolution_rangeType",
+    "revision_historyType",
+    "revision_history_type",
     "rna_macromolecule_type",
     "saccharide_macromolecule_type",
     "sample_source_type",

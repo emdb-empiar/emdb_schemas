@@ -23,13 +23,20 @@
             </xs:element>
         </xs:sequence>
         <xs:attribute name="emdb_id" type="emdb_id_type" use="required" />
-        <xs:attribute name="version" type="xs:token" default="3.0.9.4" />
+        <xs:attribute name="version" type="xs:token" default="3.0.10.0" />
         
     </xs:complexType>
     <xs:complexType name="admin_type">
         <xs:sequence>
             <xs:element name="status_history_list" type="version_list_type" minOccurs="0" />
             <xs:element name="current_status" type="version_type" />
+            <xs:element minOccurs="0" name="revision_history">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="revision" type="revision_history_type" maxOccurs="unbounded" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
             <xs:element name="sites">
                 <xs:complexType>
                     <xs:sequence>
@@ -226,6 +233,108 @@
             <xs:element name="code" type="xs:token" minOccurs="0" />
             <xs:element name="country" type="xs:token" minOccurs="0" />
         </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="revision_history_type">
+        <xs:sequence>
+            <xs:element name="change_list" maxOccurs="1">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="revision_change_sub_group" maxOccurs="unbounded" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="version" type="revision_history_version_type" use="required" />
+        <xs:attribute name="date" type="xs:date" use="required" />
+    </xs:complexType>
+    <xs:simpleType name="revision_history_version_type">
+        <xs:restriction base="xs:token">
+            <xs:pattern value="[0-9]+\.[0-9]+" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element name="revision_change_sub_group" type="base_revision_change_type" abstract="true" />
+    <xs:complexType name="base_revision_change_type">
+        <xs:sequence>
+            <xs:element name="revision_type" minOccurs="0">
+                <xs:simpleType>
+                    <xs:restriction base="xs:token">
+                        <xs:enumeration value="INITIAL_RELEASE" />
+                        <xs:enumeration value="COORDINATE_REPLACEMENT" />
+                        <xs:enumeration value="OBSOLETE" />
+                        <xs:enumeration value="REMEDIATION" />
+                        <xs:enumeration value="DATA_ADDED" />
+                        <xs:enumeration value="DATA_UPDATED" />
+                        <xs:enumeration value="DATA_REMOVED" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="provider" minOccurs="0">
+                <xs:simpleType>
+                    <xs:restriction base="xs:token">
+                        <xs:enumeration value="REPOSITORY" />
+                        <xs:enumeration value="AUTHOR" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="description" type="xs:token" minOccurs="0" />
+            <xs:element name="details" type="xs:token" minOccurs="0" />
+            <xs:element name="revision_group" minOccurs="0">
+                <xs:simpleType>
+                    <xs:restriction base="xs:token">
+                        <xs:enumeration value="EXPERIMENTAL_DATA" />
+                        <xs:enumeration value="DERIVED_DATA" />
+                        <xs:enumeration value="EXPERIMENTAL_SUMMARY" />
+                        <xs:enumeration value="EXPERIMENTAL_PREPARATION" />
+                        <xs:enumeration value="DATABASE_REFERENCES" />
+                        <xs:enumeration value="DATA_COLLECTION" />
+                        <xs:enumeration value="ADVISORY" />
+                        <xs:enumeration value="SOURCE_AND_TAXONOMY" />
+                        <xs:enumeration value="REFINEMENT_DESCRIPTION" />
+                        <xs:enumeration value="DATA_PROCESSING" />
+                        <xs:enumeration value="STRUCTURE_SUMMARY" />
+                        <xs:enumeration value="VERSION_FORMAT_COMPLIANCE" />
+                        <xs:enumeration value="OTHER" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="part_revision_change_type">
+        <xs:complexContent>
+            <xs:extension base="base_revision_change_type">
+                <xs:attribute name="part" type="xs:positiveInteger" />
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:element name="primary_map" substitutionGroup="revision_change_sub_group" />
+    <xs:element name="image" substitutionGroup="revision_change_sub_group" type="part_revision_change_type" />
+    <xs:element name="half_map" substitutionGroup="revision_change_sub_group" type="part_revision_change_type" />
+    <xs:element name="mask" substitutionGroup="revision_change_sub_group" type="part_revision_change_type" />
+    <xs:element name="fsc" substitutionGroup="revision_change_sub_group" type="part_revision_change_type" />
+    <xs:element name="additional_map" substitutionGroup="revision_change_sub_group" type="part_revision_change_type" />
+    <xs:element name="model" substitutionGroup="revision_change_sub_group" type="complex_revision_change_type" />
+    <xs:element name="metadata" substitutionGroup="revision_change_sub_group" type="complex_revision_change_type" />
+    <xs:complexType name="complex_revision_change_type">
+        <xs:complexContent>
+            <xs:extension base="base_revision_change_type">
+                <xs:sequence>
+                    <xs:element name="categories" minOccurs="0">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="category" type="xs:token" minOccurs="1" maxOccurs="unbounded" />
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element name="items" minOccurs="0">
+                        <xs:complexType>
+                            <xs:sequence>
+                                <xs:element name="item" type="xs:token" minOccurs="1" maxOccurs="unbounded" />
+                            </xs:sequence>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
     </xs:complexType>
     <xs:complexType name="contact_details_type">
         <xs:sequence>
