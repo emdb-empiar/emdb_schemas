@@ -24,7 +24,7 @@
             </xs:element>
         </xs:sequence>
         <xs:attribute name="emdb_id" type="emdb_id_type" use="required" />
-        <xs:attribute default="3.0.7.2" name="version" type="xs:token" />
+        <xs:attribute default="3.0.8.0" name="version" type="xs:token" />
         
     </xs:complexType>
     <xs:complexType name="admin_type">
@@ -3796,13 +3796,6 @@
                 </xs:complexType>
             </xs:element>
             
-            <xs:element minOccurs="0" name="mask_list">
-                <xs:complexType>
-                    <xs:sequence>
-                        <xs:element maxOccurs="unbounded" name="mask" type="map_type" />
-                    </xs:sequence>
-                </xs:complexType>
-            </xs:element>
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="modelling_type">
