@@ -2,15 +2,15 @@
 <!-- 
      Electron Microscopy Data Bank
 
-     XML Schema for EMDB entries  version: 1.9.3
+     XML Schema for EMDB entries  version: 1.9.4
 
      Revision history:
-     2013-03-19  1.9.3
+     2013-05-21  1.9.4
         * Removed fields:
         * Added fields:
         * Renamed fields:
         * Format change:
-            - improved types
+            - allow multiple 'reconstruction' elements 
      
      Contact: <help@emdatabank.org> for questions or suggestions.
 -->
@@ -171,7 +171,7 @@
     </xs:annotation>
     <xs:sequence minOccurs="1">
       <xs:element name="method" type="methodType"/>
-      <xs:element name="reconstruction" type="reconsType"/>
+      <xs:element name="reconstruction" type="reconsType" maxOccurs="unbounded"/>
       <xs:choice>
         <xs:element name="twoDCrystal" type="xtal2DType" maxOccurs="1"/>
         <xs:element name="helical" type="helixType" maxOccurs="1"/>
