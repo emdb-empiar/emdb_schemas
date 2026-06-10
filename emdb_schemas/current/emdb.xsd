@@ -2,14 +2,14 @@
 <!-- 
      Electron Microscopy Data Bank
 
-     XML Schema for EMDB entries  version: 1.8.1
+     XML Schema for EMDB entries  version: 1.8.2
 
      Revision history:
-     2012-09-11  1.8.1
+     2012-09-18  1.8.2
         * Field added:
-            In mapDataType added "Envelope stored as signed bytes"
         * Removed fields:
         * Format change:
+            Correction in inFrameEMDBId
         * Name changes:
      
      Contact: <help@emdatabank.org> for questions or suggestions.
@@ -955,7 +955,7 @@
   </xs:simpleType>
   <xs:simpleType name="emdbEntryIdType">
     <xs:restriction base="xs:string">
-      <xs:pattern value="EMD-\d{4,}(,EMD-\d{4,})*"/>
+      <xs:pattern value="EMD-\d{4,}(, EMD-\d{4,})*"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="goIdType">
