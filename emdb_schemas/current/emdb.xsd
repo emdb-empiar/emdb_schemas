@@ -2,62 +2,15 @@
 <!-- 
      Electron Microscopy Data Bank
 
-     XML Schema for EMDB entries  version: 1.9.0
+     XML Schema for EMDB entries  version: 1.9.1
 
      Revision history:
-     2013-01-15  1.9.0
+     2013-02-13  1.9.1
         * Removed fields:
-            sample/aggregationState
-            emDataSet (but not its content)
-            icosahedral method and experimental section
-            refIctvdb
         * Added fields:
-            processingSite
-            depositionSite
-            publisherLocation
-            method <- old aggregationState (now in the processing section)
-	        method now has one more item: subtomogramAveraging
-            specimenState
-            appliedSymmetry for singleParticle, tomography and subtomogramAveraging
-            refUniProt for protein
-            expSystemStrain
-            expSystemCell
-            For subtomogramAveraging:
-	            numSubtomograms
-	            numClassAverages
-                details
-            sciSpeciesStrain for nucleic-acid
-            obsoletedDate
-            obsoletedList
-            supersededByList
-            threeDCrystalParameters
-            prior attribute in status
-            For virus:
-                sciSpeciesSerotype
-                sciSpeciesSerocomplex
-                sciSpeciesSubspecies
-                sciSpeciesStrain
-                hostSpeciesStrain
-                shellType
-                natSource
-                engSource
-                externalReferences
-            "ETHANE-PROPANE MIXTURE" as cryogen
-            "IMACON" as scanner
-       * Renamed fields:
-            individualStructure to tomography
-            samplePreparation to specimenPreparation
-            sampleSupportDetails to specimenSupportDetails
-            sampleConc to specimenConc
-            tissue to organOrTissue
+        * Renamed fields:
         * Format change:
-	        version is 1.9.0
-            rearranged order of elements in nonJrnlArtType type
-            added controlled vocabulary for refProtocol
-            status has one more term: OBS
-            crystalParameters has been moved from processing section to specimenPreparation
-            helicalParameters has been moved from processing section to specimenPreparation
-            crystalGrowDetails has been moved from processing section to specimenPreparation
+            - extended the list of scanner with: CREO EVERSMART SUPREME
      
      Contact: <help@emdatabank.org> for questions or suggestions.
 -->
@@ -1200,6 +1153,7 @@
   <xs:simpleType name="scannerType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="n/a"/>
+      <xs:enumeration value="CREO EVERSMART SUPREME"/>
       <xs:enumeration value="EIKONIX IEEE 488"/>
       <xs:enumeration value="EMIL 10"/>
       <xs:enumeration value="IMACON"/>
