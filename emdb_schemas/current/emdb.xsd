@@ -2,25 +2,16 @@
 <!-- 
      Electron Microscopy Data Bank
 
-     XML Schema for EMDB entries  version: 1.9.5
+     XML Schema for EMDB entries  version: 1.9.6
 
      Revision history:
-     2013-09-09  1.9.5
+     2015-10-15  1.9.6
         * Removed fields:
         * Added fields:
-            FEI TECNAI 10
-            FEI TECNAI SPIRIT
-            FEI/PHILIPS CM12
-            HITACHI H7600
-            JEOL 1400
-            JEOL 2010
-            JEOL 2010HC
-            JEOL 2011
-            JEOL 3200FS
-            JEOL 3200FSC
-            JEOL 4000
-            ZEISS LEO912
-            ZEISS LIBRA120PLUS
+            image detector models
+            scanner models
+            FEI TITAN microscope
+            Gatan and Direct Electron detectors
 
         * Renamed fields:
         * Format change:
@@ -42,14 +33,14 @@
       <xs:element name="admin" type="adminType" minOccurs="1" maxOccurs="1"/>
       <xs:element name="deposition" type="depType" minOccurs="1" maxOccurs="1"/>
       <!-- Rest of the sections are mandatory when status is REL or OBS -->
-      <xs:element name="map" type="mapType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="map" type="mapType" maxOccurs="1"/>
       <xs:element name="supplement" type="supplType" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="sample" type="samplType" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="experiment" type="expType" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="processing" type="processType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="sample" type="samplType" maxOccurs="1"/>
+      <xs:element name="experiment" type="expType" maxOccurs="1"/>
+      <xs:element name="processing" type="processType" maxOccurs="1"/>
     </xs:sequence>
     <xs:attribute name="accessCode" type="xs:string" use="required"/>
-    <xs:attribute name="version" type="xs:string" fixed="1.9.0"/>
+    <xs:attribute name="version" type="xs:string" fixed="1.9.6"/>
   </xs:complexType>
   <xs:complexType name="adminType">
     <xs:annotation>
@@ -85,6 +76,7 @@
           <xs:restriction base="xs:token">
             <xs:enumeration value="PDBe"/>
             <xs:enumeration value="RCSB"/>
+            <xs:enumeration value="PDBj"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -372,6 +364,7 @@
       <xs:enumeration value="REICHERT-JUNG PLUNGER"/>
       <xs:enumeration value="ZEISS PLUNGE FREEZER CRYOBOX"/>
       <xs:enumeration value="OTHER"/>
+      <xs:enumeration value="SPOTITON"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="imgType">
@@ -386,7 +379,7 @@
       <xs:element name="illuminationMode" type="illumType"/>
       <xs:element name="specimenHolder" type="xs:string" minOccurs="0"/>
       <xs:element name="details" type="xs:string" minOccurs="0"/>
-      <xs:element name="detector" type="xs:string" minOccurs="0"/>
+      <xs:element name="detector" type="detectorType" minOccurs="0"/>
       <xs:element name="nominalCs" type="csType" minOccurs="0"/>
       <xs:element name="tiltAngleMin" type="tiltType" minOccurs="0"/>
       <xs:element name="calibratedMagnification" type="xs:float" minOccurs="0"/>
@@ -602,7 +595,7 @@
   <xs:complexType name="proteinType">
     <xs:all>
       <xs:element name="sciSpeciesName" type="sciSpeciesType" minOccurs="0"/>
-      <xs:element name="sciSpeciesStrain" type="sciSpeciesType" minOccurs="0"/>
+      <xs:element name="sciSpeciesStrain" type="xs:string" minOccurs="0"/>
       <xs:element name="synSpeciesName" type="xs:string" minOccurs="0"/>
       <xs:element name="oligomericDetails" type="xs:string" minOccurs="0"/>
       <xs:element name="numCopies" type="xs:string" minOccurs="0"/>
@@ -616,7 +609,7 @@
   <xs:complexType name="cellCompType">
     <xs:all>
       <xs:element name="sciSpeciesName" type="sciSpeciesType" minOccurs="0"/>
-      <xs:element name="sciSpeciesStrain" type="sciSpeciesType" minOccurs="0"/>
+      <xs:element name="sciSpeciesStrain" type="xs:string" minOccurs="0"/>
       <xs:element name="synSpeciesName" type="xs:string" minOccurs="0"/>
       <xs:element name="oligomericDetails" type="xs:string" minOccurs="0"/>
       <xs:element name="numCopies" type="xs:string" minOccurs="0"/>
@@ -630,7 +623,7 @@
   <xs:complexType name="nuclAcidType">
     <xs:all>
       <xs:element name="sciSpeciesName" type="sciSpeciesType" minOccurs="0"/>
-      <xs:element name="sciSpeciesStrain" type="sciSpeciesType" minOccurs="0"/>
+      <xs:element name="sciSpeciesStrain" type="xs:string" minOccurs="0"/>
       <xs:element name="synSpeciesName" type="xs:string" minOccurs="0"/>
       <xs:element name="syntheticFlag" type="xs:boolean"/>
       <xs:element name="sequence" type="xs:string" minOccurs="0"/>
@@ -641,7 +634,7 @@
   <xs:complexType name="ligandType">
     <xs:all>
       <xs:element name="sciSpeciesName" type="sciSpeciesType" minOccurs="0"/>
-      <xs:element name="sciSpeciesStrain" type="sciSpeciesType" minOccurs="0"/>
+      <xs:element name="sciSpeciesStrain" type="xs:string" minOccurs="0"/>
       <xs:element name="synSpeciesName" type="xs:string" minOccurs="0"/>
       <xs:element name="oligomericDetails" type="xs:string" minOccurs="0"/>
       <xs:element name="numCopies" type="xs:string" minOccurs="0"/>
@@ -664,7 +657,7 @@
       <xs:element name="eukaryote" type="xs:string" minOccurs="1"/>
       <!-- ES: This is mandatory for new entries (EmDep version 4.0) but not for older -->
       <xs:element name="sciSpeciesName" type="sciSpeciesType" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="sciSpeciesStrain" type="sciSpeciesType" minOccurs="0"/>
+      <xs:element name="sciSpeciesStrain" type="xs:string" minOccurs="0"/>
       <xs:element name="synSpeciesName" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="oligomericDetails" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="numCopies" type="xs:string" minOccurs="0" maxOccurs="1"/>
@@ -682,7 +675,7 @@
       <xs:element name="prokaryote" type="xs:string" minOccurs="1"/>
       <!-- ES: This is mandatory for new entries (EmDep version 4.0) but not for older -->
       <xs:element name="sciSpeciesName" type="sciSpeciesType" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="sciSpeciesStrain" type="sciSpeciesType" minOccurs="0"/>
+      <xs:element name="sciSpeciesStrain" type="xs:string" minOccurs="0"/>
       <xs:element name="synSpeciesName" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="oligomericDetails" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="numCopies" type="xs:string" minOccurs="0" maxOccurs="1"/>
@@ -838,8 +831,8 @@
   <xs:simpleType name="defocusAllowed">
     <xs:restriction base="xs:float">
       <!-- negative (underfocus) and positive (overfocus) -->
-      <xs:minInclusive value="-20000"/>
-      <xs:maxInclusive value="20000"/>
+      <xs:minInclusive value="-30000"/>
+      <xs:maxInclusive value="30000"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="tiltType">
@@ -851,31 +844,46 @@
   </xs:complexType>
   <xs:complexType name="mapFileType">
     <xs:simpleContent>
-      <xs:extension base="xs:string">
+      <xs:extension base="mapNamePattern">
         <xs:attribute name="type" type="xs:string" use="required" fixed="map"/>
         <xs:attribute name="format" type="xs:string" use="required" fixed="CCP4"/>
-        <xs:attribute name="sizeKb" type="xs:string" use="required"/>
+        <xs:attribute name="sizeKb" type="xs:positiveInteger" use="required"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
+  <xs:simpleType name="mapNamePattern">
+    <xs:restriction base="xs:token">
+      <xs:pattern value="emd_\d+\.map\.gz"/>
+    </xs:restriction>
+  </xs:simpleType>
   <xs:complexType name="mskFileType">
     <xs:simpleContent>
-      <xs:extension base="xs:string">
+      <xs:extension base="maskNamePattern">
         <xs:attribute name="type" type="xs:string" use="required" fixed="map"/>
         <xs:attribute name="format" type="xs:string" use="required" fixed="CCP4"/>
-        <xs:attribute name="sizeKb" type="xs:string" use="required"/>
+        <xs:attribute name="sizeKb" type="xs:positiveInteger" use="required"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
+  <xs:simpleType name="maskNamePattern">
+    <xs:restriction base="xs:token">
+      <xs:pattern value="emd_\d+_msk(_\d+)?\.map"/>
+    </xs:restriction>
+  </xs:simpleType>
   <xs:complexType name="slcFileType">
     <xs:simpleContent>
-      <xs:extension base="xs:string">
+      <xs:extension base="slcNamePattern">
         <xs:attribute name="type" type="xs:string" use="required" fixed="map"/>
         <xs:attribute name="format" type="xs:string" use="required" fixed="CCP4"/>
-        <xs:attribute name="sizeKb" type="xs:string" use="required"/>
+        <xs:attribute name="sizeKb" type="xs:positiveInteger" use="required"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
+  <xs:simpleType name="slcNamePattern">
+    <xs:restriction base="xs:token">
+      <xs:pattern value="emd_\d+(_\d+)?_slc\.map"/>
+    </xs:restriction>
+  </xs:simpleType>
   <xs:complexType name="axisOrderType">
     <xs:all>
       <xs:element name="axisOrderFast" type="xs:string"/>
@@ -1116,14 +1124,18 @@
     <xs:restriction base="xs:string">
       <xs:enumeration value="FEI MORGAGNI"/>
       <xs:enumeration value="FEI POLARA 300"/>
+      <xs:enumeration value="FEI TALOS ARCTICA"/>
       <xs:enumeration value="FEI TECNAI 10"/>
       <xs:enumeration value="FEI TECNAI 12"/>
       <xs:enumeration value="FEI TECNAI 20"/>
+      <xs:enumeration value="FEI TECNAI ARCTICA"/>
       <xs:enumeration value="FEI TECNAI F20"/>
       <xs:enumeration value="FEI TECNAI F30"/>
       <xs:enumeration value="FEI TECNAI SPHERA"/>
       <xs:enumeration value="FEI TECNAI SPIRIT"/>
+      <xs:enumeration value="FEI TITAN"/>
       <xs:enumeration value="FEI TITAN KRIOS"/>
+      <xs:enumeration value="FEI/PHILIPS CM10"/>
       <xs:enumeration value="FEI/PHILIPS CM12"/>
       <xs:enumeration value="FEI/PHILIPS CM120T"/>
       <xs:enumeration value="FEI/PHILIPS CM200FEG"/>
@@ -1137,10 +1149,11 @@
       <xs:enumeration value="FEI/PHILIPS EM400"/>
       <xs:enumeration value="FEI/PHILIPS EM420"/>
       <xs:enumeration value="HITACHI EF2000"/>
+      <xs:enumeration value="HITACHI H-9500SD"/>
+      <xs:enumeration value="HITACHI H3000 UHVEM"/>
       <xs:enumeration value="HITACHI H7600"/>
       <xs:enumeration value="HITACHI HF2000"/>
       <xs:enumeration value="HITACHI HF3000"/>
-      <xs:enumeration value="HITACHI H-9500SD"/>
       <xs:enumeration value="JEOL 100CX"/>
       <xs:enumeration value="JEOL 1010"/>
       <xs:enumeration value="JEOL 1200"/>
@@ -1152,8 +1165,8 @@
       <xs:enumeration value="JEOL 2000EXII"/>
       <xs:enumeration value="JEOL 2010"/>
       <xs:enumeration value="JEOL 2010F"/>
-      <xs:enumeration value="JEOL 2010HT"/>
       <xs:enumeration value="JEOL 2010HC"/>
+      <xs:enumeration value="JEOL 2010HT"/>
       <xs:enumeration value="JEOL 2010UHR"/>
       <xs:enumeration value="JEOL 2011"/>
       <xs:enumeration value="JEOL 2100"/>
@@ -1161,15 +1174,72 @@
       <xs:enumeration value="JEOL 2200FS"/>
       <xs:enumeration value="JEOL 2200FSC"/>
       <xs:enumeration value="JEOL 3000SFF"/>
+      <xs:enumeration value="JEOL 3100FEF"/>
       <xs:enumeration value="JEOL 3100FFC"/>
       <xs:enumeration value="JEOL 3200FS"/>
       <xs:enumeration value="JEOL 3200FSC"/>
-      <xs:enumeration value="JEOL KYOTO-3000SFF"/>
-      <xs:enumeration value="JEOL 3200FSC"/>
       <xs:enumeration value="JEOL 4000"/>
       <xs:enumeration value="JEOL 4000EX"/>
+      <xs:enumeration value="JEOL CRYO ARM 200"/>
+      <xs:enumeration value="JEOL CRYO ARM 300"/>
+      <xs:enumeration value="JEOL KYOTO-3000SFF"/>
+      <xs:enumeration value="TFS GLACIOS"/>
+      <xs:enumeration value="TFS KRIOS"/>
+      <xs:enumeration value="TFS TALOS"/>
+      <xs:enumeration value="TFS TALOS L120C"/>
+      <xs:enumeration value="TFS TALOS F200C"/>
       <xs:enumeration value="ZEISS LEO912"/>
       <xs:enumeration value="ZEISS LIBRA120PLUS"/>
+      <xs:enumeration value="OTHER"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="detectorType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AGFA SCIENTA FILM"/>
+      <xs:enumeration value="KODAK 4489 FILM"/>
+      <xs:enumeration value="KODAK SO-163 FILM"/>
+      <xs:enumeration value="GENERIC FILM"/>
+      <xs:enumeration value="GENERIC IMAGE PLATES"/>
+      <xs:enumeration value="DIRECT ELECTRON DE-10 (5k x 4k)"/>
+      <xs:enumeration value="DIRECT ELECTRON DE-12 (4k x 3k)"/>
+      <xs:enumeration value="DIRECT ELECTRON DE-16 (4k x 4k)"/>
+      <xs:enumeration value="DIRECT ELECTRON DE-20 (5k x 3k)"/>
+      <xs:enumeration value="DIRECT ELECTRON DE-64 (8k x 8k)"/>
+      <xs:enumeration value="FEI CETA (4k x 4k)"/>
+      <xs:enumeration value="FEI EAGLE (2k x 2k)"/>
+      <xs:enumeration value="FEI EAGLE (4k x 4k)"/>
+      <xs:enumeration value="FEI FALCON I (4k x 4k)"/>
+      <xs:enumeration value="FEI FALCON II (4k x 4k)"/>
+      <xs:enumeration value="FEI FALCON III (4k x 4k)"/>
+      <xs:enumeration value="FEI FALCON IV (4k x 4k)"/>
+      <xs:enumeration value="GATAN MULTISCAN"/>
+      <xs:enumeration value="GATAN ORIUS SC200 (2k x 2k)"/>
+      <xs:enumeration value="GATAN ORIUS SC600 (2.7k x 2.7k)"/>
+      <xs:enumeration value="GATAN ORIUS SC1000 (4k x 2.7k)"/>
+      <xs:enumeration value="GATAN ULTRASCAN 1000 (2k x 2k)"/>
+      <xs:enumeration value="GATAN ULTRASCAN 4000 (4k x 4k)"/>
+      <xs:enumeration value="GATAN ULTRASCAN 10000 (10k x 10k)"/>
+      <xs:enumeration value="GATAN K2 (4k x 4k)"/>
+      <xs:enumeration value="GATAN K2 BASE (4k x 4k)"/>
+      <xs:enumeration value="GATAN K2 SUMMIT (4k x 4k)"/>
+      <xs:enumeration value="GATAN K2 IS (4k x 4k)"/>
+      <xs:enumeration value="GATAN K2 QUANTUM (4k x 4k)"/>
+      <xs:enumeration value="GENERIC GATAN (2k x 2k)"/>
+      <xs:enumeration value="GENERIC GATAN (4k x 4k)"/>
+      <xs:enumeration value="GENERIC GATAN"/>
+      <xs:enumeration value="PROSCAN TEM-PIV (2k x 2k)"/>
+      <xs:enumeration value="SIA 15C (3k x 3k)"/>
+      <xs:enumeration value="TVIPS TEMCAM-F816 (8k x 8k)"/>
+      <xs:enumeration value="TVIPS TEMCAM-F415 (4k x 4k)"/>
+      <xs:enumeration value="TVIPS TEMCAM-F416 (4k x 4k)"/>
+      <xs:enumeration value="TVIPS TEMCAM-F216 (2k x 2k)"/>
+      <xs:enumeration value="TVIPS TEMCAM-F224 (2k x 2k)"/>
+      <xs:enumeration value="GENERIC TVIPS (2k x 2k)"/>
+      <xs:enumeration value="GENERIC TVIPS (4k x 4k)"/>
+      <xs:enumeration value="GENERIC TVIPS"/>
+      <xs:enumeration value="GENERIC CCD (2k x 2k)"/>
+      <xs:enumeration value="GENERIC CCD (4k x 4k)"/>
+      <xs:enumeration value="GENERIC CCD"/>
       <xs:enumeration value="OTHER"/>
     </xs:restriction>
   </xs:simpleType>
@@ -1183,6 +1253,8 @@
       <xs:enumeration value="JEOL 3200FSC CRYOHOLDER"/>
       <xs:enumeration value="PHILIPS ROTATION HOLDER"/>
       <xs:enumeration value="SIDE ENTRY, EUCENTRIC"/>
+      <xs:enumeration value="JEOL CRYOSPECPORTER"/>
+      <xs:enumeration value="FISCHIONE INSTRUMENTS DUAL AXIS TOMOGRAPHY HOLDER"/>
       <xs:enumeration value="OTHER"/>
     </xs:restriction>
   </xs:simpleType>
@@ -1193,8 +1265,11 @@
       <xs:enumeration value="EIKONIX IEEE 488"/>
       <xs:enumeration value="EMIL 10"/>
       <xs:enumeration value="IMACON"/>
-      <xs:enumeration value="NIKON COOLSCAN"/>
       <xs:enumeration value="NIKON SUPER COOLSCAN 9000"/>
+      <xs:enumeration value="NIKON SUPER COOLSCAN 8000"/>
+      <xs:enumeration value="NIKON SUPER COOLSCAN 5000"/>
+      <xs:enumeration value="NIKON SUPER COOLSCAN 4000"/>
+      <xs:enumeration value="NIKON COOLSCAN"/>
       <xs:enumeration value="OPTRONICS"/>
       <xs:enumeration value="PATCHWORK DENSITOMETER"/>
       <xs:enumeration value="PERKIN ELMER"/>
@@ -1317,14 +1392,9 @@
   </xs:simpleType>
   <xs:simpleType name="mapDataType">
     <xs:restriction base="xs:string">
-      <!-- This list should be reduce to only 3 modes: 0 (signed bytes), 1 (signed integers), 2 (floats) -->
       <xs:enumeration value="Envelope stored as signed bytes"/>
       <xs:enumeration value="Image stored as Integer*2"/>
       <xs:enumeration value="Image stored as Reals"/>
-      <!-- These other elements are remainders of legacy software -->
-      <xs:enumeration value="signed byte"/>
-      <xs:enumeration value="integer (16-bit)"/>
-      <xs:enumeration value="float (32-bit)"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="illumType">
