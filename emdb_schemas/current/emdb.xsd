@@ -2,20 +2,20 @@
 <!-- 
      Electron Microscopy Data Bank
 
-     XML Schema for EMDB entries  version: 1.9.2
+     XML Schema for EMDB entries  version: 1.9.3
 
      Revision history:
-     2013-03-15  1.9.2
+     2013-03-19  1.9.3
         * Removed fields:
         * Added fields:
         * Renamed fields:
         * Format change:
-            - extended the list of microscopes with: JEOL 3100FFC
+            - improved types
      
      Contact: <help@emdatabank.org> for questions or suggestions.
 -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
-	   elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+  attributeFormDefault="unqualified">
   <xs:element name="emdEntry" type="entryType"/>
   <xs:complexType name="entryType">
     <xs:annotation>
@@ -56,7 +56,7 @@
 	  record
       </xs:documentation>
     </xs:annotation>
-    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+    <xs:sequence>
       <xs:element name="status" minOccurs="1" maxOccurs="1">
         <xs:complexType>
           <xs:simpleContent>
@@ -155,13 +155,13 @@
 	  Experimental techniques used to derive the density map.
       </xs:documentation>
     </xs:annotation>
-    <xs:choice maxOccurs="unbounded">
-      <xs:element name="vitrification" type="vitrifType" minOccurs="0"/>
-      <xs:element name="imaging" type="imgType" minOccurs="0"/>
-      <xs:element name="imageAcquisition" type="imgScanType" minOccurs="0"/>
-      <xs:element name="fitting" type="fittingType" minOccurs="0"/>
-      <xs:element name="specimenPreparation" type="smplPrepType" minOccurs="0"/>
-    </xs:choice>
+    <xs:sequence>
+      <xs:element name="vitrification" type="vitrifType" maxOccurs="unbounded"/>
+      <xs:element name="imaging" type="imgType" maxOccurs="unbounded"/>
+      <xs:element name="imageAcquisition" type="imgScanType" maxOccurs="unbounded"/>
+      <xs:element name="fitting" type="fittingType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="specimenPreparation" type="smplPrepType"/>
+    </xs:sequence>
   </xs:complexType>
   <xs:complexType name="processType">
     <xs:annotation>
@@ -169,15 +169,17 @@
 	  Digital processing of the image data.
       </xs:documentation>
     </xs:annotation>
-    <xs:choice minOccurs="1" maxOccurs="unbounded">
+    <xs:sequence minOccurs="1">
       <xs:element name="method" type="methodType"/>
       <xs:element name="reconstruction" type="reconsType"/>
-      <xs:element name="twoDCrystal" type="xtal2DType" maxOccurs="1"/>
-      <xs:element name="helical" type="helixType" maxOccurs="1"/>
-      <xs:element name="singleParticle" type="singPartType" maxOccurs="1"/>
-      <xs:element name="subtomogramAveraging" type="subTomType" maxOccurs="1"/>
-      <xs:element name="tomography" type="tomogrType" maxOccurs="1"/>
-    </xs:choice>
+      <xs:choice>
+        <xs:element name="twoDCrystal" type="xtal2DType" maxOccurs="1"/>
+        <xs:element name="helical" type="helixType" maxOccurs="1"/>
+        <xs:element name="subtomogramAveraging" type="subTomType" maxOccurs="1"/>
+        <xs:element name="tomography" type="tomogrType" maxOccurs="1"/>
+        <xs:element name="singleParticle" type="singPartType" maxOccurs="1"/>
+      </xs:choice>
+    </xs:sequence>
   </xs:complexType>
   <xs:complexType name="fittingType">
     <xs:annotation>
@@ -185,16 +187,16 @@
 	  Fitting procedure details for coordinates.
       </xs:documentation>
     </xs:annotation>
-    <xs:all>
-      <xs:element name="targetCriteria" type="xs:string" minOccurs="0"/>
-      <xs:element name="details" type="xs:string" minOccurs="0"/>
+    <xs:all minOccurs="0">
+      <xs:element name="pdbEntryIdList" type="pdbidList2Type"/>
       <xs:element name="software" type="xs:string" minOccurs="0"/>
+      <xs:element name="refProtocol" type="refProtocolType" minOccurs="0"/>
+      <xs:element name="targetCriteria" type="xs:string" minOccurs="0"/>
       <!-- ES (11 Oct 2012) term not yet agreed -->
       <!--xs:element name="refCategory" type="refCategoryType" minOccurs="0"/-->
-      <xs:element name="refProtocol" type="refProtocolType" minOccurs="0"/>
-      <xs:element name="refSpace" type="refSpaceType" minOccurs="0"/>
-      <xs:element name="pdbEntryIdList" type="pdbidList2Type" minOccurs="0"/>
       <xs:element name="overallBValue" type="xs:float" minOccurs="0"/>
+      <xs:element name="refSpace" type="refSpaceType" minOccurs="0"/>
+      <xs:element name="details" type="xs:string" minOccurs="0"/>
     </xs:all>
   </xs:complexType>
   <xs:complexType name="supplType">
@@ -211,19 +213,23 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="smplCompListType">
-    <xs:annotation><xs:documentation>
+    <xs:annotation>
+      <xs:documentation>
 	    List of individual sample components.
 	    [/emdEntry/sample/sampleComponentList]
-    </xs:documentation></xs:annotation>
+    </xs:documentation>
+    </xs:annotation>
     <xs:sequence>
       <xs:element name="sampleComponent" type="smplCompType" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="smplCompType">
-    <xs:annotation><xs:documentation>
+    <xs:annotation>
+      <xs:documentation>
 	    A single sample component.
 	    [/emdEntry/sample/sampleComponentList/sampleComponent]
-    </xs:documentation></xs:annotation>
+    </xs:documentation>
+    </xs:annotation>
     <xs:sequence>
       <xs:element name="entry" type="cmpntClassType"/>
       <xs:element name="sciName" type="xs:string"/>
@@ -266,7 +272,8 @@
       <xs:element name="firstPage" type="xs:string" minOccurs="0"/>
       <xs:element name="lastPage" type="xs:string" minOccurs="0"/>
       <xs:element name="year" type="xs:string" minOccurs="0"/>
-      <xs:element name="externalReference" type="externalRefType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="externalReference" type="externalRefType" minOccurs="0"
+        maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="nonJrnlArtType">
@@ -282,7 +289,8 @@
       <xs:element name="firstPage" type="xs:string" minOccurs="0"/>
       <xs:element name="lastPage" type="xs:string" minOccurs="0"/>
       <xs:element name="year" type="xs:string" minOccurs="0"/>
-      <xs:element name="externalReference" type="externalRefType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="externalReference" type="externalRefType" minOccurs="0"
+        maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="externalRefType">
@@ -312,7 +320,8 @@
       <xs:element name="staining" type="xs:string" minOccurs="0"/>
       <xs:element name="specimenSupportDetails" type="xs:string" minOccurs="0"/>
       <xs:element name="twoDCrystalParameters" type="twoDxtalParamType" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="threeDCrystalParameters" type="threeDxtalParamType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="threeDCrystalParameters" type="threeDxtalParamType" minOccurs="0"
+        maxOccurs="1"/>
       <xs:element name="helicalParameters" type="helixParamType" minOccurs="0" maxOccurs="1"/>
       <xs:element name="crystalGrowDetails" type="xs:string" minOccurs="0"/>
     </xs:all>
@@ -552,30 +561,30 @@
     </xs:all>
   </xs:complexType>
   <xs:complexType name="virusType">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
+    <xs:choice maxOccurs="unbounded">
       <xs:element name="sciSpeciesName" type="sciSpeciesType" minOccurs="1" maxOccurs="1"/>
       <xs:element name="synSpeciesName" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="sciSpeciesSerotype" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="sciSpeciesSerocomplex" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="sciSpeciesSubspecies" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="sciSpeciesStrain" type="xs:string" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="class" type="virusClassType" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="isolate" type="virusIsolType" minOccurs="1" maxOccurs="1"/>
       <xs:element name="empty" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
       <xs:element name="enveloped" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="isolate" type="virusIsolType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="class" type="virusClassType" minOccurs="1" maxOccurs="1"/>
+      <xs:element name="externalReferences" type="externalReferencesType" minOccurs="0"/>
       <xs:element name="natSource" type="natSrcVirusType" minOccurs="0"/>
       <xs:element name="engSource" type="engSrcType" minOccurs="0"/>
-      <xs:element name="externalReferences" type="externalReferencesType" minOccurs="0"/>
       <xs:element name="shell" type="shellType" minOccurs="0"/>
     </xs:choice>
   </xs:complexType>
   <xs:complexType name="shellType">
-    <xs:choice minOccurs="1" maxOccurs="unbounded">
-      <xs:element name="nameElement" type="xs:string" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="diameter" type="diamType" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="tNumber" type="floatOrNAType" minOccurs="1" maxOccurs="1"/>
-  </xs:choice>
-  <xs:attribute name="id" type="xs:positiveInteger" use="required"/>
+    <xs:all minOccurs="1">
+      <xs:element name="nameElement" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="diameter" type="diamType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="tNumber" type="floatOrNAType" minOccurs="0" maxOccurs="1"/>
+    </xs:all>
+    <xs:attribute name="id" type="xs:positiveInteger" use="required"/>
   </xs:complexType>
   <xs:complexType name="proteinType">
     <xs:all>
@@ -638,38 +647,40 @@
     </xs:all>
   </xs:complexType>
   <xs:complexType name="riboTypeEu">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
+    <xs:all>
       <xs:element name="eukaryote" type="xs:string" minOccurs="1"/>
-      <!-- ES: This is mandatory for new entries (EmDep version 4.0) but not for older --> 
+      <!-- ES: This is mandatory for new entries (EmDep version 4.0) but not for older -->
       <xs:element name="sciSpeciesName" type="sciSpeciesType" minOccurs="0" maxOccurs="1"/>
       <xs:element name="sciSpeciesStrain" type="sciSpeciesType" minOccurs="0"/>
       <xs:element name="synSpeciesName" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="oligomericDetails" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="numCopies" type="xs:string" minOccurs="0" maxOccurs="1"/>
-      <!-- ES: This is mandatory for new entries (EmDep version 4.0) but not for older --> 
+      <!-- ES: This is mandatory for new entries (EmDep version 4.0) but not for older -->
       <xs:element name="recombinantExpFlag" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="natSource" type="natSrcType" minOccurs="0" maxOccurs="1"/>
       <xs:element name="engSource" type="engSrcType" minOccurs="0" maxOccurs="1"/>
       <xs:element name="details" type="xs:string" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="externalReferences" type="externalReferencesType" minOccurs="0" maxOccurs="1"/>
-    </xs:choice>
+      <xs:element name="externalReferences" type="externalReferencesType" minOccurs="0"
+        maxOccurs="1"/>
+    </xs:all>
   </xs:complexType>
   <xs:complexType name="riboTypePro">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
+    <xs:all>
       <xs:element name="prokaryote" type="xs:string" minOccurs="1"/>
-      <!-- ES: This is mandatory for new entries (EmDep version 4.0) but not for older --> 
+      <!-- ES: This is mandatory for new entries (EmDep version 4.0) but not for older -->
       <xs:element name="sciSpeciesName" type="sciSpeciesType" minOccurs="0" maxOccurs="1"/>
       <xs:element name="sciSpeciesStrain" type="sciSpeciesType" minOccurs="0"/>
       <xs:element name="synSpeciesName" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="oligomericDetails" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="numCopies" type="xs:string" minOccurs="0" maxOccurs="1"/>
-      <!-- ES: This is mandatory for new entries (EmDep version 4.0) but not for older --> 
+      <!-- ES: This is mandatory for new entries (EmDep version 4.0) but not for older -->
       <xs:element name="recombinantExpFlag" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="natSource" type="natSrcType" minOccurs="0" maxOccurs="1"/>
       <xs:element name="engSource" type="engSrcType" minOccurs="0" maxOccurs="1"/>
       <xs:element name="details" type="xs:string" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="externalReferences" type="externalReferencesType" minOccurs="0" maxOccurs="1"/>
-    </xs:choice>
+      <xs:element name="externalReferences" type="externalReferencesType" minOccurs="0"
+        maxOccurs="1"/>
+    </xs:all>
   </xs:complexType>
   <xs:complexType name="sciSpeciesType">
     <xs:simpleContent>
@@ -681,8 +692,8 @@
   <xs:complexType name="externalReferencesType">
     <xs:choice minOccurs="0" maxOccurs="unbounded">
       <xs:element name="refUniProt" type="uniProtType"/>
-      <xs:element name="refInterpro" type="iprIdType"/>
       <xs:element name="refGo" type="goIdType"/>
+      <xs:element name="refInterpro" type="iprIdType"/>
     </xs:choice>
   </xs:complexType>
   <xs:complexType name="natSrcVirusType">
@@ -751,8 +762,7 @@
   </xs:complexType>
   <xs:complexType name="origType">
     <xs:simpleContent>
-      <xs:extension base="xs:float">
-      </xs:extension>
+      <xs:extension base="xs:float"> </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
   <xs:complexType name="diamType">
@@ -813,11 +823,11 @@
     </xs:simpleContent>
   </xs:complexType>
   <xs:simpleType name="defocusAllowed">
-      <xs:restriction base="xs:float">
-  <!-- negative (underfocus) and positive (overfocus) -->
-          <xs:minInclusive value="-20000"/>
-          <xs:maxInclusive value="20000"/>
-      </xs:restriction>
+    <xs:restriction base="xs:float">
+      <!-- negative (underfocus) and positive (overfocus) -->
+      <xs:minInclusive value="-20000"/>
+      <xs:maxInclusive value="20000"/>
+    </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="tiltType">
     <xs:simpleContent>
@@ -897,9 +907,9 @@
   </xs:complexType>
   <xs:complexType name="originType">
     <xs:all>
-      <xs:element name="originRow" type="origType"/>
-      <xs:element name="originCol" type="origType"/>
-      <xs:element name="originSec" type="origType"/>
+      <xs:element name="originRow" type="xs:float"/>
+      <xs:element name="originCol" type="xs:float"/>
+      <xs:element name="originSec" type="xs:float"/>
     </xs:all>
   </xs:complexType>
   <xs:complexType name="statisticsType">
@@ -932,9 +942,9 @@
   </xs:complexType>
   <xs:complexType name="limitType">
     <xs:all>
-      <xs:element name="limitRow" type="limType"/>
-      <xs:element name="limitCol" type="limType"/>
-      <xs:element name="limitSec" type="limType"/>
+      <xs:element name="limitRow" type="xs:float"/>
+      <xs:element name="limitCol" type="xs:float"/>
+      <xs:element name="limitSec" type="xs:float"/>
     </xs:all>
   </xs:complexType>
   <xs:complexType name="pixType">
@@ -946,8 +956,7 @@
   </xs:complexType>
   <xs:complexType name="limType">
     <xs:simpleContent>
-      <xs:extension base="xs:float">
-      </xs:extension>
+      <xs:extension base="xs:float"> </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
   <xs:complexType name="cType">
@@ -966,12 +975,12 @@
   </xs:complexType>
   <xs:simpleType name="allowedCellDim">
     <xs:restriction base="xs:float">
-        <xs:minExclusive value="0.0"/>
+      <xs:minExclusive value="0.0"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="allowedSlcCellDim">
     <xs:restriction base="xs:float">
-        <xs:minInclusive value="0.0"/>
+      <xs:minInclusive value="0.0"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="cAngleType">
@@ -994,7 +1003,7 @@
       <xs:enumeration value="HOLD1"/>
       <xs:enumeration value="OBS"/>
     </xs:restriction>
-  </xs:simpleType>    
+  </xs:simpleType>
   <xs:complexType name="emdbListType">
     <xs:sequence>
       <xs:element name="entry" type="emdbType" minOccurs="0" maxOccurs="unbounded"/>
@@ -1006,19 +1015,19 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="pdbidList2Type">
-    <xs:choice minOccurs="0" maxOccurs="unbounded">
-      <xs:element name="pdbEntryId" type="pdbidType" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element name="pdbChainId" type="xs:string" minOccurs="0"/>
-    </xs:choice>
+    <xs:sequence minOccurs="0">
+      <xs:element name="pdbEntryId" type="pdbidType" maxOccurs="unbounded"/>
+      <xs:element name="pdbChainId" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
   </xs:complexType>
   <xs:simpleType name="emdbType">
     <xs:restriction base="xs:string">
-        <xs:pattern value="EMD-\d{4,}"/>
+      <xs:pattern value="EMD-\d{4,}"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="pdbidType">
     <xs:restriction base="xs:string">
-        <xs:pattern value="\d[0-9a-zA-Z]{3}"/>
+      <xs:pattern value="\d[0-9a-zA-Z]{3}"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="emdbEntryIdType">
@@ -1319,8 +1328,7 @@
   <xs:simpleType name="positiveIntegerOrNAType">
     <xs:union>
       <xs:simpleType>
-        <xs:restriction base="xs:positiveInteger">
-	      </xs:restriction>
+        <xs:restriction base="xs:positiveInteger"> </xs:restriction>
       </xs:simpleType>
       <xs:simpleType>
         <xs:restriction base="xs:string">
@@ -1332,8 +1340,7 @@
   <xs:simpleType name="floatOrNAType">
     <xs:union>
       <xs:simpleType>
-        <xs:restriction base="xs:float">
-	      </xs:restriction>
+        <xs:restriction base="xs:float"> </xs:restriction>
       </xs:simpleType>
       <xs:simpleType>
         <xs:restriction base="xs:string">
