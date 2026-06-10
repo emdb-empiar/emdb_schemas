@@ -24,7 +24,7 @@
             </xs:element>
         </xs:sequence>
         <xs:attribute name="emdb_id" type="emdb_id_type" use="required" />
-        <xs:attribute default="3.0.8.0" name="version" type="xs:token" />
+        <xs:attribute default="3.0.9.0" name="version" type="xs:token" />
         
     </xs:complexType>
     <xs:complexType name="admin_type">
@@ -134,6 +134,7 @@
             <xs:element minOccurs="0" name="keywords" type="xs:string" />
             <xs:element minOccurs="0" name="replace_existing_entry" type="xs:boolean" />
         </xs:sequence>
+        <xs:attribute name="composite_map" type="xs:boolean" />
     </xs:complexType>
     <xs:complexType name="version_list_type">
         <xs:sequence>
