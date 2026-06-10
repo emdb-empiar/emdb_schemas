@@ -1,4 +1,3 @@
-<?xml version='1.0' encoding='UTF-8'?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:element name="emd" type="entry_type" />
     <xs:complexType name="entry_type">
@@ -9,27 +8,27 @@
             <xs:element name="structure_determination_list">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element maxOccurs="unbounded" name="structure_determination" type="structure_determination_type" />
+                        <xs:element name="structure_determination" type="structure_determination_type" maxOccurs="unbounded" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
             <xs:element name="map" type="map_type" />
-            <xs:element minOccurs="0" name="interpretation" type="interpretation_type" />
-            <xs:element minOccurs="0" name="validation">
+            <xs:element name="interpretation" type="interpretation_type" minOccurs="0" />
+            <xs:element name="validation" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element maxOccurs="unbounded" ref="validation_method" />
+                        <xs:element ref="validation_method" maxOccurs="unbounded" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
         </xs:sequence>
         <xs:attribute name="emdb_id" type="emdb_id_type" use="required" />
-        <xs:attribute default="3.0.9.3" name="version" type="xs:token" />
+        <xs:attribute name="version" type="xs:token" default="3.0.9.4" />
         
     </xs:complexType>
     <xs:complexType name="admin_type">
         <xs:sequence>
-            <xs:element minOccurs="0" name="status_history_list" type="version_list_type" />
+            <xs:element name="status_history_list" type="version_list_type" minOccurs="0" />
             <xs:element name="current_status" type="version_type" />
             <xs:element name="sites">
                 <xs:complexType>
@@ -61,35 +60,35 @@
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element name="deposition" type="xs:date" />
-                        <xs:element minOccurs="0" name="header_release" type="xs:date" />
-                        <xs:element minOccurs="0" name="map_release" type="xs:date" />
-                        <xs:element minOccurs="0" name="obsolete" type="xs:date" />
+                        <xs:element name="header_release" type="xs:date" minOccurs="0" />
+                        <xs:element name="map_release" type="xs:date" minOccurs="0" />
+                        <xs:element name="obsolete" type="xs:date" minOccurs="0" />
                         <xs:element name="update" type="xs:date" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="obsolete_list">
+            <xs:element name="obsolete_list" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element maxOccurs="unbounded" name="entry" type="supersedes_type" />
+                        <xs:element name="entry" type="supersedes_type" maxOccurs="unbounded" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="superseded_by_list">
+            <xs:element name="superseded_by_list" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element maxOccurs="unbounded" name="entry" type="supersedes_type" />
+                        <xs:element name="entry" type="supersedes_type" maxOccurs="unbounded" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="grant_support">
+            <xs:element name="grant_support" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element maxOccurs="unbounded" name="grant_reference" type="grant_reference_type" />
+                        <xs:element name="grant_reference" type="grant_reference_type" maxOccurs="unbounded" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="microscopy_center">
+            <xs:element name="microscopy_center" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element name="name">
@@ -113,11 +112,11 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element maxOccurs="unbounded" minOccurs="0" name="contact_author">
+            <xs:element name="contact_author" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
                     <xs:complexContent>
                         <xs:extension base="contact_details_type">
-                            <xs:attribute fixed="true" name="private" use="required" />
+                            <xs:attribute name="private" fixed="true" use="required" />
                         </xs:extension>
                     </xs:complexContent>
                 </xs:complexType>
@@ -126,19 +125,19 @@
             <xs:element name="authors_list">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element maxOccurs="unbounded" name="author" type="author_ORCID_type" />
+                        <xs:element name="author" type="author_ORCID_type" maxOccurs="unbounded" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="details" type="xs:token" />
-            <xs:element minOccurs="0" name="keywords" type="xs:string" />
-            <xs:element minOccurs="0" name="replace_existing_entry" type="xs:boolean" />
+            <xs:element name="details" type="xs:token" minOccurs="0" />
+            <xs:element name="keywords" type="xs:string" minOccurs="0" />
+            <xs:element name="replace_existing_entry" type="xs:boolean" minOccurs="0" />
         </xs:sequence>
         <xs:attribute name="composite_map" type="xs:boolean" />
     </xs:complexType>
     <xs:complexType name="version_list_type">
         <xs:sequence>
-            <xs:element maxOccurs="unbounded" name="status">
+            <xs:element name="status" maxOccurs="unbounded">
                 <xs:complexType>
                     <xs:complexContent>
                         <xs:extension base="version_type">
@@ -151,7 +150,7 @@
     </xs:complexType>
     <xs:complexType name="version_type">
         <xs:sequence>
-            <xs:element minOccurs="0" name="date">
+            <xs:element name="date" minOccurs="0">
                 <xs:simpleType>
                     <xs:restriction base="xs:date">
                         <xs:minInclusive value="2002-01-01" />
@@ -159,7 +158,7 @@
                 </xs:simpleType>
             </xs:element>
             <xs:element name="code" type="code_type" />
-            <xs:element minOccurs="0" name="processing_site">
+            <xs:element name="processing_site" minOccurs="0">
                 <xs:simpleType>
                     <xs:restriction base="xs:token">
                         <xs:enumeration value="PDBe" />
@@ -169,16 +168,16 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <xs:element minOccurs="0" name="annotator">
+            <xs:element name="annotator" minOccurs="0">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="xs:token">
-                            <xs:attribute fixed="true" name="private" type="xs:token" use="required" />
+                            <xs:attribute name="private" type="xs:token" fixed="true" use="required" />
                         </xs:extension>
                     </xs:simpleContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="details" type="xs:string" />
+            <xs:element name="details" type="xs:string" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="code_type">
@@ -211,9 +210,9 @@
     </xs:simpleType>
     <xs:complexType name="supersedes_type">
         <xs:sequence>
-            <xs:element minOccurs="0" name="date" type="xs:date" />
+            <xs:element name="date" type="xs:date" minOccurs="0" />
             <xs:element name="entry" type="emdb_id_type" />
-            <xs:element minOccurs="0" name="details" type="xs:string" />
+            <xs:element name="details" type="xs:string" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
     <xs:simpleType name="emdb_id_type">
@@ -224,8 +223,8 @@
     <xs:complexType name="grant_reference_type">
         <xs:sequence>
             <xs:element name="funding_body" type="xs:token" />
-            <xs:element minOccurs="0" name="code" type="xs:token" />
-            <xs:element minOccurs="0" name="country" type="xs:token" />
+            <xs:element name="code" type="xs:token" minOccurs="0" />
+            <xs:element name="country" type="xs:token" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="contact_details_type">
@@ -423,7 +422,7 @@
                                 </xs:sequence>
                             </xs:complexType>
                         </xs:element>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="secondary_citation">
+                        <xs:element name="secondary_citation" minOccurs="0" maxOccurs="unbounded">
                             <xs:complexType>
                                 <xs:sequence>
                                     <xs:element ref="citation_type" />
@@ -433,41 +432,41 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="emdb_list" type="emdb_cross_reference_list_type" />
-            <xs:element minOccurs="0" name="pdb_list" type="pdb_cross_reference_list_type" />
-            <xs:element minOccurs="0" name="other_db_list" type="other_db_cross_reference_list_type" />
-            <xs:element minOccurs="0" name="auxiliary_link_list">
+            <xs:element name="emdb_list" type="emdb_cross_reference_list_type" minOccurs="0" />
+            <xs:element name="pdb_list" type="pdb_cross_reference_list_type" minOccurs="0" />
+            <xs:element name="other_db_list" type="other_db_cross_reference_list_type" minOccurs="0" />
+            <xs:element name="auxiliary_link_list" minOccurs="0">
                 <xs:complexType>
-                    <xs:sequence maxOccurs="1" minOccurs="1">
-                        <xs:element maxOccurs="unbounded" name="auxiliary_link" type="auxiliary_link_type" />
+                    <xs:sequence minOccurs="1" maxOccurs="1">
+                        <xs:element name="auxiliary_link" type="auxiliary_link_type" maxOccurs="unbounded" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
             
         </xs:sequence>
     </xs:complexType>
-    <xs:element abstract="true" name="citation_type" />
+    <xs:element name="citation_type" abstract="true" />
     <xs:element name="journal_citation" substitutionGroup="citation_type">
         <xs:complexType>
             <xs:sequence>
-                <xs:element maxOccurs="unbounded" name="author" type="author_order_type" />
+                <xs:element name="author" type="author_order_type" maxOccurs="unbounded" />
                 <xs:element name="title" type="xs:token" />
-                <xs:element minOccurs="0" name="journal" type="xs:token" />
-                <xs:element minOccurs="0" name="journal_abbreviation" type="xs:token" />
-                <xs:element minOccurs="0" name="country" type="xs:token" />
-                <xs:element minOccurs="0" name="issue" type="xs:positiveInteger" />
-                <xs:element minOccurs="0" name="volume" nillable="true" type="xs:string" />
-                <xs:element minOccurs="0" name="first_page" nillable="false" type="page_type" />
-                <xs:element minOccurs="0" name="last_page" type="page_type" />
-                <xs:element minOccurs="0" name="year">
+                <xs:element name="journal" type="xs:token" minOccurs="0" />
+                <xs:element name="journal_abbreviation" type="xs:token" minOccurs="0" />
+                <xs:element name="country" type="xs:token" minOccurs="0" />
+                <xs:element name="issue" type="xs:positiveInteger" minOccurs="0" />
+                <xs:element name="volume" type="xs:string" nillable="true" minOccurs="0" />
+                <xs:element name="first_page" type="page_type" nillable="false" minOccurs="0" />
+                <xs:element name="last_page" type="page_type" minOccurs="0" />
+                <xs:element name="year" minOccurs="0">
                     <xs:simpleType>
                         <xs:restriction base="xs:gYear">
                             <xs:minInclusive value="1900" />
                         </xs:restriction>
                     </xs:simpleType>
                 </xs:element>
-                <xs:element minOccurs="0" name="language" type="xs:language" />
-                <xs:element maxOccurs="unbounded" minOccurs="0" name="external_references">
+                <xs:element name="language" type="xs:language" minOccurs="0" />
+                <xs:element name="external_references" minOccurs="0" maxOccurs="unbounded">
                     <xs:complexType>
                         <xs:simpleContent>
                             <xs:extension base="xs:token">
@@ -490,7 +489,7 @@
                         </xs:simpleContent>
                     </xs:complexType>
                 </xs:element>
-                <xs:element minOccurs="0" name="details" type="xs:string" />
+                <xs:element name="details" type="xs:string" minOccurs="0" />
             </xs:sequence>
             <xs:attribute name="published" type="xs:boolean" use="required" />
         </xs:complexType>
@@ -501,16 +500,16 @@
     <xs:element name="non_journal_citation" substitutionGroup="citation_type">
         <xs:complexType>
             <xs:sequence>
-                <xs:element maxOccurs="unbounded" name="author" type="author_order_type" />
-                <xs:element maxOccurs="unbounded" minOccurs="0" name="editor" type="author_order_type" />
+                <xs:element name="author" type="author_order_type" maxOccurs="unbounded" />
+                <xs:element name="editor" type="author_order_type" minOccurs="0" maxOccurs="unbounded" />
                 <xs:element name="title" type="xs:token" />
-                <xs:element minOccurs="0" name="thesis_title" type="xs:token" />
-                <xs:element minOccurs="0" name="chapter_title" type="xs:token" />
-                <xs:element minOccurs="0" name="volume" type="xs:string" />
-                <xs:element minOccurs="0" name="publisher" type="xs:token" />
-                <xs:element minOccurs="0" name="publisher_location" type="xs:token" />
-                <xs:element minOccurs="0" name="first_page" type="page_type" />
-                <xs:element minOccurs="0" name="last_page" type="page_type" />
+                <xs:element name="thesis_title" type="xs:token" minOccurs="0" />
+                <xs:element name="chapter_title" type="xs:token" minOccurs="0" />
+                <xs:element name="volume" type="xs:string" minOccurs="0" />
+                <xs:element name="publisher" type="xs:token" minOccurs="0" />
+                <xs:element name="publisher_location" type="xs:token" minOccurs="0" />
+                <xs:element name="first_page" type="page_type" minOccurs="0" />
+                <xs:element name="last_page" type="page_type" minOccurs="0" />
                 <xs:element name="year">
                     <xs:simpleType>
                         <xs:restriction base="xs:gYear">
@@ -518,8 +517,8 @@
                         </xs:restriction>
                     </xs:simpleType>
                 </xs:element>
-                <xs:element minOccurs="0" name="language" type="xs:language" />
-                <xs:element maxOccurs="unbounded" minOccurs="0" name="external_references">
+                <xs:element name="language" type="xs:language" minOccurs="0" />
+                <xs:element name="external_references" minOccurs="0" maxOccurs="unbounded">
                     <xs:complexType>
                         <xs:simpleContent>
                             <xs:extension base="xs:token">
@@ -542,20 +541,20 @@
                         </xs:simpleContent>
                     </xs:complexType>
                 </xs:element>
-                <xs:element minOccurs="0" name="details" type="xs:string" />
+                <xs:element name="details" type="xs:string" minOccurs="0" />
             </xs:sequence>
             <xs:attribute name="published" type="xs:boolean" use="required" />
         </xs:complexType>
     </xs:element>
     <xs:complexType name="emdb_cross_reference_list_type">
-        <xs:sequence maxOccurs="1" minOccurs="1">
-            <xs:element maxOccurs="unbounded" name="emdb_reference" type="emdb_cross_reference_type" />
+        <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="emdb_reference" type="emdb_cross_reference_type" maxOccurs="unbounded" />
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="emdb_cross_reference_type">
         <xs:sequence>
             <xs:element name="emdb_id" type="emdb_id_type" />
-            <xs:element minOccurs="0" name="relationship">
+            <xs:element name="relationship" minOccurs="0">
                 <xs:complexType>
                     <xs:choice>
                         <xs:element name="in_frame">
@@ -571,18 +570,18 @@
                     </xs:choice>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="details" type="xs:string" />
+            <xs:element name="details" type="xs:string" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="pdb_cross_reference_list_type">
-        <xs:sequence maxOccurs="1" minOccurs="1">
-            <xs:element maxOccurs="unbounded" name="pdb_reference" type="pdb_cross_reference_type" />
+        <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="pdb_reference" type="pdb_cross_reference_type" maxOccurs="unbounded" />
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="pdb_cross_reference_type">
         <xs:sequence>
             <xs:element name="pdb_id" type="pdb_code_type" />
-            <xs:element minOccurs="0" name="relationship">
+            <xs:element name="relationship" minOccurs="0">
                 <xs:complexType>
                     <xs:choice>
                         <xs:element name="in_frame">
@@ -598,25 +597,25 @@
                     </xs:choice>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="details" type="xs:string" />
+            <xs:element name="details" type="xs:string" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="other_db_cross_reference_list_type">
-        <xs:sequence maxOccurs="1" minOccurs="1">
-            <xs:element maxOccurs="unbounded" name="db_reference" type="other_db_cross_reference_type" />
+        <xs:sequence minOccurs="1" maxOccurs="1">
+            <xs:element name="db_reference" type="other_db_cross_reference_type" maxOccurs="unbounded" />
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="other_db_cross_reference_type">
         <xs:sequence>
             <xs:element name="db_name" type="xs:token" />
             <xs:element name="accession_id" type="xs:token" />
-            <xs:element minOccurs="0" name="content_type" type="xs:token" />
-            <xs:element minOccurs="0" name="details" type="xs:string" />
+            <xs:element name="content_type" type="xs:token" minOccurs="0" />
+            <xs:element name="details" type="xs:string" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="auxiliary_link_type">
         <xs:sequence>
-            <xs:element minOccurs="0" name="type">
+            <xs:element name="type" minOccurs="0">
                 <xs:simpleType>
                     <xs:restriction base="xs:token">
                         <xs:enumeration value="2D EM DATA" />
@@ -631,20 +630,20 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <xs:element minOccurs="0" name="details" type="xs:string" />
+            <xs:element name="details" type="xs:string" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="sample_type">
         <xs:sequence>
             <xs:element name="name" type="sci_name_type" />
-            <xs:element maxOccurs="1" name="supramolecule_list">
+            <xs:element name="supramolecule_list" maxOccurs="1">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element maxOccurs="unbounded" ref="supramolecule" />
+                        <xs:element ref="supramolecule" maxOccurs="unbounded" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="macromolecule_list" type="macromolecule_list_type" />
+            <xs:element name="macromolecule_list" type="macromolecule_list_type" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="sci_name_type">
@@ -654,11 +653,11 @@
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
-    <xs:element abstract="true" name="supramolecule" type="base_supramolecule_type" />
+    <xs:element name="supramolecule" type="base_supramolecule_type" abstract="true" />
     <xs:complexType name="base_supramolecule_type">
         <xs:sequence>
             <xs:element name="name" type="sci_name_type" />
-            <xs:element minOccurs="0" name="category">
+            <xs:element name="category" minOccurs="0">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="complex_category_type">
@@ -675,25 +674,25 @@
                     </xs:simpleContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="parent" type="xs:nonNegativeInteger" />
-            <xs:element minOccurs="0" name="macromolecule_list">
+            <xs:element name="parent" type="xs:nonNegativeInteger" minOccurs="0" />
+            <xs:element name="macromolecule_list" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element maxOccurs="unbounded" name="macromolecule">
+                        <xs:element name="macromolecule" maxOccurs="unbounded">
                             <xs:complexType>
                                 <xs:sequence>
                                     <xs:element name="macromolecule_id" type="xs:positiveInteger" />
-                                    <xs:element minOccurs="0" name="number_of_copies" type="xs:positiveInteger" />
+                                    <xs:element name="number_of_copies" type="xs:positiveInteger" minOccurs="0" />
                                 </xs:sequence>
                             </xs:complexType>
                         </xs:element>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="details" type="xs:string" />
-            <xs:element minOccurs="0" name="number_of_copies" type="pos_int_or_string_type" />
-            <xs:element minOccurs="0" name="oligomeric_state" type="pos_int_or_string_type" />
-            <xs:element maxOccurs="unbounded" minOccurs="0" name="external_references">
+            <xs:element name="details" type="xs:string" minOccurs="0" />
+            <xs:element name="number_of_copies" type="pos_int_or_string_type" minOccurs="0" />
+            <xs:element name="oligomeric_state" type="pos_int_or_string_type" minOccurs="0" />
+            <xs:element name="external_references" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="xs:token">
@@ -711,7 +710,7 @@
                     </xs:simpleContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element maxOccurs="1" minOccurs="0" name="recombinant_exp_flag" type="xs:boolean" />
+            <xs:element name="recombinant_exp_flag" type="xs:boolean" minOccurs="0" maxOccurs="1" />
         </xs:sequence>
         <xs:attribute name="supramolecule_id" type="xs:positiveInteger" use="required" />
     </xs:complexType>
@@ -728,8 +727,8 @@
         <xs:complexContent>
             <xs:extension base="base_supramolecule_type">
                 <xs:sequence>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="natural_source" type="cell_source_type" />
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="synthetic_source" type="cell_source_type" />
+                    <xs:element name="natural_source" type="cell_source_type" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element name="synthetic_source" type="cell_source_type" minOccurs="0" maxOccurs="unbounded" />
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
@@ -738,9 +737,9 @@
         <xs:complexContent>
             <xs:extension base="base_source_type">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="organ" type="xs:token" />
-                    <xs:element minOccurs="0" name="tissue" type="xs:token" />
-                    <xs:element minOccurs="0" name="cell" type="xs:token" />
+                    <xs:element name="organ" type="xs:token" minOccurs="0" />
+                    <xs:element name="tissue" type="xs:token" minOccurs="0" />
+                    <xs:element name="cell" type="xs:token" minOccurs="0" />
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
@@ -748,9 +747,9 @@
     <xs:complexType name="base_source_type">
         <xs:sequence>
             <xs:element name="organism" type="organism_type" />
-            <xs:element minOccurs="0" name="strain" type="xs:token" />
-            <xs:element minOccurs="0" name="synonym_organism" type="xs:token" />
-            <xs:element minOccurs="0" name="details" type="xs:string" />
+            <xs:element name="strain" type="xs:token" minOccurs="0" />
+            <xs:element name="synonym_organism" type="xs:token" minOccurs="0" />
+            <xs:element name="details" type="xs:string" minOccurs="0" />
         </xs:sequence>
         <xs:attribute name="database">
             <xs:simpleType>
@@ -773,13 +772,13 @@
         <xs:complexContent>
             <xs:extension base="base_supramolecule_type">
                 <xs:sequence>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="natural_source" type="complex_source_type" />
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="synthetic_source" type="complex_source_type" />
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="recombinant_expression" type="recombinant_source_type" />
-                    <xs:element minOccurs="0" name="molecular_weight" type="molecular_weight_type" />
-                    <xs:element minOccurs="0" name="ribosome-details" type="xs:string" />
+                    <xs:element name="natural_source" type="complex_source_type" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element name="synthetic_source" type="complex_source_type" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element name="recombinant_expression" type="recombinant_source_type" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element name="molecular_weight" type="molecular_weight_type" minOccurs="0" />
+                    <xs:element name="ribosome-details" type="xs:string" minOccurs="0" />
                 </xs:sequence>
-                <xs:attribute fixed="true" name="chimera" type="xs:boolean" />
+                <xs:attribute name="chimera" type="xs:boolean" fixed="true" />
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
@@ -787,22 +786,22 @@
         <xs:complexContent>
             <xs:extension base="base_source_type">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="organ" type="xs:token" />
-                    <xs:element minOccurs="0" name="tissue" type="xs:token" />
-                    <xs:element minOccurs="0" name="cell" type="xs:token" />
-                    <xs:element minOccurs="0" name="organelle" type="xs:token" />
-                    <xs:element minOccurs="0" name="cellular_location" type="xs:token" />
+                    <xs:element name="organ" type="xs:token" minOccurs="0" />
+                    <xs:element name="tissue" type="xs:token" minOccurs="0" />
+                    <xs:element name="cell" type="xs:token" minOccurs="0" />
+                    <xs:element name="organelle" type="xs:token" minOccurs="0" />
+                    <xs:element name="cellular_location" type="xs:token" minOccurs="0" />
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
     <xs:complexType name="recombinant_source_type">
         <xs:sequence>
-            <xs:element minOccurs="0" name="recombinant_organism" type="organism_type" />
-            <xs:element minOccurs="0" name="recombinant_strain" type="xs:token" />
-            <xs:element minOccurs="0" name="recombinant_cell" type="xs:token" />
-            <xs:element minOccurs="0" name="recombinant_plasmid" type="xs:token" />
-            <xs:element minOccurs="0" name="recombinant_synonym_organism" type="xs:token" />
+            <xs:element name="recombinant_organism" type="organism_type" minOccurs="0" />
+            <xs:element name="recombinant_strain" type="xs:token" minOccurs="0" />
+            <xs:element name="recombinant_cell" type="xs:token" minOccurs="0" />
+            <xs:element name="recombinant_plasmid" type="xs:token" minOccurs="0" />
+            <xs:element name="recombinant_synonym_organism" type="xs:token" minOccurs="0" />
         </xs:sequence>
         <xs:attribute name="database" use="required">
             <xs:simpleType>
@@ -814,7 +813,7 @@
     </xs:complexType>
     <xs:complexType name="molecular_weight_type">
         <xs:sequence>
-            <xs:element minOccurs="0" name="experimental">
+            <xs:element name="experimental" minOccurs="0">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="allowed_assembly_weights">
@@ -830,7 +829,7 @@
                     </xs:simpleContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="theoretical">
+            <xs:element name="theoretical" minOccurs="0">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="allowed_assembly_weights">
@@ -846,7 +845,7 @@
                     </xs:simpleContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="method" type="xs:token" />
+            <xs:element name="method" type="xs:token" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
     <xs:simpleType name="allowed_assembly_weights">
@@ -860,10 +859,10 @@
         <xs:complexContent>
             <xs:extension base="base_supramolecule_type">
                 <xs:sequence>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="natural_source" type="organelle_source_type" />
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="synthetic_source" type="organelle_source_type" />
-                    <xs:element minOccurs="0" name="molecular_weight" type="molecular_weight_type" />
-                    <xs:element maxOccurs="1" minOccurs="0" name="recombinant_expression" type="recombinant_source_type" />
+                    <xs:element name="natural_source" type="organelle_source_type" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element name="synthetic_source" type="organelle_source_type" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element name="molecular_weight" type="molecular_weight_type" minOccurs="0" />
+                    <xs:element name="recombinant_expression" type="recombinant_source_type" minOccurs="0" maxOccurs="1" />
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
@@ -872,11 +871,11 @@
         <xs:complexContent>
             <xs:extension base="base_source_type">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="organ" type="xs:token" />
-                    <xs:element minOccurs="0" name="tissue" type="xs:token" />
-                    <xs:element minOccurs="0" name="cell" type="xs:token" />
-                    <xs:element minOccurs="0" name="organelle" type="xs:token" />
-                    <xs:element minOccurs="0" name="cellular_location" type="xs:token" />
+                    <xs:element name="organ" type="xs:token" minOccurs="0" />
+                    <xs:element name="tissue" type="xs:token" minOccurs="0" />
+                    <xs:element name="cell" type="xs:token" minOccurs="0" />
+                    <xs:element name="organelle" type="xs:token" minOccurs="0" />
+                    <xs:element name="cellular_location" type="xs:token" minOccurs="0" />
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
@@ -886,10 +885,10 @@
         <xs:complexContent>
             <xs:extension base="base_supramolecule_type">
                 <xs:sequence>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="natural_source" type="sample_source_type" />
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="synthetic_source" type="sample_source_type" />
-                    <xs:element minOccurs="0" name="number_unique_components" type="xs:positiveInteger" />
-                    <xs:element minOccurs="0" name="molecular_weight" type="molecular_weight_type" />
+                    <xs:element name="natural_source" type="sample_source_type" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element name="synthetic_source" type="sample_source_type" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element name="number_unique_components" type="xs:positiveInteger" minOccurs="0" />
+                    <xs:element name="molecular_weight" type="molecular_weight_type" minOccurs="0" />
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
@@ -898,9 +897,9 @@
         <xs:complexContent>
             <xs:extension base="base_source_type">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="organ" type="xs:token" />
-                    <xs:element minOccurs="0" name="tissue" type="xs:token" />
-                    <xs:element minOccurs="0" name="cell" type="xs:token" />
+                    <xs:element name="organ" type="xs:token" minOccurs="0" />
+                    <xs:element name="tissue" type="xs:token" minOccurs="0" />
+                    <xs:element name="cell" type="xs:token" minOccurs="0" />
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
@@ -910,8 +909,8 @@
         <xs:complexContent>
             <xs:extension base="base_supramolecule_type">
                 <xs:sequence>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="natural_source" type="tissue_source_type" />
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="sythetic_source" type="tissue_source_type" />
+                    <xs:element name="natural_source" type="tissue_source_type" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element name="sythetic_source" type="tissue_source_type" minOccurs="0" maxOccurs="unbounded" />
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
@@ -920,8 +919,8 @@
         <xs:complexContent>
             <xs:extension base="base_source_type">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="organ" type="xs:token" />
-                    <xs:element minOccurs="0" name="tissue" type="xs:token" />
+                    <xs:element name="organ" type="xs:token" minOccurs="0" />
+                    <xs:element name="tissue" type="xs:token" minOccurs="0" />
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
@@ -931,26 +930,26 @@
         <xs:complexContent>
             <xs:extension base="base_supramolecule_type">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="sci_species_name" type="virus_species_name_type" />
-                    <xs:element maxOccurs="1" minOccurs="0" name="sci_species_strain" type="xs:string" />
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="natural_host" type="virus_host_type" />
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="synthetic_host" type="virus_host_type" />
-                    <xs:element minOccurs="0" name="host_system" type="recombinant_source_type" />
-                    <xs:element minOccurs="0" name="molecular_weight" type="molecular_weight_type" />
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="virus_shell">
+                    <xs:element name="sci_species_name" type="virus_species_name_type" minOccurs="0" />
+                    <xs:element name="sci_species_strain" type="xs:string" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="natural_host" type="virus_host_type" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element name="synthetic_host" type="virus_host_type" minOccurs="0" maxOccurs="unbounded" />
+                    <xs:element name="host_system" type="recombinant_source_type" minOccurs="0" />
+                    <xs:element name="molecular_weight" type="molecular_weight_type" minOccurs="0" />
+                    <xs:element name="virus_shell" minOccurs="0" maxOccurs="unbounded">
                         <xs:complexType>
                             <xs:sequence>
-                                <xs:element minOccurs="0" name="name" nillable="false" type="xs:token" />
-                                <xs:element minOccurs="0" name="diameter">
+                                <xs:element name="name" type="xs:token" nillable="false" minOccurs="0" />
+                                <xs:element name="diameter" minOccurs="0">
                                     <xs:complexType>
                                         <xs:simpleContent>
                                             <xs:extension base="allowed_shell_diameter">
-                                                <xs:attribute fixed="Å" name="units" use="required" />
+                                                <xs:attribute name="units" fixed="Å" use="required" />
                                             </xs:extension>
                                         </xs:simpleContent>
                                     </xs:complexType>
                                 </xs:element>
-                                <xs:element minOccurs="0" name="triangulation" type="xs:positiveInteger" />
+                                <xs:element name="triangulation" type="xs:positiveInteger" minOccurs="0" />
                             </xs:sequence>
                             <xs:attribute name="shell_id" type="xs:positiveInteger" />
                         </xs:complexType>
@@ -980,10 +979,10 @@
                     </xs:element>
                     <xs:element name="virus_enveloped" type="xs:boolean" />
                     <xs:element name="virus_empty" type="xs:boolean" />
-                    <xs:element maxOccurs="1" minOccurs="0" name="syn_species_name" type="xs:string" />
-                    <xs:element maxOccurs="1" minOccurs="0" name="sci_species_serotype" type="xs:string" />
-                    <xs:element maxOccurs="1" minOccurs="0" name="sci_species_serocomplex" type="xs:string" />
-                    <xs:element maxOccurs="1" minOccurs="0" name="sci_species_subspecies" type="xs:string" />
+                    <xs:element name="syn_species_name" type="xs:string" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="sci_species_serotype" type="xs:string" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="sci_species_serocomplex" type="xs:string" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="sci_species_subspecies" type="xs:string" minOccurs="0" maxOccurs="1" />
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
@@ -1008,19 +1007,19 @@
     </xs:simpleType>
     <xs:complexType name="macromolecule_list_type">
         <xs:sequence>
-            <xs:element maxOccurs="unbounded" ref="macromolecule" />
+            <xs:element ref="macromolecule" maxOccurs="unbounded" />
         </xs:sequence>
     </xs:complexType>
-    <xs:element abstract="true" name="macromolecule" type="base_macromolecule_type" />
+    <xs:element name="macromolecule" type="base_macromolecule_type" abstract="true" />
     <xs:complexType name="base_macromolecule_type">
         <xs:sequence>
-            <xs:element minOccurs="0" name="name" type="sci_name_type" />
-            <xs:element minOccurs="0" name="natural_source" type="macromolecule_source_type" />
-            <xs:element minOccurs="0" name="molecular_weight" type="molecular_weight_type" />
-            <xs:element minOccurs="0" name="details" type="xs:string" />
-            <xs:element minOccurs="0" name="number_of_copies" type="pos_int_or_string_type" />
-            <xs:element minOccurs="0" name="oligomeric_state" type="pos_int_or_string_type" />
-            <xs:element maxOccurs="1" minOccurs="0" name="recombinant_exp_flag" type="xs:boolean" />
+            <xs:element name="name" type="sci_name_type" minOccurs="0" />
+            <xs:element name="natural_source" type="macromolecule_source_type" minOccurs="0" />
+            <xs:element name="molecular_weight" type="molecular_weight_type" minOccurs="0" />
+            <xs:element name="details" type="xs:string" minOccurs="0" />
+            <xs:element name="number_of_copies" type="pos_int_or_string_type" minOccurs="0" />
+            <xs:element name="oligomeric_state" type="pos_int_or_string_type" minOccurs="0" />
+            <xs:element name="recombinant_exp_flag" type="xs:boolean" minOccurs="0" maxOccurs="1" />
         </xs:sequence>
         <xs:attribute name="macromolecule_id" type="xs:positiveInteger" use="required" />
         <xs:attribute name="mutant" type="xs:boolean" />
@@ -1030,28 +1029,28 @@
         <xs:complexContent>
             <xs:extension base="base_source_type">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="organ" type="xs:token" />
-                    <xs:element minOccurs="0" name="tissue" type="xs:token" />
-                    <xs:element minOccurs="0" name="cell" type="xs:token" />
-                    <xs:element minOccurs="0" name="organelle" type="xs:token" />
-                    <xs:element minOccurs="0" name="cellular_location" type="xs:token" />
+                    <xs:element name="organ" type="xs:token" minOccurs="0" />
+                    <xs:element name="tissue" type="xs:token" minOccurs="0" />
+                    <xs:element name="cell" type="xs:token" minOccurs="0" />
+                    <xs:element name="organelle" type="xs:token" minOccurs="0" />
+                    <xs:element name="cellular_location" type="xs:token" minOccurs="0" />
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
-    <xs:element name="dna" substitutionGroup="macromolecule" type="dna_macromolecule_type" />
+    <xs:element name="dna" type="dna_macromolecule_type" substitutionGroup="macromolecule" />
     <xs:complexType name="dna_macromolecule_type">
         <xs:complexContent>
             <xs:extension base="base_macromolecule_type">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="sequence">
+                    <xs:element name="sequence" minOccurs="0">
                         <xs:complexType>
                             <xs:sequence>
                                 <xs:element name="string" type="xs:token" />
-                                <xs:element minOccurs="0" name="discrepancy_list">
+                                <xs:element name="discrepancy_list" minOccurs="0">
                                     <xs:complexType>
                                         <xs:sequence>
-                                            <xs:element maxOccurs="unbounded" name="discrepancy">
+                                            <xs:element name="discrepancy" maxOccurs="unbounded">
                                                 <xs:simpleType>
                                                   <xs:restriction base="xs:token">
                                                   <xs:pattern value="[ ARNDCEQGHILKMFPSTWYVUOBZJX\(\)]\d+[ ARNDCEQGHILKMFPSTWYVUOBZJX\(\)]" />
@@ -1061,7 +1060,7 @@
                                         </xs:sequence>
                                     </xs:complexType>
                                 </xs:element>
-                                <xs:element maxOccurs="unbounded" minOccurs="0" name="external_references">
+                                <xs:element name="external_references" minOccurs="0" maxOccurs="unbounded">
                                     <xs:complexType>
                                         <xs:simpleContent>
                                             <xs:extension base="xs:token">
@@ -1081,27 +1080,27 @@
                             </xs:sequence>
                         </xs:complexType>
                     </xs:element>
-                    <xs:element minOccurs="0" name="classification">
+                    <xs:element name="classification" minOccurs="0">
                         <xs:simpleType>
                             <xs:restriction base="xs:token">
                                 <xs:enumeration value="DNA" />
                             </xs:restriction>
                         </xs:simpleType>
                     </xs:element>
-                    <xs:element minOccurs="0" name="structure" type="xs:token" />
-                    <xs:element minOccurs="0" name="synthetic_flag" type="xs:boolean" />
-                    <xs:element minOccurs="0" name="synthetic_source" type="macromolecule_source_type" />
+                    <xs:element name="structure" type="xs:token" minOccurs="0" />
+                    <xs:element name="synthetic_flag" type="xs:boolean" minOccurs="0" />
+                    <xs:element name="synthetic_source" type="macromolecule_source_type" minOccurs="0" />
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
-    <xs:element name="em_label" substitutionGroup="macromolecule" type="em_label_macromolecule_type" />
+    <xs:element name="em_label" type="em_label_macromolecule_type" substitutionGroup="macromolecule" />
     <xs:complexType name="em_label_macromolecule_type">
         <xs:complexContent>
             <xs:extension base="base_macromolecule_type">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="formula" type="formula_type" />
-                    <xs:element minOccurs="0" name="synthetic_source" type="macromolecule_source_type" />
+                    <xs:element name="formula" type="formula_type" minOccurs="0" />
+                    <xs:element name="synthetic_source" type="macromolecule_source_type" minOccurs="0" />
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
@@ -1109,13 +1108,13 @@
     <xs:simpleType name="formula_type">
         <xs:restriction base="xs:token" />
     </xs:simpleType>
-    <xs:element name="ligand" substitutionGroup="macromolecule" type="ligand_macromolecule_type" />
+    <xs:element name="ligand" type="ligand_macromolecule_type" substitutionGroup="macromolecule" />
     <xs:complexType name="ligand_macromolecule_type">
         <xs:complexContent>
             <xs:extension base="base_macromolecule_type">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="formula" type="formula_type" />
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="external_references">
+                    <xs:element name="formula" type="formula_type" minOccurs="0" />
+                    <xs:element name="external_references" minOccurs="0" maxOccurs="unbounded">
                         <xs:complexType>
                             <xs:simpleContent>
                                 <xs:extension base="xs:token">
@@ -1135,17 +1134,17 @@
                             </xs:simpleContent>
                         </xs:complexType>
                     </xs:element>
-                    <xs:element minOccurs="0" name="recombinant_expression" type="recombinant_source_type" />
+                    <xs:element name="recombinant_expression" type="recombinant_source_type" minOccurs="0" />
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
-    <xs:element name="other_macromolecule" substitutionGroup="macromolecule" type="other_macromolecule_type" />
+    <xs:element name="other_macromolecule" type="other_macromolecule_type" substitutionGroup="macromolecule" />
     <xs:complexType name="other_macromolecule_type">
         <xs:complexContent>
             <xs:extension base="base_macromolecule_type">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="sequence">
+                    <xs:element name="sequence" minOccurs="0">
                         <xs:complexType>
                             <xs:sequence>
                                 <xs:element name="string">
@@ -1153,10 +1152,10 @@
                                         <xs:restriction base="xs:token" />
                                     </xs:simpleType>
                                 </xs:element>
-                                <xs:element minOccurs="0" name="discrepancy_list">
+                                <xs:element name="discrepancy_list" minOccurs="0">
                                     <xs:complexType>
                                         <xs:sequence>
-                                            <xs:element maxOccurs="unbounded" name="discrepancy">
+                                            <xs:element name="discrepancy" maxOccurs="unbounded">
                                                 <xs:simpleType>
                                                   <xs:restriction base="xs:token">
                                                   <xs:pattern value="[AGCTRYSWKMBDHVN\.-]\d+[AGCTRYSWKMBDHVN\.-]" />
@@ -1166,7 +1165,7 @@
                                         </xs:sequence>
                                     </xs:complexType>
                                 </xs:element>
-                                <xs:element maxOccurs="unbounded" minOccurs="0" name="external_references">
+                                <xs:element name="external_references" minOccurs="0" maxOccurs="unbounded">
                                     <xs:complexType>
                                         <xs:simpleContent>
                                             <xs:extension base="xs:token">
@@ -1179,22 +1178,22 @@
                         </xs:complexType>
                     </xs:element>
                     <xs:element name="classification" type="xs:token" />
-                    <xs:element minOccurs="0" name="recombinant_expression" type="recombinant_source_type" />
-                    <xs:element minOccurs="0" name="structure" type="xs:token" />
-                    <xs:element minOccurs="0" name="synthetic_flag" type="xs:boolean" />
-                    <xs:element minOccurs="0" name="synthetic_source" type="macromolecule_source_type" />
+                    <xs:element name="recombinant_expression" type="recombinant_source_type" minOccurs="0" />
+                    <xs:element name="structure" type="xs:token" minOccurs="0" />
+                    <xs:element name="synthetic_flag" type="xs:boolean" minOccurs="0" />
+                    <xs:element name="synthetic_source" type="macromolecule_source_type" minOccurs="0" />
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
-    <xs:element name="protein_or_peptide" substitutionGroup="macromolecule" type="protein_or_peptide_macromolecule_type" />
+    <xs:element name="protein_or_peptide" type="protein_or_peptide_macromolecule_type" substitutionGroup="macromolecule" />
     <xs:complexType name="protein_or_peptide_macromolecule_type">
         <xs:complexContent>
             <xs:extension base="base_macromolecule_type">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="recombinant_expression" type="recombinant_source_type" />
-                    <xs:element minOccurs="0" name="synthetic_source" type="macromolecule_source_type" />
-                    <xs:element minOccurs="0" name="enantiomer">
+                    <xs:element name="recombinant_expression" type="recombinant_source_type" minOccurs="0" />
+                    <xs:element name="synthetic_source" type="macromolecule_source_type" minOccurs="0" />
+                    <xs:element name="enantiomer" minOccurs="0">
                         <xs:simpleType>
                             <xs:restriction base="xs:token">
                                 <xs:enumeration value="LEVO" />
@@ -1205,11 +1204,11 @@
                     <xs:element name="sequence">
                         <xs:complexType>
                             <xs:sequence>
-                                <xs:element minOccurs="0" name="string" type="xs:token" />
-                                <xs:element minOccurs="0" name="discrepancy_list">
+                                <xs:element name="string" type="xs:token" minOccurs="0" />
+                                <xs:element name="discrepancy_list" minOccurs="0">
                                     <xs:complexType>
                                         <xs:sequence>
-                                            <xs:element maxOccurs="unbounded" name="discrepancy">
+                                            <xs:element name="discrepancy" maxOccurs="unbounded">
                                                 <xs:simpleType>
                                                   <xs:restriction base="xs:token">
                                                   <xs:pattern value="[ARNDCEQGHILKMFPSTWYVUOBZJX]\d+[ARNDCEQGHILKMFPSTWYVUOBZJX]" />
@@ -1219,7 +1218,7 @@
                                         </xs:sequence>
                                     </xs:complexType>
                                 </xs:element>
-                                <xs:element minOccurs="0" name="connectivity">
+                                <xs:element name="connectivity" minOccurs="0">
                                     <xs:complexType>
                                         <xs:sequence>
                                             <xs:element minOccurs="0" name="_n-link">
@@ -1239,7 +1238,7 @@
                                         </xs:sequence>
                                     </xs:complexType>
                                 </xs:element>
-                                <xs:element maxOccurs="unbounded" minOccurs="0" name="external_references">
+                                <xs:element name="external_references" minOccurs="0" maxOccurs="unbounded">
                                     <xs:complexType>
                                         <xs:simpleContent>
                                             <xs:extension base="xs:token">
@@ -1261,7 +1260,7 @@
                             </xs:sequence>
                         </xs:complexType>
                     </xs:element>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="ec_number">
+                    <xs:element name="ec_number" minOccurs="0" maxOccurs="unbounded">
                         <xs:simpleType>
                             <xs:restriction base="xs:token">
                                 <xs:pattern value="([1-7]((.[1-9][0-9]?)|(.-))((.[1-9][0-9]?)|(.-))((.[1-9][0-9]?[0-9]?)|(.-)))(([ ]*,[ ]*)([1-6]((.[1-9][0-9]?)|(.-))((.[1-9][0-9]?)|(.-))((.[1-9][0-9]?[0-9]?)|(.-))))*" />
@@ -1272,19 +1271,19 @@
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
-    <xs:element name="rna" substitutionGroup="macromolecule" type="rna_macromolecule_type" />
+    <xs:element name="rna" type="rna_macromolecule_type" substitutionGroup="macromolecule" />
     <xs:complexType name="rna_macromolecule_type">
         <xs:complexContent>
             <xs:extension base="base_macromolecule_type">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="sequence">
+                    <xs:element name="sequence" minOccurs="0">
                         <xs:complexType>
                             <xs:sequence>
                                 <xs:element name="string" type="xs:token" />
-                                <xs:element minOccurs="0" name="discrepancy_list">
+                                <xs:element name="discrepancy_list" minOccurs="0">
                                     <xs:complexType>
                                         <xs:sequence>
-                                            <xs:element maxOccurs="unbounded" name="discrepancy">
+                                            <xs:element name="discrepancy" maxOccurs="unbounded">
                                                 <xs:simpleType>
                                                   <xs:restriction base="xs:token">
                                                   <xs:pattern value="[ ARNDCEQGHILKMFPSTWYVUOBZJX\(\)]\d+[ ARNDCEQGHILKMFPSTWYVUOBZJX\(\)]" />
@@ -1294,7 +1293,7 @@
                                         </xs:sequence>
                                     </xs:complexType>
                                 </xs:element>
-                                <xs:element maxOccurs="unbounded" minOccurs="0" name="external_references">
+                                <xs:element name="external_references" minOccurs="0" maxOccurs="unbounded">
                                     <xs:complexType>
                                         <xs:simpleContent>
                                             <xs:extension base="xs:token">
@@ -1315,7 +1314,7 @@
                             </xs:sequence>
                         </xs:complexType>
                     </xs:element>
-                    <xs:element minOccurs="0" name="classification">
+                    <xs:element name="classification" minOccurs="0">
                         <xs:simpleType>
                             <xs:restriction base="xs:token">
                                 <xs:enumeration value="MESSENGER" />
@@ -1332,10 +1331,10 @@
                             </xs:restriction>
                         </xs:simpleType>
                     </xs:element>
-                    <xs:element minOccurs="0" name="structure" type="xs:token" />
-                    <xs:element minOccurs="0" name="synthetic_flag" type="xs:boolean" />
-                    <xs:element minOccurs="0" name="synthetic_source" type="macromolecule_source_type" />
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="ec_number">
+                    <xs:element name="structure" type="xs:token" minOccurs="0" />
+                    <xs:element name="synthetic_flag" type="xs:boolean" minOccurs="0" />
+                    <xs:element name="synthetic_source" type="macromolecule_source_type" minOccurs="0" />
+                    <xs:element name="ec_number" minOccurs="0" maxOccurs="unbounded">
                         <xs:simpleType>
                             <xs:restriction base="xs:token">
                                 <xs:pattern value="\d+(\.(\d+|\-)){3}" />
@@ -1346,7 +1345,7 @@
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
-    <xs:element name="saccharide" substitutionGroup="macromolecule" type="saccharide_macromolecule_type" />
+    <xs:element name="saccharide" type="saccharide_macromolecule_type" substitutionGroup="macromolecule" />
     <xs:complexType name="saccharide_macromolecule_type">
         <xs:complexContent>
             <xs:extension base="base_macromolecule_type">
@@ -1359,8 +1358,8 @@
                             </xs:restriction>
                         </xs:simpleType>
                     </xs:element>
-                    <xs:element minOccurs="0" name="formula" type="formula_type" />
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="external_references">
+                    <xs:element name="formula" type="formula_type" minOccurs="0" />
+                    <xs:element name="external_references" minOccurs="0" maxOccurs="unbounded">
                         <xs:complexType>
                             <xs:simpleContent>
                                 <xs:extension base="xs:token">
@@ -1393,7 +1392,7 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <xs:element minOccurs="0" name="aggregation_state">
+            <xs:element name="aggregation_state" minOccurs="0">
                 <xs:simpleType>
                     <xs:restriction base="xs:token">
                         <xs:enumeration value="particle" />
@@ -1406,22 +1405,22 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <xs:element minOccurs="0" name="macromolecules_and_complexes" type="macromolecules_and_complexes_type" />
+            <xs:element name="macromolecules_and_complexes" type="macromolecules_and_complexes_type" minOccurs="0" />
             <xs:element name="specimen_preparation_list">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element maxOccurs="unbounded" ref="specimen_preparation" />
+                        <xs:element ref="specimen_preparation" maxOccurs="unbounded" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
             <xs:element name="microscopy_list">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element maxOccurs="unbounded" ref="microscopy" />
+                        <xs:element ref="microscopy" maxOccurs="unbounded" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element maxOccurs="unbounded" ref="image_processing" />
+            <xs:element ref="image_processing" maxOccurs="unbounded" />
         </xs:sequence>
         <xs:attribute name="structure_determination_id" type="xs:positiveInteger" use="required" />
     </xs:complexType>
@@ -1431,10 +1430,10 @@
             <xs:element name="complex_id" type="xs:nonNegativeInteger" />
         </xs:choice>
     </xs:complexType>
-    <xs:element abstract="true" name="specimen_preparation" type="base_preparation_type" />
+    <xs:element name="specimen_preparation" type="base_preparation_type" abstract="true" />
     <xs:complexType name="base_preparation_type">
         <xs:sequence>
-            <xs:element minOccurs="0" name="concentration">
+            <xs:element name="concentration" minOccurs="0">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="allowed_concentration">
@@ -1450,8 +1449,8 @@
                     </xs:simpleContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="buffer" type="buffer_type" />
-            <xs:element minOccurs="0" name="staining">
+            <xs:element name="buffer" type="buffer_type" minOccurs="0" />
+            <xs:element name="staining" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element name="type">
@@ -1463,20 +1462,20 @@
                                 </xs:restriction>
                             </xs:simpleType>
                         </xs:element>
-                        <xs:element minOccurs="0" name="material" type="xs:token" />
-                        <xs:element minOccurs="0" name="details" type="xs:string" />
+                        <xs:element name="material" type="xs:token" minOccurs="0" />
+                        <xs:element name="details" type="xs:string" minOccurs="0" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="sugar_embedding">
+            <xs:element name="sugar_embedding" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element name="material" type="xs:token" />
-                        <xs:element minOccurs="0" name="details" type="xs:string" />
+                        <xs:element name="details" type="xs:string" minOccurs="0" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="shadowing">
+            <xs:element name="shadowing" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element name="material" type="xs:token" />
@@ -1484,7 +1483,7 @@
                             <xs:complexType>
                                 <xs:simpleContent>
                                     <xs:extension base="allowed_angle_shadowing">
-                                        <xs:attribute fixed="deg" name="units" type="xs:token" use="required" />
+                                        <xs:attribute name="units" type="xs:token" fixed="deg" use="required" />
                                     </xs:extension>
                                 </xs:simpleContent>
                             </xs:complexType>
@@ -1493,18 +1492,18 @@
                             <xs:complexType>
                                 <xs:simpleContent>
                                     <xs:extension base="allowed_thickness_shadowing">
-                                        <xs:attribute fixed="nm" name="units" type="xs:token" use="required" />
+                                        <xs:attribute name="units" type="xs:token" fixed="nm" use="required" />
                                     </xs:extension>
                                 </xs:simpleContent>
                             </xs:complexType>
                         </xs:element>
-                        <xs:element minOccurs="0" name="details" type="xs:string" />
+                        <xs:element name="details" type="xs:string" minOccurs="0" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="grid" type="grid_type" />
-            <xs:element minOccurs="0" name="vitrification" type="vitrification_type" />
-            <xs:element minOccurs="0" name="details" type="xs:string" />
+            <xs:element name="grid" type="grid_type" minOccurs="0" />
+            <xs:element name="vitrification" type="vitrification_type" minOccurs="0" />
+            <xs:element name="details" type="xs:string" minOccurs="0" />
         </xs:sequence>
         <xs:attribute name="preparation_id" type="xs:positiveInteger" use="required" />
     </xs:complexType>
@@ -1515,7 +1514,7 @@
     </xs:simpleType>
     <xs:complexType name="buffer_type">
         <xs:sequence>
-            <xs:element minOccurs="0" name="ph">
+            <xs:element name="ph" minOccurs="0">
                 <xs:simpleType>
                     <xs:restriction base="xs:float">
                         <xs:minInclusive value="0" />
@@ -1523,13 +1522,13 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <xs:element maxOccurs="unbounded" minOccurs="0" name="component" type="buffer_component_type" />
-            <xs:element minOccurs="0" name="details" type="xs:string" />
+            <xs:element name="component" type="buffer_component_type" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="details" type="xs:string" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="buffer_component_type">
         <xs:sequence>
-            <xs:element minOccurs="0" name="concentration">
+            <xs:element name="concentration" minOccurs="0">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="allowed_concentration">
@@ -1538,8 +1537,8 @@
                     </xs:simpleContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="formula" type="formula_type" />
-            <xs:element minOccurs="0" name="name" type="xs:token" />
+            <xs:element name="formula" type="formula_type" minOccurs="0" />
+            <xs:element name="name" type="xs:token" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
     <xs:simpleType name="allowed_angle_shadowing">
@@ -1556,8 +1555,8 @@
     </xs:simpleType>
     <xs:complexType name="grid_type">
         <xs:sequence>
-            <xs:element minOccurs="0" name="model" type="xs:token" />
-            <xs:element minOccurs="0" name="material">
+            <xs:element name="model" type="xs:token" minOccurs="0" />
+            <xs:element name="material" minOccurs="0">
                 <xs:simpleType>
                     <xs:restriction base="xs:token">
                         <xs:enumeration value="COPPER" />
@@ -1575,15 +1574,15 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <xs:element minOccurs="0" name="mesh" type="xs:positiveInteger" />
-            <xs:element maxOccurs="unbounded" minOccurs="0" name="support_film" type="film_type" />
-            <xs:element minOccurs="0" name="pretreatment" type="grid_pretreatment_type" />
-            <xs:element minOccurs="0" name="details" type="xs:string" />
+            <xs:element name="mesh" type="xs:positiveInteger" minOccurs="0" />
+            <xs:element name="support_film" type="film_type" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="pretreatment" type="grid_pretreatment_type" minOccurs="0" />
+            <xs:element name="details" type="xs:string" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="film_type">
         <xs:sequence>
-            <xs:element minOccurs="0" name="film_material">
+            <xs:element name="film_material" minOccurs="0">
                 <xs:simpleType>
                     <xs:restriction base="xs:token">
                         <xs:enumeration value="CARBON" />
@@ -1596,7 +1595,7 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <xs:element minOccurs="0" name="film_topology">
+            <xs:element name="film_topology" minOccurs="0">
                 <xs:simpleType>
                     <xs:restriction base="xs:token">
                         <xs:enumeration value="CONTINUOUS" />
@@ -1606,11 +1605,11 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <xs:element minOccurs="0" name="film_thickness">
+            <xs:element name="film_thickness" minOccurs="0">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="allowed_film_thickness">
-                            <xs:attribute fixed="nm" name="units" type="xs:token" />
+                            <xs:attribute name="units" type="xs:token" fixed="nm" />
                         </xs:extension>
                     </xs:simpleContent>
                 </xs:complexType>
@@ -1625,17 +1624,17 @@
     </xs:simpleType>
     <xs:complexType name="grid_pretreatment_type">
         <xs:sequence>
-            <xs:element minOccurs="0" name="type" type="xs:token" />
-            <xs:element minOccurs="0" name="time">
+            <xs:element name="type" type="xs:token" minOccurs="0" />
+            <xs:element name="time" minOccurs="0">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="allowed_time_glow_discharge">
-                            <xs:attribute fixed="s" name="units" type="xs:token" use="required" />
+                            <xs:attribute name="units" type="xs:token" fixed="s" use="required" />
                         </xs:extension>
                     </xs:simpleContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="atmosphere">
+            <xs:element name="atmosphere" minOccurs="0">
                 <xs:simpleType>
                     <xs:restriction base="xs:token">
                         <xs:enumeration value="AIR" />
@@ -1645,11 +1644,11 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <xs:element minOccurs="0" name="pressure">
+            <xs:element name="pressure" minOccurs="0">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="allowed_pressure_glow_discharge">
-                            <xs:attribute fixed="kPa" name="units" type="xs:token" use="required" />
+                            <xs:attribute name="units" type="xs:token" fixed="kPa" use="required" />
                         </xs:extension>
                     </xs:simpleContent>
                 </xs:complexType>
@@ -1683,25 +1682,25 @@
                     <xs:enumeration value="ETHANE-PROPANE MIXTURE" /><xs:enumeration value="NONE" /></xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <xs:element minOccurs="0" name="chamber_humidity">
+            <xs:element name="chamber_humidity" minOccurs="0">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="allowed_humidity_vitrification">
-                            <xs:attribute fixed="percentage" name="units" type="xs:token" use="required" />
+                            <xs:attribute name="units" type="xs:token" fixed="percentage" use="required" />
                         </xs:extension>
                     </xs:simpleContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="chamber_temperature">
+            <xs:element name="chamber_temperature" minOccurs="0">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="allowed_temperature_vitrification">
-                            <xs:attribute fixed="K" name="units" type="xs:token" use="required" />
+                            <xs:attribute name="units" type="xs:token" fixed="K" use="required" />
                         </xs:extension>
                     </xs:simpleContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="instrument">
+            <xs:element name="instrument" minOccurs="0">
                 <xs:simpleType>
                     <xs:restriction base="xs:token">
                         <xs:enumeration value="EMS-002 RAPID IMMERSION FREEZER" />
@@ -1721,9 +1720,9 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <xs:element minOccurs="0" name="details" type="xs:string" />
-            <xs:element minOccurs="0" name="timed_resolved_state" type="xs:token" />
-            <xs:element minOccurs="0" name="method" type="xs:string" />
+            <xs:element name="details" type="xs:string" minOccurs="0" />
+            <xs:element name="timed_resolved_state" type="xs:token" minOccurs="0" />
+            <xs:element name="method" type="xs:string" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
     <xs:simpleType name="allowed_humidity_vitrification">
@@ -1735,21 +1734,21 @@
     <xs:simpleType name="allowed_temperature_vitrification">
         <xs:restriction base="xs:float" />
     </xs:simpleType>
-    <xs:element name="crystallography_preparation" substitutionGroup="specimen_preparation" type="crystallography_preparation_type" />
+    <xs:element name="crystallography_preparation" type="crystallography_preparation_type" substitutionGroup="specimen_preparation" />
     <xs:complexType name="crystallography_preparation_type">
         <xs:complexContent>
             <xs:extension base="base_preparation_type">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="crystal_formation">
+                    <xs:element name="crystal_formation" minOccurs="0">
                         <xs:complexType>
                             <xs:sequence>
-                                <xs:element minOccurs="0" name="lipid_protein_ratio" type="xs:float" />
-                                <xs:element minOccurs="0" name="lipid_mixture" type="xs:token" />
-                                <xs:element minOccurs="0" name="instrument" type="xs:token" />
-                                <xs:element minOccurs="0" name="atmosphere" type="xs:token" />
-                                <xs:element minOccurs="0" name="temperature" type="crystal_formation_temperature_type" />
-                                <xs:element minOccurs="0" name="time" type="crystal_formation_time_type" />
-                                <xs:element minOccurs="0" name="details" type="xs:string" />
+                                <xs:element name="lipid_protein_ratio" type="xs:float" minOccurs="0" />
+                                <xs:element name="lipid_mixture" type="xs:token" minOccurs="0" />
+                                <xs:element name="instrument" type="xs:token" minOccurs="0" />
+                                <xs:element name="atmosphere" type="xs:token" minOccurs="0" />
+                                <xs:element name="temperature" type="crystal_formation_temperature_type" minOccurs="0" />
+                                <xs:element name="time" type="crystal_formation_time_type" minOccurs="0" />
+                                <xs:element name="details" type="xs:string" minOccurs="0" />
                             </xs:sequence>
                         </xs:complexType>
                     </xs:element>
@@ -1760,7 +1759,7 @@
     <xs:complexType name="crystal_formation_temperature_type">
         <xs:simpleContent>
             <xs:extension base="allowed_crystal_formation_temperature_type">
-                <xs:attribute fixed="K" name="units" type="xs:token" use="required" />
+                <xs:attribute name="units" type="xs:token" fixed="K" use="required" />
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
@@ -1785,37 +1784,37 @@
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
-    <xs:element name="helical_preparation" substitutionGroup="specimen_preparation" type="helical_preparation_type" />
+    <xs:element name="helical_preparation" type="helical_preparation_type" substitutionGroup="specimen_preparation" />
     <xs:complexType name="helical_preparation_type">
         <xs:complexContent>
             <xs:extension base="base_preparation_type" />
         </xs:complexContent>
     </xs:complexType>
-    <xs:element name="single_particle_preparation" substitutionGroup="specimen_preparation" type="single_particle_preparation_type" />
+    <xs:element name="single_particle_preparation" type="single_particle_preparation_type" substitutionGroup="specimen_preparation" />
     <xs:complexType name="single_particle_preparation_type">
         <xs:complexContent>
             <xs:extension base="base_preparation_type" />
         </xs:complexContent>
     </xs:complexType>
-    <xs:element name="subtomogram_averaging_preparation" substitutionGroup="specimen_preparation" type="subtomogram_averaging_preparation_type" />
+    <xs:element name="subtomogram_averaging_preparation" type="subtomogram_averaging_preparation_type" substitutionGroup="specimen_preparation" />
     <xs:complexType name="subtomogram_averaging_preparation_type">
         <xs:complexContent>
             <xs:extension base="base_preparation_type" />
         </xs:complexContent>
     </xs:complexType>
-    <xs:element name="tomography_preparation" substitutionGroup="specimen_preparation" type="tomography_preparation_type" />
+    <xs:element name="tomography_preparation" type="tomography_preparation_type" substitutionGroup="specimen_preparation" />
     <xs:complexType name="tomography_preparation_type">
         <xs:complexContent>
             <xs:extension base="base_preparation_type">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="fiducial_markers_list">
+                    <xs:element name="fiducial_markers_list" minOccurs="0">
                         <xs:complexType>
                             <xs:sequence>
-                                <xs:element maxOccurs="unbounded" name="fiducial_marker" type="fiducial_marker_type" />
+                                <xs:element name="fiducial_marker" type="fiducial_marker_type" maxOccurs="unbounded" />
                             </xs:sequence>
                         </xs:complexType>
                     </xs:element>
-                    <xs:element minOccurs="0" name="high_pressure_freezing">
+                    <xs:element name="high_pressure_freezing" minOccurs="0">
                         <xs:complexType>
                             <xs:sequence>
                                 <xs:element name="instrument">
@@ -1830,13 +1829,13 @@
                                         </xs:restriction>
                                     </xs:simpleType>
                                 </xs:element>
-                                <xs:element minOccurs="0" name="details" type="xs:string" />
+                                <xs:element name="details" type="xs:string" minOccurs="0" />
                             </xs:sequence>
                         </xs:complexType>
                     </xs:element>
-                    <xs:element minOccurs="0" name="embedding_material" type="xs:token" />
-                    <xs:element minOccurs="0" name="cryo_protectant" type="xs:token" />
-                    <xs:element minOccurs="0" name="sectioning">
+                    <xs:element name="embedding_material" type="xs:token" minOccurs="0" />
+                    <xs:element name="cryo_protectant" type="xs:token" minOccurs="0" />
+                    <xs:element name="sectioning" minOccurs="0">
                         <xs:complexType>
                             <xs:choice>
                                 <xs:element name="ultramicrotomy">
@@ -1845,7 +1844,7 @@
                                             <xs:element name="instrument" type="xs:token" />
                                             <xs:element name="temperature" type="temperature_type" />
                                             <xs:element name="final_thickness" type="ultramicrotomy_final_thickness_type" />
-                                            <xs:element minOccurs="0" name="details" type="xs:string" />
+                                            <xs:element name="details" type="xs:string" minOccurs="0" />
                                         </xs:sequence>
                                     </xs:complexType>
                                 </xs:element>
@@ -1870,12 +1869,12 @@
                                             </xs:element>
                                             <xs:element name="voltage" type="fib_voltage_type" />
                                             <xs:element name="current" type="fib_current_type" />
-                                            <xs:element minOccurs="0" name="dose_rate" type="fib_dose_rate_type" />
+                                            <xs:element name="dose_rate" type="fib_dose_rate_type" minOccurs="0" />
                                             <xs:element name="duration" type="fib_duration_type" />
                                             <xs:element name="temperature" type="temperature_type" />
                                             <xs:element name="initial_thickness" type="fib_initial_thickness_type" />
                                             <xs:element name="final_thickness" type="fib_final_thickness_type" />
-                                            <xs:element minOccurs="0" name="details" type="xs:string" />
+                                            <xs:element name="details" type="xs:string" minOccurs="0" />
                                         </xs:sequence>
                                     </xs:complexType>
                                 </xs:element>
@@ -1889,15 +1888,15 @@
     </xs:complexType>
     <xs:complexType name="fiducial_marker_type">
         <xs:sequence>
-            <xs:element minOccurs="0" name="fiducial_type" type="xs:token" />
-            <xs:element minOccurs="0" name="manufacturer" type="xs:token" />
+            <xs:element name="fiducial_type" type="xs:token" minOccurs="0" />
+            <xs:element name="manufacturer" type="xs:token" minOccurs="0" />
             <xs:element name="diameter" type="fiducial_marker_diameter_type" />
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="fiducial_marker_diameter_type">
         <xs:simpleContent>
             <xs:extension base="allowed_diameter_colloidal_gold">
-                <xs:attribute fixed="nanometer" name="units" type="xs:token" use="required" />
+                <xs:attribute name="units" type="xs:token" fixed="nanometer" use="required" />
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
@@ -1910,7 +1909,7 @@
     <xs:complexType name="temperature_type">
         <xs:simpleContent>
             <xs:extension base="allowed_temperature">
-                <xs:attribute fixed="K" name="units" type="xs:token" use="required" />
+                <xs:attribute name="units" type="xs:token" fixed="K" use="required" />
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
@@ -1935,7 +1934,7 @@
     <xs:complexType name="fib_voltage_type">
         <xs:simpleContent>
             <xs:extension base="allowed_focus_ion_voltage">
-                <xs:attribute fixed="kV" name="units" />
+                <xs:attribute name="units" fixed="kV" />
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
@@ -1948,7 +1947,7 @@
     <xs:complexType name="fib_current_type">
         <xs:simpleContent>
             <xs:extension base="allowed_focus_ion_current">
-                <xs:attribute fixed="nA" name="units" />
+                <xs:attribute name="units" fixed="nA" />
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
@@ -1961,7 +1960,7 @@
     <xs:complexType name="fib_dose_rate_type">
         <xs:simpleContent>
             <xs:extension base="allowed_focus_ion_dose_rate">
-                <xs:attribute default="ions/(cm^2*s)" name="units" type="xs:token" />
+                <xs:attribute name="units" type="xs:token" default="ions/(cm^2*s)" />
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
@@ -1973,14 +1972,14 @@
     <xs:complexType name="fib_duration_type">
         <xs:simpleContent>
             <xs:extension base="xs:float">
-                <xs:attribute fixed="s" name="units" type="xs:token" />
+                <xs:attribute name="units" type="xs:token" fixed="s" />
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
     <xs:complexType name="fib_initial_thickness_type">
         <xs:simpleContent>
             <xs:extension base="allowed_focus_ion_initial_thickness">
-                <xs:attribute default="nm" name="units" type="xs:token" />
+                <xs:attribute name="units" type="xs:token" default="nm" />
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
@@ -1993,7 +1992,7 @@
     <xs:complexType name="fib_final_thickness_type">
         <xs:simpleContent>
             <xs:extension base="allowed_focus_ion_final_thickness">
-                <xs:attribute default="nm" name="units" type="xs:token" />
+                <xs:attribute name="units" type="xs:token" default="nm" />
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
@@ -2002,10 +2001,10 @@
             <xs:minInclusive value="10" />
         </xs:restriction>
     </xs:simpleType>
-    <xs:element abstract="true" name="microscopy" type="base_microscopy_type" />
+    <xs:element name="microscopy" type="base_microscopy_type" abstract="true" />
     <xs:complexType name="base_microscopy_type">
         <xs:sequence>
-            <xs:element minOccurs="0" name="specimen_preparations">
+            <xs:element name="specimen_preparations" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence maxOccurs="unbounded">
                         <xs:element name="specimen_preparation_id" type="xs:positiveInteger" />
@@ -2083,6 +2082,7 @@
                         <xs:enumeration value="TFS TALOS" />
                         <xs:enumeration value="TFS TALOS L120C" />
                         <xs:enumeration value="TFS TALOS F200C" />
+                        <xs:enumeration value="TFS TITAN THEMIS" />
                         <xs:enumeration value="TFS TUNDRA" />
                         <xs:enumeration value="ZEISS LEO912" />
                         <xs:enumeration value="ZEISS LIBRA120PLUS" />
@@ -2123,68 +2123,68 @@
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="allowed_acceleration_voltage">
-                            <xs:attribute fixed="kV" name="units" type="xs:token" use="required" />
+                            <xs:attribute name="units" type="xs:token" fixed="kV" use="required" />
                         </xs:extension>
                     </xs:simpleContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="c2_aperture_diameter">
+            <xs:element name="c2_aperture_diameter" minOccurs="0">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="allowed_c2_aperture_diameter">
-                            <xs:attribute fixed="µm" name="units" type="xs:token" use="required" />
+                            <xs:attribute name="units" type="xs:token" fixed="µm" use="required" />
                         </xs:extension>
                     </xs:simpleContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="nominal_cs">
+            <xs:element name="nominal_cs" minOccurs="0">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="allowed_nominal_cs">
-                            <xs:attribute fixed="mm" name="units" type="xs:token" use="required" />
+                            <xs:attribute name="units" type="xs:token" fixed="mm" use="required" />
                         </xs:extension>
                     </xs:simpleContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="nominal_defocus_min">
+            <xs:element name="nominal_defocus_min" minOccurs="0">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="allowed_defocus_min">
-                            <xs:attribute fixed="µm" name="units" type="xs:token" use="required" />
+                            <xs:attribute name="units" type="xs:token" fixed="µm" use="required" />
                         </xs:extension>
                     </xs:simpleContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="calibrated_defocus_min">
+            <xs:element name="calibrated_defocus_min" minOccurs="0">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="allowed_defocus_min">
-                            <xs:attribute fixed="µm" name="units" type="xs:token" use="required" />
+                            <xs:attribute name="units" type="xs:token" fixed="µm" use="required" />
                         </xs:extension>
                     </xs:simpleContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="nominal_defocus_max">
+            <xs:element name="nominal_defocus_max" minOccurs="0">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="allowed_defocus_max">
-                            <xs:attribute fixed="µm" name="units" type="xs:token" use="required" />
+                            <xs:attribute name="units" type="xs:token" fixed="µm" use="required" />
                         </xs:extension>
                     </xs:simpleContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="calibrated_defocus_max">
+            <xs:element name="calibrated_defocus_max" minOccurs="0">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="allowed_defocus_max">
-                            <xs:attribute fixed="µm" name="units" type="xs:token" use="required" />
+                            <xs:attribute name="units" type="xs:token" fixed="µm" use="required" />
                         </xs:extension>
                     </xs:simpleContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="nominal_magnification" type="allowed_magnification" />
-            <xs:element minOccurs="0" name="calibrated_magnification" type="allowed_magnification" />
-            <xs:element minOccurs="0" name="specimen_holder_model">
+            <xs:element name="nominal_magnification" type="allowed_magnification" minOccurs="0" />
+            <xs:element name="calibrated_magnification" type="allowed_magnification" minOccurs="0" />
+            <xs:element name="specimen_holder_model" minOccurs="0">
                 <xs:simpleType>
                     <xs:restriction base="xs:token">
                         <xs:enumeration value="FISCHIONE 2550" />
@@ -2216,7 +2216,7 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <xs:element minOccurs="0" name="cooling_holder_cryogen">
+            <xs:element name="cooling_holder_cryogen" minOccurs="0">
                 <xs:simpleType>
                     <xs:restriction base="xs:token">
                         <xs:enumeration value="HELIUM" />
@@ -2224,16 +2224,16 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <xs:element minOccurs="0" name="temperature">
+            <xs:element name="temperature" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element minOccurs="0" name="temperature_min" type="temperature_type" />
-                        <xs:element minOccurs="0" name="temperature_max" type="temperature_type" />
-                        <xs:element minOccurs="0" name="temperature_average" type="temperature_type" />
+                        <xs:element name="temperature_min" type="temperature_type" minOccurs="0" />
+                        <xs:element name="temperature_max" type="temperature_type" minOccurs="0" />
+                        <xs:element name="temperature_average" type="temperature_type" minOccurs="0" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="alignment_procedure">
+            <xs:element name="alignment_procedure" minOccurs="0">
                 <xs:complexType>
                     <xs:choice>
                         <xs:element name="none">
@@ -2242,7 +2242,7 @@
                         <xs:element name="basic">
                             <xs:complexType>
                                 <xs:sequence>
-                                    <xs:element minOccurs="0" name="residual_tilt" type="residual_tilt_type" />
+                                    <xs:element name="residual_tilt" type="residual_tilt_type" minOccurs="0" />
                                 </xs:sequence>
                             </xs:complexType>
                         </xs:element>
@@ -2252,7 +2252,7 @@
                         <xs:element name="coma_free">
                             <xs:complexType>
                                 <xs:sequence>
-                                    <xs:element minOccurs="0" name="residual_tilt" type="residual_tilt_type" />
+                                    <xs:element name="residual_tilt" type="residual_tilt_type" minOccurs="0" />
                                 </xs:sequence>
                             </xs:complexType>
                         </xs:element>
@@ -2262,25 +2262,25 @@
                         <xs:element name="legacy">
                             <xs:complexType>
                                 <xs:sequence>
-                                    <xs:element minOccurs="0" name="astigmatism" type="xs:string" />
-                                    <xs:element minOccurs="0" name="electron_beam_tilt_params" type="xs:string" />
+                                    <xs:element name="astigmatism" type="xs:string" minOccurs="0" />
+                                    <xs:element name="electron_beam_tilt_params" type="xs:string" minOccurs="0" />
                                 </xs:sequence>
                             </xs:complexType>
                         </xs:element>
                     </xs:choice>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="specialist_optics" type="specialist_optics_type" />
-            <xs:element minOccurs="0" name="software_list" type="software_list_type" />
-            <xs:element minOccurs="0" name="details" type="xs:string" />
-            <xs:element minOccurs="0" name="date" type="xs:date" />
-            <xs:element minOccurs="0" name="image_recording_list">
+            <xs:element name="specialist_optics" type="specialist_optics_type" minOccurs="0" />
+            <xs:element name="software_list" type="software_list_type" minOccurs="0" />
+            <xs:element name="details" type="xs:string" minOccurs="0" />
+            <xs:element name="date" type="xs:date" minOccurs="0" />
+            <xs:element name="image_recording_list" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence maxOccurs="unbounded">
                         <xs:element name="image_recording">
                             <xs:complexType>
                                 <xs:sequence>
-                                    <xs:element minOccurs="0" name="film_or_detector_model">
+                                    <xs:element name="film_or_detector_model" minOccurs="0">
                                         <xs:complexType>
                                             <xs:simpleContent>
                                                 <xs:extension base="allowed_film_or_detector_model">
@@ -2299,7 +2299,7 @@
                                             </xs:simpleContent>
                                         </xs:complexType>
                                     </xs:element>
-                                    <xs:element minOccurs="0" name="detector_mode">
+                                    <xs:element name="detector_mode" minOccurs="0">
                                         <xs:simpleType>
                                             <xs:restriction base="xs:token">
                                                 <xs:enumeration value="COUNTING" />
@@ -2309,10 +2309,10 @@
                                             </xs:restriction>
                                         </xs:simpleType>
                                     </xs:element>
-                                    <xs:element minOccurs="0" name="digitization_details">
+                                    <xs:element name="digitization_details" minOccurs="0">
                                         <xs:complexType>
                                             <xs:sequence>
-                                                <xs:element minOccurs="0" name="scanner">
+                                                <xs:element name="scanner" minOccurs="0">
                                                   <xs:simpleType>
                                                   <xs:restriction base="xs:token">
                                                   <xs:enumeration value="EIKONIX IEEE 488" />
@@ -2330,23 +2330,23 @@
                                                   </xs:restriction>
                                                   </xs:simpleType>
                                                 </xs:element>
-                                                <xs:element minOccurs="0" name="dimensions">
+                                                <xs:element name="dimensions" minOccurs="0">
                                                   <xs:complexType>
                                                   <xs:sequence>
-                                                  <xs:element minOccurs="0" name="width">
+                                                  <xs:element name="width" minOccurs="0">
                                                   <xs:complexType>
                                                   <xs:simpleContent>
                                                   <xs:extension base="xs:positiveInteger">
-                                                  <xs:attribute fixed="pixel" name="units" type="xs:token" use="required" />
+                                                  <xs:attribute name="units" type="xs:token" fixed="pixel" use="required" />
                                                   </xs:extension>
                                                   </xs:simpleContent>
                                                   </xs:complexType>
                                                   </xs:element>
-                                                  <xs:element minOccurs="0" name="height">
+                                                  <xs:element name="height" minOccurs="0">
                                                   <xs:complexType>
                                                   <xs:simpleContent>
                                                   <xs:extension base="xs:positiveInteger">
-                                                  <xs:attribute fixed="pixel" name="units" type="xs:token" use="required" />
+                                                  <xs:attribute name="units" type="xs:token" fixed="pixel" use="required" />
                                                   </xs:extension>
                                                   </xs:simpleContent>
                                                   </xs:complexType>
@@ -2354,44 +2354,44 @@
                                                   </xs:sequence>
                                                   </xs:complexType>
                                                 </xs:element>
-                                                <xs:element minOccurs="0" name="sampling_interval">
+                                                <xs:element name="sampling_interval" minOccurs="0">
                                                   <xs:complexType>
                                                   <xs:simpleContent>
                                                   <xs:extension base="allowed_scaning_interval">
-                                                  <xs:attribute fixed="µm" name="units" type="xs:token" use="required" />
+                                                  <xs:attribute name="units" type="xs:token" fixed="µm" use="required" />
                                                   </xs:extension>
                                                   </xs:simpleContent>
                                                   </xs:complexType>
                                                 </xs:element>
-                                                <xs:element minOccurs="0" name="frames_per_image" type="xs:token" />
+                                                <xs:element name="frames_per_image" type="xs:token" minOccurs="0" />
                                             </xs:sequence>
                                         </xs:complexType>
                                     </xs:element>
-                                    <xs:element minOccurs="0" name="number_grids_imaged" type="xs:positiveInteger" />
-                                    <xs:element minOccurs="0" name="number_real_images" type="xs:positiveInteger" />
-                                    <xs:element minOccurs="0" name="number_diffraction_images" type="xs:positiveInteger" />
-                                    <xs:element minOccurs="0" name="average_exposure_time">
+                                    <xs:element name="number_grids_imaged" type="xs:positiveInteger" minOccurs="0" />
+                                    <xs:element name="number_real_images" type="xs:positiveInteger" minOccurs="0" />
+                                    <xs:element name="number_diffraction_images" type="xs:positiveInteger" minOccurs="0" />
+                                    <xs:element name="average_exposure_time" minOccurs="0">
                                         <xs:complexType>
                                             <xs:simpleContent>
                                                 <xs:extension base="allowed_average_exposure_time_type">
-                                                  <xs:attribute fixed="s" name="units" type="xs:token" use="required" />
+                                                  <xs:attribute name="units" type="xs:token" fixed="s" use="required" />
                                                 </xs:extension>
                                             </xs:simpleContent>
                                         </xs:complexType>
                                     </xs:element>
-                                    <xs:element minOccurs="0" name="average_electron_dose_per_image">
+                                    <xs:element name="average_electron_dose_per_image" minOccurs="0">
                                         <xs:complexType>
                                             <xs:simpleContent>
                                                 <xs:extension base="allowed_electron_dose">
-                                                  <xs:attribute fixed="e/Å^2" name="units" type="xs:token" use="required" />
+                                                  <xs:attribute name="units" type="xs:token" fixed="e/Å^2" use="required" />
                                                 </xs:extension>
                                             </xs:simpleContent>
                                         </xs:complexType>
                                     </xs:element>
-                                    <xs:element minOccurs="0" name="detector_distance" type="xs:string" />
-                                    <xs:element minOccurs="0" name="details" type="xs:string" />
-                                    <xs:element minOccurs="0" name="od_range" type="xs:float" />
-                                    <xs:element minOccurs="0" name="bits_per_pixel" type="xs:float" />
+                                    <xs:element name="detector_distance" type="xs:string" minOccurs="0" />
+                                    <xs:element name="details" type="xs:string" minOccurs="0" />
+                                    <xs:element name="od_range" type="xs:float" minOccurs="0" />
+                                    <xs:element name="bits_per_pixel" type="xs:float" minOccurs="0" />
                                 </xs:sequence>
                                 <xs:attribute name="image_recording_id" type="xs:positiveInteger" />
                             </xs:complexType>
@@ -2399,9 +2399,9 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="specimen_holder" type="xs:string" />
-            <xs:element minOccurs="0" name="tilt_angle_min" type="xs:string" />
-            <xs:element minOccurs="0" name="tilt_angle_max" type="xs:string" />
+            <xs:element name="specimen_holder" type="xs:string" minOccurs="0" />
+            <xs:element name="tilt_angle_min" type="xs:string" minOccurs="0" />
+            <xs:element name="tilt_angle_max" type="xs:string" minOccurs="0" />
         </xs:sequence>
         <xs:attribute name="microscopy_id" type="xs:positiveInteger" use="required" />
     </xs:complexType>
@@ -2443,13 +2443,13 @@
     <xs:complexType name="residual_tilt_type">
         <xs:simpleContent>
             <xs:extension base="xs:float">
-                <xs:attribute fixed="mrad" name="units" type="xs:token" use="required" />
+                <xs:attribute name="units" type="xs:token" fixed="mrad" use="required" />
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
     <xs:complexType name="specialist_optics_type">
         <xs:sequence>
-            <xs:element minOccurs="0" name="phase_plate">
+            <xs:element name="phase_plate" minOccurs="0">
                 <xs:simpleType>
                     <xs:restriction base="xs:token">
                         <xs:enumeration value="ZERNIKE PHASE PLATE" />
@@ -2458,35 +2458,35 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <xs:element minOccurs="0" name="sph_aberration_corrector" type="xs:token" />
-            <xs:element minOccurs="0" name="chr_aberration_corrector" type="xs:token" />
-            <xs:element minOccurs="0" name="energy_filter">
+            <xs:element name="sph_aberration_corrector" type="xs:token" minOccurs="0" />
+            <xs:element name="chr_aberration_corrector" type="xs:token" minOccurs="0" />
+            <xs:element name="energy_filter" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element minOccurs="0" name="name" type="xs:token" />
-                        <xs:element minOccurs="0" name="slit_width">
+                        <xs:element name="name" type="xs:token" minOccurs="0" />
+                        <xs:element name="slit_width" minOccurs="0">
                             <xs:complexType>
                                 <xs:simpleContent>
                                     <xs:extension base="allowed_energy_filter_width">
-                                        <xs:attribute fixed="eV" name="units" type="xs:token" use="required" />
+                                        <xs:attribute name="units" type="xs:token" fixed="eV" use="required" />
                                     </xs:extension>
                                 </xs:simpleContent>
                             </xs:complexType>
                         </xs:element>
-                        <xs:element minOccurs="0" name="lower_energy_threshold">
+                        <xs:element name="lower_energy_threshold" minOccurs="0">
                             <xs:complexType>
                                 <xs:simpleContent>
                                     <xs:extension base="allowed_energy_window">
-                                        <xs:attribute fixed="eV" name="units" type="xs:token" use="required" />
+                                        <xs:attribute name="units" type="xs:token" fixed="eV" use="required" />
                                     </xs:extension>
                                 </xs:simpleContent>
                             </xs:complexType>
                         </xs:element>
-                        <xs:element minOccurs="0" name="upper_energy_threshold">
+                        <xs:element name="upper_energy_threshold" minOccurs="0">
                             <xs:complexType>
                                 <xs:simpleContent>
                                     <xs:extension base="allowed_energy_window">
-                                        <xs:attribute fixed="eV" name="units" type="xs:token" use="required" />
+                                        <xs:attribute name="units" type="xs:token" fixed="eV" use="required" />
                                     </xs:extension>
                                 </xs:simpleContent>
                             </xs:complexType>
@@ -2494,7 +2494,7 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="details" type="xs:string" />
+            <xs:element name="details" type="xs:string" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
     <xs:simpleType name="allowed_energy_window">
@@ -2511,14 +2511,14 @@
     </xs:simpleType>
     <xs:complexType name="software_list_type">
         <xs:sequence>
-            <xs:element maxOccurs="unbounded" minOccurs="0" name="software" type="software_type" />
+            <xs:element name="software" type="software_type" minOccurs="0" maxOccurs="unbounded" />
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="software_type">
         <xs:sequence>
-            <xs:element minOccurs="0" name="name" type="xs:token" />
-            <xs:element minOccurs="0" name="version" type="xs:token" />
-            <xs:element minOccurs="0" name="processing_details" type="xs:string" />
+            <xs:element name="name" type="xs:token" minOccurs="0" />
+            <xs:element name="version" type="xs:token" minOccurs="0" />
+            <xs:element name="processing_details" type="xs:string" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
     <xs:simpleType name="allowed_film_or_detector_model">
@@ -2597,25 +2597,25 @@
             <xs:maxInclusive value="1000" />
         </xs:restriction>
     </xs:simpleType>
-    <xs:element name="crystallography_microscopy" substitutionGroup="microscopy" type="crystallography_microscopy_type" />
+    <xs:element name="crystallography_microscopy" type="crystallography_microscopy_type" substitutionGroup="microscopy" />
     <xs:complexType name="crystallography_microscopy_type">
         <xs:complexContent>
             <xs:extension base="base_microscopy_type">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="camera_length">
+                    <xs:element name="camera_length" minOccurs="0">
                         <xs:complexType>
                             <xs:simpleContent>
                                 <xs:extension base="allowed_camera_length">
-                                    <xs:attribute fixed="mm" name="units" type="xs:token" use="required" />
+                                    <xs:attribute name="units" type="xs:token" fixed="mm" use="required" />
                                 </xs:extension>
                             </xs:simpleContent>
                         </xs:complexType>
                     </xs:element>
                     <xs:choice>
-                        <xs:element minOccurs="0" name="tilt_list">
+                        <xs:element name="tilt_list" minOccurs="0">
                             <xs:complexType>
                                 <xs:sequence>
-                                    <xs:element maxOccurs="unbounded" name="angle">
+                                    <xs:element name="angle" maxOccurs="unbounded">
                                         <xs:simpleType>
                                             <xs:restriction base="xs:float">
                                                 <xs:minInclusive value="-70" />
@@ -2626,7 +2626,7 @@
                                 </xs:sequence>
                             </xs:complexType>
                         </xs:element>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="tilt_series" type="tilt_series_type" />
+                        <xs:element name="tilt_series" type="tilt_series_type" minOccurs="0" maxOccurs="unbounded" />
                     </xs:choice>
                 </xs:sequence>
             </xs:extension>
@@ -2641,22 +2641,22 @@
     <xs:complexType name="tilt_series_type">
         <xs:sequence>
             <xs:element name="axis1" type="axis_type" />
-            <xs:element minOccurs="0" name="axis2">
+            <xs:element name="axis2" minOccurs="0">
                 <xs:complexType>
                     <xs:complexContent>
                         <xs:extension base="axis_type">
                             <xs:sequence>
-                                <xs:element minOccurs="0" name="axis_rotation" type="xs:float" />
+                                <xs:element name="axis_rotation" type="xs:float" minOccurs="0" />
                             </xs:sequence>
                         </xs:extension>
                     </xs:complexContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element fixed="90" minOccurs="0" name="axis_rotation">
+            <xs:element name="axis_rotation" fixed="90" minOccurs="0">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="xs:float">
-                            <xs:attribute fixed="deg" name="units" type="xs:token" use="required" />
+                            <xs:attribute name="units" type="xs:token" fixed="deg" use="required" />
                         </xs:extension>
                     </xs:simpleContent>
                 </xs:complexType>
@@ -2665,29 +2665,29 @@
     </xs:complexType>
     <xs:complexType name="axis_type">
         <xs:sequence>
-            <xs:element minOccurs="0" name="min_angle">
+            <xs:element name="min_angle" minOccurs="0">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="allowed_angle_tomography">
-                            <xs:attribute fixed="deg" name="units" use="required" />
+                            <xs:attribute name="units" fixed="deg" use="required" />
                         </xs:extension>
                     </xs:simpleContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="max_angle">
+            <xs:element name="max_angle" minOccurs="0">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="allowed_angle_tomography">
-                            <xs:attribute fixed="deg" name="units" use="required" />
+                            <xs:attribute name="units" fixed="deg" use="required" />
                         </xs:extension>
                     </xs:simpleContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="angle_increment">
+            <xs:element name="angle_increment" minOccurs="0">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="allowed_angle_increment">
-                            <xs:attribute fixed="deg" name="units" use="required" />
+                            <xs:attribute name="units" fixed="deg" use="required" />
                         </xs:extension>
                     </xs:simpleContent>
                 </xs:complexType>
@@ -2706,34 +2706,34 @@
             <xs:maxExclusive value="15" />
         </xs:restriction>
     </xs:simpleType>
-    <xs:element name="helical_microscopy" substitutionGroup="microscopy" type="helical_microscopy_type" />
+    <xs:element name="helical_microscopy" type="helical_microscopy_type" substitutionGroup="microscopy" />
     <xs:complexType name="helical_microscopy_type">
         <xs:complexContent>
             <xs:extension base="base_microscopy_type" />
         </xs:complexContent>
     </xs:complexType>
-    <xs:element name="single_particle_microscopy" substitutionGroup="microscopy" type="single_particle_microscopy_type" />
+    <xs:element name="single_particle_microscopy" type="single_particle_microscopy_type" substitutionGroup="microscopy" />
     <xs:complexType name="single_particle_microscopy_type">
         <xs:complexContent>
             <xs:extension base="base_microscopy_type" />
         </xs:complexContent>
     </xs:complexType>
-    <xs:element name="subtomogram_averaging_microscopy" substitutionGroup="microscopy" type="tomography_microscopy_type" />
-    <xs:element name="tomography_microscopy" substitutionGroup="microscopy" type="tomography_microscopy_type" />
+    <xs:element name="subtomogram_averaging_microscopy" type="tomography_microscopy_type" substitutionGroup="microscopy" />
+    <xs:element name="tomography_microscopy" type="tomography_microscopy_type" substitutionGroup="microscopy" />
     <xs:complexType name="tomography_microscopy_type">
         <xs:complexContent>
             <xs:extension base="base_microscopy_type">
                 <xs:sequence>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="tilt_series" type="tilt_series_type" />
+                    <xs:element name="tilt_series" type="tilt_series_type" minOccurs="0" maxOccurs="unbounded" />
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
-    <xs:element abstract="true" name="image_processing" type="base_image_processing_type" />
+    <xs:element name="image_processing" type="base_image_processing_type" abstract="true" />
     <xs:complexType name="base_image_processing_type">
         <xs:sequence>
-            <xs:element minOccurs="0" name="image_recording_id" type="xs:positiveInteger" />
-            <xs:element minOccurs="0" name="details" type="xs:token" />
+            <xs:element name="image_recording_id" type="xs:positiveInteger" minOccurs="0" />
+            <xs:element name="details" type="xs:token" minOccurs="0" />
         </xs:sequence>
         <xs:attribute name="image_processing_id" type="xs:positiveInteger" use="required" />
     </xs:complexType>
@@ -2747,15 +2747,15 @@
     </xs:complexType>
     <xs:group name="crystallography_proc_add_group">
         <xs:sequence>
-            <xs:element minOccurs="0" name="final_reconstruction" type="non_subtom_final_reconstruction_type" />
-            <xs:element minOccurs="0" name="crystal_parameters" type="crystal_parameters_type" />
-            <xs:element maxOccurs="unbounded" minOccurs="0" name="startup_model" type="starting_map_type" />
-            <xs:element minOccurs="0" name="ctf_correction" type="ctf_correction_type" />
-            <xs:element minOccurs="0" name="molecular_replacement" type="molecular_replacement_type" />
-            <xs:element minOccurs="0" name="lattice_distortion_correction_software_list" type="software_list_type" />
-            <xs:element minOccurs="0" name="symmetry_determination_software_list" type="software_list_type" />
-            <xs:element minOccurs="0" name="merging_software_list" type="software_list_type" />
-            <xs:element minOccurs="0" name="crystallography_statistics" type="crystallography_statistics_type" />
+            <xs:element name="final_reconstruction" type="non_subtom_final_reconstruction_type" minOccurs="0" />
+            <xs:element name="crystal_parameters" type="crystal_parameters_type" minOccurs="0" />
+            <xs:element name="startup_model" type="starting_map_type" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="ctf_correction" type="ctf_correction_type" minOccurs="0" />
+            <xs:element name="molecular_replacement" type="molecular_replacement_type" minOccurs="0" />
+            <xs:element name="lattice_distortion_correction_software_list" type="software_list_type" minOccurs="0" />
+            <xs:element name="symmetry_determination_software_list" type="software_list_type" minOccurs="0" />
+            <xs:element name="merging_software_list" type="software_list_type" minOccurs="0" />
+            <xs:element name="crystallography_statistics" type="crystallography_statistics_type" minOccurs="0" />
         </xs:sequence>
     </xs:group>
     <xs:complexType name="applied_symmetry_type">
@@ -2778,25 +2778,25 @@
     </xs:simpleType>
     <xs:complexType name="helical_parameters_type">
         <xs:sequence>
-            <xs:element minOccurs="0" name="delta_z">
+            <xs:element name="delta_z" minOccurs="0">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="allowed_rise_type">
-                            <xs:attribute fixed="Å" name="units" type="xs:token" use="required" />
+                            <xs:attribute name="units" type="xs:token" fixed="Å" use="required" />
                         </xs:extension>
                     </xs:simpleContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="delta_phi">
+            <xs:element name="delta_phi" minOccurs="0">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="allowed_twist_type">
-                            <xs:attribute fixed="deg" name="units" type="xs:token" use="required" />
+                            <xs:attribute name="units" type="xs:token" fixed="deg" use="required" />
                         </xs:extension>
                     </xs:simpleContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="axial_symmetry">
+            <xs:element name="axial_symmetry" minOccurs="0">
                 <xs:simpleType>
                     <xs:restriction base="xs:token">
                         <xs:pattern value="[C|D][1-9][0-9]*" />
@@ -2817,7 +2817,7 @@
         <xs:complexContent>
             <xs:extension base="final_reconstruction_type">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="number_images_used" type="xs:positiveInteger" />
+                    <xs:element name="number_images_used" type="xs:positiveInteger" minOccurs="0" />
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
@@ -2838,15 +2838,15 @@
     </xs:simpleType>
     <xs:complexType name="reconstruction_filtering_type">
         <xs:sequence>
-            <xs:element minOccurs="0" name="background_masked" type="background_masked_type" />
-            <xs:element minOccurs="0" name="spatial_filtering">
+            <xs:element name="background_masked" type="background_masked_type" minOccurs="0" />
+            <xs:element name="spatial_filtering" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element name="low_frequency_cutoff">
                             <xs:complexType>
                                 <xs:simpleContent>
                                     <xs:extension base="xs:float">
-                                        <xs:attribute fixed="1/Å" name="units" use="required" />
+                                        <xs:attribute name="units" fixed="1/Å" use="required" />
                                     </xs:extension>
                                 </xs:simpleContent>
                             </xs:complexType>
@@ -2855,47 +2855,47 @@
                             <xs:complexType>
                                 <xs:simpleContent>
                                     <xs:extension base="xs:float">
-                                        <xs:attribute fixed="1/Å" name="units" use="required" />
+                                        <xs:attribute name="units" fixed="1/Å" use="required" />
                                     </xs:extension>
                                 </xs:simpleContent>
                             </xs:complexType>
                         </xs:element>
                         <xs:element name="filter_function" type="xs:token" />
-                        <xs:element minOccurs="0" name="software_list" type="software_list_type" />
-                        <xs:element minOccurs="0" name="details" type="xs:string" />
+                        <xs:element name="software_list" type="software_list_type" minOccurs="0" />
+                        <xs:element name="details" type="xs:string" minOccurs="0" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="sharpening">
+            <xs:element name="sharpening" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element minOccurs="0" name="software_list" type="software_list_type" />
-                        <xs:element minOccurs="0" name="details" type="xs:string" />
+                        <xs:element name="software_list" type="software_list_type" minOccurs="0" />
+                        <xs:element name="details" type="xs:string" minOccurs="0" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="b-factorSharpening">
+            <xs:element name="b-factorSharpening" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element name="_brestore">
                             <xs:complexType>
                                 <xs:simpleContent>
                                     <xs:extension base="allowed_brestore_type">
-                                        <xs:attribute fixed="Å^2" name="units" type="xs:token" use="required" />
+                                        <xs:attribute name="units" type="xs:token" fixed="Å^2" use="required" />
                                     </xs:extension>
                                 </xs:simpleContent>
                             </xs:complexType>
                         </xs:element>
-                        <xs:element minOccurs="0" name="software_list" type="software_list_type" />
-                        <xs:element minOccurs="0" name="details" type="xs:string" />
+                        <xs:element name="software_list" type="software_list_type" minOccurs="0" />
+                        <xs:element name="details" type="xs:string" minOccurs="0" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="other">
+            <xs:element name="other" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element minOccurs="0" name="software_list" type="software_list_type" />
-                        <xs:element minOccurs="0" name="details" type="xs:string" />
+                        <xs:element name="software_list" type="software_list_type" minOccurs="0" />
+                        <xs:element name="details" type="xs:string" minOccurs="0" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -2986,8 +2986,8 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="software_list" type="software_list_type" />
-            <xs:element minOccurs="0" name="details" type="xs:string" />
+            <xs:element name="software_list" type="software_list_type" minOccurs="0" />
+            <xs:element name="details" type="xs:string" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
     <xs:simpleType name="allowed_brestore_type">
@@ -2998,7 +2998,7 @@
     </xs:simpleType>
     <xs:complexType name="crystal_parameters_type">
         <xs:sequence>
-            <xs:element minOccurs="0" name="unit_cell" type="unit_cell_type" />
+            <xs:element name="unit_cell" type="unit_cell_type" minOccurs="0" />
             <xs:choice>
                 <xs:element name="plane_group">
                     <xs:simpleType>
@@ -3031,17 +3031,17 @@
         <xs:sequence>
             <xs:element name="a" type="cell_type" />
             <xs:element name="b" type="cell_type" />
-            <xs:element minOccurs="0" name="c" type="cell_type" />
-            <xs:element minOccurs="0" name="c_sampling_length" type="cell_type" />
+            <xs:element name="c" type="cell_type" minOccurs="0" />
+            <xs:element name="c_sampling_length" type="cell_type" minOccurs="0" />
             <xs:element name="gamma" type="cell_angle_type" />
-            <xs:element minOccurs="0" name="alpha" type="cell_angle_type" />
-            <xs:element minOccurs="0" name="beta" type="cell_angle_type" />
+            <xs:element name="alpha" type="cell_angle_type" minOccurs="0" />
+            <xs:element name="beta" type="cell_angle_type" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="cell_type">
         <xs:simpleContent>
             <xs:extension base="allowed_cell_dim">
-                <xs:attribute fixed="Å" name="units" type="xs:token" use="required" />
+                <xs:attribute name="units" type="xs:token" fixed="Å" use="required" />
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
@@ -3053,7 +3053,7 @@
     <xs:complexType name="cell_angle_type">
         <xs:simpleContent>
             <xs:extension base="allowed_cell_angle">
-                <xs:attribute fixed="deg" name="units" type="xs:token" use="required" />
+                <xs:attribute name="units" type="xs:token" fixed="deg" use="required" />
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
@@ -3066,57 +3066,57 @@
     <xs:complexType name="starting_map_type">
         <xs:sequence>
             <xs:choice>
-                <xs:element minOccurs="0" name="random_conical_tilt">
+                <xs:element name="random_conical_tilt" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element minOccurs="0" name="number_images" type="xs:positiveInteger" />
-                            <xs:element minOccurs="0" name="tilt_angle">
+                            <xs:element name="number_images" type="xs:positiveInteger" minOccurs="0" />
+                            <xs:element name="tilt_angle" minOccurs="0">
                                 <xs:complexType>
                                     <xs:simpleContent>
                                         <xs:extension base="allowed_tilt_angle_random_conical">
-                                            <xs:attribute fixed="degrees" name="units" type="xs:token" use="required" />
+                                            <xs:attribute name="units" type="xs:token" fixed="degrees" use="required" />
                                         </xs:extension>
                                     </xs:simpleContent>
                                 </xs:complexType>
                             </xs:element>
-                            <xs:element minOccurs="0" name="software_list" type="software_list_type" />
-                            <xs:element minOccurs="0" name="details" type="xs:string" />
+                            <xs:element name="software_list" type="software_list_type" minOccurs="0" />
+                            <xs:element name="details" type="xs:string" minOccurs="0" />
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
-                <xs:element minOccurs="0" name="orthogonal_tilt">
+                <xs:element name="orthogonal_tilt" minOccurs="0">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element minOccurs="0" name="software_list" type="software_list_type" />
-                            <xs:element minOccurs="0" name="number_images" type="xs:positiveInteger" />
-                            <xs:element minOccurs="0" name="tilt_angle1">
+                            <xs:element name="software_list" type="software_list_type" minOccurs="0" />
+                            <xs:element name="number_images" type="xs:positiveInteger" minOccurs="0" />
+                            <xs:element name="tilt_angle1" minOccurs="0">
                                 <xs:complexType>
                                     <xs:simpleContent>
                                         <xs:extension base="allowed_tilt_angle1Orthogonal">
-                                            <xs:attribute fixed="degrees" name="units" type="xs:token" use="required" />
+                                            <xs:attribute name="units" type="xs:token" fixed="degrees" use="required" />
                                         </xs:extension>
                                     </xs:simpleContent>
                                 </xs:complexType>
                             </xs:element>
-                            <xs:element minOccurs="0" name="tilt_angle2">
+                            <xs:element name="tilt_angle2" minOccurs="0">
                                 <xs:complexType>
                                     <xs:simpleContent>
                                         <xs:extension base="allowed_tilt_angle2Orthogonal">
-                                            <xs:attribute fixed="degrees" name="units" type="xs:token" use="required" />
+                                            <xs:attribute name="units" type="xs:token" fixed="degrees" use="required" />
                                         </xs:extension>
                                     </xs:simpleContent>
                                 </xs:complexType>
                             </xs:element>
-                            <xs:element minOccurs="0" name="details" type="xs:string" />
+                            <xs:element name="details" type="xs:string" minOccurs="0" />
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
-                <xs:element minOccurs="0" name="emdb_id" type="emdb_id_type" />
-                <xs:element minOccurs="0" name="pdb_model" type="pdb_model_type" />
-                <xs:element minOccurs="0" name="insilico_model" type="xs:token" />
-                <xs:element minOccurs="0" name="other" type="xs:string" />
+                <xs:element name="emdb_id" type="emdb_id_type" minOccurs="0" />
+                <xs:element name="pdb_model" type="pdb_model_type" minOccurs="0" />
+                <xs:element name="insilico_model" type="xs:token" minOccurs="0" />
+                <xs:element name="other" type="xs:string" minOccurs="0" />
             </xs:choice>
-            <xs:element minOccurs="0" name="details" type="xs:string" />
+            <xs:element name="details" type="xs:string" minOccurs="0" />
         </xs:sequence>
         <xs:attribute name="type_of_model" type="xs:token" />
     </xs:complexType>
@@ -3140,8 +3140,8 @@
     </xs:simpleType>
     <xs:complexType name="pdb_model_type">
         <xs:sequence>
-            <xs:element minOccurs="0" name="pdb_id" type="pdb_code_type" />
-            <xs:element minOccurs="0" name="chain_id_list" type="chain_type" />
+            <xs:element name="pdb_id" type="pdb_code_type" minOccurs="0" />
+            <xs:element name="chain_id_list" type="chain_type" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
     <xs:simpleType name="pdb_code_type">
@@ -3151,8 +3151,8 @@
     </xs:simpleType>
     <xs:complexType name="chain_type">
         <xs:sequence>
-            <xs:element maxOccurs="unbounded" minOccurs="0" name="chain_id" type="chain_pdb_id" />
-            <xs:element maxOccurs="1" minOccurs="0" name="residue_range">
+            <xs:element name="chain_id" type="chain_pdb_id" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="residue_range" minOccurs="0" maxOccurs="1">
                 <xs:simpleType>
                     <xs:restriction base="xs:token">
                         <xs:pattern value="\d+-\d+" />
@@ -3168,23 +3168,23 @@
     </xs:simpleType>
     <xs:complexType name="ctf_correction_type">
         <xs:sequence>
-            <xs:element minOccurs="0" name="phase_reversal">
+            <xs:element name="phase_reversal" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element minOccurs="0" name="anisotropic" type="xs:boolean" />
-                        <xs:element minOccurs="0" name="correction_space" type="correction_space_type" />
+                        <xs:element name="anisotropic" type="xs:boolean" minOccurs="0" />
+                        <xs:element name="correction_space" type="correction_space_type" minOccurs="0" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="amplitude_correction">
+            <xs:element name="amplitude_correction" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element minOccurs="0" name="factor" type="xs:float" />
-                        <xs:element minOccurs="0" name="correction_space" type="correction_space_type" />
+                        <xs:element name="factor" type="xs:float" minOccurs="0" />
+                        <xs:element name="correction_space" type="correction_space_type" minOccurs="0" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="correction_operation">
+            <xs:element name="correction_operation" minOccurs="0">
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
                         <xs:enumeration value="MULTIPLICATION" />
@@ -3192,8 +3192,8 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <xs:element minOccurs="0" name="software_list" type="software_list_type" />
-            <xs:element minOccurs="0" name="details" type="xs:string" />
+            <xs:element name="software_list" type="software_list_type" minOccurs="0" />
+            <xs:element name="details" type="xs:string" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
     <xs:simpleType name="correction_space_type">
@@ -3204,22 +3204,22 @@
     </xs:simpleType>
     <xs:complexType name="molecular_replacement_type">
         <xs:sequence>
-            <xs:element maxOccurs="unbounded" minOccurs="0" name="starting_model">
+            <xs:element name="starting_model" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element name="access_code" type="pdb_code_type" />
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="chain" type="chain_type" />
+                        <xs:element name="chain" type="chain_type" minOccurs="0" maxOccurs="unbounded" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="resolution_range">
+            <xs:element name="resolution_range" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element name="high_resolution">
                             <xs:complexType>
                                 <xs:simpleContent>
                                     <xs:extension base="resolution_type">
-                                        <xs:attribute fixed="Å" name="units" type="xs:token" use="required" />
+                                        <xs:attribute name="units" type="xs:token" fixed="Å" use="required" />
                                     </xs:extension>
                                 </xs:simpleContent>
                             </xs:complexType>
@@ -3228,7 +3228,7 @@
                             <xs:complexType>
                                 <xs:simpleContent>
                                     <xs:extension base="resolution_type">
-                                        <xs:attribute fixed="Å" name="units" type="xs:token" use="required" />
+                                        <xs:attribute name="units" type="xs:token" fixed="Å" use="required" />
                                     </xs:extension>
                                 </xs:simpleContent>
                             </xs:complexType>
@@ -3236,7 +3236,7 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="software_list" type="software_list_type" />
+            <xs:element name="software_list" type="software_list_type" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="crystallography_statistics_type">
@@ -3244,31 +3244,31 @@
             <xs:element name="number_intensities_measured" type="xs:positiveInteger" />
             <xs:element name="number_structure_factors" type="xs:positiveInteger" />
             <xs:element name="fourier_space_coverage" type="xs:float" />
-            <xs:element minOccurs="0" name="r_sym" type="xs:float" />
+            <xs:element name="r_sym" type="xs:float" minOccurs="0" />
             <xs:element name="r_merge" type="xs:float" />
-            <xs:element minOccurs="0" name="overall_phase_error" type="xs:token" />
-            <xs:element minOccurs="0" name="overall_phase_residual" type="xs:float" />
+            <xs:element name="overall_phase_error" type="xs:token" minOccurs="0" />
+            <xs:element name="overall_phase_residual" type="xs:float" minOccurs="0" />
             <xs:element name="phase_error_rejection_criteria" type="xs:token" />
             <xs:element name="high_resolution">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="resolution_type">
-                            <xs:attribute fixed="Å" name="units" type="xs:token" use="required" />
+                            <xs:attribute name="units" type="xs:token" fixed="Å" use="required" />
                         </xs:extension>
                     </xs:simpleContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="shell_list">
+            <xs:element name="shell_list" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element maxOccurs="unbounded" name="shell">
+                        <xs:element name="shell" maxOccurs="unbounded">
                             <xs:complexType>
                                 <xs:sequence>
                                     <xs:element name="high_resolution">
                                         <xs:complexType>
                                             <xs:simpleContent>
                                                 <xs:extension base="resolution_type">
-                                                  <xs:attribute fixed="Å" name="units" type="xs:token" use="required" />
+                                                  <xs:attribute name="units" type="xs:token" fixed="Å" use="required" />
                                                 </xs:extension>
                                             </xs:simpleContent>
                                         </xs:complexType>
@@ -3277,7 +3277,7 @@
                                         <xs:complexType>
                                             <xs:simpleContent>
                                                 <xs:extension base="resolution_type">
-                                                  <xs:attribute fixed="Å" name="units" type="xs:token" use="required" />
+                                                  <xs:attribute name="units" type="xs:token" fixed="Å" use="required" />
                                                 </xs:extension>
                                             </xs:simpleContent>
                                         </xs:complexType>
@@ -3293,7 +3293,7 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="details" type="xs:string" />
+            <xs:element name="details" type="xs:string" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
     <xs:element name="helical_processing" substitutionGroup="image_processing" type="helical_processing_type" />
@@ -3306,49 +3306,49 @@
     </xs:complexType>
     <xs:group name="helical_processing_add_group">
         <xs:sequence>
-            <xs:element minOccurs="0" name="final_reconstruction" type="non_subtom_final_reconstruction_type" />
-            <xs:element minOccurs="0" name="ctf_correction" type="ctf_correction_type" />
-            <xs:element maxOccurs="unbounded" minOccurs="0" name="segment_selection" type="segment_selection_type" />
-            <xs:element minOccurs="0" name="refinement" type="refinement_type" />
-            <xs:element maxOccurs="unbounded" minOccurs="0" name="startup_model" type="starting_map_type" />
-            <xs:element minOccurs="0" name="helical_layer_lines" type="layer_lines_type" />
-            <xs:element minOccurs="0" name="initial_angle_assignment" type="angle_assignment_type" />
-            <xs:element minOccurs="0" name="final_angle_assignment" type="angle_assignment_type" />
-            <xs:element minOccurs="0" name="crystal_parameters" type="crystal_parameters_type" />
+            <xs:element name="final_reconstruction" type="non_subtom_final_reconstruction_type" minOccurs="0" />
+            <xs:element name="ctf_correction" type="ctf_correction_type" minOccurs="0" />
+            <xs:element name="segment_selection" type="segment_selection_type" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="refinement" type="refinement_type" minOccurs="0" />
+            <xs:element name="startup_model" type="starting_map_type" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="helical_layer_lines" type="layer_lines_type" minOccurs="0" />
+            <xs:element name="initial_angle_assignment" type="angle_assignment_type" minOccurs="0" />
+            <xs:element name="final_angle_assignment" type="angle_assignment_type" minOccurs="0" />
+            <xs:element name="crystal_parameters" type="crystal_parameters_type" minOccurs="0" />
         </xs:sequence>
     </xs:group>
     <xs:complexType name="segment_selection_type">
         <xs:sequence>
-            <xs:element minOccurs="0" name="number_selected" type="xs:positiveInteger" />
-            <xs:element minOccurs="0" name="segment_length">
+            <xs:element name="number_selected" type="xs:positiveInteger" minOccurs="0" />
+            <xs:element name="segment_length" minOccurs="0">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="non_zero_float">
-                            <xs:attribute fixed="Å" name="units" type="xs:token" use="required" />
+                            <xs:attribute name="units" type="xs:token" fixed="Å" use="required" />
                         </xs:extension>
                     </xs:simpleContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="segment_overlap">
+            <xs:element name="segment_overlap" minOccurs="0">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="non_zero_float">
-                            <xs:attribute fixed="Å" name="units" type="xs:token" use="required" />
+                            <xs:attribute name="units" type="xs:token" fixed="Å" use="required" />
                         </xs:extension>
                     </xs:simpleContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="total_filament_length">
+            <xs:element name="total_filament_length" minOccurs="0">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="non_zero_float">
-                            <xs:attribute fixed="Å" name="units" type="xs:token" use="required" />
+                            <xs:attribute name="units" type="xs:token" fixed="Å" use="required" />
                         </xs:extension>
                     </xs:simpleContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="software_list" type="software_list_type" />
-            <xs:element minOccurs="0" name="details" type="xs:string" />
+            <xs:element name="software_list" type="software_list_type" minOccurs="0" />
+            <xs:element name="details" type="xs:string" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
     <xs:simpleType name="non_zero_float">
@@ -3358,16 +3358,16 @@
     </xs:simpleType>
     <xs:complexType name="refinement_type">
         <xs:sequence>
-            <xs:element maxOccurs="unbounded" minOccurs="0" name="startup_model" type="starting_map_type" />
-            <xs:element maxOccurs="unbounded" name="starting_symmetry">
+            <xs:element name="startup_model" type="starting_map_type" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="starting_symmetry" maxOccurs="unbounded">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element name="helical_parameters" type="helical_parameters_type" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="software_list" type="software_list_type" />
-            <xs:element minOccurs="0" name="details" type="xs:string" />
+            <xs:element name="software_list" type="software_list_type" minOccurs="0" />
+            <xs:element name="details" type="xs:string" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="layer_lines_type">
@@ -3379,15 +3379,15 @@
                         <xs:element name="min" />
                         <xs:element name="max" />
                         <xs:element name="average" />
-                        <xs:element minOccurs="0" name="software_list" type="software_list_type" />
+                        <xs:element name="software_list" type="software_list_type" minOccurs="0" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="straightening" type="xs:boolean" />
+            <xs:element name="straightening" type="xs:boolean" minOccurs="0" />
             <xs:element name="indexing">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element minOccurs="0" name="software_list" type="software_list_type" />
+                        <xs:element name="software_list" type="software_list_type" minOccurs="0" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -3395,7 +3395,7 @@
     </xs:complexType>
     <xs:complexType name="angle_assignment_type">
         <xs:sequence>
-            <xs:element minOccurs="0" name="type">
+            <xs:element name="type" minOccurs="0">
                 <xs:simpleType>
                     <xs:restriction base="xs:token">
                         <xs:enumeration value="ANGULAR RECONSTITUTION" />
@@ -3408,16 +3408,16 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <xs:element minOccurs="0" name="projection_matching_processing">
+            <xs:element name="projection_matching_processing" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element minOccurs="0" name="number_reference_projections" type="xs:positiveInteger" />
-                        <xs:element minOccurs="0" name="merit_function" type="xs:token" />
-                        <xs:element minOccurs="0" name="angular_sampling">
+                        <xs:element name="number_reference_projections" type="xs:positiveInteger" minOccurs="0" />
+                        <xs:element name="merit_function" type="xs:token" minOccurs="0" />
+                        <xs:element name="angular_sampling" minOccurs="0">
                             <xs:complexType>
                                 <xs:simpleContent>
                                     <xs:extension base="allowed_angular_sampling">
-                                        <xs:attribute fixed="degrees" name="units" type="xs:token" use="required" />
+                                        <xs:attribute name="units" type="xs:token" fixed="degrees" use="required" />
                                     </xs:extension>
                                 </xs:simpleContent>
                             </xs:complexType>
@@ -3425,8 +3425,8 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="software_list" type="software_list_type" />
-            <xs:element minOccurs="0" name="details" type="xs:string" />
+            <xs:element name="software_list" type="software_list_type" minOccurs="0" />
+            <xs:element name="details" type="xs:string" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
     <xs:simpleType name="allowed_angular_sampling">
@@ -3444,56 +3444,56 @@
     </xs:complexType>
     <xs:group name="single_particle_proc_add_group">
         <xs:sequence>
-            <xs:element maxOccurs="unbounded" minOccurs="0" name="particle_selection" type="particle_selection_type" />
-            <xs:element minOccurs="0" name="ctf_correction" type="ctf_correction_type" />
-            <xs:element maxOccurs="unbounded" minOccurs="0" name="startup_model" type="starting_map_type" />
-            <xs:element minOccurs="0" name="final_reconstruction" type="non_subtom_final_reconstruction_type" />
-            <xs:element minOccurs="0" name="initial_angle_assignment" type="angle_assignment_type" />
-            <xs:element minOccurs="0" name="final_angle_assignment" type="angle_assignment_type" />
-            <xs:element minOccurs="0" name="final_multi_reference_alignment">
+            <xs:element name="particle_selection" type="particle_selection_type" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="ctf_correction" type="ctf_correction_type" minOccurs="0" />
+            <xs:element name="startup_model" type="starting_map_type" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="final_reconstruction" type="non_subtom_final_reconstruction_type" minOccurs="0" />
+            <xs:element name="initial_angle_assignment" type="angle_assignment_type" minOccurs="0" />
+            <xs:element name="final_angle_assignment" type="angle_assignment_type" minOccurs="0" />
+            <xs:element name="final_multi_reference_alignment" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element name="number_reference_projections" type="xs:positiveInteger" />
-                        <xs:element minOccurs="0" name="merit_function" type="xs:string" />
-                        <xs:element minOccurs="0" name="angular_sampling">
+                        <xs:element name="merit_function" minOccurs="0" type="xs:string" />
+                        <xs:element name="angular_sampling" minOccurs="0">
                             <xs:complexType>
                                 <xs:simpleContent>
                                     <xs:extension base="allowed_angular_sampling">
-                                        <xs:attribute fixed="degrees" name="units" type="xs:token" use="required" />
+                                        <xs:attribute name="units" type="xs:token" fixed="degrees" use="required" />
                                     </xs:extension>
                                 </xs:simpleContent>
                             </xs:complexType>
                         </xs:element>
-                        <xs:element minOccurs="0" name="software_list" type="software_list_type" />
-                        <xs:element minOccurs="0" name="details" type="xs:string" />
+                        <xs:element name="software_list" type="software_list_type" minOccurs="0" />
+                        <xs:element name="details" type="xs:string" minOccurs="0" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="final_two_d_classification" type="classification_type" />
-            <xs:element minOccurs="0" name="final_three_d_classification" type="classification_type" />
+            <xs:element name="final_two_d_classification" type="classification_type" minOccurs="0" />
+            <xs:element name="final_three_d_classification" type="classification_type" minOccurs="0" />
         </xs:sequence>
     </xs:group>
     <xs:complexType name="particle_selection_type">
         <xs:sequence>
-            <xs:element minOccurs="0" name="number_selected" type="xs:positiveInteger" />
-            <xs:element minOccurs="0" name="reference_model" type="xs:token" />
-            <xs:element minOccurs="0" name="method" type="xs:string" />
-            <xs:element minOccurs="0" name="software_list" type="software_list_type" />
-            <xs:element minOccurs="0" name="details" type="xs:string" />
+            <xs:element name="number_selected" type="xs:positiveInteger" minOccurs="0" />
+            <xs:element name="reference_model" type="xs:token" minOccurs="0" />
+            <xs:element name="method" type="xs:string" minOccurs="0" />
+            <xs:element name="software_list" type="software_list_type" minOccurs="0" />
+            <xs:element name="details" type="xs:string" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="classification_type">
         <xs:sequence>
-            <xs:element minOccurs="0" name="number_classes" type="xs:positiveInteger" />
-            <xs:element minOccurs="0" name="average_number_members_per_class">
+            <xs:element name="number_classes" type="xs:positiveInteger" minOccurs="0" />
+            <xs:element name="average_number_members_per_class" minOccurs="0">
                 <xs:simpleType>
                     <xs:restriction base="xs:float">
                         <xs:minExclusive value="0" />
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <xs:element minOccurs="0" name="software_list" type="software_list_type" />
-            <xs:element minOccurs="0" name="details" type="xs:string" />
+            <xs:element name="software_list" type="software_list_type" minOccurs="0" />
+            <xs:element name="details" type="xs:string" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
     <xs:element name="subtomogram_averaging_processing" substitutionGroup="image_processing" type="subtomogram_averaging_processing_type" />
@@ -3506,54 +3506,54 @@
     </xs:complexType>
     <xs:group name="subtomogram_averaging_proc_add_group">
         <xs:sequence>
-            <xs:element minOccurs="0" name="final_reconstruction" type="subtomogram_final_reconstruction_type" />
-            <xs:element minOccurs="0" name="extraction">
+            <xs:element name="final_reconstruction" type="subtomogram_final_reconstruction_type" minOccurs="0" />
+            <xs:element name="extraction" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element minOccurs="0" name="number_tomograms" type="xs:positiveInteger" />
-                        <xs:element minOccurs="0" name="number_images_used" type="xs:positiveInteger" />
-                        <xs:element minOccurs="0" name="reference_model" type="xs:token" />
-                        <xs:element minOccurs="0" name="method" type="xs:string" />
-                        <xs:element minOccurs="0" name="software_list" type="software_list_type" />
-                        <xs:element minOccurs="0" name="details" type="xs:string" />
+                        <xs:element name="number_tomograms" type="xs:positiveInteger" minOccurs="0" />
+                        <xs:element name="number_images_used" type="xs:positiveInteger" minOccurs="0" />
+                        <xs:element name="reference_model" type="xs:token" minOccurs="0" />
+                        <xs:element name="method" type="xs:string" minOccurs="0" />
+                        <xs:element name="software_list" type="software_list_type" minOccurs="0" />
+                        <xs:element name="details" type="xs:string" minOccurs="0" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="ctf_correction" type="ctf_correction_type" />
-            <xs:element minOccurs="0" name="final_multi_reference_alignment">
+            <xs:element name="ctf_correction" type="ctf_correction_type" minOccurs="0" />
+            <xs:element name="final_multi_reference_alignment" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element name="number_reference_projections" type="xs:positiveInteger" />
-                        <xs:element minOccurs="0" name="merit_function" type="xs:string" />
-                        <xs:element minOccurs="0" name="software_list" type="software_list_type" />
-                        <xs:element minOccurs="0" name="details" type="xs:string" />
+                        <xs:element name="merit_function" minOccurs="0" type="xs:string" />
+                        <xs:element name="software_list" type="software_list_type" minOccurs="0" />
+                        <xs:element name="details" type="xs:string" minOccurs="0" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="final_three_d_classification" type="classification_type" />
-            <xs:element minOccurs="0" name="final_angle_assignment" type="angle_assignment_type" />
-            <xs:element minOccurs="0" name="crystal_parameters" type="crystal_parameters_type" />
+            <xs:element name="final_three_d_classification" type="classification_type" minOccurs="0" />
+            <xs:element name="final_angle_assignment" type="angle_assignment_type" minOccurs="0" />
+            <xs:element name="crystal_parameters" type="crystal_parameters_type" minOccurs="0" />
         </xs:sequence>
     </xs:group>
     <xs:complexType name="subtomogram_final_reconstruction_type">
         <xs:complexContent>
             <xs:extension base="final_reconstruction_type">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="number_subtomograms_used" type="xs:positiveInteger" />
+                    <xs:element name="number_subtomograms_used" type="xs:positiveInteger" minOccurs="0" />
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
     <xs:complexType name="final_reconstruction_type">
         <xs:sequence>
-            <xs:element minOccurs="0" name="number_classes_used" type="xs:positiveInteger" />
-            <xs:element minOccurs="0" name="applied_symmetry" type="applied_symmetry_type" />
-            <xs:element minOccurs="0" name="algorithm" type="reconstruction_algorithm_type" />
-            <xs:element minOccurs="0" name="resolution">
+            <xs:element name="number_classes_used" type="xs:positiveInteger" minOccurs="0" />
+            <xs:element name="applied_symmetry" type="applied_symmetry_type" minOccurs="0" />
+            <xs:element name="algorithm" type="reconstruction_algorithm_type" minOccurs="0" />
+            <xs:element name="resolution" minOccurs="0">
                 <xs:complexType>
                     <xs:simpleContent>
                         <xs:extension base="resolution_type">
-                            <xs:attribute fixed="Å" name="units" type="xs:token" use="required" />
+                            <xs:attribute name="units" type="xs:token" fixed="Å" use="required" />
                             <xs:attribute name="res_type" use="required">
                                 <xs:simpleType>
                                     <xs:restriction base="xs:token">
@@ -3565,7 +3565,7 @@
                     </xs:simpleContent>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="resolution_method">
+            <xs:element name="resolution_method" minOccurs="0">
                 <xs:simpleType>
                     <xs:restriction base="xs:token">
                         <xs:enumeration value="DIFFRACTION PATTERN/LAYERLINES" />
@@ -3578,9 +3578,9 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <xs:element minOccurs="0" name="reconstruction_filtering" type="reconstruction_filtering_type" />
-            <xs:element minOccurs="0" name="software_list" type="software_list_type" />
-            <xs:element minOccurs="0" name="details" type="xs:string" />
+            <xs:element name="reconstruction_filtering" type="reconstruction_filtering_type" minOccurs="0" />
+            <xs:element name="software_list" type="software_list_type" minOccurs="0" />
+            <xs:element name="details" type="xs:string" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
     <xs:element name="tomography_processing" substitutionGroup="image_processing" type="tomography_processing_type" />
@@ -3593,10 +3593,10 @@
     </xs:complexType>
     <xs:group name="tomography_proc_add_group">
         <xs:sequence>
-            <xs:element minOccurs="0" name="final_reconstruction" type="non_subtom_final_reconstruction_type" />
-            <xs:element minOccurs="0" name="series_aligment_software_list" type="software_list_type" />
-            <xs:element minOccurs="0" name="ctf_correction" type="ctf_correction_type" />
-            <xs:element minOccurs="0" name="crystal_parameters" type="crystal_parameters_type" />
+            <xs:element name="final_reconstruction" type="non_subtom_final_reconstruction_type" minOccurs="0" />
+            <xs:element name="series_aligment_software_list" type="software_list_type" minOccurs="0" />
+            <xs:element name="ctf_correction" type="ctf_correction_type" minOccurs="0" />
+            <xs:element name="crystal_parameters" type="crystal_parameters_type" minOccurs="0" />
         </xs:sequence>
     </xs:group>
     <xs:complexType name="map_type">
@@ -3604,11 +3604,10 @@
             <xs:element name="file">
                 <xs:simpleType>
                     <xs:restriction base="xs:token">
-                        <!--<xs:pattern xmlns:xs="http://www.w3.org/2001/XMLSchema" value="emd_\d{4,}([A-Za-z0-9_]*)\.map(\.gz|)" />
-                    --></xs:restriction>
+                        <!--b'<xs:pattern xmlns:xs="http://www.w3.org/2001/XMLSchema" value="emd_\\d{4,}([A-Za-z0-9_]*)\\.map(\\.gz|)" />\n                    '--></xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <xs:element minOccurs="0" name="symmetry" type="applied_symmetry_type" />
+            <xs:element name="symmetry" type="applied_symmetry_type" minOccurs="0" />
             <xs:element name="data_type" type="map_data_type" />
             <xs:element name="dimensions" type="integer_vector_map_type" />
             <xs:element name="origin">
@@ -3668,7 +3667,7 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="statistics" type="map_statistics_type" />
+            <xs:element name="statistics" type="map_statistics_type" minOccurs="0" />
             <xs:element name="pixel_spacing">
                 <xs:complexType>
                     <xs:sequence>
@@ -3678,14 +3677,14 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="contour_list">
+            <xs:element name="contour_list" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element maxOccurs="unbounded" name="contour">
+                        <xs:element name="contour" maxOccurs="unbounded">
                             <xs:complexType>
                                 <xs:sequence>
-                                    <xs:element minOccurs="0" name="level" type="xs:float" />
-                                    <xs:element minOccurs="0" name="source">
+                                    <xs:element name="level" type="xs:float" minOccurs="0" />
+                                    <xs:element name="source" minOccurs="0">
                                         <xs:simpleType>
                                             <xs:restriction base="xs:token">
                                                 <xs:enumeration value="EMDB" />
@@ -3702,11 +3701,11 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="label" type="xs:token" />
-            <xs:element minOccurs="0" name="annotation_details" type="xs:string" />
-            <xs:element minOccurs="0" name="details" type="xs:string" />
+            <xs:element name="label" type="xs:token" minOccurs="0" />
+            <xs:element name="annotation_details" type="xs:string" minOccurs="0" />
+            <xs:element name="details" type="xs:string" minOccurs="0" />
         </xs:sequence>
-        <xs:attribute fixed="CCP4" name="format" use="required" />
+        <xs:attribute name="format" fixed="CCP4" use="required" />
         <xs:attribute name="size_kbytes" type="xs:positiveInteger" use="required" />
     </xs:complexType>
     <xs:simpleType name="map_data_type">
@@ -3734,7 +3733,7 @@
     <xs:complexType name="pixel_spacing_type">
         <xs:simpleContent>
             <xs:extension base="allowed_pixel_sampling">
-                <xs:attribute fixed="Å" name="units" type="xs:token" use="required" />
+                <xs:attribute name="units" type="xs:token" fixed="Å" use="required" />
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
@@ -3745,24 +3744,24 @@
     </xs:simpleType>
     <xs:complexType name="interpretation_type">
         <xs:sequence>
-            <xs:element minOccurs="0" name="modelling_list">
+            <xs:element name="modelling_list" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element maxOccurs="unbounded" name="modelling" type="modelling_type" />
+                        <xs:element name="modelling" type="modelling_type" maxOccurs="unbounded" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="figure_list">
+            <xs:element name="figure_list" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element maxOccurs="unbounded" name="figure" type="figure_type" />
+                        <xs:element name="figure" type="figure_type" maxOccurs="unbounded" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="segmentation_list">
+            <xs:element name="segmentation_list" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element maxOccurs="unbounded" name="segmentation">
+                        <xs:element name="segmentation" maxOccurs="unbounded">
                             <xs:complexType>
                                 <xs:sequence>
                                     <xs:element name="file">
@@ -3772,32 +3771,32 @@
                                             </xs:restriction>
                                         </xs:simpleType>
                                     </xs:element>
-                                    <xs:element minOccurs="0" name="details" type="xs:string" />
-                                    <xs:element minOccurs="0" name="mask_details" type="map_type" />
+                                    <xs:element name="details" type="xs:string" minOccurs="0" />
+                                    <xs:element name="mask_details" type="map_type" minOccurs="0" />
                                 </xs:sequence>
                             </xs:complexType>
                         </xs:element>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="slices_list">
+            <xs:element name="slices_list" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element maxOccurs="unbounded" name="slice" type="map_type" />
+                        <xs:element name="slice" type="map_type" maxOccurs="unbounded" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="additional_map_list">
+            <xs:element name="additional_map_list" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element maxOccurs="unbounded" name="additional_map" type="map_type" />
+                        <xs:element name="additional_map" type="map_type" maxOccurs="unbounded" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="half_map_list">
+            <xs:element name="half_map_list" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element maxOccurs="unbounded" name="half_map" type="map_type" />
+                        <xs:element name="half_map" type="map_type" maxOccurs="unbounded" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
@@ -3806,10 +3805,10 @@
     </xs:complexType>
     <xs:complexType name="modelling_type">
         <xs:sequence>
-            <xs:element maxOccurs="unbounded" minOccurs="0" name="initial_model">
+            <xs:element name="initial_model" minOccurs="0" maxOccurs="unbounded">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element minOccurs="0" name="access_code" type="xs:token"> </xs:element>
+                        <xs:element name="access_code" type="xs:token" minOccurs="0"> </xs:element>
                         <xs:element minOccurs="0" name="chain">
                             <xs:complexType>
                                 <xs:sequence>
@@ -3853,16 +3852,16 @@
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="final_model">
+            <xs:element name="final_model" minOccurs="0">
                 <xs:complexType>
                     <xs:sequence>
                         <xs:element name="access_code" type="pdb_code_type" />
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="chain" type="chain_type" />
-                        <xs:element minOccurs="0" name="details" type="xs:string" />
+                        <xs:element name="chain" type="chain_type" minOccurs="0" maxOccurs="unbounded" />
+                        <xs:element name="details" type="xs:string" minOccurs="0" />
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>
-            <xs:element minOccurs="0" name="refinement_protocol">
+            <xs:element name="refinement_protocol" minOccurs="0">
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
                         <xs:enumeration value="AB INITIO MODEL" />
@@ -3873,11 +3872,11 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <xs:element minOccurs="0" name="software_list" type="software_list_type" />
-            <xs:element minOccurs="0" name="details" type="xs:string" />
-            <xs:element minOccurs="0" name="target_criteria" type="xs:token" />
-            <xs:element minOccurs="0" name="refinement_space" type="xs:token" />
-            <xs:element minOccurs="0" name="overall_bvalue" type="xs:float" />
+            <xs:element name="software_list" type="software_list_type" minOccurs="0" />
+            <xs:element name="details" type="xs:string" minOccurs="0" />
+            <xs:element name="target_criteria" type="xs:token" minOccurs="0" />
+            <xs:element name="refinement_space" type="xs:token" minOccurs="0" />
+            <xs:element name="overall_bvalue" type="xs:float" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="figure_type">
@@ -3889,10 +3888,10 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <xs:element minOccurs="0" name="details" type="xs:string" />
+            <xs:element name="details" type="xs:string" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
-    <xs:element abstract="true" name="validation_method" type="validation_type" />
+    <xs:element name="validation_method" type="validation_type" abstract="true" />
     <xs:complexType name="validation_type">
         <xs:sequence>
             <xs:element name="file">
@@ -3902,7 +3901,7 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
-            <xs:element minOccurs="0" name="details" type="xs:string" />
+            <xs:element name="details" type="xs:string" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
     <xs:element name="crystallography_validation" substitutionGroup="validation_method" type="crystallography_validation_type" />

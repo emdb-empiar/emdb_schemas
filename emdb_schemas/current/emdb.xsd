@@ -25,7 +25,7 @@
             </xs:element>
         </xs:sequence>
         <xs:attribute name="emdb_id" type="emdb_id_type" use="required"/>
-        <xs:attribute name="version" type="xs:token" default="3.0.9.3"/>
+        <xs:attribute name="version" type="xs:token" default="3.0.9.4"/>
         <!-- <xs:attribute name="composite_structure" type="xs:boolean"/> -->
     </xs:complexType>
     <xs:complexType name="admin_type">
@@ -2195,6 +2195,7 @@
                         <xs:enumeration value="TFS TALOS"/>
                         <xs:enumeration value="TFS TALOS L120C"/>
                         <xs:enumeration value="TFS TALOS F200C"/>
+                        <xs:enumeration value="TFS TITAN THEMIS"/>
                         <xs:enumeration value="TFS TUNDRA"/>
                         <xs:enumeration value="ZEISS LEO912"/>
                         <xs:enumeration value="ZEISS LIBRA120PLUS"/>
