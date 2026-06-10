@@ -2,25 +2,22 @@
 <!-- 
      Electron Microscopy Data Bank
 
-     XML Schema for EMDB entries  version: 1.7.0
+     XML Schema for EMDB entries  version: 1.8.0
 
      Revision history:
-     2012-02-01  1.7.0
+     2012-03-09  1.8.0
         * Field added:
-            -nonJournalArticle
-            -secondaryReference
-            -DOI
-            -URLRawData
-            -ncbiTaxId
-            -ribosome source information
-        * Remove fields:
-            -ribosome-chimera
+            "FEI TITAN KRIOS AUTOGRID HOLDER" to the list of cryoholders
+            "ETHANE-PROPANE MIXTURE" as cryogen
+            "IMACON" as scanner
+        * Removed fields:
         * Format change:
-            -allow shorter version of the XML
-            -virus shell
+            Attribute version="1.8" must be present in all header files.
+            Added controlled vocabulary for vitrification instruments (vitrInstrType)
         * Name changes:
-            -imageScans -> imageAcquisition
-            -organ -> organelle
+            <mutantFlag> has changed to <recombinantExpFlag> for all component types, except for nucleic-acid.
+            <mutantFlag> has changed to <syntheticFlag> for nucleic acid.
+            "JEM 3200FSC CRYOHOLDER" to "JEOL 3200FSC CRYOHOLDER".
      
      Contact: <help@emdatabank.org> for questions or suggestions.
 -->
@@ -46,7 +43,7 @@
       <xs:element name="processing" type="processType" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
     <xs:attribute name="accessCode" type="xs:string" use="required"/>
-    <xs:attribute name="version" type="xs:string" use="required"/>
+    <xs:attribute name="version" type="xs:string" fixed="1.8"/>
   </xs:complexType>
   <xs:complexType name="adminType">
     <xs:annotation>
@@ -290,9 +287,7 @@
       <xs:element name="cryogenName" type="cryogenType"/>
       <xs:element name="humidity" type="xs:string" minOccurs="0"/>
       <xs:element name="temperature" type="tempType" minOccurs="0"/>
-      <!-- To be implemented -->
-      <!--xs:element name="instrument" type="vitrInstrType" minOccurs="0"/-->
-      <xs:element name="instrument" type="xs:string" minOccurs="0"/>
+      <xs:element name="instrument" type="vitrInstrType" minOccurs="0"/>
       <xs:element name="method" type="xs:string" minOccurs="0"/>
       <xs:element name="timeResolvedState" type="xs:string" minOccurs="0"/>
       <xs:element name="details" type="xs:string" minOccurs="0"/>
@@ -318,6 +313,8 @@
       <xs:enumeration value="LEICA KF80"/>
       <xs:enumeration value="NONE"/>
       <xs:enumeration value="REICHERT-JUNG PLUNGER"/>
+      <xs:enumeration value="ZEISS PLUNGE FREEZER CRYOBOX"/>
+      <xs:enumeration value="OTHER"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="imgType">
@@ -480,11 +477,11 @@
     <xs:all>
       <xs:element name="file" type="slcFileType"/>
       <xs:element name="dataType" type="mapDataType"/>
-      <xs:element name="dimensions" type="dimensionType"/>
-      <xs:element name="spacing" type="spacingType"/>
+      <xs:element name="dimensions" type="slcDimensionType"/>
+      <xs:element name="spacing" type="slcSpacingType"/>
       <xs:element name="origin" type="originType"/>
       <xs:element name="limit" type="limitType"/>
-      <xs:element name="cell" type="cellType"/>
+      <xs:element name="cell" type="slcCellType"/>
       <xs:element name="axisOrder" type="axisOrderType"/>
       <xs:element name="statistics" type="statisticsType"/>
       <xs:element name="pixelSpacing" type="pixelSpacingType"/>
@@ -527,7 +524,7 @@
       <xs:element name="synSpeciesName" type="xs:string" minOccurs="0"/>
       <xs:element name="oligomericDetails" type="xs:string" minOccurs="0"/>
       <xs:element name="numCopies" type="xs:string" minOccurs="0"/>
-      <xs:element name="mutantFlag" type="xs:boolean"/>
+      <xs:element name="recombinantExpFlag" type="xs:boolean"/>
       <xs:element name="natSource" type="natSrcType" minOccurs="0"/>
       <xs:element name="engSource" type="engSrcType" minOccurs="0"/>
       <xs:element name="strain" type="xs:string" minOccurs="0"/>
@@ -541,7 +538,7 @@
       <xs:element name="synSpeciesName" type="xs:string" minOccurs="0"/>
       <xs:element name="oligomericDetails" type="xs:string" minOccurs="0"/>
       <xs:element name="numCopies" type="xs:string" minOccurs="0"/>
-      <xs:element name="mutantFlag" type="xs:boolean"/>
+      <xs:element name="recombinantExpFlag" type="xs:boolean"/>
       <xs:element name="natSource" type="natSrcType" minOccurs="0"/>
       <xs:element name="engSource" type="engSrcType" minOccurs="0"/>
       <xs:element name="strain" type="xs:string" minOccurs="0"/>
@@ -553,7 +550,7 @@
     <xs:all>
       <xs:element name="sciSpeciesName" type="sciSpeciesType" minOccurs="0"/>
       <xs:element name="synSpeciesName" type="xs:string" minOccurs="0"/>
-      <xs:element name="mutantFlag" type="xs:boolean"/>
+      <xs:element name="syntheticFlag" type="xs:boolean"/>
       <xs:element name="sequence" type="xs:string" minOccurs="0"/>
       <xs:element name="class" type="naClassType"/>
       <xs:element name="structure" type="naStructType"/>
@@ -565,7 +562,7 @@
       <xs:element name="synSpeciesName" type="xs:string" minOccurs="0"/>
       <xs:element name="oligomericDetails" type="xs:string" minOccurs="0"/>
       <xs:element name="numCopies" type="xs:string" minOccurs="0"/>
-      <xs:element name="mutantFlag" type="xs:boolean"/>
+      <xs:element name="recombinantExpFlag" type="xs:boolean"/>
       <xs:element name="natSource" type="natSrcType" minOccurs="0"/>
       <xs:element name="engSource" type="engSrcType" minOccurs="0"/>
       <xs:element name="strain" type="xs:string" minOccurs="0"/>
@@ -589,7 +586,7 @@
       <xs:element name="oligomericDetails" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="numCopies" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <!-- ES: This is mandatory for new entries (EmDep version 4.0) but not for older --> 
-      <xs:element name="mutantFlag" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="recombinantExpFlag" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="natSource" type="natSrcType" minOccurs="0" maxOccurs="1"/>
       <xs:element name="engSource" type="engSrcType" minOccurs="0" maxOccurs="1"/>
       <xs:element name="strain" type="xs:string" minOccurs="0" maxOccurs="1"/>
@@ -606,7 +603,7 @@
       <xs:element name="oligomericDetails" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <xs:element name="numCopies" type="xs:string" minOccurs="0" maxOccurs="1"/>
       <!-- ES: This is mandatory for new entries (EmDep version 4.0) but not for older --> 
-      <xs:element name="mutantFlag" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="recombinantExpFlag" type="xs:boolean" minOccurs="0" maxOccurs="1"/>
       <xs:element name="natSource" type="natSrcType" minOccurs="0" maxOccurs="1"/>
       <xs:element name="engSource" type="engSrcType" minOccurs="0" maxOccurs="1"/>
       <xs:element name="strain" type="xs:string" minOccurs="0" maxOccurs="1"/>
@@ -816,11 +813,25 @@
       <xs:element name="numSections" type="xs:positiveInteger"/>
     </xs:all>
   </xs:complexType>
+  <xs:complexType name="slcDimensionType">
+    <xs:all>
+      <xs:element name="numRows" type="xs:positiveInteger"/>
+      <xs:element name="numColumns" type="xs:nonNegativeInteger"/>
+      <xs:element name="numSections" type="xs:nonNegativeInteger"/>
+    </xs:all>
+  </xs:complexType>
   <xs:complexType name="spacingType">
     <xs:all>
       <xs:element name="spacingRow" type="xs:positiveInteger"/>
       <xs:element name="spacingCol" type="xs:positiveInteger"/>
       <xs:element name="spacingSec" type="xs:positiveInteger"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="slcSpacingType">
+    <xs:all>
+      <xs:element name="spacingRow" type="xs:positiveInteger"/>
+      <xs:element name="spacingCol" type="xs:nonNegativeInteger"/>
+      <xs:element name="spacingSec" type="xs:nonNegativeInteger"/>
     </xs:all>
   </xs:complexType>
   <xs:complexType name="pixelSpacingType">
@@ -855,6 +866,16 @@
       <xs:element name="cellGamma" type="cAngleType" minOccurs="0"/>
     </xs:all>
   </xs:complexType>
+  <xs:complexType name="slcCellType">
+    <xs:all>
+      <xs:element name="cellA" type="cType" minOccurs="0"/>
+      <xs:element name="cellB" type="slcCType" minOccurs="0"/>
+      <xs:element name="cellC" type="slcCType" minOccurs="0"/>
+      <xs:element name="cellAlpha" type="cAngleType" minOccurs="0"/>
+      <xs:element name="cellBeta" type="cAngleType" minOccurs="0"/>
+      <xs:element name="cellGamma" type="cAngleType" minOccurs="0"/>
+    </xs:all>
+  </xs:complexType>
   <xs:complexType name="limitType">
     <xs:all>
       <xs:element name="limitRow" type="limType"/>
@@ -882,9 +903,21 @@
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
+  <xs:complexType name="slcCType">
+    <xs:simpleContent>
+      <xs:extension base="allowedSlcCellDim">
+        <xs:attribute name="units" type="xs:string" use="required" fixed="A"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
   <xs:simpleType name="allowedCellDim">
     <xs:restriction base="xs:float">
         <xs:minExclusive value="0.0"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="allowedSlcCellDim">
+    <xs:restriction base="xs:float">
+        <xs:minInclusive value="0.0"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="cAngleType">
@@ -976,7 +1009,6 @@
       <xs:enumeration value="FREON 12"/>
       <xs:enumeration value="FREON 22"/>
       <xs:enumeration value="NONE"/>
-      <!-- To be deleted -->
       <xs:enumeration value="OTHER"/>
     </xs:restriction>
   </xs:simpleType>
@@ -1024,20 +1056,19 @@
       <xs:enumeration value="JEOL KYOTO-3000SFF"/>
       <xs:enumeration value="JEOL 3200FSC"/>
       <xs:enumeration value="JEOL 4000EX"/>
-      <!-- To be deleted -->
       <xs:enumeration value="OTHER"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="specimenHolderType">
     <xs:restriction base="xs:string">
+      <xs:enumeration value="FEI TITAN KRIOS AUTOGRID HOLDER"/>
       <xs:enumeration value="GATAN HELIUM"/>
       <xs:enumeration value="GATAN LIQUID NITROGEN"/>
       <xs:enumeration value="HOME BUILD"/>
-      <xs:enumeration value="JEM3200FSC CRYOHOLDER"/>
       <xs:enumeration value="JEOL"/>
+      <xs:enumeration value="JEOL 3200FSC CRYOHOLDER"/>
       <xs:enumeration value="PHILIPS ROTATION HOLDER"/>
       <xs:enumeration value="SIDE ENTRY, EUCENTRIC"/>
-      <!-- To be deleted -->
       <xs:enumeration value="OTHER"/>
     </xs:restriction>
   </xs:simpleType>
@@ -1054,7 +1085,6 @@
       <xs:enumeration value="PRIMESCAN"/>
       <xs:enumeration value="TEMSCAN"/>
       <xs:enumeration value="ZEISS SCAI"/>
-      <!-- To be deleted -->
       <xs:enumeration value="OTHER"/>
     </xs:restriction>
   </xs:simpleType>
@@ -1077,7 +1107,6 @@
       <xs:enumeration value="PRION"/>
       <xs:enumeration value="VIROID"/>
       <xs:enumeration value="VIRUS-LIKE PARTICLE"/>
-      <!-- To be deleted -->
       <xs:enumeration value="OTHER"/>
     </xs:restriction>
   </xs:simpleType>
@@ -1088,7 +1117,6 @@
       <xs:enumeration value="SEROCOMPLEX"/>
       <xs:enumeration value="SUBSPECIES"/>
       <xs:enumeration value="SPECIES"/>
-      <!-- To be deleted -->
       <xs:enumeration value="OTHER"/>
     </xs:restriction>
   </xs:simpleType>
@@ -1101,7 +1129,6 @@
       <xs:enumeration value="RIBOZYME"/>
       <xs:enumeration value="RNA"/>
       <xs:enumeration value="T-RNA"/>
-      <!-- To be deleted -->
       <xs:enumeration value="OTHER"/>
     </xs:restriction>
   </xs:simpleType>
@@ -1111,7 +1138,6 @@
       <xs:enumeration value="DOUBLE HELIX"/>
       <xs:enumeration value="TRIPLE HELIX"/>
       <xs:enumeration value="QUADRUPLE HELIX"/>
-      <!-- To be deleted -->
       <xs:enumeration value="OTHER"/>
     </xs:restriction>
   </xs:simpleType>
@@ -1175,7 +1201,6 @@
     <xs:restriction base="xs:string">
       <xs:enumeration value="FLOOD BEAM"/>
       <xs:enumeration value="SPOT SCAN"/>
-      <!-- To be deleted -->
       <xs:enumeration value="OTHER"/>
     </xs:restriction>
   </xs:simpleType>
@@ -1184,7 +1209,6 @@
       <xs:enumeration value="BRIGHT FIELD"/>
       <xs:enumeration value="DARK FIELD"/>
       <xs:enumeration value="DIFFRACTION"/>
-      <!-- To be deleted -->
       <xs:enumeration value="OTHER"/>
     </xs:restriction>
   </xs:simpleType>
@@ -1193,7 +1217,6 @@
       <xs:enumeration value="TUNGSTEN HAIRPIN"/>
       <xs:enumeration value="LAB6"/>
       <xs:enumeration value="FIELD EMISSION GUN"/>
-      <!-- To be deleted -->
       <xs:enumeration value="OTHER"/>
     </xs:restriction>
   </xs:simpleType>
