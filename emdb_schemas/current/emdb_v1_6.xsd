@@ -2,13 +2,12 @@
 <!-- 
      Electron Microscopy Data Bank
 
-     XML Schema for EMDB entries  version: 1.5 
+     XML Schema for EMDB entries  version: 1.6.0
 
      Revision history:
-     2009-08-24  1.5   cbest
-     2010-04-08  1.5.1 cbest
-
-     Contact: <best@ebi.ac.uk> Christoph Best, European Bioinformatics Institute.
+     2011-07-27  1.6.0 Eduardo Sanz-Garcia
+     
+     Contact: <help@emdatabank.org> for questions or suggestions.
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
 	   elementFormDefault="qualified" attributeFormDefault="unqualified">
@@ -35,17 +34,19 @@
   <xs:complexType name="adminType">
     <xs:annotation>
       <xs:documentation xml:lang="en">         
-	Information relevant for Administration purposes. Not for
+	Information relevant for administration purposes. Not for
         public release
       </xs:documentation>
     </xs:annotation>
     <xs:all>
+      <!-- Eduardo: Is this necessary>
       <xs:element name="depCode" type="xs:string" minOccurs="0"/>
       <xs:element name="depPassword" type="xs:string" minOccurs="0"/>
       <xs:element name="depEncryptedPassword" type="xs:string" minOccurs="0"/>
-      <xs:element name="creationDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="creationDate" type="xs:date" minOccurs="0"/-->
       <xs:element name="lastUpdate" type="xs:date"/>
-      <xs:element name="contact" type="contactType" minOccurs="0"/>
+      <!-- Eduardo: Is this necessary>
+      <xs:element name="contact" type="contactType" minOccurs="0"/-->
     </xs:all>
   </xs:complexType>
   <xs:complexType name="depType">
@@ -60,14 +61,16 @@
       <xs:element name="depositionDate" type="xs:date"/>
       <xs:element name="headerReleaseDate" type="xs:date"/>
       <xs:element name="mapReleaseDate" type="xs:date" minOccurs="0"/>
+      <!-- Eduardo: Is this necessary>
       <xs:element name="sfReleaseDate" type="xs:date" minOccurs="0"/>
-      <xs:element name="llReleaseDate" type="xs:date" minOccurs="0"/>
+      <xs:element name="llReleaseDate" type="xs:date" minOccurs="0"/-->
       <xs:element name="title" type="xs:string" minOccurs="0"/>
       <xs:element name="authors" type="xs:string" minOccurs="0"/>
       <xs:element name="fittedPDBEntryIdList" type="pdbidListType" minOccurs="0"/>
       <xs:element name="primaryReference" type="prRefType"/>
       <xs:element name="details" type="xs:string" minOccurs="0"/>
-      <xs:element name="masterEMDBId" type="emdbEntryIdType" minOccurs="0"/>
+      <!-- Eduardo: What is this?>
+      <xs:element name="masterEMDBId" type="emdbEntryIdType" minOccurs="0"/-->
       <xs:element name="replaceExistingEntry" type="xs:boolean" minOccurs="0"/>
     </xs:all>
   </xs:complexType>
@@ -157,7 +160,7 @@
       <xs:element name="details" type="xs:string" minOccurs="0"/>
       <xs:element name="software" type="xs:string" minOccurs="0"/>
       <xs:element name="refProtocol" type="xs:string" minOccurs="0"/>
-      <xs:element name="refSpace" type="xs:string" minOccurs="0"/>
+      <xs:element name="refSpace" type="refSpaceType" minOccurs="0"/>
       <xs:element name="pdbEntryIdList" type="pdbidList2Type" minOccurs="0"/>
       <xs:element name="overallBValue" type="xs:float" minOccurs="0"/>
     </xs:all>
@@ -262,7 +265,7 @@
   </xs:complexType>
   <xs:complexType name="vitrifType">
     <xs:all>
-      <xs:element name="cryogenName" type="xs:string"/>
+      <xs:element name="cryogenName" type="cryogenType"/>
       <xs:element name="humidity" type="xs:string" minOccurs="0"/>
       <xs:element name="temperature" type="tempType" minOccurs="0"/>
       <xs:element name="instrument" type="xs:string" minOccurs="0"/>
@@ -291,9 +294,9 @@
       <xs:element name="temperature" type="tempType" minOccurs="0"/>
       <xs:element name="temperatureMin" type="tempType" minOccurs="0"/>
       <xs:element name="temperatureMax" type="tempType" minOccurs="0"/>
-      <xs:element name="microscope" type="xs:string"/>
+      <xs:element name="microscope" type="microscopeType"/>
       <xs:element name="date" type="xs:string" minOccurs="0"/>
-      <xs:element name="specimenHolderModel" type="xs:string"/>
+      <xs:element name="specimenHolderModel" type="specimenHolderType"/>
       <xs:element name="acceleratingVoltage" type="accVoltType" minOccurs="0"/>
       <xs:element name="nominalMagnification" type="xs:float" minOccurs="0"/>
       <xs:element name="energyWindow" type="eWindowType" minOccurs="0"/>
@@ -304,7 +307,7 @@
   <xs:complexType name="imgScanType">
     <xs:all>
       <xs:element name="numDigitalImages" type="xs:positiveInteger" minOccurs="0"/>
-      <xs:element name="scanner" type="xs:string" minOccurs="0"/>
+      <xs:element name="scanner" type="scannerType" minOccurs="0"/>
       <xs:element name="samplingSize" type="samplSizeType" minOccurs="0"/>
       <xs:element name="odRange" type="xs:float" minOccurs="0"/>
       <xs:element name="quantBitNumber" type="xs:positiveInteger" minOccurs="0"/>
@@ -356,7 +359,7 @@
     <xs:all>
       <xs:element name="deltaPhi" type="anglType" minOccurs="0"/>
       <xs:element name="deltaZ" type="lengthType" minOccurs="0"/>
-      <xs:element name="hand" type="xs:string" minOccurs="0"/>
+      <xs:element name="hand" type="handType" minOccurs="0"/>
       <xs:element name="axialSymmetry" type="xs:string" minOccurs="0"/>
       <xs:element name="details" type="xs:string" minOccurs="0"/>
       <xs:element name="crystalGrowDetails" type="xs:string" minOccurs="0"/>
@@ -458,7 +461,7 @@
   <xs:complexType name="virusType">
     <xs:all>
       <xs:element name="hostSpecies" type="xs:string" minOccurs="0"/>
-      <xs:element name="hostCategory" type="xs:string"/>
+      <xs:element name="hostCategory" type="hostCategoryType"/>
       <xs:element name="class" type="virusClassType"/>
       <xs:element name="isolate" type="virusIsolType"/>
       <xs:element name="empty" type="xs:boolean"/>
@@ -618,7 +621,6 @@
   <xs:complexType name="origType">
     <xs:simpleContent>
       <xs:extension base="xs:float">
-        <xs:attribute name="units" type="xs:string" use="required" fixed="A"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
@@ -674,11 +676,18 @@
   </xs:complexType>
   <xs:complexType name="defocusType">
     <xs:simpleContent>
-      <xs:extension base="xs:string">
+      <xs:extension base="defocusAllowed">
         <xs:attribute name="units" type="xs:string" use="required" fixed="nm"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
+  <!-- Ardan's comment: negative (overfocus) and positive (underfocus) -->
+  <xs:simpleType name="defocusAllowed">
+      <xs:restriction base="xs:float">
+          <xs:minInclusive value="-20000"/>
+          <xs:maxInclusive value="20000"/>
+      </xs:restriction>
+  </xs:simpleType>
   <xs:complexType name="tiltType">
     <xs:simpleContent>
       <xs:extension base="xs:string">
@@ -729,9 +738,9 @@
   </xs:complexType>
   <xs:complexType name="spacingType">
     <xs:all>
-      <xs:element name="spacingRow" type="lengthType"/>
-      <xs:element name="spacingCol" type="lengthType"/>
-      <xs:element name="spacingSec" type="lengthType"/>
+      <xs:element name="spacingRow" type="xs:positiveInteger"/>
+      <xs:element name="spacingCol" type="xs:positiveInteger"/>
+      <xs:element name="spacingSec" type="xs:positiveInteger"/>
     </xs:all>
   </xs:complexType>
   <xs:complexType name="pixelSpacingType">
@@ -783,24 +792,34 @@
   <xs:complexType name="limType">
     <xs:simpleContent>
       <xs:extension base="xs:float">
-        <xs:attribute name="units" type="xs:string" use="required" fixed="A"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
   <xs:complexType name="cType">
     <xs:simpleContent>
-      <xs:extension base="xs:float">
+      <xs:extension base="allowedCellDim">
         <xs:attribute name="units" type="xs:string" use="required" fixed="A"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
+  <xs:simpleType name="allowedCellDim">
+    <xs:restriction base="xs:float">
+        <xs:minExclusive value="0.0"/>
+    </xs:restriction>
+  </xs:simpleType>
   <xs:complexType name="cAngleType">
     <xs:simpleContent>
-      <xs:extension base="xs:float">
+      <xs:extension base="allowedAngles">
         <xs:attribute name="units" type="xs:string" use="required" fixed="degrees"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
+  <xs:simpleType name="allowedAngles">
+    <xs:restriction base="xs:float">
+      <xs:minExclusive value="0.0"/>
+      <xs:maxExclusive value="180.0"/>
+    </xs:restriction>
+  </xs:simpleType>
   <xs:simpleType name="status">
     <xs:restriction base="xs:string">
       <xs:enumeration value="REL"/>
@@ -851,6 +870,118 @@
       <xs:enumeration value="individualStructure"/>
       <xs:enumeration value="icosahedral"/>
       <xs:enumeration value="helical"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="hostCategoryType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ARCHAEA"/>
+      <xs:enumeration value="ALGAE"/>
+      <xs:enumeration value="BACTERIA(EUBACTERIA)"/>
+      <xs:enumeration value="FUNGI"/>
+      <xs:enumeration value="INVERTEBRATES"/>
+      <xs:enumeration value="PLANTAE(HIGHER PLANTS)"/>
+      <xs:enumeration value="VERTEBRATES"/>
+      <xs:enumeration value="PROTOZOA"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="cryogenType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ETHANE"/>
+      <xs:enumeration value="METHANE"/>
+      <xs:enumeration value="NITROGEN"/>
+      <xs:enumeration value="HELIUM"/>
+      <xs:enumeration value="PROPANE"/>
+      <xs:enumeration value="FREON 12"/>
+      <xs:enumeration value="FREON 22"/>
+      <xs:enumeration value="OTHER"/>
+      <xs:enumeration value="NONE"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="microscopeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FEI MORGAGNI"/>
+      <xs:enumeration value="FEI POLARA 300"/>
+      <xs:enumeration value="FEI TECNAI 12"/>
+      <xs:enumeration value="FEI TECNAI 20"/>
+      <xs:enumeration value="FEI TECNAI F20"/>
+      <xs:enumeration value="FEI TECNAI F30"/>
+      <xs:enumeration value="FEI TECNAI SPHERA"/>
+      <xs:enumeration value="FEI TITAN KRIOS"/>
+      <xs:enumeration value="FEI/PHILIPS CM120T"/>
+      <xs:enumeration value="FEI/PHILIPS CM200FEG"/>
+      <xs:enumeration value="FEI/PHILIPS CM200FEG/SOPHIE"/>
+      <xs:enumeration value="FEI/PHILIPS CM200FEG/ST"/>
+      <xs:enumeration value="FEI/PHILIPS CM200FEG/UT"/>
+      <xs:enumeration value="FEI/PHILIPS CM200T"/>
+      <xs:enumeration value="FEI/PHILIPS CM300FEG/HE"/>
+      <xs:enumeration value="FEI/PHILIPS CM300FEG/ST"/>
+      <xs:enumeration value="FEI/PHILIPS CM300FEG/T"/>
+      <xs:enumeration value="FEI/PHILIPS EM400"/>
+      <xs:enumeration value="FEI/PHILIPS EM420"/>
+      <xs:enumeration value="HITACHI EF2000"/>
+      <xs:enumeration value="HITACHI HF2000"/>
+      <xs:enumeration value="HITACHI HF3000"/>
+      <xs:enumeration value="HITACHI H-9500SD"/>
+      <xs:enumeration value="JEOL 100CX"/>
+      <xs:enumeration value="JEOL 1010"/>
+      <xs:enumeration value="JEOL 1200"/>
+      <xs:enumeration value="JEOL 1200EX"/>
+      <xs:enumeration value="JEOL 1200EXII"/>
+      <xs:enumeration value="JEOL 1230"/>
+      <xs:enumeration value="JEOL 2000EX"/>
+      <xs:enumeration value="JEOL 2000EXII"/>
+      <xs:enumeration value="JEOL 2010F"/>
+      <xs:enumeration value="JEOL 2010HT"/>
+      <xs:enumeration value="JEOL 2010UHR"/>
+      <xs:enumeration value="JEOL 2100"/>
+      <xs:enumeration value="JEOL 2100F"/>
+      <xs:enumeration value="JEOL 2200FS"/>
+      <xs:enumeration value="JEOL 2200FSC"/>
+      <xs:enumeration value="JEOL 3000SFF"/>
+      <xs:enumeration value="JEOL KYOTO-3000SFF"/>
+      <xs:enumeration value="JEOL 3200FSC"/>
+      <xs:enumeration value="JEOL 4000EX"/>
+      <xs:enumeration value="OTHER"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="specimenHolderType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="GATAN HELIUM"/>
+      <xs:enumeration value="GATAN LIQUID NITROGEN"/>
+      <xs:enumeration value="HOME BUILD"/>
+      <xs:enumeration value="JEM3200FSC CRYOHOLDER"/>
+      <xs:enumeration value="JEOL"/>
+      <xs:enumeration value="PHILIPS ROTATION HOLDER"/>
+      <xs:enumeration value="SIDE ENTRY, EUCENTRIC"/>
+      <xs:enumeration value="OTHER"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="scannerType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="n/a"/>
+      <xs:enumeration value="EIKONIX IEEE 488"/>
+      <xs:enumeration value="EMIL 10"/>
+      <xs:enumeration value="NIKON COOLSCAN"/>
+      <xs:enumeration value="NIKON SUPER COOLSCAN 9000"/>
+      <xs:enumeration value="OPTRONICS"/>
+      <xs:enumeration value="PATCHWORK DENSITOMETER"/>
+      <xs:enumeration value="PERKIN ELMER"/>
+      <xs:enumeration value="PRIMESCAN"/>
+      <xs:enumeration value="TEMSCAN"/>
+      <xs:enumeration value="ZEISS SCAI"/>
+      <xs:enumeration value="OTHER"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="handType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="RIGHT HANDED"/>
+      <xs:enumeration value="LEFT HANDED"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="refSpaceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="REAL"/>
+      <xs:enumeration value="RECIPROCAL"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="virusClassType">
@@ -932,25 +1063,6 @@
       <xs:enumeration value="P 3 2 1"/>
       <xs:enumeration value="P 6"/>
       <xs:enumeration value="P 6 2 2"/>
-      
-      <!-- the following values deprecated and will be removed in a future version. cbest 2009-10-19 -->
-      <xs:enumeration value="P1"/>
-      <xs:enumeration value="P2"/>
-      <xs:enumeration value="P12"/>
-      <xs:enumeration value="P121"/>
-      <xs:enumeration value="C12"/>
-      <xs:enumeration value="P222"/>
-      <xs:enumeration value="P2221"/>
-      <xs:enumeration value="P22121"/>
-      <xs:enumeration value="C222"/>
-      <xs:enumeration value="P4"/>
-      <xs:enumeration value="P422"/>
-      <xs:enumeration value="P4212"/>
-      <xs:enumeration value="P3"/>
-      <xs:enumeration value="P312"/>
-      <xs:enumeration value="P321"/>
-      <xs:enumeration value="P6"/>
-      <xs:enumeration value="P622"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="imgFormatType">
