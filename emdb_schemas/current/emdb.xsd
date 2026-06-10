@@ -2,22 +2,15 @@
 <!-- 
      Electron Microscopy Data Bank
 
-     XML Schema for EMDB entries  version: 1.8.0
+     XML Schema for EMDB entries  version: 1.8.1
 
      Revision history:
-     2012-03-09  1.8.0
+     2012-09-11  1.8.1
         * Field added:
-            "FEI TITAN KRIOS AUTOGRID HOLDER" to the list of cryoholders
-            "ETHANE-PROPANE MIXTURE" as cryogen
-            "IMACON" as scanner
+            In mapDataType added "Envelope stored as signed bytes"
         * Removed fields:
         * Format change:
-            Attribute version="1.8" must be present in all header files.
-            Added controlled vocabulary for vitrification instruments (vitrInstrType)
         * Name changes:
-            <mutantFlag> has changed to <recombinantExpFlag> for all component types, except for nucleic-acid.
-            <mutantFlag> has changed to <syntheticFlag> for nucleic acid.
-            "JEM 3200FSC CRYOHOLDER" to "JEOL 3200FSC CRYOHOLDER".
      
      Contact: <help@emdatabank.org> for questions or suggestions.
 -->
@@ -1157,7 +1150,6 @@
       <xs:enumeration value="label"/>
       <xs:enumeration value="ribosome-eukaryote"/>
       <xs:enumeration value="ribosome-prokaryote"/>
-      <xs:enumeration value="ribosome-chimera"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="plGrpType">
@@ -1189,8 +1181,11 @@
   </xs:simpleType>
   <xs:simpleType name="mapDataType">
     <xs:restriction base="xs:string">
+      <!-- This list should be reduce to only 3 modes: 0 (signed bytes), 1 (signed integers), 2 (floats) -->
+      <xs:enumeration value="Envelope stored as signed bytes"/>
       <xs:enumeration value="Image stored as Reals"/>
       <xs:enumeration value="Image stored as Integer*2"/>
+      <!-- These other elements are remainders of legacy software -->
       <xs:enumeration value="signed byte"/>
       <xs:enumeration value="int"/>
       <xs:enumeration value="float (32-bit)"/>
