@@ -23,7 +23,7 @@
             </xs:element>
         </xs:sequence>
         <xs:attribute name="emdb_id" type="emdb_id_type" use="required" />
-        <xs:attribute name="version" type="xs:token" default="3.0.11.0" />
+        <xs:attribute name="version" type="xs:token" default="3.0.11.1" />
     </xs:complexType>
     <xs:complexType name="admin_type">
         <xs:sequence>
@@ -3292,7 +3292,7 @@
             <xs:element name="residue_range" minOccurs="0" maxOccurs="1">
                 <xs:simpleType>
                     <xs:restriction base="xs:token">
-                        <xs:pattern value="\d+-\d+" />
+                        <xs:pattern value="[+-]?[0-9]+-[+-]?[0-9]+" />
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
@@ -3352,7 +3352,6 @@
             </xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            
             <xs:element name="type" minOccurs="1" maxOccurs="1">
                 <xs:annotation>
                     <xs:documentation>
@@ -3489,7 +3488,6 @@
         <xs:sequence>
             <xs:element name="final_reconstruction" type="non_subtom_final_reconstruction_type" minOccurs="0" />
             <xs:element name="ctf_correction" type="ctf_correction_type" minOccurs="0" />
-            
             <xs:element name="motion_correction" type="motion_correction_type" minOccurs="0" />
             <xs:element name="segment_selection" type="segment_selection_type" minOccurs="0" maxOccurs="unbounded" />
             <xs:element name="refinement" type="refinement_type" minOccurs="0" />
@@ -3629,7 +3627,6 @@
         <xs:sequence>
             <xs:element name="particle_selection" type="particle_selection_type" minOccurs="0" maxOccurs="unbounded" />
             <xs:element name="ctf_correction" type="ctf_correction_type" minOccurs="0" />
-            
             <xs:element name="motion_correction" type="motion_correction_type" minOccurs="0" />
             <xs:element name="startup_model" type="starting_map_type" minOccurs="0" maxOccurs="unbounded" />
             <xs:element name="final_reconstruction" type="non_subtom_final_reconstruction_type" minOccurs="0" />
@@ -3705,7 +3702,6 @@
                 </xs:complexType>
             </xs:element>
             <xs:element name="ctf_correction" type="ctf_correction_type" minOccurs="0" />
-            
             <xs:element name="motion_correction" type="motion_correction_type" minOccurs="0" />
             <xs:element name="final_multi_reference_alignment" minOccurs="0">
                 <xs:complexType>
@@ -3783,7 +3779,6 @@
             <xs:element name="final_reconstruction" type="non_subtom_final_reconstruction_type" minOccurs="0" />
             <xs:element name="series_aligment_software_list" type="software_list_type" minOccurs="0" />
             <xs:element name="ctf_correction" type="ctf_correction_type" minOccurs="0" />
-            
             <xs:element name="motion_correction" type="motion_correction_type" minOccurs="0" />
             <xs:element name="crystal_parameters" type="crystal_parameters_type" minOccurs="0" />
         </xs:sequence>
@@ -4005,7 +4000,7 @@
                                     <xs:element minOccurs="0" name="residue_range">
                                         <xs:simpleType>
                                             <xs:restriction base="xs:token">
-                                                <xs:pattern value="\d+-\d+" />
+                                                <xs:pattern value="[+-]?[0-9]+-[+-]?[0-9]+" />
                                             </xs:restriction>
                                         </xs:simpleType>
                                     </xs:element>
