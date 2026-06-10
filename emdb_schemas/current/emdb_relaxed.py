@@ -2,24 +2,24 @@
 # -*- coding: utf-8 -*-
 
 #
-# Generated Wed Oct 26 15:57:08 2022 by generateDS.py version 2.29.5.
-# Python 2.7.15 | packaged by conda-forge | (default, Mar  5 2020, 14:58:04)  [GCC Clang 9.0.1 ]
+# Generated Fri Jan  6 16:15:40 2023 by generateDS.py version 2.29.5.
+# Python 2.7.18 |Anaconda, Inc.| (default, Nov 25 2022, 00:27:59)  [GCC Clang 14.0.6]
 #
 # Command line options:
 #   ('--root-element', 'emd')
 #   ('-f', '')
-#   ('-o', '/Users/amudha/IdeaProjects/emdb-schemas/emdb_schemas/v3/v3_0_2_9/emdb_relaxed.py')
+#   ('-o', 'emdb-schemas/emdb_schemas/v3/v3_0_2_10/emdb_relaxed.py')
 #   ('--no-warnings', '')
 #   ('--external-encoding', 'utf-8')
 #
 # Command line arguments:
-#   /Users/amudha/IdeaProjects/emdb-schemas/emdb_schemas/v3/v3_0_2_9/emdb_relaxed.xsd
+#   emdb-schemas/emdb_schemas/v3/v3_0_2_10/emdb_relaxed.xsd
 #
 # Command line:
-#   /Users/amudha/IdeaProjects/emdb_config/emdb_config/modified_generateDS/generateDS.py --root-element="emd" -f -o "/Users/amudha/IdeaProjects/emdb-schemas/emdb_schemas/v3/v3_0_2_9/emdb_relaxed.py" --no-warnings --external-encoding="utf-8" /Users/amudha/IdeaProjects/emdb-schemas/emdb_schemas/v3/v3_0_2_9/emdb_relaxed.xsd
+#   emdb_config/emdb_config/modified_generateDS/generateDS.py --root-element="emd" -f -o "emdb-schemas/emdb_schemas/v3/v3_0_2_10/emdb_relaxed.py" --no-warnings --external-encoding="utf-8" emdb-schemas/emdb_schemas/v3/v3_0_2_10/emdb_relaxed.xsd
 #
 # Current working directory (os.getcwd()):
-#   emdb-xml-translator
+#   EBI
 #
 
 import sys
@@ -739,7 +739,7 @@ def _cast(typ, value):
 class entry_type(GeneratedsSuper):
     subclass = None
     superclass = None
-    def __init__(self, emdb_id=None, version='3.0.2.9', admin=None, crossreferences=None, sample=None, structure_determination_list=None, map=None, interpretation=None, validation=None):
+    def __init__(self, emdb_id=None, version='3.0.2.10', admin=None, crossreferences=None, sample=None, structure_determination_list=None, map=None, interpretation=None, validation=None):
         self.original_tagname_ = None
         self.emdb_id = _cast(None, emdb_id)
         self.version = _cast(None, version)
