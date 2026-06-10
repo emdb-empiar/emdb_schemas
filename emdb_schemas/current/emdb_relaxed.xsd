@@ -24,8 +24,7 @@
             </xs:element>
         </xs:sequence>
         <xs:attribute name="emdb_id" type="emdb_id_type" use="required"/>
-        <xs:attribute name="version" type="xs:token" use="required" fixed="3.0.0.0"/>
-        <!-- <xs:attribute name="version" type="xs:token" default="3.0.0.0"/> -->
+        <xs:attribute name="version" type="xs:token" default="3.0.0.1"/>
         <!-- <xs:attribute name="composite_structure" type="xs:boolean"/> -->
     </xs:complexType>
     <xs:complexType name="admin_type">
@@ -291,11 +290,78 @@
             </xs:element>
         </xs:sequence>
     </xs:complexType>
-    <xs:simpleType name="author_type">
-        <xs:restriction base="xs:token">
-            <xs:pattern value="[A-Za-z '\-]+ [A-Z\-]+"/>
+    <xs:simpleType name="author_enums">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Accelerated Technologies Center for Gene to 3D Structure (ATCG3D)"/>
+            <xs:enumeration value="Assembly, Dynamics and Evolution of Cell-Cell and Cell-Matrix Adhesions (CELLMAT)"/>
+            <xs:enumeration value="Atoms-to-Animals: The Immune Function Network (IFN)"/>
+            <xs:enumeration value="Bacterial targets at IGS-CNRS, France (BIGS)"/>
+            <xs:enumeration value="Berkeley Structural Genomics Center (BSGC)"/>
+            <xs:enumeration value="Center for Eukaryotic Structural Genomics (CESG)"/>
+            <xs:enumeration value="Center for High-Throughput Structural Biology (CHTSB)"/>
+            <xs:enumeration value="Center for Membrane Proteins of Infectious Diseases (MPID)"/>
+            <xs:enumeration value="Center for Structural Genomics of Infectious Diseases (CSGID)"/>
+            <xs:enumeration value="Center for Structures of Membrane Proteins (CSMP)"/>
+            <xs:enumeration value="Center for the X-ray Structure Determination of Human Transporters (TransportPDB)"/>
+            <xs:enumeration value="Chaperone-Enabled Studies of Epigenetic Regulation Enzymes (CEBS)"/>
+            <xs:enumeration value="Enzyme Discovery for Natural Product Biosynthesis (NatPro)"/>
+            <xs:enumeration value="GPCR Network (GPCR)"/>
+            <xs:enumeration value="Integrated Center for Structure and Function Innovation (ISFI)"/>
+            <xs:enumeration value="Israel Structural Proteomics Center (ISPC)"/>
+            <xs:enumeration value="Joint Center for Structural Genomics (JCSG)"/>
+            <xs:enumeration value="Marseilles Structural Genomics Program @ AFMB (MSGP)"/>
+            <xs:enumeration value="Medical Structural Genomics of Pathogenic Protozoa (MSGPP)"/>
+            <xs:enumeration value="Membrane Protein Structural Biology Consortium (MPSBC)"/>
+            <xs:enumeration value="Membrane Protein Structures by Solution NMR (MPSbyNMR)"/>
+            <xs:enumeration value="Midwest Center for Macromolecular Research (MCMR)"/>
+            <xs:enumeration value="Midwest Center for Structural Genomics (MCSG)"/>
+            <xs:enumeration value="Mitochondrial Protein Partnership (MPP)"/>
+            <xs:enumeration value="Montreal-Kingston Bacterial Structural Genomics Initiative (BSGI)"/>
+            <xs:enumeration value="Mycobacterium Tuberculosis Structural Proteomics Project (XMTB)"/>
+            <xs:enumeration value="New York Consortium on Membrane Protein Structure (NYCOMPS)"/>
+            <xs:enumeration value="New York SGX Research Center for Structural Genomics (NYSGXRC)"/>
+            <xs:enumeration value="New York Structural GenomiX Research Consortium (NYSGXRC)"/>
+            <xs:enumeration value="New York Structural Genomics Research Consortium (NYSGRC)"/>
+            <xs:enumeration value="Northeast Structural Genomics Consortium (NESG)"/>
+            <xs:enumeration value="Nucleocytoplasmic Transport: a Target for Cellular Control (NPCXstals)"/>
+            <xs:enumeration value="Ontario Centre for Structural Proteomics (OCSP)"/>
+            <xs:enumeration value="Oxford Protein Production Facility (OPPF)"/>
+            <xs:enumeration value="Paris-Sud Yeast Structural Genomics (YSG)"/>
+            <xs:enumeration value="Partnership for Nuclear Receptor Signaling Code Biology (NHRs)"/>
+            <xs:enumeration value="Partnership for Stem Cell Biology (STEMCELL)"/>
+            <xs:enumeration value="Partnership for T-Cell Biology (TCELL)"/>
+            <xs:enumeration value="Program for the Characterization of Secreted Effector Proteins (PCSEP)"/>
+            <xs:enumeration value="Protein Structure Factory (PSF)"/>
+            <xs:enumeration value="RIKEN Structural Genomics/Proteomics Initiative (RSGI)"/>
+            <xs:enumeration value="Scottish Structural Proteomics Facility (SSPF)"/>
+            <xs:enumeration value="Seattle Structural Genomics Center for Infectious Disease (SSGCID)"/>
+            <xs:enumeration value="South Africa Structural Targets Annotation Database (SASTAD)"/>
+            <xs:enumeration value="Southeast Collaboratory for Structural Genomics (SECSG)"/>
+            <xs:enumeration value="Structural Genomics Consortium (SGC)"/>
+            <xs:enumeration value="Structural Genomics Consortium for Research on Gene Expression (SGCGES)"/>
+            <xs:enumeration value="Structural Genomics of Pathogenic Protozoa Consortium (SGPP)"/>
+            <xs:enumeration value="Structural Proteomics in Europe (SPINE)"/>
+            <xs:enumeration value="Structural Proteomics in Europe 2 (SPINE-2)"/>
+            <xs:enumeration value="Structure 2 Function Project (S2F)"/>
+            <xs:enumeration value="Structure, Dynamics and Activation Mechanisms of Chemokine Receptors (CHSAM)"/>
+            <xs:enumeration value="Structure-Function Analysis of Polymorphic CDI Toxin-Immunity Protein Complexes (UC4CDI)"/>
+            <xs:enumeration value="Structure-Function Studies of Tight Junction Membrane Proteins (TJMP)"/>
+            <xs:enumeration value="Structures of Mtb Proteins Conferring Susceptibility to Known Mtb Inhibitors (MTBI)"/>
+            <xs:enumeration value="TB Structural Genomics Consortium (TBSGC)"/>
+            <xs:enumeration value="Transcontinental EM Initiative for Membrane Protein Structure (TEMIMPS)"/>
+            <xs:enumeration value="Transmembrane Protein Center (TMPC)"/>
         </xs:restriction>
     </xs:simpleType>
+    <xs:simpleType name="author_type">
+        <xs:union memberTypes="author_enums">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:pattern value="[A-Za-z '\-]+(Jr\.|III)? [A-Z\-]+"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:union>
+    </xs:simpleType>
+
     <xs:complexType name="crossreferences_type">
         <xs:sequence>
             <xs:element name="citation_list">
@@ -1138,7 +1204,7 @@
                     <xs:element name="ec_number" minOccurs="0" maxOccurs="unbounded">
                         <xs:simpleType>
                             <xs:restriction base="xs:token">
-                                <xs:pattern value="\d+(\.(\d+|\-)){3}"/>
+                                <xs:pattern value="([1-6]((.[1-9][0-9]?)|(.-))((.[1-9][0-9]?)|(.-))((.[1-9][0-9]?[0-9]?)|(.-)))(([ ]*,[ ]*)([1-6]((.[1-9][0-9]?)|(.-))((.[1-9][0-9]?)|(.-))((.[1-9][0-9]?[0-9]?)|(.-))))*"/>
                             </xs:restriction>
                         </xs:simpleType>
                     </xs:element>
@@ -1485,7 +1551,7 @@
     </xs:simpleType>
     <xs:complexType name="grid_pretreatment_type">
         <xs:sequence>
-            <xs:element name="type" type="xs:token"/>
+            <xs:element name="type" type="xs:token" minOccurs="0"/>
             <xs:element name="time" minOccurs="0">
                 <xs:complexType>
                     <xs:simpleContent>
@@ -1732,7 +1798,7 @@
                                             </xs:element>
                                             <xs:element name="voltage" type="fib_voltage_type"/>
                                             <xs:element name="current" type="fib_current_type"/>
-                                            <xs:element name="dose_rate" type="fib_dose_rate_type"/>
+                                            <xs:element name="dose_rate" type="fib_dose_rate_type" minOccurs="0"/>
                                             <xs:element name="duration" type="fib_duration_type"/>
                                             <xs:element name="temperature" type="temperature_type"/>
                                             <xs:element name="initial_thickness" type="fib_initial_thickness_type"/>
@@ -1766,7 +1832,7 @@
     <xs:simpleType name="allowed_diameter_colloidal_gold">
         <xs:restriction base="xs:float">
             <xs:minInclusive value="0.1"/>
-            <xs:maxInclusive value="20"/>
+            <xs:maxInclusive value="100"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:complexType name="temperature_type">
@@ -1823,14 +1889,13 @@
     <xs:complexType name="fib_dose_rate_type">
         <xs:simpleContent>
             <xs:extension base="allowed_focus_ion_dose_rate">
-                <xs:attribute name="units" type="xs:token" default="ions/nm^2/s"/>
+                <xs:attribute name="units" type="xs:token" default="ions/(cm^2*s)"/>
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
     <xs:simpleType name="allowed_focus_ion_dose_rate">
         <xs:restriction base="xs:float">
             <xs:minExclusive value="0"/>
-            <xs:maxInclusive value="10"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:complexType name="fib_duration_type">
@@ -1906,7 +1971,7 @@
                         <xs:enumeration value="FEI/PHILIPS EM400"/>
                         <xs:enumeration value="FEI/PHILIPS EM420"/>
                         <xs:enumeration value="HITACHI EF2000"/>
-                        <xs:enumeration value="HITACHI H-95000SD"/>
+                        <xs:enumeration value="HITACHI H-9500SD"/>
                         <xs:enumeration value="HITACHI H7600"/>
                         <xs:enumeration value="HITACHI HF2000"/>
                         <xs:enumeration value="HITACHI HF3000"/>
@@ -1930,6 +1995,7 @@
                         <xs:enumeration value="JEOL 2200FS"/>
                         <xs:enumeration value="JEOL 2200FSC"/>
                         <xs:enumeration value="JEOL 3000SFF"/>
+                        <xs:enumeration value="JEOL 3100FEF"/>
                         <xs:enumeration value="JEOL 3100FFC"/>
                         <xs:enumeration value="JEOL 3200FS"/>
                         <xs:enumeration value="JEOL 3200FSC"/>
@@ -2063,6 +2129,7 @@
                         <xs:enumeration value="OTHER"/>
                         <xs:enumeration value="PHILIPS ROTATION HOLDER"/>
                         <xs:enumeration value="SIDE ENTRY, EUCENTRIC"/>
+                        <xs:enumeration value="JEOL CRYOSPECPORTER"/>
                     </xs:restriction>
                 </xs:simpleType>
             </xs:element>
@@ -2263,14 +2330,14 @@
     </xs:simpleType>
     <xs:simpleType name="allowed_c2_aperture_diameter">
         <xs:restriction base="xs:float">
-            <xs:minInclusive value="10"/>
+            <xs:minInclusive value="2"/>
             <xs:maxInclusive value="150"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="allowed_nominal_cs">
         <xs:restriction base="xs:float">
             <xs:minInclusive value="0"/>
-            <xs:maxInclusive value="10"/>
+            <xs:maxInclusive value="20"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="allowed_defocus_min">
@@ -2281,8 +2348,8 @@
     </xs:simpleType>
     <xs:simpleType name="allowed_defocus_max">
         <xs:restriction base="xs:float">
-            <xs:minInclusive value="-20"/>
-            <xs:maxInclusive value="20"/>
+            <xs:minInclusive value="-30"/>
+            <xs:maxInclusive value="30"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="allowed_magnification">
@@ -2955,8 +3022,8 @@
     </xs:complexType>
     <xs:simpleType name="allowed_tilt_angle_random_conical">
         <xs:restriction base="xs:float">
-            <xs:minInclusive value="45"/>
-            <xs:maxInclusive value="70"/>
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="180"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:simpleType name="allowed_tilt_angle1Orthogonal">
@@ -3574,7 +3641,6 @@
     <xs:simpleType name="allowed_pixel_sampling">
         <xs:restriction base="xs:float">
             <xs:minExclusive value="0"/>
-            <xs:maxExclusive value="50"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:complexType name="interpretation_type">
