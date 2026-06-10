@@ -2,15 +2,28 @@
 <!-- 
      Electron Microscopy Data Bank
 
-     XML Schema for EMDB entries  version: 1.9.4
+     XML Schema for EMDB entries  version: 1.9.5
 
      Revision history:
-     2013-05-21  1.9.4
+     2013-09-09  1.9.5
         * Removed fields:
         * Added fields:
+            FEI TECNAI 10
+            FEI TECNAI SPIRIT
+            FEI/PHILIPS CM12
+            HITACHI H7600
+            JEOL 1400
+            JEOL 2010
+            JEOL 2010HC
+            JEOL 2011
+            JEOL 3200FS
+            JEOL 3200FSC
+            JEOL 4000
+            ZEISS LEO912
+            ZEISS LIBRA120PLUS
+
         * Renamed fields:
         * Format change:
-            - allow multiple 'reconstruction' elements 
      
      Contact: <help@emdatabank.org> for questions or suggestions.
 -->
@@ -1103,12 +1116,15 @@
     <xs:restriction base="xs:string">
       <xs:enumeration value="FEI MORGAGNI"/>
       <xs:enumeration value="FEI POLARA 300"/>
+      <xs:enumeration value="FEI TECNAI 10"/>
       <xs:enumeration value="FEI TECNAI 12"/>
       <xs:enumeration value="FEI TECNAI 20"/>
       <xs:enumeration value="FEI TECNAI F20"/>
       <xs:enumeration value="FEI TECNAI F30"/>
       <xs:enumeration value="FEI TECNAI SPHERA"/>
+      <xs:enumeration value="FEI TECNAI SPIRIT"/>
       <xs:enumeration value="FEI TITAN KRIOS"/>
+      <xs:enumeration value="FEI/PHILIPS CM12"/>
       <xs:enumeration value="FEI/PHILIPS CM120T"/>
       <xs:enumeration value="FEI/PHILIPS CM200FEG"/>
       <xs:enumeration value="FEI/PHILIPS CM200FEG/SOPHIE"/>
@@ -1121,6 +1137,7 @@
       <xs:enumeration value="FEI/PHILIPS EM400"/>
       <xs:enumeration value="FEI/PHILIPS EM420"/>
       <xs:enumeration value="HITACHI EF2000"/>
+      <xs:enumeration value="HITACHI H7600"/>
       <xs:enumeration value="HITACHI HF2000"/>
       <xs:enumeration value="HITACHI HF3000"/>
       <xs:enumeration value="HITACHI H-9500SD"/>
@@ -1130,20 +1147,29 @@
       <xs:enumeration value="JEOL 1200EX"/>
       <xs:enumeration value="JEOL 1200EXII"/>
       <xs:enumeration value="JEOL 1230"/>
+      <xs:enumeration value="JEOL 1400"/>
       <xs:enumeration value="JEOL 2000EX"/>
       <xs:enumeration value="JEOL 2000EXII"/>
+      <xs:enumeration value="JEOL 2010"/>
       <xs:enumeration value="JEOL 2010F"/>
       <xs:enumeration value="JEOL 2010HT"/>
+      <xs:enumeration value="JEOL 2010HC"/>
       <xs:enumeration value="JEOL 2010UHR"/>
+      <xs:enumeration value="JEOL 2011"/>
       <xs:enumeration value="JEOL 2100"/>
       <xs:enumeration value="JEOL 2100F"/>
       <xs:enumeration value="JEOL 2200FS"/>
       <xs:enumeration value="JEOL 2200FSC"/>
       <xs:enumeration value="JEOL 3000SFF"/>
       <xs:enumeration value="JEOL 3100FFC"/>
+      <xs:enumeration value="JEOL 3200FS"/>
+      <xs:enumeration value="JEOL 3200FSC"/>
       <xs:enumeration value="JEOL KYOTO-3000SFF"/>
       <xs:enumeration value="JEOL 3200FSC"/>
+      <xs:enumeration value="JEOL 4000"/>
       <xs:enumeration value="JEOL 4000EX"/>
+      <xs:enumeration value="ZEISS LEO912"/>
+      <xs:enumeration value="ZEISS LIBRA120PLUS"/>
       <xs:enumeration value="OTHER"/>
     </xs:restriction>
   </xs:simpleType>
