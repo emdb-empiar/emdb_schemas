@@ -2,10 +2,10 @@ from setuptools import find_packages, setup
 
 setup(
     name='emdb_schemas',
-    version='1.9.6',
+    version='2.0.0',
     packages=find_packages(),
     package_dir={'emdb_schemas': 'emdb_schemas/current'},
-    package_data={'emdb_schemas': ['emdb.xsd', 'emdb_relaxed.xsd']},
+    package_data={'emdb_schemas': ['emdb_da.xsd', 'emdb_da_strict.xsd']},
     url='',
     license='',
     author='sanja',
