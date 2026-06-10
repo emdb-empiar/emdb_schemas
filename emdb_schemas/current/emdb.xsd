@@ -24,7 +24,7 @@
             </xs:element>
         </xs:sequence>
         <xs:attribute name="emdb_id" type="emdb_id_type" use="required"/>
-        <xs:attribute name="version" type="xs:token" default="3.0.1.4"/>
+        <xs:attribute name="version" type="xs:token" default="3.0.1.5"/>
         <!-- <xs:attribute name="composite_structure" type="xs:boolean"/> -->
     </xs:complexType>
     <xs:complexType name="admin_type">
@@ -220,8 +220,8 @@
     <xs:complexType name="grant_reference_type">
         <xs:sequence>
             <xs:element name="funding_body" type="xs:token"/>
-            <xs:element name="code" type="xs:token"/>
-            <xs:element name="country" type="xs:token"/>
+            <xs:element name="code" type="xs:token" minOccurs="0"/>
+            <xs:element name="country" type="xs:token" minOccurs="0"/>
         </xs:sequence>
     </xs:complexType>
     <xs:complexType name="contact_details_type">
