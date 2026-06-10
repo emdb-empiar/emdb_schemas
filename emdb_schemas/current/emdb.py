@@ -2,24 +2,24 @@
 # -*- coding: utf-8 -*-
 
 #
-# Generated Wed Jun 16 16:08:04 2021 by generateDS.py version 2.29.5.
-# Python 2.7.11 (v2.7.11:6d1b6a68f775, Dec  5 2015, 12:54:16)  [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)]
+# Generated Thu Apr 21 12:57:41 2022 by generateDS.py version 2.29.5.
+# Python 3.9.5 (default, May 18 2021, 12:31:01)  [Clang 10.0.0 ]
 #
 # Command line options:
 #   ('--root-element', 'emd')
 #   ('-f', '')
-#   ('-o', '/Users/sanja/IdeaProjects/emdb-schemas/v3/v3_0_2_6/emdb.py')
+#   ('-o', '/Users/sanja/IdeaProjects/emdb_schemas/emdb_schemas/v3/v3_0_2_7/emdb.py')
 #   ('--no-warnings', '')
 #   ('--external-encoding', 'utf-8')
 #
 # Command line arguments:
-#   /Users/sanja/IdeaProjects/emdb-schemas/v3/v3_0_2_6/emdb.xsd
+#   /Users/sanja/IdeaProjects/emdb_schemas/emdb_schemas/current/emdb.xsd
 #
 # Command line:
-#   /Users/sanja/Documents/modified_generateDS-2.29.5/generateDS.py --root-element="emd" -f -o "/Users/sanja/IdeaProjects/emdb-schemas/v3/v3_0_2_6/emdb.py" --no-warnings --external-encoding="utf-8" /Users/sanja/IdeaProjects/emdb-schemas/v3/v3_0_2_6/emdb.xsd
+#   /Users/sanja/modified_generateDS-2.29.5/generateDS.py --root-element="emd" -f -o "/Users/sanja/IdeaProjects/emdb_schemas/emdb_schemas/v3/v3_0_2_7/emdb.py" --no-warnings --external-encoding="utf-8" /Users/sanja/IdeaProjects/emdb_schemas/emdb_schemas/current/emdb.xsd
 #
 # Current working directory (os.getcwd()):
-#   sanja
+#   emdb_schemas
 #
 
 import sys
@@ -739,7 +739,7 @@ def _cast(typ, value):
 class entry_type(GeneratedsSuper):
     subclass = None
     superclass = None
-    def __init__(self, emdb_id=None, version='3.0.2.6', admin=None, crossreferences=None, sample=None, structure_determination_list=None, map=None, interpretation=None, validation=None):
+    def __init__(self, emdb_id=None, version='3.0.2.7', admin=None, crossreferences=None, sample=None, structure_determination_list=None, map=None, interpretation=None, validation=None):
         self.original_tagname_ = None
         self.emdb_id = _cast(None, emdb_id)
         self.version = _cast(None, version)
@@ -2151,6 +2151,184 @@ class telephone_number_type(GeneratedsSuper):
 # end class telephone_number_type
 
 
+class author_ORCID_type(GeneratedsSuper):
+    subclass = None
+    superclass = None
+    def __init__(self, ORCID=None, valueOf_=None, extensiontype_=None):
+        self.original_tagname_ = None
+        self.ORCID = _cast(None, ORCID)
+        self.valueOf_ = valueOf_
+        self.extensiontype_ = extensiontype_
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, author_ORCID_type)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if author_ORCID_type.subclass:
+            return author_ORCID_type.subclass(*args_, **kwargs_)
+        else:
+            return author_ORCID_type(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_ORCID(self): return self.ORCID
+    def set_ORCID(self, ORCID): self.ORCID = ORCID
+    def get_valueOf_(self): return self.valueOf_
+    def set_valueOf_(self, valueOf_): self.valueOf_ = valueOf_
+    def get_extensiontype_(self): return self.extensiontype_
+    def set_extensiontype_(self, extensiontype_): self.extensiontype_ = extensiontype_
+    def validate_ORCID_type(self, value):
+        # Validate type ORCID_type, a restriction on xs:token.
+        if value is not None and Validate_simpletypes_:
+            if not self.gds_validate_simple_patterns(
+                    self.validate_ORCID_type_patterns_, value):
+                warnings_.warn('Value "%s" does not match xsd pattern restrictions: %s' % (value.encode('utf-8'), self.validate_ORCID_type_patterns_, ))
+    validate_ORCID_type_patterns_ = [['[0-9]{4}-[0-9]{4}-[0-9]{4}-([0-9]{3}X|[0-9]{4})']]
+    def hasContent_(self):
+        if (
+            (1 if type(self.valueOf_) in [int,float] else self.valueOf_)
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespace_='', name_='author_ORCID_type', namespacedef_='', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('author_ORCID_type')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None:
+            name_ = self.original_tagname_
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self.exportAttributes(outfile, level, already_processed, namespace_, name_='author_ORCID_type')
+        if self.hasContent_():
+            outfile.write('>')
+            outfile.write(self.convert_unicode(self.valueOf_))
+            self.exportChildren(outfile, level + 1, namespace_='', name_='author_ORCID_type', pretty_print=pretty_print)
+            outfile.write('</%s%s>%s' % (namespace_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def exportAttributes(self, outfile, level, already_processed, namespace_='', name_='author_ORCID_type'):
+        if self.ORCID is not None and 'ORCID' not in already_processed:
+            already_processed.add('ORCID')
+            outfile.write(' ORCID=%s' % (quote_attrib(self.ORCID), ))
+        if self.extensiontype_ is not None and 'xsi:type' not in already_processed:
+            already_processed.add('xsi:type')
+            outfile.write(' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"')
+            outfile.write(' xsi:type="%s"' % self.extensiontype_)
+    def exportChildren(self, outfile, level, namespace_='', name_='author_ORCID_type', fromsubclass_=False, pretty_print=True):
+        pass
+    def build(self, node):
+        already_processed = set()
+        self.buildAttributes(node, node.attrib, already_processed)
+        self.valueOf_ = get_all_text_(node)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self.buildChildren(child, node, nodeName_)
+        return self
+    def buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('ORCID', node)
+        if value is not None and 'ORCID' not in already_processed:
+            already_processed.add('ORCID')
+            self.ORCID = value
+            self.ORCID = ' '.join(self.ORCID.split())
+            self.validate_ORCID_type(self.ORCID)    # validate type ORCID_type
+        value = find_attr_value_('xsi:type', node)
+        if value is not None and 'xsi:type' not in already_processed:
+            already_processed.add('xsi:type')
+            self.extensiontype_ = value
+    def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
+        pass
+# end class author_ORCID_type
+
+
+class author_order_type(author_ORCID_type):
+    subclass = None
+    superclass = author_ORCID_type
+    def __init__(self, ORCID=None, order=None, valueOf_=None):
+        self.original_tagname_ = None
+        super(author_order_type, self).__init__(ORCID, valueOf_, )
+        self.order = _cast(int, order)
+        self.valueOf_ = valueOf_
+    def factory(*args_, **kwargs_):
+        if CurrentSubclassModule_ is not None:
+            subclass = getSubclassFromModule_(
+                CurrentSubclassModule_, author_order_type)
+            if subclass is not None:
+                return subclass(*args_, **kwargs_)
+        if author_order_type.subclass:
+            return author_order_type.subclass(*args_, **kwargs_)
+        else:
+            return author_order_type(*args_, **kwargs_)
+    factory = staticmethod(factory)
+    def get_order(self): return self.order
+    def set_order(self, order): self.order = order
+    def get_valueOf_(self): return self.valueOf_
+    def set_valueOf_(self, valueOf_): self.valueOf_ = valueOf_
+    def hasContent_(self):
+        if (
+            (1 if type(self.valueOf_) in [int,float] else self.valueOf_) or
+            super(author_order_type, self).hasContent_()
+        ):
+            return True
+        else:
+            return False
+    def export(self, outfile, level, namespace_='', name_='author_order_type', namespacedef_='', pretty_print=True):
+        imported_ns_def_ = GenerateDSNamespaceDefs_.get('author_order_type')
+        if imported_ns_def_ is not None:
+            namespacedef_ = imported_ns_def_
+        if pretty_print:
+            eol_ = '\n'
+        else:
+            eol_ = ''
+        if self.original_tagname_ is not None:
+            name_ = self.original_tagname_
+        showIndent(outfile, level, pretty_print)
+        outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
+        already_processed = set()
+        self.exportAttributes(outfile, level, already_processed, namespace_, name_='author_order_type')
+        if self.hasContent_():
+            outfile.write('>')
+            outfile.write(self.convert_unicode(self.valueOf_))
+            self.exportChildren(outfile, level + 1, namespace_='', name_='author_order_type', pretty_print=pretty_print)
+            outfile.write('</%s%s>%s' % (namespace_, name_, eol_))
+        else:
+            outfile.write('/>%s' % (eol_, ))
+    def exportAttributes(self, outfile, level, already_processed, namespace_='', name_='author_order_type'):
+        super(author_order_type, self).exportAttributes(outfile, level, already_processed, namespace_, name_='author_order_type')
+        if self.order is not None and 'order' not in already_processed:
+            already_processed.add('order')
+            outfile.write(' order="%s"' % self.gds_format_integer(self.order, input_name='order'))
+    def exportChildren(self, outfile, level, namespace_='', name_='author_order_type', fromsubclass_=False, pretty_print=True):
+        super(author_order_type, self).exportChildren(outfile, level, namespace_, name_, True, pretty_print=pretty_print)
+        pass
+    def build(self, node):
+        already_processed = set()
+        self.buildAttributes(node, node.attrib, already_processed)
+        self.valueOf_ = get_all_text_(node)
+        for child in node:
+            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
+            self.buildChildren(child, node, nodeName_)
+        return self
+    def buildAttributes(self, node, attrs, already_processed):
+        value = find_attr_value_('order', node)
+        if value is not None and 'order' not in already_processed:
+            already_processed.add('order')
+            try:
+                self.order = int(value)
+            except ValueError as exp:
+                raise_parse_error(node, 'Bad integer attribute: %s' % exp)
+            if self.order <= 0:
+                raise_parse_error(node, 'Invalid PositiveInteger')
+        super(author_order_type, self).buildAttributes(node, attrs, already_processed)
+    def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
+        pass
+# end class author_order_type
+
+
 class crossreferences_type(GeneratedsSuper):
     subclass = None
     superclass = None
@@ -2399,7 +2577,7 @@ class journal_citation(GeneratedsSuper):
     def validate_yearType(self, value):
         # Validate type yearType, a restriction on xs:gYear.
         if value is not None and Validate_simpletypes_:
-            if value < 1900:
+            if value < str(1900):
                 warnings_.warn('Value "%(value)s" does not match xsd minInclusive restriction on yearType' % {"value" : value} )
     def hasContent_(self):
         if (
@@ -2590,85 +2768,6 @@ class journal_citation(GeneratedsSuper):
 # end class journal_citation
 
 
-class author_order_type(GeneratedsSuper):
-    subclass = None
-    superclass = None
-    def __init__(self, order=None, valueOf_=None):
-        self.original_tagname_ = None
-        self.order = _cast(int, order)
-        self.valueOf_ = valueOf_
-    def factory(*args_, **kwargs_):
-        if CurrentSubclassModule_ is not None:
-            subclass = getSubclassFromModule_(
-                CurrentSubclassModule_, author_order_type)
-            if subclass is not None:
-                return subclass(*args_, **kwargs_)
-        if author_order_type.subclass:
-            return author_order_type.subclass(*args_, **kwargs_)
-        else:
-            return author_order_type(*args_, **kwargs_)
-    factory = staticmethod(factory)
-    def get_order(self): return self.order
-    def set_order(self, order): self.order = order
-    def get_valueOf_(self): return self.valueOf_
-    def set_valueOf_(self, valueOf_): self.valueOf_ = valueOf_
-    def hasContent_(self):
-        if (
-            (1 if type(self.valueOf_) in [int,float] else self.valueOf_)
-        ):
-            return True
-        else:
-            return False
-    def export(self, outfile, level, namespace_='', name_='author_order_type', namespacedef_='', pretty_print=True):
-        imported_ns_def_ = GenerateDSNamespaceDefs_.get('author_order_type')
-        if imported_ns_def_ is not None:
-            namespacedef_ = imported_ns_def_
-        if pretty_print:
-            eol_ = '\n'
-        else:
-            eol_ = ''
-        if self.original_tagname_ is not None:
-            name_ = self.original_tagname_
-        showIndent(outfile, level, pretty_print)
-        outfile.write('<%s%s%s' % (namespace_, name_, namespacedef_ and ' ' + namespacedef_ or '', ))
-        already_processed = set()
-        self.exportAttributes(outfile, level, already_processed, namespace_, name_='author_order_type')
-        if self.hasContent_():
-            outfile.write('>')
-            outfile.write(self.convert_unicode(self.valueOf_))
-            self.exportChildren(outfile, level + 1, namespace_='', name_='author_order_type', pretty_print=pretty_print)
-            outfile.write('</%s%s>%s' % (namespace_, name_, eol_))
-        else:
-            outfile.write('/>%s' % (eol_, ))
-    def exportAttributes(self, outfile, level, already_processed, namespace_='', name_='author_order_type'):
-        if self.order is not None and 'order' not in already_processed:
-            already_processed.add('order')
-            outfile.write(' order="%s"' % self.gds_format_integer(self.order, input_name='order'))
-    def exportChildren(self, outfile, level, namespace_='', name_='author_order_type', fromsubclass_=False, pretty_print=True):
-        pass
-    def build(self, node):
-        already_processed = set()
-        self.buildAttributes(node, node.attrib, already_processed)
-        self.valueOf_ = get_all_text_(node)
-        for child in node:
-            nodeName_ = Tag_pattern_.match(child.tag).groups()[-1]
-            self.buildChildren(child, node, nodeName_)
-        return self
-    def buildAttributes(self, node, attrs, already_processed):
-        value = find_attr_value_('order', node)
-        if value is not None and 'order' not in already_processed:
-            already_processed.add('order')
-            try:
-                self.order = int(value)
-            except ValueError as exp:
-                raise_parse_error(node, 'Bad integer attribute: %s' % exp)
-            if self.order <= 0:
-                raise_parse_error(node, 'Invalid PositiveInteger')
-    def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
-        pass
-# end class author_order_type
-
-
 class non_journal_citation(GeneratedsSuper):
     subclass = None
     superclass = None
@@ -2758,7 +2857,7 @@ class non_journal_citation(GeneratedsSuper):
     def validate_yearType2(self, value):
         # Validate type yearType2, a restriction on xs:gYear.
         if value is not None and Validate_simpletypes_:
-            if value < 1900:
+            if value < str(1900):
                 warnings_.warn('Value "%(value)s" does not match xsd minInclusive restriction on yearType2' % {"value" : value} )
     def hasContent_(self):
         if (
@@ -17818,9 +17917,6 @@ class authors_listType(GeneratedsSuper):
     def add_author(self, value): self.author.append(value)
     def insert_author_at(self, index, value): self.author.insert(index, value)
     def replace_author_at(self, index, value): self.author[index] = value
-    def validate_author_type(self, value):
-        # Validate type author_type, a restriction on xs:token.
-        pass
     def hasContent_(self):
         if (
             self.author
@@ -17857,8 +17953,7 @@ class authors_listType(GeneratedsSuper):
         else:
             eol_ = ''
         for author_ in self.author:
-            showIndent(outfile, level, pretty_print)
-            outfile.write('<author>%s</author>%s' % (self.gds_encode(self.gds_format_string(quote_xml(author_), input_name='author')), eol_))
+            author_.export(outfile, level, namespace_, name_='author', pretty_print=pretty_print)
     def build(self, node):
         already_processed = set()
         self.buildAttributes(node, node.attrib, already_processed)
@@ -17870,15 +17965,11 @@ class authors_listType(GeneratedsSuper):
         pass
     def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
         if nodeName_ == 'author':
-            author_ = child_.text
-            if author_:
-                author_ = re_.sub(String_cleanup_pat_, " ", author_).strip()
-            else:
-                author_ = ""
-            author_ = self.gds_validate_string(author_, node, 'author')
-            self.author.append(author_)
-            # validate type author_type
-            self.validate_author_type(self.author[-1])
+            class_obj_ = self.get_class_obj_(child_, author_ORCID_type)
+            obj_ = class_obj_.factory()
+            obj_.build(child_)
+            self.author.append(obj_)
+            obj_.original_tagname_ = 'author'
 # end class authors_listType
 
 
@@ -32952,6 +33043,7 @@ __all__ = [
     "angular_samplingType40",
     "annotatorType",
     "applied_symmetry_type",
+    "author_ORCID_type",
     "author_order_type",
     "authors_listType",
     "auxiliary_link_listType",
