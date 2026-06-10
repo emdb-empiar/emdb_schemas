@@ -24,7 +24,7 @@
             </xs:element>
         </xs:sequence>
         <xs:attribute name="emdb_id" type="emdb_id_type" use="required" />
-        <xs:attribute default="3.0.2.2" name="version" type="xs:token" />
+        <xs:attribute default="3.0.2.3" name="version" type="xs:token" />
         
     </xs:complexType>
     <xs:complexType name="admin_type">
@@ -1942,7 +1942,7 @@
     </xs:simpleType>
     <xs:complexType name="fib_duration_type">
         <xs:simpleContent>
-            <xs:extension base="xs:positiveInteger">
+            <xs:extension base="xs:float">
                 <xs:attribute fixed="s" name="units" type="xs:token" />
             </xs:extension>
         </xs:simpleContent>
@@ -2018,6 +2018,7 @@
                         <xs:enumeration value="HITACHI HF2000" />
                         <xs:enumeration value="HITACHI HF3000" />
                         <xs:enumeration value="JEOL 100CX" />
+                        <xs:enumeration value="JEOL 1000EES" />
                         <xs:enumeration value="JEOL 1010" />
                         <xs:enumeration value="JEOL 1200" />
                         <xs:enumeration value="JEOL 1200EX" />
