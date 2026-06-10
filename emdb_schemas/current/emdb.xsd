@@ -1,0 +1,872 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- XML Schema for EMD entries  version: 1.4 -->
+<!-- Downloaded from ftp://ftp.ebi.ac.uk/pub/databases/emdb/doc/XML-schema/emd_v1_4.xsd-->
+<xs:schema attributeFormDefault="unqualified"
+  elementFormDefault="qualified" targetNamespace="EMDSchema"
+  xmlns="EMDSchema" xmlns:emd="EMDSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="emdEntry" type="emd:entryType"/>
+  <xs:complexType name="entryType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">         Electron Microscopy
+        Database record identified by its accession code (or unique
+        identifier)       </xs:documentation>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="admin" type="emd:adminType"/>
+      <xs:element name="deposition" type="emd:depType"/>
+      <xs:element name="map" type="emd:mapType"/>
+      <xs:element name="sample" type="emd:samplType"/>
+      <xs:element name="experiment" type="emd:expType"/>
+      <xs:element name="processing" type="emd:processType"/>
+      <xs:element minOccurs="0" name="supplement" type="emd:supplType"/>
+    </xs:all>
+    <xs:attribute name="accessCode" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="adminType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">         Information relevant for
+        Administration purposes. Not for public release       </xs:documentation>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="lastUpdate" type="xs:date"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="depType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">         Contains context
+        information relevant to the EMD entry record       </xs:documentation>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="mapReleaseDate" type="xs:date"/>
+      <xs:element minOccurs="0" name="sfReleaseDate" type="xs:date"/>
+      <xs:element minOccurs="0" name="llReleaseDate" type="xs:date"/>
+      <xs:element name="replaceExistingEntry" type="xs:boolean"/>
+      <xs:element name="primaryReference" type="emd:prRefType"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="mapType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">         Contains information on
+        the 3D-EM volume (or map)       </xs:documentation>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="file" type="emd:mapFileType"/>
+      <xs:element name="dataType" type="emd:mapDataType"/>
+      <xs:element name="dimensions" type="emd:dimensionType"/>
+      <xs:element name="spacing" type="emd:spacingType"/>
+      <xs:element name="origin" type="emd:originType"/>
+      <xs:element name="limit" type="emd:limitType"/>
+      <xs:element name="cell" type="emd:cellType"/>
+      <xs:element name="axisOrder" type="emd:axisOrderType"/>
+      <xs:element name="statistics" type="emd:statisticsType"/>
+      <xs:element name="pixelSpacing" type="emd:pixelSpacingType"/>
+      <xs:element name="details" type="xs:string"/>
+      <xs:element name="spaceGroupNumber" type="xs:string"/>
+      <xs:element name="annotationDetails" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="samplType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">         Describes the nature of
+        the biological sample studied, corresponding to the 3D-EM map       </xs:documentation>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="aggregationState" type="emd:aggrType"/>
+      <xs:element minOccurs="0" name="compDegree" type="xs:string"/>
+      <xs:element minOccurs="0" name="molWtTheo" type="emd:mwType"/>
+      <xs:element minOccurs="0" name="molWtExp" type="emd:mwType"/>
+      <xs:element minOccurs="0" name="molWtMethod" type="xs:string"/>
+      <xs:element minOccurs="0" name="details" type="xs:string"/>
+      <xs:element name="numComponents" type="xs:positiveInteger"/>
+      <xs:element name="sampleComponentList" type="emd:smplCompListType"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="expType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">         Contains information
+        relevant to the experimental techniques to obtain data       </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="vitrification" type="emd:vitrifType"/>
+      <xs:element maxOccurs="unbounded" name="imaging" type="emd:imgType"/>
+      <xs:element maxOccurs="unbounded" name="imageScans" type="emd:imgScanType"/>
+      <xs:element maxOccurs="unbounded" name="fitting" type="emd:fittingType"/>
+      <xs:element maxOccurs="unbounded" name="samplePreparation" type="emd:smplPrepType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="processType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">         Contains information on
+        the digital processing of image data       </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="reconstruction" type="emd:reconsType"/>
+      <xs:element name="emDataSet" type="emd:emDsType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="fittingType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">         Contains information on
+        the procedure to fit atomic coordinate data to an EM map       </xs:documentation>
+    </xs:annotation>
+    <xs:all>
+      <xs:element minOccurs="0" name="refProtocol" type="xs:string"/>
+      <xs:element minOccurs="0" name="targetCriteria" type="xs:string"/>
+      <xs:element minOccurs="0" name="software" type="xs:string"/>
+      <xs:element minOccurs="0" name="overallBValue" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="refSpace" type="xs:string"/>
+      <xs:element minOccurs="0" name="pdbEntryId" type="xs:string"/>
+      <xs:element minOccurs="0" name="pdbChainId" type="xs:string"/>
+      <xs:element minOccurs="0" name="details" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="supplType">
+    <xs:annotation>
+      <xs:documentation xml:lang="en"> Contains information on
+        supplemental data items and material to the 3D-EM map     </xs:documentation>
+    </xs:annotation>
+    <xs:all>
+      <xs:element minOccurs="0" name="figureSet" type="emd:figSetType"/>
+      <xs:element minOccurs="0" name="fscSet" type="emd:fscSetType"/>
+      <xs:element minOccurs="0" name="maskSet" type="emd:mskSetType"/>
+      <xs:element minOccurs="0" name="sliceSet" type="emd:slcSetType"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="smplCompListType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="sampleComponent" type="emd:smplCompType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="smplCompType">
+    <xs:sequence>
+      <xs:element name="entry" type="emd:cmpntClassType"/>
+      <xs:element name="sciName" type="xs:string"/>
+      <xs:element minOccurs="0" name="synName" type="xs:string"/>
+      <xs:element minOccurs="0" name="molWtTheo" type="emd:mwType"/>
+      <xs:element minOccurs="0" name="molWtExp" type="emd:mwType"/>
+      <xs:element minOccurs="0" name="details" type="xs:string"/>
+      <xs:choice>
+        <xs:element name="protein" type="emd:proteinType"/>
+        <xs:element name="cellular-component" type="emd:cellCompType"/>
+        <xs:element name="virus" type="emd:virusType"/>
+        <xs:element name="nucleic-acid" type="emd:nuclAcidType"/>
+        <xs:element name="ligand" type="emd:ligandType"/>
+        <xs:element name="label" type="emd:labelType"/>
+        <xs:element name="ribosome-eukaryote" type="emd:riboTypeEu"/>
+        <xs:element name="ribosome-prokaryote" type="emd:riboTypePro"/>
+        <xs:element name="ribosome-chimera" type="emd:riboTypeChi"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="componentID" type="xs:positiveInteger" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="pubType">
+    <xs:choice>
+      <xs:element name="journalArticle" type="emd:jrnlArtType"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="prRefType">
+    <xs:complexContent>
+      <xs:extension base="emd:pubType">
+        <xs:attribute name="published" type="xs:boolean" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="jrnlArtType">
+    <xs:all>
+      <xs:element minOccurs="0" name="year" type="xs:string"/>
+      <xs:element minOccurs="0" name="journal" type="xs:string"/>
+      <xs:element minOccurs="0" name="volume" type="xs:string"/>
+      <xs:element minOccurs="0" name="firstPage" type="xs:string"/>
+      <xs:element minOccurs="0" name="lastPage" type="xs:string"/>
+      <xs:element name="articleTitle" type="xs:string"/>
+      <xs:element name="authors" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="smplPrepType">
+    <xs:all>
+      <xs:element minOccurs="0" name="buffer" type="emd:bufferType"/>
+      <xs:element minOccurs="0" name="staining" type="xs:string"/>
+      <xs:element minOccurs="0" name="sampleSupportDetails" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="vitrifType">
+    <xs:sequence>
+      <xs:element name="cryogenName" type="xs:string"/>
+      <xs:element minOccurs="0" name="humidity" type="xs:string"/>
+      <xs:element minOccurs="0" name="temperature" type="emd:tempType"/>
+      <xs:element minOccurs="0" name="instrument" type="xs:string"/>
+      <xs:element minOccurs="0" name="method" type="xs:string"/>
+      <xs:element minOccurs="0" name="timeResolvedState" type="xs:string"/>
+      <xs:element minOccurs="0" name="details" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="imgType">
+    <xs:all>
+      <xs:element name="microscope" type="xs:string"/>
+      <xs:element name="specimenHolder" type="xs:string"/>
+      <xs:element name="specimenHolderModel" type="xs:string"/>
+      <xs:element minOccurs="0" name="acceleratingVoltage" type="emd:accVoltType"/>
+      <xs:element name="illuminationMode" type="emd:illumType"/>
+      <xs:element name="imagingMode" type="emd:imgModeType"/>
+      <xs:element minOccurs="0" name="nominalCs" type="emd:csType"/>
+      <xs:element minOccurs="0" name="nominalDefocusMin" type="emd:defocusType"/>
+      <xs:element minOccurs="0" name="nominalDefocusMax" type="emd:defocusType"/>
+      <xs:element minOccurs="0" name="tiltAngleMin" type="emd:tiltType"/>
+      <xs:element minOccurs="0" name="tiltAngleMax" type="emd:tiltType"/>
+      <xs:element minOccurs="0" name="nominalMagnification" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="calibratedMagnification" type="xs:decimal"/>
+      <xs:element name="electronSource" type="emd:eSourceType"/>
+      <xs:element minOccurs="0" name="electronDose" type="emd:eDoseType"/>
+      <xs:element minOccurs="0" name="energyFilter" type="xs:string"/>
+      <xs:element minOccurs="0" name="energyWindow" type="emd:eWindowType"/>
+      <xs:element minOccurs="0" name="temperature" type="emd:tempType"/>
+      <xs:element minOccurs="0" name="temperatureMin" type="emd:tempType"/>
+      <xs:element minOccurs="0" name="temperatureMax" type="emd:tempType"/>
+      <xs:element minOccurs="0" name="detector" type="xs:string"/>
+      <xs:element minOccurs="0" name="detectorDistance" type="xs:string"/>
+      <xs:element minOccurs="0" name="date" type="xs:string"/>
+      <xs:element minOccurs="0" name="electronBeamTiltParams" type="xs:string"/>
+      <xs:element minOccurs="0" name="astigmatism" type="xs:string"/>
+      <xs:element minOccurs="0" name="details" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="imgScanType">
+    <xs:all>
+      <xs:element minOccurs="0" name="numDigitalImages" type="xs:positiveInteger"/>
+      <xs:element minOccurs="0" name="scanner" type="xs:string"/>
+      <xs:element minOccurs="0" name="samplingSize" type="emd:samplSizeType"/>
+      <xs:element minOccurs="0" name="odRange" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="quantBitNumber" type="xs:positiveInteger"/>
+      <xs:element minOccurs="0" name="details" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="reconsType">
+    <xs:all>
+      <xs:element minOccurs="0" name="algorithm" type="xs:string"/>
+      <xs:element minOccurs="0" name="software" type="xs:string"/>
+      <xs:element minOccurs="0" name="ctfCorrection" type="xs:string"/>
+      <xs:element minOccurs="0" name="resolutionByAuthor" type="xs:string"/>
+      <xs:element minOccurs="0" name="resolutionMethod" type="xs:string"/>
+      <xs:element minOccurs="0" name="details" type="xs:string"/>
+      <xs:element minOccurs="0" name="eulerAnglesDetails" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="emDsType">
+    <xs:choice>
+      <xs:element maxOccurs="unbounded" name="twoDCrystal" type="emd:xtal2DType"/>
+      <xs:element maxOccurs="unbounded" name="icosahedral" type="emd:icosType"/>
+      <xs:element maxOccurs="unbounded" name="helical" type="emd:helixType"/>
+      <xs:element maxOccurs="unbounded" name="singleParticle" type="emd:singPartType"/>
+      <xs:element maxOccurs="unbounded" name="individualStructure" type="emd:tomogrType"/>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="xtal2DType">
+    <xs:all>
+      <xs:element minOccurs="0" name="aLength" type="emd:lengthType"/>
+      <xs:element minOccurs="0" name="bLength" type="emd:lengthType"/>
+      <xs:element minOccurs="0" name="cLength" type="emd:lengthType"/>
+      <xs:element minOccurs="0" name="alpha" type="emd:anglType"/>
+      <xs:element minOccurs="0" name="beta" type="emd:anglType"/>
+      <xs:element minOccurs="0" name="gamma" type="emd:anglType"/>
+      <xs:element name="planeGroup" type="emd:plGrpType"/>
+      <xs:element minOccurs="0" name="details" type="xs:string"/>
+      <xs:element minOccurs="0" name="crystalGrowDetails" type="xs:string"/>
+      <xs:element minOccurs="0" name="structureFactor" type="emd:structFactType"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="icosType">
+    <xs:all>
+      <xs:element minOccurs="0" name="numProjections" type="xs:positiveInteger"/>
+      <xs:element minOccurs="0" name="numClassAverages" type="xs:string"/>
+      <xs:element minOccurs="0" name="details" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="helixType">
+    <xs:all>
+      <xs:element minOccurs="0" name="deltaPhi" type="emd:anglType"/>
+      <xs:element minOccurs="0" name="deltaZ" type="emd:lengthType"/>
+      <xs:element minOccurs="0" name="hand" type="xs:string"/>
+      <xs:element minOccurs="0" name="axialSymmetry" type="xs:string"/>
+      <xs:element minOccurs="0" name="details" type="xs:string"/>
+      <xs:element minOccurs="0" name="crystalGrowDetails" type="xs:string"/>
+      <xs:element minOccurs="0" name="layerLines" type="emd:layerLineType"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="singPartType">
+    <xs:all>
+      <xs:element minOccurs="0" name="numProjections" type="xs:positiveInteger"/>
+      <xs:element minOccurs="0" name="numClassAverages" type="xs:positiveInteger"/>
+      <xs:element minOccurs="0" name="details" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="tomogrType">
+    <xs:all>
+      <xs:element minOccurs="0" name="tiltAngleIncrement" type="xs:string"/>
+      <xs:element minOccurs="0" name="numSections" type="xs:positiveInteger"/>
+      <xs:element minOccurs="0" name="details" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="figSetType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="figure" type="emd:figType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="fscSetType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="fsc" type="emd:fscType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="figType">
+    <xs:all>
+      <xs:element name="file" type="xs:string"/>
+      <xs:element name="details" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="fscType">
+    <xs:all>
+      <xs:element name="file" type="xs:string"/>
+      <xs:element name="details" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="mskSetType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="mask" type="emd:mskType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mskType">
+    <xs:all>
+      <xs:element name="file" type="emd:mskFileType"/>
+      <xs:element name="dataType" type="emd:mapDataType"/>
+      <xs:element name="dimensions" type="emd:dimensionType"/>
+      <xs:element name="spacing" type="emd:spacingType"/>
+      <xs:element name="origin" type="emd:originType"/>
+      <xs:element name="limit" type="emd:limitType"/>
+      <xs:element name="cell" type="emd:cellType"/>
+      <xs:element name="axisOrder" type="emd:axisOrderType"/>
+      <xs:element minOccurs="0" name="statistics" type="emd:statisticsType"/>
+      <xs:element name="pixelSpacing" type="emd:pixelSpacingType"/>
+      <xs:element name="details" type="xs:string"/>
+      <xs:element name="annotationDetails" type="xs:string"/>
+      <xs:element name="spaceGroupNumber" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="slcSetType">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="slice" type="emd:slcType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="slcType">
+    <xs:all>
+      <xs:element name="file" type="emd:slcFileType"/>
+      <xs:element name="dataType" type="emd:mapDataType"/>
+      <xs:element name="dimensions" type="emd:dimensionType"/>
+      <xs:element name="spacing" type="emd:spacingType"/>
+      <xs:element name="origin" type="emd:originType"/>
+      <xs:element name="limit" type="emd:limitType"/>
+      <xs:element name="cell" type="emd:cellType"/>
+      <xs:element name="axisOrder" type="emd:axisOrderType"/>
+      <xs:element name="statistics" type="emd:statisticsType"/>
+      <xs:element name="pixelSpacing" type="emd:pixelSpacingType"/>
+      <xs:element name="details" type="xs:string"/>
+      <xs:element name="annotationDetails" type="xs:string"/>
+      <xs:element name="spaceGroupNumber" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="layerLineType">
+    <xs:all>
+      <xs:element name="file" type="xs:string"/>
+      <xs:element name="details" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="structFactType">
+    <xs:all>
+      <xs:element name="file" type="xs:string"/>
+      <xs:element name="details" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="virusType">
+    <xs:all>
+      <xs:element minOccurs="0" name="hostSpecies" type="xs:string"/>
+      <xs:element name="hostCategory" type="xs:string"/>
+      <xs:element name="class" type="emd:virusClassType"/>
+      <xs:element name="isolate" type="emd:virusIsolType"/>
+      <xs:element name="empty" type="xs:boolean"/>
+      <xs:element name="enveloped" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="refIctvdb" type="emd:ictvIdType"/>
+      <xs:element minOccurs="0" name="nameElementOne" type="xs:string"/>
+      <xs:element minOccurs="0" name="diameterOne" type="emd:diamType"/>
+      <xs:element minOccurs="0" name="tNumberOne" type="xs:positiveInteger"/>
+      <xs:element minOccurs="0" name="nameElementTwo" type="xs:string"/>
+      <xs:element minOccurs="0" name="diameterTwo" type="emd:diamType"/>
+      <xs:element minOccurs="0" name="tNumberTwo" type="xs:positiveInteger"/>
+      <xs:element minOccurs="0" name="nameElementThree" type="xs:string"/>
+      <xs:element minOccurs="0" name="diameterThree" type="emd:diamType"/>
+      <xs:element minOccurs="0" name="tNumberThree" type="xs:positiveInteger"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="proteinType">
+    <xs:all>
+      <xs:element minOccurs="0" name="sciSpeciesName" type="xs:string"/>
+      <xs:element minOccurs="0" name="synSpeciesName" type="xs:string"/>
+      <xs:element minOccurs="0" name="oligomericDetails" type="xs:string"/>
+      <xs:element minOccurs="0" name="numCopies" type="xs:string"/>
+      <xs:element name="mutantFlag" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="refInterpro" type="emd:iprIdType"/>
+      <xs:element minOccurs="0" name="refGo" type="emd:goIdType"/>
+      <xs:element minOccurs="0" name="natSource" type="emd:natSrcType"/>
+      <xs:element minOccurs="0" name="engSource" type="emd:engSrcType"/>
+      <xs:element minOccurs="0" name="strain" type="xs:string"/>
+      <xs:element minOccurs="0" name="details" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="cellCompType">
+    <xs:all>
+      <xs:element minOccurs="0" name="sciSpeciesName" type="xs:string"/>
+      <xs:element minOccurs="0" name="synSpeciesName" type="xs:string"/>
+      <xs:element minOccurs="0" name="oligomericDetails" type="xs:string"/>
+      <xs:element minOccurs="0" name="numCopies" type="xs:string"/>
+      <xs:element name="mutantFlag" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="refInterpro" type="emd:iprIdType"/>
+      <xs:element minOccurs="0" name="refGo" type="emd:goIdType"/>
+      <xs:element minOccurs="0" name="natSource" type="emd:natSrcType"/>
+      <xs:element minOccurs="0" name="engSource" type="emd:engSrcType"/>
+      <xs:element minOccurs="0" name="strain" type="xs:string"/>
+      <xs:element minOccurs="0" name="details" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="nuclAcidType">
+    <xs:all>
+      <xs:element minOccurs="0" name="sciSpeciesName" type="xs:string"/>
+      <xs:element minOccurs="0" name="synSpeciesName" type="xs:string"/>
+      <xs:element name="mutantFlag" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="sequence" type="xs:string"/>
+      <xs:element name="class" type="emd:naClassType"/>
+      <xs:element name="structure" type="emd:naStructType"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="ligandType">
+    <xs:all>
+      <xs:element minOccurs="0" name="sciSpeciesName" type="xs:string"/>
+      <xs:element minOccurs="0" name="synSpeciesName" type="xs:string"/>
+      <xs:element minOccurs="0" name="oligomericDetails" type="xs:string"/>
+      <xs:element minOccurs="0" name="numCopies" type="xs:string"/>
+      <xs:element name="mutantFlag" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="refInterpro" type="emd:iprIdType"/>
+      <xs:element minOccurs="0" name="refGo" type="emd:goIdType"/>
+      <xs:element minOccurs="0" name="natSource" type="emd:natSrcType"/>
+      <xs:element minOccurs="0" name="engSource" type="emd:engSrcType"/>
+      <xs:element minOccurs="0" name="strain" type="xs:string"/>
+      <xs:element minOccurs="0" name="details" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="labelType">
+    <xs:all>
+      <xs:element minOccurs="0" name="formula" type="xs:string"/>
+      <xs:element minOccurs="0" name="oligomericDetails" type="xs:string"/>
+      <xs:element minOccurs="0" name="numCopies" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="riboTypeEu">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="eukaryote" type="xs:string"/>
+      <xs:element minOccurs="0" name="details" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="riboTypePro">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="prokaryote" type="xs:string"/>
+      <xs:element minOccurs="0" name="details" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="riboTypeChi">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="prokaryote" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" name="eukaryote" type="xs:string"/>
+      <xs:element minOccurs="0" name="details" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="natSrcType">
+    <xs:all>
+      <xs:element minOccurs="0" name="cell" type="xs:string"/>
+      <xs:element minOccurs="0" name="organ" type="xs:string"/>
+      <xs:element minOccurs="0" name="tissue" type="xs:string"/>
+      <xs:element minOccurs="0" name="cellLocation" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="engSrcType">
+    <xs:all>
+      <xs:element minOccurs="0" name="expSystem" type="xs:string"/>
+      <xs:element minOccurs="0" name="vector" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="bufferType">
+    <xs:all>
+      <xs:element minOccurs="0" name="ph" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="sampleConc" type="emd:samplConcType"/>
+      <xs:element minOccurs="0" name="details" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="mwType">
+    <xs:simpleContent>
+      <xs:extension base="xs:decimal">
+        <xs:attribute fixed="MDa" name="units" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="samplConcType">
+    <xs:simpleContent>
+      <xs:extension base="xs:decimal">
+        <xs:attribute fixed="mg/ml" name="units" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="tempType">
+    <xs:simpleContent>
+      <xs:extension base="xs:decimal">
+        <xs:attribute fixed="Kelvin" name="units" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="crystSizeType">
+    <xs:simpleContent>
+      <xs:extension base="xs:decimal">
+        <xs:attribute fixed="microns**2" name="units" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="lengthType">
+    <xs:simpleContent>
+      <xs:extension base="xs:decimal">
+        <xs:attribute fixed="A" name="units" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="origType">
+    <xs:simpleContent>
+      <xs:extension base="xs:decimal">
+        <xs:attribute fixed="A" name="units" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="diamType">
+    <xs:simpleContent>
+      <xs:extension base="xs:decimal">
+        <xs:attribute fixed="A" name="units" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="anglType">
+    <xs:simpleContent>
+      <xs:extension base="xs:decimal">
+        <xs:attribute fixed="degrees" name="units" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="samplSizeType">
+    <xs:simpleContent>
+      <xs:extension base="xs:decimal">
+        <xs:attribute fixed="microns" name="units" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="accVoltType">
+    <xs:simpleContent>
+      <xs:extension base="xs:decimal">
+        <xs:attribute fixed="kV" name="units" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="csType">
+    <xs:simpleContent>
+      <xs:extension base="xs:decimal">
+        <xs:attribute fixed="mm" name="units" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="eDoseType">
+    <xs:simpleContent>
+      <xs:extension base="xs:decimal">
+        <xs:attribute fixed="e/A**2" name="units" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="eWindowType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute fixed="eV" name="units" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="defocusType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute fixed="nM" name="units" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="tiltType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute fixed="degrees" name="units" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="mapFileType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute fixed="map" name="type" type="xs:string" use="required"/>
+        <xs:attribute fixed="CCP4" name="format" type="xs:string" use="required"/>
+        <xs:attribute name="sizeKb" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="mskFileType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute fixed="map" name="type" type="xs:string" use="required"/>
+        <xs:attribute fixed="CCP4" name="format" type="xs:string" use="required"/>
+        <xs:attribute name="sizeKb" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="slcFileType">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute fixed="map" name="type" type="xs:string" use="required"/>
+        <xs:attribute fixed="CCP4" name="format" type="xs:string" use="required"/>
+        <xs:attribute name="sizeKb" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="axisOrderType">
+    <xs:all>
+      <xs:element name="axisOrderFast" type="xs:string"/>
+      <xs:element name="axisOrderMedium" type="xs:string"/>
+      <xs:element name="axisOrderSlow" type="xs:string"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="dimensionType">
+    <xs:all>
+      <xs:element name="numRows" type="xs:positiveInteger"/>
+      <xs:element name="numColumns" type="xs:positiveInteger"/>
+      <xs:element name="numSections" type="xs:positiveInteger"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="spacingType">
+    <xs:all>
+      <xs:element name="spacingRow" type="emd:lengthType"/>
+      <xs:element name="spacingCol" type="emd:lengthType"/>
+      <xs:element name="spacingSec" type="emd:lengthType"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="pixelSpacingType">
+    <xs:all>
+      <xs:element name="pixelX" type="emd:pixType"/>
+      <xs:element name="pixelY" type="emd:pixType"/>
+      <xs:element name="pixelZ" type="emd:pixType"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="originType">
+    <xs:all>
+      <xs:element name="originRow" type="emd:origType"/>
+      <xs:element name="originCol" type="emd:origType"/>
+      <xs:element name="originSec" type="emd:origType"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="statisticsType">
+    <xs:all>
+      <xs:element name="minimum" type="xs:decimal"/>
+      <xs:element name="maximum" type="xs:decimal"/>
+      <xs:element name="average" type="xs:decimal"/>
+      <xs:element name="std" type="xs:decimal"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="cellType">
+    <xs:all>
+      <xs:element minOccurs="0" name="cellA" type="emd:cType"/>
+      <xs:element minOccurs="0" name="cellB" type="emd:cType"/>
+      <xs:element minOccurs="0" name="cellC" type="emd:cType"/>
+      <xs:element minOccurs="0" name="cellAlpha" type="emd:cAngleType"/>
+      <xs:element minOccurs="0" name="cellBeta" type="emd:cAngleType"/>
+      <xs:element minOccurs="0" name="cellGamma" type="emd:cAngleType"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="limitType">
+    <xs:all>
+      <xs:element name="limitRow" type="emd:limType"/>
+      <xs:element name="limitCol" type="emd:limType"/>
+      <xs:element name="limitSec" type="emd:limType"/>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="pixType">
+    <xs:simpleContent>
+      <xs:extension base="xs:decimal">
+        <xs:attribute fixed="A" name="units" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="limType">
+    <xs:simpleContent>
+      <xs:extension base="xs:decimal">
+        <xs:attribute fixed="A" name="units" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="cType">
+    <xs:simpleContent>
+      <xs:extension base="xs:decimal">
+        <xs:attribute fixed="A" name="units" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="cAngleType">
+    <xs:simpleContent>
+      <xs:extension base="xs:decimal">
+        <xs:attribute fixed="degrees" name="units" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:simpleType name="goIdType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="GO:\d{7}|n/a"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="iprIdType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="IPR:\d{6}|n/a"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ictvIdType">
+    <xs:restriction base="xs:string">
+      <!--xs:pattern value="\d{8}|n/a"/-->
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="aggrType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="twoDCrystal"/>
+      <xs:enumeration value="singleParticle"/>
+      <xs:enumeration value="individualStructure"/>
+      <xs:enumeration value="icosahedral"/>
+      <xs:enumeration value="helical"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="virusClassType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="VIRION"/>
+      <xs:enumeration value="SATELLITE"/>
+      <xs:enumeration value="PRION"/>
+      <xs:enumeration value="VIROID"/>
+      <xs:enumeration value="VIRUS-LIKE PARTICLE"/>
+      <xs:enumeration value="OTHER"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="virusIsolType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="STRAIN"/>
+      <xs:enumeration value="SEROTYPE"/>
+      <xs:enumeration value="SEROCOMPLEX"/>
+      <xs:enumeration value="SUBSPECIES"/>
+      <xs:enumeration value="SPECIES"/>
+      <xs:enumeration value="OTHER"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="naClassType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DNA"/>
+      <xs:enumeration value="DNA/RNA"/>
+      <xs:enumeration value="PEPTIDE NUCLEIC ACID"/>
+      <xs:enumeration value="PEPTIDE NUCLEIC ACID/DNA"/>
+      <xs:enumeration value="RIBOZYME"/>
+      <xs:enumeration value="RNA"/>
+      <xs:enumeration value="T-RNA"/>
+      <xs:enumeration value="OTHER"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="naStructType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SINGLE STRANDED"/>
+      <xs:enumeration value="DOUBLE HELIX"/>
+      <xs:enumeration value="TRIPLE HELIX"/>
+      <xs:enumeration value="QUADRUPLE HELIX"/>
+      <xs:enumeration value="OTHER"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="entClassType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="molecular entity"/>
+      <xs:enumeration value="polypeptide entity"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="cmpntClassType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="virus"/>
+      <xs:enumeration value="cellular-component"/>
+      <xs:enumeration value="protein"/>
+      <xs:enumeration value="nucleic-acid"/>
+      <xs:enumeration value="ligand"/>
+      <xs:enumeration value="label"/>
+      <xs:enumeration value="ribosome-eukaryote"/>
+      <xs:enumeration value="ribosome-prokaryote"/>
+      <xs:enumeration value="ribosome-chimera"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="plGrpType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="P1"/>
+      <xs:enumeration value="P21"/>
+      <xs:enumeration value="P12"/>
+      <xs:enumeration value="P121"/>
+      <xs:enumeration value="C12"/>
+      <xs:enumeration value="P222"/>
+      <xs:enumeration value="P2221"/>
+      <xs:enumeration value="P22121"/>
+      <xs:enumeration value="C222"/>
+      <xs:enumeration value="P4"/>
+      <xs:enumeration value="P422"/>
+      <xs:enumeration value="P4212"/>
+      <xs:enumeration value="P3"/>
+      <xs:enumeration value="P312"/>
+      <xs:enumeration value="P321"/>
+      <xs:enumeration value="P6"/>
+      <xs:enumeration value="P622"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="imgFormatType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="gif"/>
+      <xs:enumeration value="jpeg"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="mapDataType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="signed byte"/>
+      <xs:enumeration value="int"/>
+      <xs:enumeration value="float (32-bit)"/>
+      <xs:enumeration value="integer (16-bit)"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="illumType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OTHER"/>
+      <xs:enumeration value="FLOOD BEAM"/>
+      <xs:enumeration value="SPOT SCAN"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="imgModeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BRIGHT FIELD"/>
+      <xs:enumeration value="OTHER"/>
+      <xs:enumeration value="DARK FIELD"/>
+      <xs:enumeration value="DIFFRACTION"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="eSourceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="TUNGSTEN HAIRPIN"/>
+      <xs:enumeration value="LAB6"/>
+      <xs:enumeration value="FIELD EMISSION GUN"/>
+      <xs:enumeration value="OTHER"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
