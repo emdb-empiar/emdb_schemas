@@ -2,15 +2,15 @@
 <!-- 
      Electron Microscopy Data Bank
 
-     XML Schema for EMDB entries  version: 1.9.1
+     XML Schema for EMDB entries  version: 1.9.2
 
      Revision history:
-     2013-02-13  1.9.1
+     2013-03-15  1.9.2
         * Removed fields:
         * Added fields:
         * Renamed fields:
         * Format change:
-            - extended the list of scanner with: CREO EVERSMART SUPREME
+            - extended the list of microscopes with: JEOL 3100FFC
      
      Contact: <help@emdatabank.org> for questions or suggestions.
 -->
@@ -1131,6 +1131,7 @@
       <xs:enumeration value="JEOL 2200FS"/>
       <xs:enumeration value="JEOL 2200FSC"/>
       <xs:enumeration value="JEOL 3000SFF"/>
+      <xs:enumeration value="JEOL 3100FFC"/>
       <xs:enumeration value="JEOL KYOTO-3000SFF"/>
       <xs:enumeration value="JEOL 3200FSC"/>
       <xs:enumeration value="JEOL 4000EX"/>
