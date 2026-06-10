@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='emdb_schemas',
-    version='3.0.1.3',
+    version='3.0.1.4',
     packages=find_packages(),
     package_dir={'emdb_schemas': 'emdb_schemas/current'},
     package_data={'emdb_schemas': ['emdb.xsd', 'emdb_relaxed.xsd']},

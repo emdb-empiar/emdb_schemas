@@ -2,21 +2,21 @@
 # -*- coding: utf-8 -*-
 
 #
-# Generated Fri Nov 30 13:57:44 2018 by generateDS.py version 2.29.5.
+# Generated Thu Jan 31 16:46:56 2019 by generateDS.py version 2.29.5.
 # Python 2.7.11 (v2.7.11:6d1b6a68f775, Dec  5 2015, 12:54:16)  [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)]
 #
 # Command line options:
 #   ('--root-element', 'emd')
 #   ('-f', '')
-#   ('-o', 'emdb_30relaxed.py')
+#   ('-o', '/Users/sanja/IdeaProjects/emdb-schemas/v3/v3_0_1_4/emdb_relaxed.py')
 #   ('--no-warnings', '')
 #   ('--external-encoding', 'utf-8')
 #
 # Command line arguments:
-#   emdb30_relaxed.xsd
+#   /Users/sanja/IdeaProjects/emdb-schemas/v3/v3_0_1_4/emdb_relaxed.xsd
 #
 # Command line:
-#   /Users/sanja/Documents/modified_generateDS-2.29.5/generateDS.py --root-element="emd" -f -o "emdb_30relaxed.py" --no-warnings --external-encoding="utf-8" emdb30_relaxed.xsd
+#   /Users/sanja/Documents/modified_generateDS-2.29.5/generateDS.py --root-element="emd" -f -o "/Users/sanja/IdeaProjects/emdb-schemas/v3/v3_0_1_4/emdb_relaxed.py" --no-warnings --external-encoding="utf-8" /Users/sanja/IdeaProjects/emdb-schemas/v3/v3_0_1_4/emdb_relaxed.xsd
 #
 # Current working directory (os.getcwd()):
 #   emdb-xml-translator
@@ -725,7 +725,7 @@ def _cast(typ, value):
 class entry_type(GeneratedsSuper):
     subclass = None
     superclass = None
-    def __init__(self, emdb_id=None, version='3.0.1.3', admin=None, crossreferences=None, sample=None, structure_determination_list=None, map=None, interpretation=None, validation=None):
+    def __init__(self, emdb_id=None, version='3.0.1.4', admin=None, crossreferences=None, sample=None, structure_determination_list=None, map=None, interpretation=None, validation=None):
         self.original_tagname_ = None
         self.emdb_id = _cast(None, emdb_id)
         self.version = _cast(None, version)
@@ -32565,8 +32565,8 @@ def parseLiteral(inFileName, silence=False):
     # Enable Python to collect the space used by the DOM.
     doc = None
     if not silence:
-        sys.stdout.write('#from emdb_30relaxed import *\n\n')
-        sys.stdout.write('import emdb_30relaxed as model_\n\n')
+        sys.stdout.write('#from emdb_relaxed import *\n\n')
+        sys.stdout.write('import emdb_relaxed as model_\n\n')
         sys.stdout.write('rootObj = model_.rootClass(\n')
         rootObj.exportLiteral(sys.stdout, 0, name_=rootTag)
         sys.stdout.write(')\n')
