@@ -24,7 +24,7 @@
             </xs:element>
         </xs:sequence>
         <xs:attribute name="emdb_id" type="emdb_id_type" use="required" />
-        <xs:attribute default="3.0.3.3" name="version" type="xs:token" />
+        <xs:attribute default="3.0.4.0" name="version" type="xs:token" />
         
     </xs:complexType>
     <xs:complexType name="admin_type">
@@ -3122,7 +3122,7 @@
     </xs:complexType>
     <xs:simpleType name="pdb_code_type">
         <xs:restriction base="xs:token">
-            <xs:pattern value="\d[\dA-Za-z]{3}" />
+            <xs:pattern value="\d[\dA-Za-z]{3}|pdb_\d{5}[\dA-Za-z]{3}" />
         </xs:restriction>
     </xs:simpleType>
     <xs:complexType name="chain_type">
