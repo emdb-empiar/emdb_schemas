@@ -24,7 +24,7 @@
             </xs:element>
         </xs:sequence>
         <xs:attribute name="emdb_id" type="emdb_id_type" use="required" />
-        <xs:attribute default="3.0.1.9" name="version" type="xs:token" />
+        <xs:attribute default="3.0.1.10" name="version" type="xs:token" />
         
     </xs:complexType>
     <xs:complexType name="admin_type">
@@ -1955,7 +1955,6 @@
     <xs:simpleType name="allowed_focus_ion_final_thickness">
         <xs:restriction base="xs:float">
             <xs:minInclusive value="10" />
-            <xs:maxInclusive value="300" />
         </xs:restriction>
     </xs:simpleType>
     <xs:element abstract="true" name="microscopy" type="base_microscopy_type" />
