@@ -24,7 +24,7 @@
             </xs:element>
         </xs:sequence>
         <xs:attribute name="emdb_id" type="emdb_id_type" use="required" />
-        <xs:attribute default="3.0.2.11" name="version" type="xs:token" />
+        <xs:attribute default="3.0.3.0" name="version" type="xs:token" />
         
     </xs:complexType>
     <xs:complexType name="admin_type">
@@ -1036,9 +1036,9 @@
                                         <xs:sequence>
                                             <xs:element maxOccurs="unbounded" name="discrepancy">
                                                 <xs:simpleType>
-                                                    <xs:restriction base="xs:token">
-                                                        <xs:pattern value="[ ARNDCEQGHILKMFPSTWYVUOBZJX\(\)]\d+[ ARNDCEQGHILKMFPSTWYVUOBZJX\(\)]" />
-                                                    </xs:restriction>
+                                                  <xs:restriction base="xs:token">
+                                                  <xs:pattern value="[ ARNDCEQGHILKMFPSTWYVUOBZJX\(\)]\d+[ ARNDCEQGHILKMFPSTWYVUOBZJX\(\)]" />
+                                                  </xs:restriction>
                                                 </xs:simpleType>
                                             </xs:element>
                                         </xs:sequence>
@@ -1049,13 +1049,13 @@
                                         <xs:simpleContent>
                                             <xs:extension base="xs:token">
                                                 <xs:attribute name="type" use="required">
-                                                    <xs:simpleType>
-                                                        <xs:restriction base="xs:token">
-                                                            <xs:enumeration value="REFSEQ" />
-                                                            <xs:enumeration value="GENBANK" />
-                                                            <xs:whiteSpace value="collapse" />
-                                                        </xs:restriction>
-                                                    </xs:simpleType>
+                                                  <xs:simpleType>
+                                                  <xs:restriction base="xs:token">
+                                                  <xs:enumeration value="REFSEQ" />
+                                                  <xs:enumeration value="GENBANK" />
+                                                  <xs:whiteSpace value="collapse" />
+                                                  </xs:restriction>
+                                                  </xs:simpleType>
                                                 </xs:attribute>
                                             </xs:extension>
                                         </xs:simpleContent>
@@ -1141,9 +1141,9 @@
                                         <xs:sequence>
                                             <xs:element maxOccurs="unbounded" name="discrepancy">
                                                 <xs:simpleType>
-                                                    <xs:restriction base="xs:token">
-                                                        <xs:pattern value="[AGCTRYSWKMBDHVN\.-]\d+[AGCTRYSWKMBDHVN\.-]" />
-                                                    </xs:restriction>
+                                                  <xs:restriction base="xs:token">
+                                                  <xs:pattern value="[AGCTRYSWKMBDHVN\.-]\d+[AGCTRYSWKMBDHVN\.-]" />
+                                                  </xs:restriction>
                                                 </xs:simpleType>
                                             </xs:element>
                                         </xs:sequence>
@@ -1194,9 +1194,9 @@
                                         <xs:sequence>
                                             <xs:element maxOccurs="unbounded" name="discrepancy">
                                                 <xs:simpleType>
-                                                    <xs:restriction base="xs:token">
-                                                        <xs:pattern value="[ARNDCEQGHILKMFPSTWYVUOBZJX]\d+[ARNDCEQGHILKMFPSTWYVUOBZJX]" />
-                                                    </xs:restriction>
+                                                  <xs:restriction base="xs:token">
+                                                  <xs:pattern value="[ARNDCEQGHILKMFPSTWYVUOBZJX]\d+[ARNDCEQGHILKMFPSTWYVUOBZJX]" />
+                                                  </xs:restriction>
                                                 </xs:simpleType>
                                             </xs:element>
                                         </xs:sequence>
@@ -1207,16 +1207,16 @@
                                         <xs:sequence>
                                             <xs:element minOccurs="0" name="_n-link">
                                                 <xs:complexType>
-                                                    <xs:sequence>
-                                                        <xs:element name="molecule_id" />
-                                                    </xs:sequence>
+                                                  <xs:sequence>
+                                                  <xs:element name="molecule_id" />
+                                                  </xs:sequence>
                                                 </xs:complexType>
                                             </xs:element>
                                             <xs:element minOccurs="0" name="_c-link">
                                                 <xs:complexType>
-                                                    <xs:sequence>
-                                                        <xs:element name="molecule_id" />
-                                                    </xs:sequence>
+                                                  <xs:sequence>
+                                                  <xs:element name="molecule_id" />
+                                                  </xs:sequence>
                                                 </xs:complexType>
                                             </xs:element>
                                         </xs:sequence>
@@ -1227,15 +1227,15 @@
                                         <xs:simpleContent>
                                             <xs:extension base="xs:token">
                                                 <xs:attribute name="type" use="required">
-                                                    <xs:simpleType>
-                                                        <xs:restriction base="xs:token">
-                                                            <xs:enumeration value="UNIPROTKB" />
-                                                            <xs:enumeration value="UNIPARC" />
-                                                            <xs:enumeration value="INTERPRO" />
-                                                            <xs:enumeration value="GO" />
-                                                            <xs:enumeration value="GENBANK" />
-                                                        </xs:restriction>
-                                                    </xs:simpleType>
+                                                  <xs:simpleType>
+                                                  <xs:restriction base="xs:token">
+                                                  <xs:enumeration value="UNIPROTKB" />
+                                                  <xs:enumeration value="UNIPARC" />
+                                                  <xs:enumeration value="INTERPRO" />
+                                                  <xs:enumeration value="GO" />
+                                                  <xs:enumeration value="GENBANK" />
+                                                  </xs:restriction>
+                                                  </xs:simpleType>
                                                 </xs:attribute>
                                             </xs:extension>
                                         </xs:simpleContent>
@@ -1269,9 +1269,9 @@
                                         <xs:sequence>
                                             <xs:element maxOccurs="unbounded" name="discrepancy">
                                                 <xs:simpleType>
-                                                    <xs:restriction base="xs:token">
-                                                        <xs:pattern value="[ ARNDCEQGHILKMFPSTWYVUOBZJX\(\)]\d+[ ARNDCEQGHILKMFPSTWYVUOBZJX\(\)]" />
-                                                    </xs:restriction>
+                                                  <xs:restriction base="xs:token">
+                                                  <xs:pattern value="[ ARNDCEQGHILKMFPSTWYVUOBZJX\(\)]\d+[ ARNDCEQGHILKMFPSTWYVUOBZJX\(\)]" />
+                                                  </xs:restriction>
                                                 </xs:simpleType>
                                             </xs:element>
                                         </xs:sequence>
@@ -1282,14 +1282,14 @@
                                         <xs:simpleContent>
                                             <xs:extension base="xs:token">
                                                 <xs:attribute name="type">
-                                                    <xs:simpleType>
-                                                        <xs:restriction base="xs:token">
-                                                            <xs:enumeration value="REFSEQ" />
-                                                            <xs:enumeration value="GENBANK" />
-                                                            <xs:enumeration value="UNIPROTKB" />
-                                                            <xs:whiteSpace value="collapse" />
-                                                        </xs:restriction>
-                                                    </xs:simpleType>
+                                                  <xs:simpleType>
+                                                  <xs:restriction base="xs:token">
+                                                  <xs:enumeration value="REFSEQ" />
+                                                  <xs:enumeration value="GENBANK" />
+                                                  <xs:enumeration value="UNIPROTKB" />
+                                                  <xs:whiteSpace value="collapse" />
+                                                  </xs:restriction>
+                                                  </xs:simpleType>
                                                 </xs:attribute>
                                             </xs:extension>
                                         </xs:simpleContent>
@@ -1837,18 +1837,18 @@
                                         <xs:sequence>
                                             <xs:element name="instrument">
                                                 <xs:simpleType>
-                                                    <xs:restriction base="xs:token">
-                                                        <xs:enumeration value="DB235" />
-                                                        <xs:enumeration value="OTHER" />
-                                                    </xs:restriction>
+                                                  <xs:restriction base="xs:token">
+                                                  <xs:enumeration value="DB235" />
+                                                  <xs:enumeration value="OTHER" />
+                                                  </xs:restriction>
                                                 </xs:simpleType>
                                             </xs:element>
                                             <xs:element name="ion">
                                                 <xs:simpleType>
-                                                    <xs:restriction base="xs:token">
-                                                        <xs:enumeration value="GALLIUM+" />
-                                                        <xs:enumeration value="OTHER" />
-                                                    </xs:restriction>
+                                                  <xs:restriction base="xs:token">
+                                                  <xs:enumeration value="GALLIUM+" />
+                                                  <xs:enumeration value="OTHER" />
+                                                  </xs:restriction>
                                                 </xs:simpleType>
                                             </xs:element>
                                             <xs:element name="voltage" type="fib_voltage_type" />
@@ -2265,17 +2265,17 @@
                                         <xs:complexType>
                                             <xs:simpleContent>
                                                 <xs:extension base="allowed_film_or_detector_model">
-                                                    <xs:attribute name="category">
-                                                        <xs:simpleType>
-                                                            <xs:restriction base="xs:string">
-                                                                <xs:enumeration value="CCD" />
-                                                                <xs:enumeration value="CMOS" />
-                                                                <xs:enumeration value="DIRECT ELECTRON DETECTOR" />
-                                                                <xs:enumeration value="STORAGE PHOSPOR (IMAGE PLATES)" />
-                                                                <xs:enumeration value="FILM" />
-                                                            </xs:restriction>
-                                                        </xs:simpleType>
-                                                    </xs:attribute>
+                                                  <xs:attribute name="category">
+                                                  <xs:simpleType>
+                                                  <xs:restriction base="xs:string">
+                                                  <xs:enumeration value="CCD" />
+                                                  <xs:enumeration value="CMOS" />
+                                                  <xs:enumeration value="DIRECT ELECTRON DETECTOR" />
+                                                  <xs:enumeration value="STORAGE PHOSPOR (IMAGE PLATES)" />
+                                                  <xs:enumeration value="FILM" />
+                                                  </xs:restriction>
+                                                  </xs:simpleType>
+                                                  </xs:attribute>
                                                 </xs:extension>
                                             </xs:simpleContent>
                                         </xs:complexType>
@@ -2294,55 +2294,55 @@
                                         <xs:complexType>
                                             <xs:sequence>
                                                 <xs:element minOccurs="0" name="scanner">
-                                                    <xs:simpleType>
-                                                        <xs:restriction base="xs:token">
-                                                            <xs:enumeration value="EIKONIX IEEE 488" />
-                                                            <xs:enumeration value="EMIL 10" />
-                                                            <xs:enumeration value="IMACON" />
-                                                            <xs:enumeration value="NIKON COOLSCAN" />
-                                                            <xs:enumeration value="NIKON SUPER COOLSCAN 9000" />
-                                                            <xs:enumeration value="OPTRONICS" />
-                                                            <xs:enumeration value="OTHER" />
-                                                            <xs:enumeration value="PATCHWORK DENSITOMETER" />
-                                                            <xs:enumeration value="PERKIN ELMER" />
-                                                            <xs:enumeration value="PRIMESCAN" />
-                                                            <xs:enumeration value="TEMSCAN" />
-                                                            <xs:enumeration value="ZEISS SCAI" />
-                                                        </xs:restriction>
-                                                    </xs:simpleType>
+                                                  <xs:simpleType>
+                                                  <xs:restriction base="xs:token">
+                                                  <xs:enumeration value="EIKONIX IEEE 488" />
+                                                  <xs:enumeration value="EMIL 10" />
+                                                  <xs:enumeration value="IMACON" />
+                                                  <xs:enumeration value="NIKON COOLSCAN" />
+                                                  <xs:enumeration value="NIKON SUPER COOLSCAN 9000" />
+                                                  <xs:enumeration value="OPTRONICS" />
+                                                  <xs:enumeration value="OTHER" />
+                                                  <xs:enumeration value="PATCHWORK DENSITOMETER" />
+                                                  <xs:enumeration value="PERKIN ELMER" />
+                                                  <xs:enumeration value="PRIMESCAN" />
+                                                  <xs:enumeration value="TEMSCAN" />
+                                                  <xs:enumeration value="ZEISS SCAI" />
+                                                  </xs:restriction>
+                                                  </xs:simpleType>
                                                 </xs:element>
                                                 <xs:element minOccurs="0" name="dimensions">
-                                                    <xs:complexType>
-                                                        <xs:sequence>
-                                                            <xs:element minOccurs="0" name="width">
-                                                                <xs:complexType>
-                                                                    <xs:simpleContent>
-                                                                        <xs:extension base="xs:positiveInteger">
-                                                                            <xs:attribute fixed="pixel" name="units" type="xs:token" use="required" />
-                                                                        </xs:extension>
-                                                                    </xs:simpleContent>
-                                                                </xs:complexType>
-                                                            </xs:element>
-                                                            <xs:element minOccurs="0" name="height">
-                                                                <xs:complexType>
-                                                                    <xs:simpleContent>
-                                                                        <xs:extension base="xs:positiveInteger">
-                                                                            <xs:attribute fixed="pixel" name="units" type="xs:token" use="required" />
-                                                                        </xs:extension>
-                                                                    </xs:simpleContent>
-                                                                </xs:complexType>
-                                                            </xs:element>
-                                                        </xs:sequence>
-                                                    </xs:complexType>
+                                                  <xs:complexType>
+                                                  <xs:sequence>
+                                                  <xs:element minOccurs="0" name="width">
+                                                  <xs:complexType>
+                                                  <xs:simpleContent>
+                                                  <xs:extension base="xs:positiveInteger">
+                                                  <xs:attribute fixed="pixel" name="units" type="xs:token" use="required" />
+                                                  </xs:extension>
+                                                  </xs:simpleContent>
+                                                  </xs:complexType>
+                                                  </xs:element>
+                                                  <xs:element minOccurs="0" name="height">
+                                                  <xs:complexType>
+                                                  <xs:simpleContent>
+                                                  <xs:extension base="xs:positiveInteger">
+                                                  <xs:attribute fixed="pixel" name="units" type="xs:token" use="required" />
+                                                  </xs:extension>
+                                                  </xs:simpleContent>
+                                                  </xs:complexType>
+                                                  </xs:element>
+                                                  </xs:sequence>
+                                                  </xs:complexType>
                                                 </xs:element>
                                                 <xs:element minOccurs="0" name="sampling_interval">
-                                                    <xs:complexType>
-                                                        <xs:simpleContent>
-                                                            <xs:extension base="allowed_scaning_interval">
-                                                                <xs:attribute fixed="µm" name="units" type="xs:token" use="required" />
-                                                            </xs:extension>
-                                                        </xs:simpleContent>
-                                                    </xs:complexType>
+                                                  <xs:complexType>
+                                                  <xs:simpleContent>
+                                                  <xs:extension base="allowed_scaning_interval">
+                                                  <xs:attribute fixed="µm" name="units" type="xs:token" use="required" />
+                                                  </xs:extension>
+                                                  </xs:simpleContent>
+                                                  </xs:complexType>
                                                 </xs:element>
                                                 <xs:element minOccurs="0" name="frames_per_image" type="xs:token" />
                                             </xs:sequence>
@@ -2355,7 +2355,7 @@
                                         <xs:complexType>
                                             <xs:simpleContent>
                                                 <xs:extension base="allowed_average_exposure_time_type">
-                                                    <xs:attribute fixed="s" name="units" type="xs:token" use="required" />
+                                                  <xs:attribute fixed="s" name="units" type="xs:token" use="required" />
                                                 </xs:extension>
                                             </xs:simpleContent>
                                         </xs:complexType>
@@ -2364,7 +2364,7 @@
                                         <xs:complexType>
                                             <xs:simpleContent>
                                                 <xs:extension base="allowed_electron_dose">
-                                                    <xs:attribute fixed="e/Å^2" name="units" type="xs:token" use="required" />
+                                                  <xs:attribute fixed="e/Å^2" name="units" type="xs:token" use="required" />
                                                 </xs:extension>
                                             </xs:simpleContent>
                                         </xs:complexType>
@@ -2901,8 +2901,8 @@
                                         <xs:attribute name="units" use="required">
                                             <xs:simpleType>
                                                 <xs:restriction base="xs:token">
-                                                    <xs:enumeration value="PIXEL" />
-                                                    <xs:enumeration value="Å" />
+                                                  <xs:enumeration value="PIXEL" />
+                                                  <xs:enumeration value="Å" />
                                                 </xs:restriction>
                                             </xs:simpleType>
                                         </xs:attribute>
@@ -2917,8 +2917,8 @@
                                         <xs:attribute name="units" use="required">
                                             <xs:simpleType>
                                                 <xs:restriction base="xs:token">
-                                                    <xs:enumeration value="PIXEL" />
-                                                    <xs:enumeration value="Å" />
+                                                  <xs:enumeration value="PIXEL" />
+                                                  <xs:enumeration value="Å" />
                                                 </xs:restriction>
                                             </xs:simpleType>
                                         </xs:attribute>
@@ -2933,8 +2933,8 @@
                                         <xs:attribute name="units" use="required">
                                             <xs:simpleType>
                                                 <xs:restriction base="xs:token">
-                                                    <xs:enumeration value="PIXEL" />
-                                                    <xs:enumeration value="Å" />
+                                                  <xs:enumeration value="PIXEL" />
+                                                  <xs:enumeration value="Å" />
                                                 </xs:restriction>
                                             </xs:simpleType>
                                         </xs:attribute>
@@ -2949,8 +2949,8 @@
                                         <xs:attribute name="units" use="required">
                                             <xs:simpleType>
                                                 <xs:restriction base="xs:token">
-                                                    <xs:enumeration value="PIXEL" />
-                                                    <xs:enumeration value="Å" />
+                                                  <xs:enumeration value="PIXEL" />
+                                                  <xs:enumeration value="Å" />
                                                 </xs:restriction>
                                             </xs:simpleType>
                                         </xs:attribute>
@@ -3243,7 +3243,7 @@
                                         <xs:complexType>
                                             <xs:simpleContent>
                                                 <xs:extension base="resolution_type">
-                                                    <xs:attribute fixed="Å" name="units" type="xs:token" use="required" />
+                                                  <xs:attribute fixed="Å" name="units" type="xs:token" use="required" />
                                                 </xs:extension>
                                             </xs:simpleContent>
                                         </xs:complexType>
@@ -3252,7 +3252,7 @@
                                         <xs:complexType>
                                             <xs:simpleContent>
                                                 <xs:extension base="resolution_type">
-                                                    <xs:attribute fixed="Å" name="units" type="xs:token" use="required" />
+                                                  <xs:attribute fixed="Å" name="units" type="xs:token" use="required" />
                                                 </xs:extension>
                                             </xs:simpleContent>
                                         </xs:complexType>
@@ -3784,22 +3784,44 @@
             <xs:element maxOccurs="unbounded" minOccurs="0" name="initial_model">
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="access_code">
-                            <xs:simpleType>
-                                <xs:restriction base="pdb_code_type">
-                                    <xs:pattern value="\d[\dA-Za-z]{3}" />
-                                </xs:restriction>
-                            </xs:simpleType>
-                        </xs:element>
-                        <xs:element maxOccurs="unbounded" minOccurs="0" name="chain">
+                        <xs:element minOccurs="0" name="access_code" type="xs:token"> </xs:element>
+                        <xs:element minOccurs="0" name="chain">
                             <xs:complexType>
-                                <xs:complexContent>
-                                    <xs:extension base="chain_type">
-                                        <xs:sequence>
-                                            <xs:element minOccurs="0" name="number_of_copies_in_final_model" type="xs:positiveInteger" />
-                                        </xs:sequence>
-                                    </xs:extension>
-                                </xs:complexContent>
+                                <xs:sequence>
+                                    <xs:element minOccurs="0" name="chain_id" type="xs:token" />
+                                    <xs:element minOccurs="0" name="residue_range">
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:token">
+                                                <xs:pattern value="\d+-\d+" />
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element minOccurs="0" name="number_of_copies_in_final_model" type="xs:positiveInteger" />
+                                    <xs:element maxOccurs="1" minOccurs="0" name="source_name">
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:string">
+                                                <xs:enumeration value="PDB" />
+                                                <xs:enumeration value="AlphaFold" />
+                                                <xs:enumeration value="ITasser" />
+                                                <xs:enumeration value="ModelArchive" />
+                                                <xs:enumeration value="Modeller" />
+                                                <xs:enumeration value="RoseTTAFold" />
+                                                <xs:enumeration value="SwissModel" />
+                                                <xs:enumeration value="Other" />
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element maxOccurs="1" minOccurs="0" name="initial_model_type">
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:string">
+                                                <xs:enumeration value="experimental model" />
+                                                <xs:enumeration value="in silico model" />
+                                                <xs:enumeration value="intergrative model" />
+                                                <xs:enumeration value="other" />
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                    </xs:element>
+                                </xs:sequence>
                             </xs:complexType>
                         </xs:element>
                         <xs:element minOccurs="0" name="details" type="xs:string" />
