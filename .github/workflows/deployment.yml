@@ -1,0 +1,37 @@
+on:
+  push:
+    tags:
+      - 'v*.*.*.*'
+
+permissions: {}
+
+jobs:
+  deployment:
+    runs-on:
+      - self-hosted
+    steps:
+      - name: Pull repository
+        run: |
+          TAG_NAME="${GITHUB_REF_NAME}"
+          if [[ ! "${TAG_NAME}" =~ ^v[0-9]+(\.[0-9]+){3}$ ]]; then
+            echo "Expected a version tag like v3.0.11.3, got ${TAG_NAME}" >&2
+            exit 1
+          fi
+
+          ssh ${{ secrets.SRUN_SERVER }} "git -C ${{ secrets.DEPLOY_PATH }}/ fetch --tags --force origin && git -C ${{ secrets.DEPLOY_PATH }}/ checkout --force \"${TAG_NAME}\""
+      - name: Deploy
+        run: |
+          TAG_NAME="${GITHUB_REF_NAME}"
+          if [[ ! "${TAG_NAME}" =~ ^v[0-9]+(\.[0-9]+){3}$ ]]; then
+            echo "Expected a version tag like v3.0.11.3, got ${TAG_NAME}" >&2
+            exit 1
+          fi
+
+          MAJOR_VERSION="${TAG_NAME%%.*}"
+          VERSION_FOLDER="${TAG_NAME//./_}"
+          FTP_VERSION_PATH="${{ secrets.FTP_PATH2 }}/${MAJOR_VERSION}/${VERSION_FOLDER}"
+
+          ssh ${{ secrets.SRUN_SERVER }} "srun --job-name=deploy_emdb_prep --time=0:30:00 --mem=1g --partition=datamover --chdir=${{ secrets.DEPLOY_PATH }} bash -c 'mkdir -p \"${FTP_VERSION_PATH}\" && cp emdb_schemas/current/*.xsd \"${FTP_VERSION_PATH}/\"'"
+      - name: Send e-mail
+        run:
+          echo "The EMDB schemas repository was pulled and moved to production for ${GITHUB_REF_NAME}." | mail -s "[emdb-schema] EMDB schema has updated" pdb_em@ebi.ac.uk
