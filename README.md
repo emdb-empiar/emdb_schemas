@@ -62,4 +62,5 @@ residue_range.
 3.0.11.2: Added "NOR" to external reference enumerations in emdb_relaxed.xsd
 3.0.11.3: Added three new Shuimu Biosciences microscope models: "SHUIMU TOTEM 120S", "SHUIMU TOTEM 200S", and "SHUIMU TOTEM 300S" to microscope enumeration
 3.0.11.4: Allow any positive integer for allowed_time_glow_discharge.
+3.0.11.5: Added "NICKEL TITANIUM" to film_material enumeration list.
 ```
