@@ -1,6 +1,114 @@
 # emdb-schemas
 EMDB header file schema
 
+## Updating the schema version
+
+Use the following checklist when releasing a new schema version. Replace
+`NEW_VERSION` with the version being released, for example `3.0.11.6`.
+
+1. Start from an up-to-date master branch and check the working tree.
+
+```bash
+git pull
+git pull
+git status
+```
+
+2. Make the schema changes in both XSD files:
+
+```text
+emdb_schemas/current/emdb.xsd
+emdb_schemas/current/emdb_relaxed.xsd
+```
+
+Update the schema version in both files. The version is the default value of
+the `version` attribute on `entry_type`, near the top of each XSD:
+
+```xml
+<xs:attribute name="version" type="xs:token" default="NEW_VERSION"/>
+```
+
+In `emdb_relaxed.xsd`, keep the existing formatting style:
+
+```xml
+<xs:attribute name="version" type="xs:token" default="NEW_VERSION" />
+```
+
+3. Generate both Python models using generateDS.
+
+Activate the environment that contains generateDS, if needed:
+
+```bash
+conda activate emdb_schemas
+```
+
+Then regenerate the strict and relaxed Python models from the XSD files:
+
+```bash
+generateDS --root-element="emd" -f -o "emdb_schemas/current/emdb.py" --no-warnings --external-encoding="utf-8" emdb_schemas/current/emdb.xsd
+generateDS --root-element="emd" -f -o "emdb_schemas/current/emdb_relaxed.py" --no-warnings --external-encoding="utf-8" emdb_schemas/current/emdb_relaxed.xsd
+```
+
+4. Generate the schema documentation using Oxygen XML Editor.
+
+In Oxygen, use the XML Schema Documentation generator for
+`emdb_schemas/current/emdb.xsd` and write the output to:
+
+```text
+emdb_schemas/current/doc
+```
+
+When Oxygen asks about existing files, overwrite the old generated
+documentation. After generation, check that the documentation directory has
+changed as expected:
+
+```bash
+git status --short emdb_schemas/current/doc
+```
+
+5. Write the schema changes in this README changelog.
+
+Add a new line at the end of the changelog block using this format:
+
+```text
+NEW_VERSION: Summary of the schema changes.
+```
+
+6. Update the package version in `setup.py`.
+
+Change the `version` value to the same `NEW_VERSION`:
+
+```python
+version='NEW_VERSION',
+```
+
+Check that all version references agree:
+
+```bash
+grep -n "version='NEW_VERSION'" setup.py
+grep -n 'default="NEW_VERSION"' emdb_schemas/current/emdb.xsd
+grep -n 'default="NEW_VERSION"' emdb_schemas/current/emdb_relaxed.xsd
+grep -n "NEW_VERSION:" README.md
+```
+
+7. Commit the release changes.
+
+```bash
+git add *
+git commit -m "Update schema to vNEW_VERSION"
+```
+
+8. Create and push the git tag.
+
+Use a tag name that matches the repository's existing tag style. If tags use a
+plain version number:
+
+```bash
+git tag -a vNEW_VERSION -m "EMDB schema vNEW_VERSION"
+git push origin main
+git push origin --tags
+```
+
 ## Changelog
 
 This section contains information on changes made for each version change to the EMDB XML schema after version 3.0.0.0.
@@ -63,4 +171,5 @@ residue_range.
 3.0.11.3: Added three new Shuimu Biosciences microscope models: "SHUIMU TOTEM 120S", "SHUIMU TOTEM 200S", and "SHUIMU TOTEM 300S" to microscope enumeration
 3.0.11.4: Allow any positive integer for allowed_time_glow_discharge.
 3.0.11.5: Added "NICKEL TITANIUM" to film_material enumeration list.
+3.0.11.6: Added "JEOL JEM-F200" to microscope enumeration list.
 ```
