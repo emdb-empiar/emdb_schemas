@@ -172,4 +172,5 @@ residue_range.
 3.0.11.4: Allow any positive integer for allowed_time_glow_discharge.
 3.0.11.5: Added "NICKEL TITANIUM" to film_material enumeration list.
 3.0.11.6: Added "JEOL JEM-F200" to microscope enumeration list.
+3.0.11.7: Added "LEICA EM GP2", "CHAMELEON", "CRYOGENIUM", and "CRYOWRITER" to vitrification instrument enumeration list.
 ```

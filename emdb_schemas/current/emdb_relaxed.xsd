@@ -23,7 +23,7 @@
             </xs:element>
         </xs:sequence>
         <xs:attribute name="emdb_id" type="emdb_id_type" use="required" />
-        <xs:attribute name="version" type="xs:token" default="3.0.11.6" />
+        <xs:attribute name="version" type="xs:token" default="3.0.11.7" />
     </xs:complexType>
     <xs:complexType name="admin_type">
         <xs:sequence>
@@ -1819,7 +1819,10 @@
             <xs:element name="instrument" minOccurs="0">
                 <xs:simpleType>
                     <xs:restriction base="xs:token">
+                        <xs:enumeration value="CHAMELEON" />
+                        <xs:enumeration value="CRYOGENIUM" />
                         <xs:enumeration value="CRYOSOL VITROJET" />
+                        <xs:enumeration value="CRYOWRITER" />
                         <xs:enumeration value="EMS-002 RAPID IMMERSION FREEZER" />
                         <xs:enumeration value="FEI VITROBOT MARK I" />
                         <xs:enumeration value="FEI VITROBOT MARK II" />
@@ -1829,6 +1832,7 @@
                         <xs:enumeration value="HOMEMADE PLUNGER" />
                         <xs:enumeration value="LEICA EM CPC" />
                         <xs:enumeration value="LEICA EM GP" />
+                        <xs:enumeration value="LEICA EM GP2" />
                         <xs:enumeration value="LEICA KF80" />
                         <xs:enumeration value="LEICA PLUNGER" />
                         <xs:enumeration value="REICHERT-JUNG PLUNGER" />

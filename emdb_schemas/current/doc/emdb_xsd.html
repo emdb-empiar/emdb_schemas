@@ -4872,7 +4872,7 @@ var modelBoxes= new Array('model_emd',
                            <div id="instance_emd" style="display:block">
                               <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
                                  <tr>
-                                    <td width="100%"><pre><span class="tEl">&lt;emd</span><span class="tT"> </span><span class="tAN">emdb_id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">version=</span><span class="tAV">"3.0.11.3"</span><span class="tEl">&gt;</span><span class="tI">
+                                    <td width="100%"><pre><span class="tEl">&lt;emd</span><span class="tT"> </span><span class="tAN">emdb_id=</span><span class="tAV">""</span><span class="tT"> </span><span class="tAN">version=</span><span class="tAV">"3.0.11.7"</span><span class="tEl">&gt;</span><span class="tI">
   </span><span class="tEl">&lt;admin</span><span class="tT"> </span><span class="tAN">composite_map=</span><span class="tAV">""</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/admin&gt;</span><span class="tI">
   </span><span class="tEl">&lt;crossreferences</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/crossreferences&gt;</span><span class="tI">
   </span><span class="tEl">&lt;sample</span><span class="tEl">&gt;</span><span class="tT" style="white-space:normal">{1,1}</span><span class="tEl">&lt;/sample&gt;</span><span class="tI">
@@ -4915,7 +4915,7 @@ var modelBoxes= new Array('model_emd',
                                  <tr>
                                     <td class="firstColumn"><b><a href="emdb_xsd.html#entry_type_version" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">version</a></b></td>
                                     <td><b>xs:token</b></td>
-                                    <td>3.0.11.3</td>
+                                    <td>3.0.11.7</td>
                                     <td>optional</td>
                                     <td>
                                        <div class="annotation"></div>
@@ -23286,7 +23286,28 @@ var modelBoxes= new Array('model_emd',
                               <table class="facetsTable">
                                  <tr>
                                     <td class="firstColumn">enumeration</td>
+                                    <td width="30%"><b>CHAMELEON</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td width="30%"><b>CRYOGENIUM</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
                                     <td width="30%"><b>CRYOSOL VITROJET</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
+                                    <td width="30%"><b>CRYOWRITER</b></td>
                                     <td>
                                        <div class="annotation"></div>
                                     </td>
@@ -23356,6 +23377,13 @@ var modelBoxes= new Array('model_emd',
                                  </tr>
                                  <tr>
                                     <td class="firstColumn">enumeration</td>
+                                    <td width="30%"><b>LEICA EM GP2</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
                                     <td width="30%"><b>LEICA KF80</b></td>
                                     <td>
                                        <div class="annotation"></div>
@@ -23419,7 +23447,10 @@ var modelBoxes= new Array('model_emd',
                                     <td width="100%"><pre><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"instrument"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
   </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
     </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:token"</span><span class="tEl">&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"CHAMELEON"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"CRYOGENIUM"</span><span class="tEl">/&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"CRYOSOL VITROJET"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"CRYOWRITER"</span><span class="tEl">/&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"EMS-002 RAPID IMMERSION FREEZER"</span><span class="tEl">/&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"FEI VITROBOT MARK I"</span><span class="tEl">/&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"FEI VITROBOT MARK II"</span><span class="tEl">/&gt;</span><span class="tI">
@@ -23429,6 +23460,7 @@ var modelBoxes= new Array('model_emd',
       </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"HOMEMADE PLUNGER"</span><span class="tEl">/&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"LEICA EM CPC"</span><span class="tEl">/&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"LEICA EM GP"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"LEICA EM GP2"</span><span class="tEl">/&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"LEICA KF80"</span><span class="tEl">/&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"LEICA PLUNGER"</span><span class="tEl">/&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"REICHERT-JUNG PLUNGER"</span><span class="tEl">/&gt;</span><span class="tI">
@@ -24737,6 +24769,13 @@ var modelBoxes= new Array('model_emd',
                                  </tr>
                                  <tr>
                                     <td class="firstColumn">enumeration</td>
+                                    <td width="30%"><b>JEOL JEM-F200</b></td>
+                                    <td>
+                                       <div class="annotation"></div>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                    <td class="firstColumn">enumeration</td>
                                     <td width="30%"><b>JEOL KYOTO-3000SFF</b></td>
                                     <td>
                                        <div class="annotation"></div>
@@ -24904,6 +24943,7 @@ var modelBoxes= new Array('model_emd',
       </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"JEOL 4000EX"</span><span class="tEl">/&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"JEOL CRYO ARM 200"</span><span class="tEl">/&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"JEOL CRYO ARM 300"</span><span class="tEl">/&gt;</span><span class="tI">
+      </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"JEOL JEM-F200"</span><span class="tEl">/&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"JEOL KYOTO-3000SFF"</span><span class="tEl">/&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"TFS GLACIOS"</span><span class="tEl">/&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"TFS KRIOS"</span><span class="tEl">/&gt;</span><span class="tI">
@@ -89155,7 +89195,7 @@ var modelBoxes= new Array('model_emd',
                                  <tr>
                                     <td class="firstColumn"><b><a href="emdb_xsd.html#entry_type_version" target="mainFrame" title="No namespace" onclick="updatePageTitle('Schema documentation for emdb.xsd')">version</a></b></td>
                                     <td><b>xs:token</b></td>
-                                    <td>3.0.11.3</td>
+                                    <td>3.0.11.7</td>
                                     <td>optional</td>
                                     <td>
                                        <div class="annotation"></div>
@@ -89197,7 +89237,7 @@ var modelBoxes= new Array('model_emd',
     </span><span class="tEl">&lt;/xs:element&gt;</span><span class="tI">
   </span><span class="tEl">&lt;/xs:sequence&gt;</span><span class="tI">
   </span><span class="tEl">&lt;xs:attribute</span><span class="tAN"> name=</span><span class="tAV">"emdb_id"</span><span class="tAN"> type=</span><span class="tAV">"emdb_id_type"</span><span class="tAN"> use=</span><span class="tAV">"required"</span><span class="tEl">/&gt;</span><span class="tI">
-  </span><span class="tEl">&lt;xs:attribute</span><span class="tAN"> name=</span><span class="tAV">"version"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tAN"> default=</span><span class="tAV">"3.0.11.3"</span><span class="tEl">/&gt;</span><span class="tI">
+  </span><span class="tEl">&lt;xs:attribute</span><span class="tAN"> name=</span><span class="tAV">"version"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tAN"> default=</span><span class="tAV">"3.0.11.7"</span><span class="tEl">/&gt;</span><span class="tI">
 </span><span class="tEl">&lt;/xs:complexType&gt;</span></pre></td>
                                  </tr>
                               </table>
@@ -95137,7 +95177,10 @@ var modelBoxes= new Array('model_emd',
     </span><span class="tEl">&lt;xs:element</span><span class="tAN"> name=</span><span class="tAV">"instrument"</span><span class="tAN"> minOccurs=</span><span class="tAV">"0"</span><span class="tEl">&gt;</span><span class="tI">
       </span><span class="tEl">&lt;xs:simpleType</span><span class="tEl">&gt;</span><span class="tI">
         </span><span class="tEl">&lt;xs:restriction</span><span class="tAN"> base=</span><span class="tAV">"xs:token"</span><span class="tEl">&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"CHAMELEON"</span><span class="tEl">/&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"CRYOGENIUM"</span><span class="tEl">/&gt;</span><span class="tI">
           </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"CRYOSOL VITROJET"</span><span class="tEl">/&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"CRYOWRITER"</span><span class="tEl">/&gt;</span><span class="tI">
           </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"EMS-002 RAPID IMMERSION FREEZER"</span><span class="tEl">/&gt;</span><span class="tI">
           </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"FEI VITROBOT MARK I"</span><span class="tEl">/&gt;</span><span class="tI">
           </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"FEI VITROBOT MARK II"</span><span class="tEl">/&gt;</span><span class="tI">
@@ -95147,6 +95190,7 @@ var modelBoxes= new Array('model_emd',
           </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"HOMEMADE PLUNGER"</span><span class="tEl">/&gt;</span><span class="tI">
           </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"LEICA EM CPC"</span><span class="tEl">/&gt;</span><span class="tI">
           </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"LEICA EM GP"</span><span class="tEl">/&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"LEICA EM GP2"</span><span class="tEl">/&gt;</span><span class="tI">
           </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"LEICA KF80"</span><span class="tEl">/&gt;</span><span class="tI">
           </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"LEICA PLUNGER"</span><span class="tEl">/&gt;</span><span class="tI">
           </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"REICHERT-JUNG PLUNGER"</span><span class="tEl">/&gt;</span><span class="tI">
@@ -95547,6 +95591,7 @@ var modelBoxes= new Array('model_emd',
           </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"JEOL 4000EX"</span><span class="tEl">/&gt;</span><span class="tI">
           </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"JEOL CRYO ARM 200"</span><span class="tEl">/&gt;</span><span class="tI">
           </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"JEOL CRYO ARM 300"</span><span class="tEl">/&gt;</span><span class="tI">
+          </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"JEOL JEM-F200"</span><span class="tEl">/&gt;</span><span class="tI">
           </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"JEOL KYOTO-3000SFF"</span><span class="tEl">/&gt;</span><span class="tI">
           </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"TFS GLACIOS"</span><span class="tEl">/&gt;</span><span class="tI">
           </span><span class="tEl">&lt;xs:enumeration</span><span class="tAN"> value=</span><span class="tAV">"TFS KRIOS"</span><span class="tEl">/&gt;</span><span class="tI">
@@ -118884,7 +118929,7 @@ var modelBoxes= new Array('model_emd',
                               <table class="propertiesTable">
                                  <tr>
                                     <td class="firstColumn" style="white-space: nowrap;">default</td>
-                                    <td><b>3.0.11.3</b></td>
+                                    <td><b>3.0.11.7</b></td>
                                  </tr>
                               </table>
                            </div>
@@ -118915,7 +118960,7 @@ var modelBoxes= new Array('model_emd',
                            <div id="source_entry_type_version" style="display:block">
                               <table style="table-layout:fixed;white-space:pre-wrap;white-space:-moz-pre-wrap;white-space:-pre-wrap;white-space: -o-pre-wrap;word-wrap: break-word;_white-space:pre;" class="preWrapContainer">
                                  <tr>
-                                    <td width="100%"><pre><span class="tEl">&lt;xs:attribute</span><span class="tAN"> name=</span><span class="tAV">"version"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tAN"> default=</span><span class="tAV">"3.0.11.3"</span><span class="tEl">/&gt;</span></pre></td>
+                                    <td width="100%"><pre><span class="tEl">&lt;xs:attribute</span><span class="tAN"> name=</span><span class="tAV">"version"</span><span class="tAN"> type=</span><span class="tAV">"xs:token"</span><span class="tAN"> default=</span><span class="tAV">"3.0.11.7"</span><span class="tEl">/&gt;</span></pre></td>
                                  </tr>
                               </table>
                            </div>
