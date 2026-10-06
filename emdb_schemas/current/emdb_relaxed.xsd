@@ -23,7 +23,7 @@
             </xs:element>
         </xs:sequence>
         <xs:attribute name="emdb_id" type="emdb_id_type" use="required" />
-        <xs:attribute name="version" type="xs:token" default="3.0.11.8" />
+        <xs:attribute name="version" type="xs:token" default="3.0.11.9" />
     </xs:complexType>
     <xs:complexType name="admin_type">
         <xs:sequence>
@@ -859,7 +859,7 @@
     </xs:complexType>
     <xs:complexType name="base_source_type">
         <xs:sequence>
-            <xs:element name="organism" type="organism_type" />
+            <xs:element name="organism" type="organism_type" minOccurs="0"/>
             <xs:element name="strain" type="xs:token" minOccurs="0" />
             <xs:element name="synonym_organism" type="xs:token" minOccurs="0" />
             <xs:element name="details" type="xs:string" minOccurs="0" />
@@ -1314,7 +1314,7 @@
                             </xs:restriction>
                         </xs:simpleType>
                     </xs:element>
-                    <xs:element name="sequence">
+                    <xs:element name="sequence" minOccurs="0">
                         <xs:complexType>
                             <xs:sequence>
                                 <xs:element name="string" type="xs:token" minOccurs="0" />
@@ -2449,7 +2449,7 @@
                                                   <xs:enumeration value="NIKON SUPER COOLSCAN 9000" />
                                                   <xs:enumeration value="OPTRONICS" />
                                                   <xs:enumeration value="OTHER" />
-                                                  <xs:enumeration value="PATCHWORK DENSITOMETER" />
+                                                  <xs:enumeration value="IMAGE SCIENCE PATCHWORK DENSITOMETER" />
                                                   <xs:enumeration value="PERKIN ELMER" />
                                                   <xs:enumeration value="PRIMESCAN" />
                                                   <xs:enumeration value="TEMSCAN" />

@@ -173,4 +173,5 @@ residue_range.
 3.0.11.6: Added "JEOL JEM-F200" to microscope enumeration list.
 3.0.11.7: Added "LEICA EM GP2", "CHAMELEON", "CRYOGENIUM", and "CRYOWRITER" to vitrification instrument enumeration list.
 3.0.11.8: Added "ModelAngelo" to initial model source enumeration list.
+3.0.11.9: Changed sequence to optional and updated scanner name from "PATCHWORK DENSITOMETER" to "IMAGE SCIENCE PATCHWORK DENSITOMETER" to match the mmcif dictionary enumeration list
 ```
