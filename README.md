@@ -3,8 +3,15 @@ EMDB header file schema
 
 ## Updating the schema version
 
-Use the following checklist when releasing a new schema version. Replace
-`NEW_VERSION` with the version being released, for example `3.0.11.6`.
+Use the following checklist when releasing a new schema version. Set the
+version once before running the release commands, for example:
+
+```bash
+export new_version="3.0.11.6"
+```
+
+In the manual edits below, `${new_version}` means the value of that shell
+variable; write the expanded version number, not the literal `${new_version}`.
 
 1. Start from an up-to-date master branch and check the working tree.
 
@@ -24,13 +31,13 @@ Update the schema version in both files. The version is the default value of
 the `version` attribute on `entry_type`, near the top of each XSD:
 
 ```xml
-<xs:attribute name="version" type="xs:token" default="NEW_VERSION"/>
+<xs:attribute name="version" type="xs:token" default="${new_version}"/>
 ```
 
 In `emdb_relaxed.xsd`, keep the existing formatting style:
 
 ```xml
-<xs:attribute name="version" type="xs:token" default="NEW_VERSION" />
+<xs:attribute name="version" type="xs:token" default="${new_version}" />
 ```
 
 3. Generate both Python models using generateDS.
@@ -70,31 +77,31 @@ git status --short emdb_schemas/current/doc
 Add a new line at the end of the changelog block using this format:
 
 ```text
-NEW_VERSION: Summary of the schema changes.
+${new_version}: Summary of the schema changes.
 ```
 
 6. Update the package version in `setup.py`.
 
-Change the `version` value to the same `NEW_VERSION`:
+Change the `version` value to the value of `new_version`:
 
 ```python
-version='NEW_VERSION',
+version='${new_version}',
 ```
 
 Check that all version references agree:
 
 ```bash
-grep -n "version='NEW_VERSION'" setup.py
-grep -n 'default="NEW_VERSION"' emdb_schemas/current/emdb.xsd
-grep -n 'default="NEW_VERSION"' emdb_schemas/current/emdb_relaxed.xsd
-grep -n "NEW_VERSION:" README.md
+grep -n "version='${new_version}'" setup.py
+grep -n "default=\"${new_version}\"" emdb_schemas/current/emdb.xsd
+grep -n "default=\"${new_version}\"" emdb_schemas/current/emdb_relaxed.xsd
+grep -n "${new_version}:" README.md
 ```
 
 7. Commit the release changes.
 
 ```bash
 git add *
-git commit -m "Update schema to vNEW_VERSION"
+git commit -m "Update schema to v${new_version}"
 ```
 
 8. Create and push the git tag.
@@ -103,7 +110,7 @@ Use a tag name that matches the repository's existing tag style. If tags use a
 plain version number:
 
 ```bash
-git tag -a vNEW_VERSION -m "EMDB schema vNEW_VERSION"
+git tag -a "v${new_version}" -m "EMDB schema v${new_version}"
 git push origin main
 git push origin --tags
 ```
@@ -174,4 +181,5 @@ residue_range.
 3.0.11.7: Added "LEICA EM GP2", "CHAMELEON", "CRYOGENIUM", and "CRYOWRITER" to vitrification instrument enumeration list.
 3.0.11.8: Added "ModelAngelo" to initial model source enumeration list.
 3.0.11.9: Changed sequence to optional and updated scanner name from "PATCHWORK DENSITOMETER" to "IMAGE SCIENCE PATCHWORK DENSITOMETER" to match the mmcif dictionary enumeration list
+3.0.11.10: Update the list of film_or_detector_model to match the mmCIF dictionary.
 ```
