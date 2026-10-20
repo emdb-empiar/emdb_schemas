@@ -182,4 +182,5 @@ residue_range.
 3.0.11.8: Added "ModelAngelo" to initial model source enumeration list.
 3.0.11.9: Changed sequence to optional and updated scanner name from "PATCHWORK DENSITOMETER" to "IMAGE SCIENCE PATCHWORK DENSITOMETER" to match the mmcif dictionary enumeration list
 3.0.11.10: Update the list of film_or_detector_model to match the mmCIF dictionary.
+3.0.11.11: Made number_images_used and number_tomograms optional for Tomograms to be able to validate legacy entries
 ```
