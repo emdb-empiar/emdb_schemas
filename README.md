@@ -1,13 +1,47 @@
 # emdb-schemas
 EMDB header file schema
 
+## License
+
+This project is licensed under the Apache License, Version 2.0.  See
+[LICENSE](LICENSE).
+
+## Installation and use
+
+Install the package from PyPI:
+
+```bash
+python -m pip install emdb-schemas
+```
+
+The generated Python binding is available as a module:
+
+```python
+from emdb_schemas import emdb
+
+document = emdb.parse("header.xml")
+```
+
+Use `importlib.resources` to locate the installed XSD files.  `as_file` gives
+code that needs a filesystem path a temporary `pathlib.Path`, regardless of
+how the package was installed:
+
+```python
+from importlib.resources import as_file, files
+
+schema = files("emdb_schemas").joinpath("emdb.xsd")
+with as_file(schema) as schema_path:
+    # Pass schema_path to lxml, xmlschema, or another XML library.
+    print(schema_path)
+```
+
 ## Updating the schema version
 
 Use the following checklist when releasing a new schema version. Set the
 version once before running the release commands, for example:
 
 ```bash
-export new_version="3.0.11.6"
+export new_version="3.0.11.12"
 ```
 
 In the manual edits below, `${new_version}` means the value of that shell
@@ -115,6 +149,10 @@ git push origin main
 git push origin --tags
 ```
 
+Pushing a version tag triggers the GitHub Actions deployment workflow.  The
+workflow builds and tests the distributions, then publishes them to PyPI using
+PyPI Trusted Publishing.  The tag must match the version in `setup.py`.
+
 ## Changelog
 
 This section contains information on changes made for each version change to the EMDB XML schema after version 3.0.0.0.
@@ -183,4 +221,5 @@ residue_range.
 3.0.11.9: Changed sequence to optional and updated scanner name from "PATCHWORK DENSITOMETER" to "IMAGE SCIENCE PATCHWORK DENSITOMETER" to match the mmcif dictionary enumeration list
 3.0.11.10: Update the list of film_or_detector_model to match the mmCIF dictionary.
 3.0.11.11: Made number_images_used and number_tomograms optional for Tomograms to be able to validate legacy entries
+3.0.11.12: Package the generated Python bindings and XSD files for distribution on PyPI.
 ```

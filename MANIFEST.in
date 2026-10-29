@@ -1,0 +1,2 @@
+include README.md
+recursive-include emdb_schemas/current *.py *.xsd
