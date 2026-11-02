@@ -4,7 +4,7 @@ Use this checklist when releasing a new schema version. Set the version once
 before running the release commands, for example:
 
 ```bash
-export new_version="3.0.11.13"
+export new_version="3.0.11.14"
 ```
 
 In the manual edits below, `${new_version}` means the value of that shell
@@ -79,7 +79,7 @@ variable; write the expanded version number, not the literal `${new_version}`.
 7. Commit the release changes and push `main`:
 
    ```bash
-   git add README.md RELEASING.md setup.py emdb_schemas .github MANIFEST.in pyproject.toml LICENSE
+   git add *
    git commit -m "Update schema to v${new_version}"
    git push origin main
    ```

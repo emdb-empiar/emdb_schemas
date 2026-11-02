@@ -105,4 +105,5 @@ residue_range.
 3.0.11.11: Made number_images_used and number_tomograms optional for Tomograms to be able to validate legacy entries
 3.0.11.12: Package the generated Python bindings and XSD files for distribution on PyPI.
 3.0.11.13: Release to validate automated publication to PyPI.
+3.0.11.14: Changed PDB ID regex pattern.
 ```
